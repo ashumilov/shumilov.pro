@@ -1,0 +1,118 @@
+#+language: ru
+#+author: Александр Шумилов
+#+title: Путешествия
+#+options: num:nil
+
+* 2017
+** Вьетнам
+<2017-02-01 Wed>
+- [[https://www.icloud.com/sharedalbum/#B0Q5ejO17Gcr0pA][Фотографии в Apple iCloud]]
+** Македония, Черногория, Албания, Косово
+<2017-06-01 Thu>
+- [[https://www.icloud.com/sharedalbum/#B0QGRMtznlZd3t][Фотографии в Apple iCloud]]
+* 2018
+** Неаполь
+<2018-01-01 Mon>
+- [[https://www.icloud.com/sharedalbum/#B0QGWBC59OEOIL][Фотографии в Apple iCloud]]
+** Филлипины
+<2018-03-01 Thu>
+- [[https://www.icloud.com/sharedalbum/#B0QGdIshaT1Y3s][Фотографии в Apple iCloud]]
+** Киев
+<2018-05-01 Tue>
+- [[https://www.icloud.com/sharedalbum/#B0Q5aVbMKJPe9Me][Фотографии в Apple iCloud]]
+** Чернобыль
+<2018-05-01 Tue>
+- [[https://www.icloud.com/sharedalbum/#B0QGQOeMmG0qiZb][Фотографии в Apple iCloud]]
+** Португалия
+<2018-06-01 Fri>
+- [[https://www.icloud.com/sharedalbum/#B0C5GH8MqGolhVQ][Фотографии в Apple iCloud]]
+** Таллин
+<2018-07-01 Sun>
+- [[https://www.icloud.com/sharedalbum/#B0CGFssfGc0GqJ][Фотографии в Apple iCloud]]
+** Венеция
+<2018-11-01 Thu>
+- [[https://www.icloud.com/sharedalbum/#B0Q5NI45MG8hrC3][Фотографии в Apple iCloud]]
+** Стамбул
+<2018-12-01 Sat>
+- [[https://www.icloud.com/sharedalbum/#B0Q5CmvASJIxOUh][Фотографии в Apple iCloud]]
+* 2019
+** Сингапур
+<2019-02-01 Fri>
+- [[https://www.icloud.com/sharedalbum/#B0CGdPblXTsBAL][Фотографии в Apple iCloud]]
+** Малайзия
+<2019-02-01 Fri>
+- [[https://www.icloud.com/sharedalbum/#B0CJRveFpM0tKx][Фотографии в Apple iCloud]]
+** Индонезия
+<2019-02-01 Fri>
+- [[https://www.icloud.com/sharedalbum/#B0C5aDWbrJPWAVN][Фотографии в Apple iCloud]]
+** Одесса
+<2019-04-01 Mon>
+- [[https://www.icloud.com/sharedalbum/#B0QGJDfWGGzvimg][Фотографии в Apple iCloud]]
+** Майорка
+<2019-05-01 Wed>
+- [[https://www.icloud.com/sharedalbum/#B0CGIcgc27N5mH][Фотографии в Apple iCloud]]
+** Греция
+<2019-06-01 Sat>
+- [[https://www.icloud.com/sharedalbum/#B0QG0ehgLGQIWUS][Фотографии в Apple iCloud]]
+** Париж
+<2019-11-01 Fri>
+- [[https://www.icloud.com/sharedalbum/#B0QGrhkPx2ry8N][Фотографии в Apple iCloud]]
+* 2020
+** Бангкок
+<2020-01-01 Wed>
+- [[https://www.icloud.com/sharedalbum/#B0QJqstnBxsJdg][Фотографии в Apple iCloud]]
+** Камбоджа
+<2020-02-01 Sat>
+- [[https://www.icloud.com/sharedalbum/#B0Q5BydzFJKiMCR][Фотографии в Apple iCloud]]
+** Италия
+<2020-07-01 Wed>
+- [[https://www.icloud.com/sharedalbum/#B0CGdFryYTRcTz][Фотографии в Apple iCloud]]
+* 2021
+** Хорватия, Словения, Босния и Герцеговина
+<2021-06-01 Tue>
+- [[https://www.icloud.com/sharedalbum/#B0QJr1PPdL1sLZ][Фотографии в Apple iCloud]]
+** Санторини
+<2021-08-01 Sun>
+- [[https://www.icloud.com/sharedalbum/#B0QJ8GySPCOk6w][Фотографии в Apple iCloud]]
+** Берлин
+<2021-11-01 Mon>
+- [[https://www.icloud.com/sharedalbum/#B0QGPCdxkRw3c5][Фотографии в Apple iCloud]]
+* 2022
+** Мексика
+<2022-02-01 Tue>
+- [[https://www.icloud.com/sharedalbum/#B0QJsHvHoDwkvj][Фотографии в Apple iCloud]]
+** Варшава
+<2022-04-01 Fri>
+- [[https://www.icloud.com/sharedalbum/#B0QGVfZ2vIHfDH][Фотографии в Apple iCloud]]
+** Италия, Швейцария, Франция, Монако
+<2022-06-01 Wed>
+- [[https://www.icloud.com/sharedalbum/#B0QGKQPy6mhuIS][Фотографии в Apple iCloud]]
+* 2023
+** Мексика
+<2023-01-01 Sun>
+- [[https://www.icloud.com/sharedalbum/#B0QGAfJVYGJHH8D][Фотографии в Apple iCloud]]
+** Турция
+<2023-06-01 Thu>
+- [[https://www.icloud.com/sharedalbum/#B0Q5kuVsbGMENz0][Фотографии в Apple iCloud]]
+** Венна
+<2023-10-01 Sun>
+- [[https://www.icloud.com/sharedalbum/#B0QGqQrCL1Gcu9][Фотографии в Apple iCloud]]
+* 2024
+** Таиланд
+<2024-01-01 Mon>
+- [[https://www.icloud.com/sharedalbum/#B0QGDZLe8E7ZZg][Фотографии в Apple iCloud]]
+** Прага
+<2024-04-01 Mon>
+- [[https://www.icloud.com/sharedalbum/#B0Q5cLqfNG7AQ5l][Фотографии в Apple iCloud]]
+** Италия (Доломиты)
+<2024-06-01 Sat>
+- [[https://www.icloud.com/sharedalbum/#B0QJ5HumnGpTyFq][Фотографии в Apple iCloud]]
+** Осло
+<2024-08-20 Tue> -- <2024-08-26 Mon>
+- [[https://www.icloud.com/sharedalbum/#B0QGsCn7GGktp84][Фотографии в Apple iCloud]]
+- [[https://photos.app.goo.gl/4HbeUNWFyWKrz5cH9][Фотографии в Google Photos]]
+** Армения, Грузия
+<2024-08-29 Thu> -- <2024-09-15 Sun>
+- [[file:2024/armenia_georgia/report.org][Отчет]]
+- [[https://www.icloud.com/sharedalbum/#B0Q5p3ichG3Wr6g][Фотографии в Apple iCloud]]
+- [[https://photos.app.goo.gl/rxa4LYkRRsiEFsaV8][Фотографии в Google Photos]]

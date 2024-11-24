@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru" xml:lang="ru">
+<head>
+<!-- 2024-11-24 Sun 21:14 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Отчет о поездке в Армению и Грузию</title>
+<meta name="author" content="Александр Шумилов" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Отчет о поездке в Армению и Грузию</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>&#1057;&#1086;&#1076;&#1077;&#1088;&#1078;&#1072;&#1085;&#1080;&#1077;</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org7b14cd8">Отчет</a>
+<ul>
+<li><a href="#org8a19fc4">День 1</a></li>
+</ul>
+</li>
+<li><a href="#org3cb1448">Гостиницы:</a>
+<ul>
+<li><a href="#orgbfd941e">Lux Plaza Touristic hotel near EVN airport</a></li>
+</ul>
+</li>
+<li><a href="#orgfb291ea">Рестораны:</a>
+<ul>
+<li><a href="#org2008626">⁠Tiflisi Vorontsovze</a></li>
+<li><a href="#orgf1a5365">⁠Chashnagiri</a></li>
+<li><a href="#org5b9894b">⁠Badagoni Home at Liberty square</a></li>
+<li><a href="#orgeb5b00a">სახლი - House</a></li>
+<li><a href="#orgaaf375d">⁠Restaurant dariali</a></li>
+<li><a href="#org303947e">⁠KE&amp;RA</a></li>
+<li><a href="#org39b50ba">⁠Restaurant "Park"</a></li>
+<li><a href="#orgae67131">⁠Vichnashi</a></li>
+<li><a href="#org85168ed">White House</a></li>
+<li><a href="#org85b6ac2">⁠Dedani Restaurant</a></li>
+<li><a href="#org7e294fa">⁠⁠Cafe Greenland</a></li>
+<li><a href="#orgf5f11d3">⁠Guest House Tsiskari</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org7b14cd8" class="outline-2">
+<h2 id="org7b14cd8">Отчет</h2>
+<div class="outline-text-2" id="text-org7b14cd8">
+</div>
+<div id="outline-container-org8a19fc4" class="outline-3">
+<h3 id="org8a19fc4">День 1</h3>
+<div class="outline-text-3" id="text-org8a19fc4">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">2024-08-29 Thu</span></span>
+</p>
+
+<p>
+Прилетели ночью, купили в аэропорту бутылку вина. Получили машину, которую нам нахваливали, что она фактически новая.
+"Дверь скрипит, это потому что новая. Пониженная передача плохо включается, это потому что новая, не разработалась еще".
+</p>
+<p width="100%">
+<img src="../../../resources/travels/2024/armenia_georgia/01.jpg" alt="01.jpg" width="100%" />
+Приехали в <a href="#orgbfd941e">гостиницу</a>, посидели на террасе, познакомились с грузинами, которые приехали в Аремению на отдых. Им принесли поесть уже за полночь. Они нас угостили мясом и овощами со своего стола и реально толкали длинные тосты как в кино!
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3cb1448" class="outline-2">
+<h2 id="org3cb1448">Гостиницы:</h2>
+<div class="outline-text-2" id="text-org3cb1448">
+</div>
+<div id="outline-container-orgbfd941e" class="outline-3">
+<h3 id="orgbfd941e">Lux Plaza Touristic hotel near EVN airport</h3>
+<div class="outline-text-3" id="text-orgbfd941e">
+<p>
+Неплохая гостиница, несмотря на низкий рейтинг, который похоже искусственно создан конкурентами. Мы выпили ночью несколько бутылок воды, за которые с нас ничего не взяли. С утра выпили две чашки кофе, заплатили около одного евро за чашку.
+<a href="https://maps.app.goo.gl/ckv2EfQWnPQkN6rAA">https://maps.app.goo.gl/ckv2EfQWnPQkN6rAA</a>
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgfb291ea" class="outline-2">
+<h2 id="orgfb291ea">Рестораны:</h2>
+<div class="outline-text-2" id="text-orgfb291ea">
+</div>
+<div id="outline-container-org2008626" class="outline-3">
+<h3 id="org2008626">⁠Tiflisi Vorontsovze</h3>
+<div class="outline-text-3" id="text-org2008626">
+<p>
+Все было вкусно, первое место в Грузии, разочарованы не были
+</p>
+
+<p>
+<a href="https://maps.app.goo.gl/6U67G5aS9SKUwA1e6">https://maps.app.goo.gl/6U67G5aS9SKUwA1e6</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf1a5365" class="outline-3">
+<h3 id="orgf1a5365">⁠Chashnagiri</h3>
+<div class="outline-text-3" id="text-orgf1a5365">
+<p>
+неплохая еда, ужасное обслуживание
+</p>
+
+<p>
+<a href="https://maps.app.goo.gl/Wiz512tJZs5wbPSK6">https://maps.app.goo.gl/Wiz512tJZs5wbPSK6</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5b9894b" class="outline-3">
+<h3 id="org5b9894b">⁠Badagoni Home at Liberty square</h3>
+<div class="outline-text-3" id="text-org5b9894b">
+<p>
+понтовое место, мы там быстро перекусили (хинкали и пиво) перед экскурсией
+</p>
+
+<p>
+<a href="https://maps.app.goo.gl/bJHYu6WbvZ8nieJs7">https://maps.app.goo.gl/bJHYu6WbvZ8nieJs7</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgeb5b00a" class="outline-3">
+<h3 id="orgeb5b00a">სახლი - House</h3>
+<div class="outline-text-3" id="text-orgeb5b00a">
+<p>
+отсюда я тебе звонил, очень красивый вид, хозяин жарил шашлык при нас на мангале :)
+</p>
+
+<p>
+⁠<a href="https://maps.app.goo.gl/QBGW8BiEM8nyhDp29">https://maps.app.goo.gl/QBGW8BiEM8nyhDp29</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgaaf375d" class="outline-3">
+<h3 id="orgaaf375d">⁠Restaurant dariali</h3>
+<div class="outline-text-3" id="text-orgaaf375d">
+<p>
+тут была баранина, но жесткая, остальное нормально, не считая того, что нам впарили дорогое вино
+</p>
+
+<p>
+<a href="https://maps.app.goo.gl/KFcntEn3nq56MUC86">https://maps.app.goo.gl/KFcntEn3nq56MUC86</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org303947e" class="outline-3">
+<h3 id="org303947e">⁠KE&amp;RA</h3>
+<div class="outline-text-3" id="text-org303947e">
+<p>
+се очень вкусно, еда фактически домашняя, но на ресторанном уровне
+</p>
+
+<p>
+<a href="https://maps.app.goo.gl/nWn8VfzFCU9F6tLf7">https://maps.app.goo.gl/nWn8VfzFCU9F6tLf7</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org39b50ba" class="outline-3">
+<h3 id="org39b50ba">⁠Restaurant "Park"</h3>
+<div class="outline-text-3" id="text-org39b50ba">
+<p>
+все прекрасно, но просто. На горе в парке, это в загазованном Кутаиси, который был внизу
+</p>
+
+<p>
+<a href="https://maps.app.goo.gl/iJLHsywaL1DM1cRN9">https://maps.app.goo.gl/iJLHsywaL1DM1cRN9</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgae67131" class="outline-3">
+<h3 id="orgae67131">⁠Vichnashi</h3>
+<div class="outline-text-3" id="text-orgae67131">
+<p>
+лучшее место за всю поезду, вкусно все, классическая грузинская кухня, выглядит просто, но реально балдеешь от блюд, ходили туда три вечера подряд
+</p>
+
+<p>
+<a href="https://maps.app.goo.gl/Cfqj1gDy1Vxp72Do6">https://maps.app.goo.gl/Cfqj1gDy1Vxp72Do6</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org85168ed" class="outline-3">
+<h3 id="org85168ed">White House</h3>
+<div class="outline-text-3" id="text-org85168ed">
+<p>
+очень большой выбор, популярное место, еда обычная
+</p>
+
+<p>
+⁠<a href="https://maps.app.goo.gl/dPMg615t2io5ZSW67">https://maps.app.goo.gl/dPMg615t2io5ZSW67</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org85b6ac2" class="outline-3">
+<h3 id="org85b6ac2">⁠Dedani Restaurant</h3>
+<div class="outline-text-3" id="text-org85b6ac2">
+<p>
+атмосферное место, еда обычная
+</p>
+
+<p>
+<a href="https://maps.app.goo.gl/WpRg2ajGTZ35xHBK7">https://maps.app.goo.gl/WpRg2ajGTZ35xHBK7</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7e294fa" class="outline-3">
+<h3 id="org7e294fa">⁠⁠Cafe Greenland</h3>
+<div class="outline-text-3" id="text-org7e294fa">
+<p>
+очень вкусно, хачапури просто огонь и там было белое вино европейского уровня, пришли потом туда на завтрак
+</p>
+
+<p>
+<a href="https://maps.app.goo.gl/zKFyUS2auA5ZPojFA">https://maps.app.goo.gl/zKFyUS2auA5ZPojFA</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf5f11d3" class="outline-3">
+<h3 id="orgf5f11d3">⁠Guest House Tsiskari</h3>
+<div class="outline-text-3" id="text-orgf5f11d3">
+<p>
+хозяйка отеля сама готовила, нормально, но не блеск
+</p>
+
+<p>
+<a href="https://maps.app.goo.gl/bYBp22MjAzUWTZYR6">https://maps.app.goo.gl/bYBp22MjAzUWTZYR6</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">&#1040;&#1074;&#1090;&#1086;&#1088;: Александр Шумилов</p>
+<p class="date">Created: 2024-11-24 Sun 21:14</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
