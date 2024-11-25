@@ -1,0 +1,7 @@
+#+language: ru
+#+author: Александр Шумилов
+#+title: Главная страница
+#+options: toc:nil num:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="https://gongzhitaao.org/orgcss/org.css"/>
+
+* [[file:travels/index.org][Путешествия]]

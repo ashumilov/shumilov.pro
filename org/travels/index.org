@@ -2,6 +2,7 @@
 #+author: Александр Шумилов
 #+title: Путешествия
 #+options: num:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="https://gongzhitaao.org/orgcss/org.css"/>
 
 * 2017
 ** Вьетнам
