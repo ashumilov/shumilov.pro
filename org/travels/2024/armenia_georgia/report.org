@@ -1,7 +1,7 @@
 #+language: ru
 #+author: Александр Шумилов
 #+title: Отчет о поездке в Армению и Грузию
-#+options: num:nil
+#+options: toc:2 num:nil
 #+html_head: <link rel="stylesheet" type="text/css" href="https://gongzhitaao.org/orgcss/org.css"/>
 #+html_head_extra: <style> img { width: 100%; } </style>
 #+html_head_extra: <style> video { width: 100%; } </style>
@@ -10,22 +10,32 @@
 
 * Хронология событий
 
-#+name: init
+#+name: distance-drive-init
+#+begin_src emacs-lisp :exports none
+  49256
+#+end_src
+
+#+name: calculate-distance-drive
+#+begin_src emacs-lisp :exports none :var from=0 :var to=0
+  (- to from)
+#+end_src
+
+#+name: expenses-init
 #+begin_src ledger :results none :exports none
-commodity €
-  format €1000.
-  alias EUR
-P 2024-08-27 AMD 0.0023888 EUR
-P 2024-09-02 GEL 0.3470123457 EUR
+  commodity €
+    format €1000.
+    alias EUR
+  P 2024-08-27 AMD 0.0023888 EUR
+  P 2024-09-02 GEL 0.3470123457 EUR
 #+end_src
 
 ** Подготовка
 
-#+name: day-0
+#+name: expenses-day-0
 #+begin_src ledger :results none :exports none
 2024-08-27 *
   Расходы:Самолет             477.96 EUR
-  Расходы:Транспорт:Аренда         978 EUR
+  Расходы:Транспорт:Аренда    978 EUR
   Средства:Карта
 #+end_src
 
@@ -35,11 +45,11 @@ P 2024-09-02 GEL 0.3470123457 EUR
 
 Аренда автомобиля обошлась дорого, так как я на всякий случай взял полную страховку.
 
-Расходы:
+*** Статистика
 
 #+begin_src ledger :noweb yes :results output :exports results :cmdline bal Расходы --no-total -S "-abs(total)" -X EUR
-<<init>>
-<<day-0>>
+<<expenses-init>>
+<<expenses-day-0>>
 #+end_src
 
 #+RESULTS:
@@ -50,7 +60,17 @@ P 2024-09-02 GEL 0.3470123457 EUR
 ** День 1
 <2024-08-29 Thu>
 
-#+name: day-1
+#+name: distance-drive-day-1
+#+begin_src emacs-lisp :exports none
+  49257
+#+end_src
+
+#+name: distance-walk-day-1
+#+begin_src emacs-lisp :exports none
+  1
+#+end_src
+
+#+name: expenses-day-1
 #+begin_src ledger :results none :exports none
 2024-08-29 *
   Расходы:Жилье               19000 AMD
@@ -66,22 +86,38 @@ P 2024-09-02 GEL 0.3470123457 EUR
 Оформили документы, оставили залог и поехали в [[*Lux Plaza Touristic hotel near EVN airport][гостиницу]].
 После регистрации сели на террасе, открыли вино и познакомились с грузинами, которые приехали в Аремению на отдых. Они сидели компанией из шести человек и им принесли поесть хотя время было уже далеко за полночь. Они нас угостили мясом и овощами со своего стола и реально толкали длинные тосты, прямо как в кино! В итоге спать пошли уже почти под утро.
 
-Расходы за день:
+*** Статистика
+
+#+begin_src shell :noweb yes :results output :exports results
+  echo "Дистанция"
+  echo "  Авто  : <<calculate-distance-drive(from=distance-drive-init,to=distance-drive-day-1)>> км"
+  echo "  Пешком: <<distance-walk-day-1>> км"
+#+end_src
 
 #+begin_src ledger :noweb yes :results output :exports results :cmdline bal Расходы --no-total -S "-abs(total)" -X EUR
-<<init>>
-<<day-1>>
+  <<expenses-init>>
+  <<expenses-day-1>>
 #+end_src
 
 #+RESULTS:
-:                  €60  Расходы
-:                  €45    Жилье
-:                  €14    Связь
+:            25000 AMD  Расходы
+:            19000 AMD    Жилье
+:             6000 AMD    Связь
 
 ** День 2
 <2024-08-30 Fri>
 
-#+name: day-2
+#+name: distance-drive-day-2
+#+begin_src emacs-lisp :exports none
+  49450
+#+end_src
+
+#+name: distance-walk-day-2
+#+begin_src emacs-lisp :exports none
+  8
+#+end_src
+
+#+name: expenses-day-2
 #+begin_src ledger :results none :exports none
 2024-08-30 *
   Расходы:Еда                 3400 AMD
@@ -137,11 +173,17 @@ P 2024-09-02 GEL 0.3470123457 EUR
 
 К вечеру доехали до Джемрука, где была запланирована [[*Jermuk Imperial][ночевка]]. Перед сном прогулялись до [[*Питьевая галерея Джермука][питьевой галереи]], где можно попить воды из нескольких источников. Джермук оказался небоольшим, но симпатичным городом. Взяв по кебабу отправились в гостиницу.
 
-Расходы за день:
+*** Статистика
+
+#+begin_src shell :noweb yes :results output :exports results
+  echo "Дистанция"
+  echo "  Авто  : <<calculate-distance-drive(from=distance-drive-day-1,to=distance-drive-day-2)>> км"
+  echo "  Пешком: <<distance-walk-day-2>> км"
+#+end_src
 
 #+begin_src ledger :noweb yes :results output :exports results :cmdline bal Расходы --no-total -S "-abs(total)" -X EUR
-<<init>>
-<<day-2>>
+<<expenses-init>>
+<<expenses-day-2>>
 #+end_src
 
 #+RESULTS:
@@ -155,7 +197,17 @@ P 2024-09-02 GEL 0.3470123457 EUR
 ** День 3
 <2024-08-31 Sat>
 
-#+name: day-3
+#+name: distance-drive-day-3
+#+begin_src emacs-lisp :exports none
+  49590
+#+end_src
+
+#+name: distance-walk-day-3
+#+begin_src emacs-lisp :exports none
+  10
+#+end_src
+
+#+name: expenses-day-3
 #+begin_src ledger :results none :exports none
 2024-08-31 *
   Расходы:Жилье               14400 AMD
@@ -235,11 +287,17 @@ P 2024-09-02 GEL 0.3470123457 EUR
 
 Заселившись в [[*Anush`s B&B][гостиницу]] мы пошли искать ресторан для ужина. Так как Татев это фактически деревня, то выбор едальных заведений тут невелик. Мы пошли в лучший по отзывам [[*Tatev Info Cafe][ресторан]]. Там мы познакомились с парой российских христианских бэкпакеров и выпили слишком много гранатового вина, которое казалось очень вкусным, но, как впоследствии выяснилось, было полусладким, а не сухим, отчего нам было на утро не очень хорошо.
 
-Расходы за день:
+*** Статистика
+
+#+begin_src shell :noweb yes :results output :exports results
+  echo "Дистанция"
+  echo "  Авто  : <<calculate-distance-drive(from=distance-drive-day-2,to=distance-drive-day-3)>> км"
+  echo "  Пешком: <<distance-walk-day-3>> км"
+#+end_src
 
 #+begin_src ledger :noweb yes :results output :exports results :cmdline bal Расходы --no-total -S "-abs(total)" -X EUR
-<<init>>
-<<day-3>>
+<<expenses-init>>
+<<expenses-day-3>>
 #+end_src
 
 #+RESULTS:
@@ -250,7 +308,17 @@ P 2024-09-02 GEL 0.3470123457 EUR
 ** День 4
 <2024-09-01 Sun>
 
-#+name: day-4
+#+name: distance-drive-day-4
+#+begin_src emacs-lisp :exports none
+  49865
+#+end_src
+
+#+name: distance-walk-day-4
+#+begin_src emacs-lisp :exports none
+  3
+#+end_src
+
+#+name: expenses-day-4
 #+begin_src ledger :results none :exports none
 2024-09-01 *
   Расходы:Жилье               24000 AMD
@@ -319,11 +387,17 @@ P 2024-09-02 GEL 0.3470123457 EUR
 
 [[./IMG_7068.jpg]]
 
-Расходы за день:
+*** Статистика
+
+#+begin_src shell :noweb yes :results output :exports results
+  echo "Дистанция"
+  echo "  Авто  : <<calculate-distance-drive(from=distance-drive-day-3,to=distance-drive-day-4)>> км"
+  echo "  Пешком: <<distance-walk-day-4>> км"
+#+end_src
 
 #+begin_src ledger :noweb yes :results output :exports results :cmdline bal Расходы --no-total -S "-abs(total)" -X EUR
-<<init>>
-<<day-4>>
+<<expenses-init>>
+<<expenses-day-4>>
 #+end_src
 
 #+RESULTS:
@@ -335,7 +409,17 @@ P 2024-09-02 GEL 0.3470123457 EUR
 ** День 5
 <2024-09-02 Mon>
 
-#+name: day-5
+#+name: distance-drive-day-5
+#+begin_src emacs-lisp :exports none
+  50133
+#+end_src
+
+#+name: distance-walk-day-5
+#+begin_src emacs-lisp :exports none
+  9
+#+end_src
+
+#+name: expenses-day-5
 #+begin_src ledger :results none :exports none
 2024-09-02 *
   Расходы:Еда                  3300 AMD
@@ -421,11 +505,17 @@ P 2024-09-02 GEL 0.3470123457 EUR
 
 [[./IMG_7115.jpg]]
 
-Расходы за день:
+*** Статистика
+
+#+begin_src shell :noweb yes :results output :exports results
+  echo "Дистанция"
+  echo "  Авто  : <<calculate-distance-drive(from=distance-drive-day-4,to=distance-drive-day-5)>> км"
+  echo "  Пешком: <<distance-walk-day-5>> км"
+#+end_src
 
 #+begin_src ledger :noweb yes :results output :exports results :cmdline bal Расходы --no-total -S "-abs(total)" -X EUR
-<<init>>
-<<day-5>>
+<<expenses-init>>
+<<expenses-day-5>>
 #+end_src
 
 #+RESULTS:
@@ -440,7 +530,17 @@ P 2024-09-02 GEL 0.3470123457 EUR
 ** День 6
 <2024-09-03 Tue>
 
-#+name: day-6
+#+name: distance-drive-day-6
+#+begin_src emacs-lisp :exports none
+  50133
+#+end_src
+
+#+name: distance-walk-day-6
+#+begin_src emacs-lisp :exports none
+  17
+#+end_src
+
+#+name: expenses-day-6
 #+begin_src ledger :results none :exports none
 2024-09-03 *
   Расходы:Жилье               68 GEL
@@ -532,11 +632,17 @@ P 2024-09-02 GEL 0.3470123457 EUR
 
 После экскурсии мы отправились ужинать в [[*⁠Chashnagiri][ресторан]].
 
-Расходы за день:
+*** Статистика
+
+#+begin_src shell :noweb yes :results output :exports results
+  echo "Дистанция"
+  echo "  Авто  : <<calculate-distance-drive(from=distance-drive-day-5,to=distance-drive-day-6)>> км"
+  echo "  Пешком: <<distance-walk-day-6>> км"
+#+end_src
 
 #+begin_src ledger :noweb yes :results output :exports results :cmdline bal Расходы --no-total -S "-abs(total)" -X EUR
-<<init>>
-<<day-6>>
+<<expenses-init>>
+<<expenses-day-6>>
 #+end_src
 
 #+RESULTS:
@@ -549,7 +655,17 @@ P 2024-09-02 GEL 0.3470123457 EUR
 ** День 7
 <2024-09-04 Wed>
 
-#+name: day-7
+#+name: distance-drive-day-7
+#+begin_src emacs-lisp :exports none
+  50350
+#+end_src
+
+#+name: distance-walk-day-7
+#+begin_src emacs-lisp :exports none
+  8
+#+end_src
+
+#+name: expenses-day-7
 #+begin_src ledger :results none :exports none
 2024-09-04 *
   Расходы:Жилье               85 GEL
@@ -598,11 +714,17 @@ P 2024-09-02 GEL 0.3470123457 EUR
 
 Приехав затемно в [[*Gudauri Hillsite][гостиницу]] в горнолыжном курорте Гудаури, мы обнаружили, что вселить нас не могут, так как вышла накладка с бронированием. Нас заселили в соседнюю гостиницу и следали скидку. В итоге мы остались довольны и пошли на ужин в единственный открытый в округе [[*⁠Restaurant dariali][ресторан]].
 
-Расходы за день:
+*** Статистика
+
+#+begin_src shell :noweb yes :results output :exports results
+  echo "Дистанция"
+  echo "  Авто  : <<calculate-distance-drive(from=distance-drive-day-6,to=distance-drive-day-7)>> км"
+  echo "  Пешком: <<distance-walk-day-7>> км"
+#+end_src
 
 #+begin_src ledger :noweb yes :results output :exports results :cmdline bal Расходы --no-total -S "-abs(total)" -X EUR
-<<init>>
-<<day-7>>
+<<expenses-init>>
+<<expenses-day-7>>
 #+end_src
 
 #+RESULTS:
@@ -614,7 +736,17 @@ P 2024-09-02 GEL 0.3470123457 EUR
 ** День 8
 <2024-09-05 Thu>
 
-#+name: day-8
+#+name: distance-drive-day-8
+#+begin_src emacs-lisp :exports none
+  50653
+#+end_src
+
+#+name: distance-walk-day-8
+#+begin_src emacs-lisp :exports none
+  5
+#+end_src
+
+#+name: expenses-day-8
 #+begin_src ledger :results none :exports none
 2024-09-05 *
   Расходы:Жилье               52 GEL
@@ -649,11 +781,17 @@ P 2024-09-02 GEL 0.3470123457 EUR
 
 Вечер провели на террасе [[*⁠Restaurant "Park"][ресторане]] при гостинице, где прекрасно посидели с домашним вином.
 
-Расходы за день:
+*** Статистика
+
+#+begin_src shell :noweb yes :results output :exports results
+  echo "Дистанция"
+  echo "  Авто  : <<calculate-distance-drive(from=distance-drive-day-7,to=distance-drive-day-8)>> км"
+  echo "  Пешком: <<distance-walk-day-8>> км"
+#+end_src
 
 #+begin_src ledger :noweb yes :results output :exports results :cmdline bal Расходы --no-total -S "-abs(total)" -X EUR
-<<init>>
-<<day-8>>
+<<expenses-init>>
+<<expenses-day-8>>
 #+end_src
 
 #+RESULTS:
@@ -665,7 +803,17 @@ P 2024-09-02 GEL 0.3470123457 EUR
 ** День 9
 <2024-09-06 Fri>
 
-#+name: day-9
+#+name: distance-drive-day-9
+#+begin_src emacs-lisp :exports none
+  50900
+#+end_src
+
+#+name: distance-walk-day-9
+#+begin_src emacs-lisp :exports none
+  6
+#+end_src
+
+#+name: expenses-day-9
 #+begin_src ledger :results none :exports none
 2024-09-06 *
   Расходы:Жилье               60 GEL
@@ -712,11 +860,17 @@ P 2024-09-02 GEL 0.3470123457 EUR
 
 [[./IMG_2549.jpg]]
 
-Расходы за день:
+*** Статистика
+
+#+begin_src shell :noweb yes :results output :exports results
+  echo "Дистанция"
+  echo "  Авто  : <<calculate-distance-drive(from=distance-drive-day-8,to=distance-drive-day-9)>> км"
+  echo "  Пешком: <<distance-walk-day-9>> км"
+#+end_src
 
 #+begin_src ledger :noweb yes :results output :exports results :cmdline bal Расходы --no-total -S "-abs(total)" -X EUR
-<<init>>
-<<day-9>>
+<<expenses-init>>
+<<expenses-day-9>>
 #+end_src
 
 #+RESULTS:
@@ -728,7 +882,17 @@ P 2024-09-02 GEL 0.3470123457 EUR
 ** День 10
 <2024-09-07 Sat>
 
-#+name: day-10
+#+name: distance-drive-day-10
+#+begin_src emacs-lisp :exports none
+  50938
+#+end_src
+
+#+name: distance-walk-day-10
+#+begin_src emacs-lisp :exports none
+  13
+#+end_src
+
+#+name: expenses-day-10
 #+begin_src ledger :results none :exports none
 2024-09-07 *
   Расходы:Жилье               60 GEL
@@ -828,11 +992,17 @@ P 2024-09-02 GEL 0.3470123457 EUR
 
 Мы доехали до гостиницы и пошли в [[*⁠Vichnashi][ресторан]], отмечать наше спасение.
 
-Расходы за день:
+*** Статистика
+
+#+begin_src shell :noweb yes :results output :exports results
+  echo "Дистанция"
+  echo "  Авто  : <<calculate-distance-drive(from=distance-drive-day-9,to=distance-drive-day-10)>> км"
+  echo "  Пешком: <<distance-walk-day-10>> км"
+#+end_src
 
 #+begin_src ledger :noweb yes :results output :exports results :cmdline bal Расходы --no-total -S "-abs(total)" -X EUR
-<<init>>
-<<day-10>>
+<<expenses-init>>
+<<expenses-day-10>>
 #+end_src
 
 #+RESULTS:
@@ -843,7 +1013,17 @@ P 2024-09-02 GEL 0.3470123457 EUR
 ** День 11
 <2024-09-08 Sun>
 
-#+name: day-11
+#+name: distance-drive-day-11
+#+begin_src emacs-lisp :exports none
+  51040
+#+end_src
+
+#+name: distance-walk-day-11
+#+begin_src emacs-lisp :exports none
+  18
+#+end_src
+
+#+name: expenses-day-11
 #+begin_src ledger :results none :exports none
 2024-09-08 *
   Расходы:Жилье               55 GEL
@@ -919,11 +1099,17 @@ P 2024-09-02 GEL 0.3470123457 EUR
 </video>
 #+end_export
 
-Расходы за день:
+*** Статистика
+
+#+begin_src shell :noweb yes :results output :exports results
+  echo "Дистанция"
+  echo "  Авто  : <<calculate-distance-drive(from=distance-drive-day-10,to=distance-drive-day-11)>> км"
+  echo "  Пешком: <<distance-walk-day-11>> км"
+#+end_src
 
 #+begin_src ledger :noweb yes :results output :exports results :cmdline bal Расходы --no-total -S "-abs(total)" -X EUR
-<<init>>
-<<day-11>>
+<<expenses-init>>
+<<expenses-day-11>>
 #+end_src
 
 #+RESULTS:
@@ -935,7 +1121,22 @@ P 2024-09-02 GEL 0.3470123457 EUR
 ** День 12
 <2024-09-09 Mon>
 
-#+name: day-12
+#+name: distance-drive-day-12
+#+begin_src emacs-lisp :exports none
+  51353
+#+end_src
+
+#+name: distance-drive-last
+#+begin_src emacs-lisp :noweb yes :exports none
+  <<distance-drive-day-12>>
+#+end_src
+
+#+name: distance-walk-day-12
+#+begin_src emacs-lisp :exports none
+  4
+#+end_src
+
+#+name: expenses-day-12
 #+begin_src ledger :results none :exports none
 2024-09-09 *
   Расходы:Жилье               60 GEL
@@ -950,11 +1151,17 @@ P 2024-09-02 GEL 0.3470123457 EUR
 
 В ресторане не оказалось лишних столов и нам предложили сесть за один стол с парой нашего возраста, которые пришли одновременно с нами. В итоге ребята оказались очень интерсными людьми, они были из Москвы, он работал таксистом, она - воспитателем в детском саду. Путешествовали они в доме на колесах и успели много где побывать. После ужина мы отправились к ним, чтобы осмотреть дом на колесах. В итоге мы еще выпили вина и даже искупались ночью в море голышем. В номер мы вернулись под утро.
 
-Расходы за день:
+*** Статистика
+
+#+begin_src shell :noweb yes :results output :exports results
+  echo "Дистанция"
+  echo "  Авто  : <<calculate-distance-drive(from=distance-drive-day-11,to=distance-drive-day-12)>> км"
+  echo "  Пешком: <<distance-walk-day-12>> км"
+#+end_src
 
 #+begin_src ledger :noweb yes :results output :exports results :cmdline bal Расходы --no-total -S "-abs(total)" -X EUR
-<<init>>
-<<day-12>>
+<<expenses-init>>
+<<expenses-day-12>>
 #+end_src
 
 #+RESULTS:
@@ -965,7 +1172,17 @@ P 2024-09-02 GEL 0.3470123457 EUR
 ** День 13
 <2024-09-10 Tue>
 
-#+name: day-13
+#+name: distance-drive-day-13
+#+begin_src emacs-lisp :exports none
+  51353
+#+end_src
+
+#+name: distance-walk-day-13
+#+begin_src emacs-lisp :exports none
+  9
+#+end_src
+
+#+name: expenses-day-13
 #+begin_src ledger :results none :exports none
 2024-09-10 *
   Расходы:Жилье               60 GEL
@@ -976,11 +1193,17 @@ P 2024-09-02 GEL 0.3470123457 EUR
   Средства:Карта
 #+end_src
 
-Расходы за день:
+*** Статистика
+
+#+begin_src shell :noweb yes :results output :exports results
+  echo "Дистанция"
+  echo "  Авто  : <<calculate-distance-drive(from=distance-drive-day-12,to=distance-drive-day-13)>> км"
+  echo "  Пешком: <<distance-walk-day-13>> км"
+#+end_src
 
 #+begin_src ledger :noweb yes :results output :exports results :cmdline bal Расходы --no-total -S "-abs(total)" -X EUR
-<<init>>
-<<day-13>>
+<<expenses-init>>
+<<expenses-day-13>>
 #+end_src
 
 #+RESULTS:
@@ -991,7 +1214,17 @@ P 2024-09-02 GEL 0.3470123457 EUR
 ** День 14
 <2024-09-11 Wed>
 
-#+name: day-14
+#+name: distance-drive-day-14
+#+begin_src emacs-lisp :exports none
+  51353
+#+end_src
+
+#+name: distance-walk-day-4
+#+begin_src emacs-lisp :exports none
+  2
+#+end_src
+
+#+name: expenses-day-14
 #+begin_src ledger :results none :exports none
 2024-09-11 *
   Расходы:Жилье               60 GEL
@@ -1002,11 +1235,17 @@ P 2024-09-02 GEL 0.3470123457 EUR
   Средства:Карта
 #+end_src
 
-Расходы за день:
+*** Статистика
+
+#+begin_src shell :noweb yes :results output :exports results
+  echo "Дистанция"
+  echo "  Авто  : <<calculate-distance-drive(from=distance-drive-day-13,to=distance-drive-day-14)>> км"
+  echo "  Пешком: <<distance-walk-day-14>> км"
+#+end_src
 
 #+begin_src ledger :noweb yes :results output :exports results :cmdline bal Расходы --no-total -S "-abs(total)" -X EUR
-<<init>>
-<<day-14>>
+<<expenses-init>>
+<<expenses-day-14>>
 #+end_src
 
 #+RESULTS:
@@ -1018,7 +1257,17 @@ P 2024-09-02 GEL 0.3470123457 EUR
 ** День 15
 <2024-09-12 Thu>
 
-#+name: day-15
+#+name: distance-drive-day-15
+#+begin_src emacs-lisp :exports none
+  51600
+#+end_src
+
+#+name: distance-walk-day-15
+#+begin_src emacs-lisp :exports none
+  6
+#+end_src
+
+#+name: expenses-day-15
 #+begin_src ledger :results none :exports none
 2024-09-12 *
   Расходы:Жилье               70 GEL
@@ -1029,11 +1278,17 @@ P 2024-09-02 GEL 0.3470123457 EUR
   Средства:Карта
 #+end_src
 
-Расходы за день:
+*** Статистика
+
+#+begin_src shell :noweb yes :results output :exports results
+  echo "Дистанция"
+  echo "  Авто  : <<calculate-distance-drive(from=distance-drive-day-14,to=distance-drive-day-15)>> км"
+  echo "  Пешком: <<distance-walk-day-15>> км"
+#+end_src
 
 #+begin_src ledger :noweb yes :results output :exports results :cmdline bal Расходы --no-total -S "-abs(total)" -X EUR
-<<init>>
-<<day-15>>
+<<expenses-init>>
+<<expenses-day-15>>
 #+end_src
 
 #+RESULTS:
@@ -1045,7 +1300,17 @@ P 2024-09-02 GEL 0.3470123457 EUR
 ** День 16
 <2024-09-13 Fri>
 
-#+name: day-16
+#+name: distance-drive-day-16
+#+begin_src emacs-lisp :exports none
+  51783
+#+end_src
+
+#+name: distance-walk-day-16
+#+begin_src emacs-lisp :exports none
+  5
+#+end_src
+
+#+name: expenses-day-16
 #+begin_src ledger :results none :exports none
 2024-09-13 *
   Расходы:Транспорт:Топливо   81 GEL
@@ -1055,11 +1320,17 @@ P 2024-09-02 GEL 0.3470123457 EUR
   Средства:Карта
 #+end_src
 
-Расходы за день:
+*** Статистика
+
+#+begin_src shell :noweb yes :results output :exports results
+  echo "Дистанция"
+  echo "  Авто  : <<calculate-distance-drive(from=distance-drive-day-15,to=distance-drive-day-16)>> км"
+  echo "  Пешком: <<distance-walk-day-16>> км"
+#+end_src
 
 #+begin_src ledger :noweb yes :results output :exports results :cmdline bal Расходы --no-total -S "-abs(total)" -X EUR
-<<init>>
-<<day-16>>
+<<expenses-init>>
+<<expenses-day-16>>
 #+end_src
 
 #+RESULTS:
@@ -1071,7 +1342,12 @@ P 2024-09-02 GEL 0.3470123457 EUR
 ** День 17
 <2024-09-14 Sat>
 
-#+name: day-17
+#+name: distance-walk-day-17
+#+begin_src emacs-lisp :exports none
+  19
+#+end_src
+
+#+name: expenses-day-17
 #+begin_src ledger :results none :exports none
 2024-09-14 *
   Расходы:Экскурсии           40 EUR
@@ -1083,11 +1359,16 @@ P 2024-09-02 GEL 0.3470123457 EUR
   Средства:Карта
 #+end_src
 
-Расходы за день:
+*** Статистика
+
+#+begin_src shell :noweb yes :results output :exports results
+  echo "Дистанция"
+  echo "  Пешком: <<distance-walk-day-17>> км"
+#+end_src
 
 #+begin_src ledger :noweb yes :results output :exports results :cmdline bal Расходы --no-total -S "-abs(total)" -X EUR
-<<init>>
-<<day-17>>
+<<expenses-init>>
+<<expenses-day-17>>
 #+end_src
 
 #+RESULTS:
@@ -1095,45 +1376,107 @@ P 2024-09-02 GEL 0.3470123457 EUR
 :                  €40    Экскурсии
 :                 €152    Еда
 
-* Расходы
+* Статистика
+
+#+name: distance-walk-total
+#+begin_src emacs-lisp :noweb yes :exports none
+  (+ <<distance-walk-day-1>>
+     <<distance-walk-day-2>>
+     <<distance-walk-day-3>>
+     <<distance-walk-day-4>>
+     <<distance-walk-day-5>>
+     <<distance-walk-day-6>>
+     <<distance-walk-day-7>>
+     <<distance-walk-day-8>>
+     <<distance-walk-day-9>>
+     <<distance-walk-day-10>>
+     <<distance-walk-day-11>>
+     <<distance-walk-day-12>>
+     <<distance-walk-day-13>>
+     <<distance-walk-day-14>>
+     <<distance-walk-day-15>>
+     <<distance-walk-day-16>>
+     <<distance-walk-day-17>>
+     )
+#+end_src
+
+#+begin_src shell :noweb yes :results output :exports results
+    echo "Дистанция"
+    echo "  Авто  : <<calculate-distance-drive(from=distance-drive-init,to=distance-drive-last)>> км"
+    echo "  Пешком: <<distance-walk-total()>> км"
+#+end_src
 
 #+begin_src ledger :noweb yes :results output :exports results :cmdline bal Расходы --no-total -S "-abs(total)" -X EUR
-<<init>>
-<<day-0>>
-<<day-1>>
-<<day-2>>
-<<day-3>>
-<<day-4>>
-<<day-5>>
-<<day-6>>
-<<day-7>>
-<<day-8>>
-<<day-9>>
-<<day-10>>
-<<day-11>>
-<<day-12>>
-<<day-13>>
-<<day-14>>
-<<day-15>>
-<<day-16>>
-<<day-17>>
+<<expenses-init>>
+<<expenses-day-0>>
+<<expenses-day-1>>
+<<expenses-day-2>>
+<<expenses-day-3>>
+<<expenses-day-4>>
+<<expenses-day-5>>
+<<expenses-day-6>>
+<<expenses-day-7>>
+<<expenses-day-8>>
+<<expenses-day-9>>
+<<expenses-day-10>>
+<<expenses-day-11>>
+<<expenses-day-12>>
+<<expenses-day-13>>
+<<expenses-day-14>>
+<<expenses-day-15>>
+<<expenses-day-16>>
+<<expenses-day-17>>
 #+end_src
 
 #+RESULTS:
 #+begin_example
-               €3830  Расходы
-               €1444    Еда
-                €475    Жилье
+               €3085  Расходы
+                €943    Еда
+                €373    Жилье
                 €478    Самолет
                  €49    Связь
-               €1284    Транспорт
+               €1213    Транспорт
                 €978      Аренда
                  €10      Страховка
                   €1      Билеты
                   €2      Парковка
-                €292      Топливо
-                €100    Экскурсии
+                €221      Топливо
+                 €30    Экскурсии
 #+end_example
+
+#+name: expenses-total-euro
+#+begin_src ledger :noweb yes :exports none :cmdline bal Расходы -n -X EUR --balance-format "%(display_total)"
+<<expenses-init>>
+<<expenses-day-0>>
+<<expenses-day-1>>
+<<expenses-day-2>>
+<<expenses-day-3>>
+<<expenses-day-4>>
+<<expenses-day-5>>
+<<expenses-day-6>>
+<<expenses-day-7>>
+<<expenses-day-8>>
+<<expenses-day-9>>
+<<expenses-day-10>>
+<<expenses-day-11>>
+<<expenses-day-12>>
+<<expenses-day-13>>
+<<expenses-day-14>>
+<<expenses-day-15>>
+<<expenses-day-16>>
+<<expenses-day-17>>
+#+end_src
+
+#+name: expenses-total
+#+begin_src emacs-lisp :exports none :var total=expenses-total-euro
+  (string-to-number (substring total 1))
+#+end_src
+
+#+begin_src emacs-lisp :results output :exports results :var total=expenses-total :var days=16 :var persons=2
+  (princ (format "Количество дней:            %d\n" days))
+  (princ (format "Количество человек:         %d\n" persons))
+  (princ (format "Расходы на человека в день: €%s" (/ total (* days persons))))
+#+end_src
 
 * Достопримечательности
 ** Монастырь Хор Вирап
