@@ -8,7 +8,7 @@
 #+html_head_extra: <style> pre { background-color: white; } </style>
 
 #+name: walk-distances
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp :exports none
   '(
     0  ; not used
     1  ; 1
@@ -32,7 +32,7 @@
 #+end_src
 
 #+name: odometer-values
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp :exports none
   '(
     49256 ; initial value
     49257 ; 1
