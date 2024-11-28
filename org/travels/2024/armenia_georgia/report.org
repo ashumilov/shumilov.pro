@@ -7,56 +7,32 @@
 #+html_head_extra: <style> video { width: 100%; } </style>
 #+html_head_extra: <style> pre { background-color: white; } </style>
 
-#+name: walk-distances
+#+name: distance-values
 #+begin_src emacs-lisp :exports none
   '(
-    0  ; not used
-    1  ; 1
-    8  ; 2
-    10 ; 3
-    3  ; 4
-    9  ; 5
-    17 ; 6
-    8  ; 7
-    5  ; 8
-    6  ; 9
-    13 ; 10
-    18 ; 11
-    4  ; 12
-    9  ; 13
-    2  ; 14
-    6  ; 15
-    5  ; 16
-    19 ; 17
-    )
-#+end_src
-
-#+name: odometer-values
-#+begin_src emacs-lisp :exports none
-  '(
-    49256 ; initial value
-    49257 ; 1
-    49450 ; 2
-    49590 ; 3
-    49865 ; 4
-    50133 ; 5
-    50133 ; 6
-    50350 ; 7
-    50653 ; 8
-    50900 ; 9
-    50938 ; 10
-    51040 ; 11
-    51353 ; 12
-    51353 ; 13
-    51353 ; 14
-    51600 ; 15
-    51783 ; 16
-    51783 ; 17
+    (2024-08-28 . (49256 . 0))
+    (2024-08-29 . (49257 . 1))
+    (2024-08-30 . (49450 . 8))
+    (2024-08-31 . (49590 . 10))
+    (2024-09-01 . (49865 . 3))
+    (2024-09-02 . (50133 . 9))
+    (2024-09-03 . (50133 . 17))
+    (2024-09-04 . (50350 . 8))
+    (2024-09-05 . (50653 . 5))
+    (2024-09-06 . (50900 . 6))
+    (2024-09-07 . (50938 . 13))
+    (2024-09-08 . (51040 . 18))
+    (2024-09-09 . (51353 . 4))
+    (2024-09-10 . (51353 . 9))
+    (2024-09-11 . (51353 . 2))
+    (2024-09-12 . (51600 . 6))
+    (2024-09-13 . (51783 . 5))
+    (2024-09-14 . (51783 . 19))
     )
 #+end_src
 
 #+name: expenses
-#+begin_src ledger :exports none :cmdline bal Расходы -n -X EUR -p "from 2024-08-28 to 2024-09-15" --balance-format "%(display_total)"
+#+begin_src ledger :tangle yes :exports none :cmdline bal Расходы -n -X EUR -p "from 2024-08-28 to 2024-09-15" --balance-format "%(display_total)"
 commodity €
   format €1000.
   alias EUR
@@ -195,10 +171,18 @@ P 2024-09-02 GEL 0.3470123457 EUR
 #+end_src
 
 #+name: distances
-#+begin_src emacs-lisp :noweb yes :results output :exports results :var walks=walk-distances :var drives=odometer-values :var day=1
-  (let ((walk (nth day walks))
-        (drive (- (nth day drives)
-                   (nth (1- day) drives))))
+#+begin_src emacs-lisp :noweb yes :results output :exports results :var values=distance-values :var date='2024-08-29
+  (let* ((walk (cdr (alist-get date values)))
+         (prev-date
+          (intern
+           (format-time-string
+            "%Y-%m-%d"
+            (encode-time
+             (decoded-time-add
+              (parse-time-string (symbol-name date))
+              (make-decoded-time :day -1))))))
+         (drive (- (car (alist-get date values))
+                   (car (alist-get prev-date values)))))
     (princ "Дистанция\n")
     (princ (format "  Авто:   %d км\n" drive))
     (princ (format "  Пешком: %d км" walk)))
@@ -231,7 +215,7 @@ P 2024-09-02 GEL 0.3470123457 EUR
 
 *** Статистика
 
-#+call: distances(day=1)
+#+call: distances(date='2024-08-29)
 
 #+call: expenses[:cmdline bal Расходы --no-total -S "-abs(total)" -X EUR -p "from 2024-08-29 to 2024-08-30"]
 
@@ -282,7 +266,7 @@ P 2024-09-02 GEL 0.3470123457 EUR
 
 *** Статистика
 
-#+call: distances(day=2)
+#+call: distances(date='2024-08-30)
 
 #+call: expenses[:cmdline bal Расходы --no-total -S "-abs(total)" -X EUR -p "from 2024-08-30 to 2024-08-31"]
 
@@ -360,7 +344,7 @@ P 2024-09-02 GEL 0.3470123457 EUR
 
 *** Статистика
 
-#+call: distances(day=3)
+#+call: distances(date='2024-08-31)
 
 #+call: expenses[:cmdline bal Расходы --no-total -S "-abs(total)" -X EUR -p "from 2024-08-31 to 2024-09-01"]
 
@@ -427,7 +411,7 @@ P 2024-09-02 GEL 0.3470123457 EUR
 
 *** Статистика
 
-#+call: distances(day=4)
+#+call: distances(date='2024-09-01)
 
 #+call: expenses[:cmdline bal Расходы --no-total -S "-abs(total)" -X EUR -p "from 2024-09-01 to 2024-09-02"]
 
@@ -509,7 +493,7 @@ P 2024-09-02 GEL 0.3470123457 EUR
 
 *** Статистика
 
-#+call: distances(day=5)
+#+call: distances(date='2024-09-02)
 
 #+call: expenses[:cmdline bal Расходы --no-total -S "-abs(total)" -X EUR -p "from 2024-09-02 to 2024-09-03"]
 
@@ -596,7 +580,7 @@ P 2024-09-02 GEL 0.3470123457 EUR
 
 *** Статистика
 
-#+call: distances(day=6)
+#+call: distances(date='2024-09-03)
 
 #+call: expenses[:cmdline bal Расходы --no-total -S "-abs(total)" -X EUR -p "from 2024-09-03 to 2024-09-04"]
 
@@ -641,7 +625,7 @@ P 2024-09-02 GEL 0.3470123457 EUR
 
 *** Статистика
 
-#+call: distances(day=7)
+#+call: distances(date='2024-09-04)
 
 #+call: expenses[:cmdline bal Расходы --no-total -S "-abs(total)" -X EUR -p "from 2024-09-04 to 2024-09-05"]
 
@@ -672,7 +656,7 @@ P 2024-09-02 GEL 0.3470123457 EUR
 
 *** Статистика
 
-#+call: distances(day=8)
+#+call: distances(date='2024-09-05)
 
 #+call: expenses[:cmdline bal Расходы --no-total -S "-abs(total)" -X EUR -p "from 2024-09-05 to 2024-09-06"]
 
@@ -717,7 +701,7 @@ P 2024-09-02 GEL 0.3470123457 EUR
 
 *** Статистика
 
-#+call: distances(day=9)
+#+call: distances(date='2024-09-06)
 
 #+call: expenses[:cmdline bal Расходы --no-total -S "-abs(total)" -X EUR -p "from 2024-09-06 to 2024-09-07"]
 
@@ -816,7 +800,7 @@ P 2024-09-02 GEL 0.3470123457 EUR
 
 *** Статистика
 
-#+call: distances(day=10)
+#+call: distances(date='2024-09-07)
 
 #+call: expenses[:cmdline bal Расходы --no-total -S "-abs(total)" -X EUR -p "from 2024-09-07 to 2024-09-08"]
 
@@ -889,7 +873,7 @@ P 2024-09-02 GEL 0.3470123457 EUR
 
 *** Статистика
 
-#+call: distances(day=11)
+#+call: distances(date='2024-09-08)
 
 #+call: expenses[:cmdline bal Расходы --no-total -S "-abs(total)" -X EUR -p "from 2024-09-08 to 2024-09-09"]
 
@@ -904,7 +888,7 @@ P 2024-09-02 GEL 0.3470123457 EUR
 
 *** Статистика
 
-#+call: distances(day=12)
+#+call: distances(date='2024-09-09)
 
 #+call: expenses[:cmdline bal Расходы --no-total -S "-abs(total)" -X EUR -p "from 2024-09-09 to 2024-09-10"]
 
@@ -913,7 +897,7 @@ P 2024-09-02 GEL 0.3470123457 EUR
 
 *** Статистика
 
-#+call: distances(day=13)
+#+call: distances(date='2024-09-10)
 
 #+call: expenses[:cmdline bal Расходы --no-total -S "-abs(total)" -X EUR -p "from 2024-09-10 to 2024-09-11"]
 
@@ -922,7 +906,7 @@ P 2024-09-02 GEL 0.3470123457 EUR
 
 *** Статистика
 
-#+call: distances(day=14)
+#+call: distances(date='2024-09-11)
 
 #+call: expenses[:cmdline bal Расходы --no-total -S "-abs(total)" -X EUR -p "from 2024-09-11 to 2024-09-12"]
 
@@ -931,7 +915,7 @@ P 2024-09-02 GEL 0.3470123457 EUR
 
 *** Статистика
 
-#+call: distances(day=15)
+#+call: distances(date='2024-09-12)
 
 #+call: expenses[:cmdline bal Расходы --no-total -S "-abs(total)" -X EUR -p "from 2024-09-12 to 2024-09-13"]
 
@@ -940,7 +924,7 @@ P 2024-09-02 GEL 0.3470123457 EUR
 
 *** Статистика
 
-#+call: distances(day=16)
+#+call: distances(date='2024-09-13)
 
 #+call: expenses[:cmdline bal Расходы --no-total -S "-abs(total)" -X EUR -p "from 2024-09-13 to 2024-09-14"]
 
@@ -949,14 +933,17 @@ P 2024-09-02 GEL 0.3470123457 EUR
 
 *** Статистика
 
-#+call: distances(day=17)
+#+call: distances(date='2024-09-14)
 
 #+call: expenses[:cmdline bal Расходы --no-total -S "-abs(total)" -X EUR -p "from 2024-09-14 to 2024-09-15"]
 
 * Общая статистика
 
-#+begin_src emacs-lisp :noweb yes :results output :exports results :var walks=walk-distances :var drives=odometer-values
-  (let ((total-walk (apply '+ walks))
+#+begin_src emacs-lisp :noweb yes :results output :exports results :var values=distance-values
+  (let* ((pairs (mapcar 'cdr values))
+         (walks (mapcar 'cdr pairs))
+         (drives (mapcar 'car pairs))
+        (total-walk (apply '+ walks))
         (total-drive (- (car (last drives)) (car drives))))
     (princ "Дистанция\n")
     (princ (format "  Авто:   %d км\n" total-drive))
