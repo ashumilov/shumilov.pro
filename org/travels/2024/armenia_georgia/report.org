@@ -31,161 +31,56 @@
     )
 #+end_src
 
-#+name: expenses
-#+begin_src ledger :tangle yes :exports none :cmdline bal Расходы -n -X EUR -p "from 2024-08-28 to 2024-09-15" --balance-format "%(display_total)"
-commodity €
-  format €1000.
-  alias EUR
-P 2024-08-27 AMD 0.0023888 EUR
-P 2024-09-02 GEL 0.3470123457 EUR
-2024-08-28 *
-  Расходы:Самолет              477.96 EUR
-  Расходы:Транспорт:Аренда     978 EUR
-  Средства:Карта
-2024-08-29 *
-  Расходы:Жилье                19000 AMD
-  Расходы:Связь                6000 AMD
-  Средства:Карта
-2024-08-30 *
-  Расходы:Еда                  3400 AMD
-  Расходы:Еда                  4000 AMD
-  Расходы:Еда                  2000 AMD
-  Расходы:Еда                  18500 AMD
-  Расходы:Еда                  3800 AMD
-  Расходы:Жилье                25000 AMD
-  Расходы:Транспорт:Топливо    20000 AMD
-  Расходы:Транспорт:Парковка   1000 AMD
-  Средства:Карта
-2024-08-31 *
-  Расходы:Жилье                14400 AMD
-  Расходы:Еда                  15000 AMD
-  Расходы:Еда                  20000 AMD
-  Расходы:Еда                  20000 AMD
-  Расходы:Еда                  2000 AMD
-  Средства:Карта
-2024-09-01 *
-  Расходы:Жилье                24000 AMD
-  Расходы:Транспорт:Топливо    10000 AMD
-  Расходы:Еда                  26500 AMD
-  Расходы:Еда                  1000 AMD
-  Расходы:Еда                  18400 AMD
-  Средства:Карта
-2024-09-02 *
-  Расходы:Еда                  3300 AMD
-  Расходы:Транспорт:Топливо    17000 AMD
-  Расходы:Жилье                68 GEL
-  Расходы:Транспорт:Страховка  30 GEL
-  Расходы:Связь                100 GEL
-  Расходы:Еда                  146 GEL
-  Расходы:Еда                  4.5 GEL
-  Средства:Карта
-2024-09-03 *
-  Расходы:Жилье                68 GEL
-  Расходы:Транспорт:Билеты     3 GEL
-  Расходы:Экскурсии            30 EUR
-  Расходы:Еда                  67 GEL
-  Расходы:Еда                  109.5 GEL
-  Расходы:Еда                  16 GEL
-  Расходы:Еда                  33 GEL
-  Расходы:Еда                  23 GEL
-  Средства:Карта
-2024-09-04 *
-  Расходы:Жилье                85 GEL
-  Расходы:Еда                  28 GEL
-  Расходы:Еда                  10 GEL
-  Расходы:Еда                  172 GEL
-  Расходы:Еда                  200 GEL
-  Расходы:Еда                  20 GEL
-  Расходы:Транспорт:Топливо    75 GEL
-  Средства:Карта
-2024-09-05 *
-  Расходы:Жилье                52 GEL
-  Расходы:Транспорт:Топливо    40 GEL
-  Расходы:Еда                  25 GEL
-  Расходы:Еда                  150 GEL
-  Расходы:Еда                  6 GEL
-  Расходы:Еда                  9 GEL
-  Расходы:Еда                  91 GEL
-  Средства:Карта
-2024-09-06 *
-  Расходы:Жилье                60 GEL
-  Расходы:Еда                  83 GEL
-  Расходы:Еда                  5 GEL
-  Расходы:Еда                  52 GEL
-  Расходы:Транспорт:Топливо    95 GEL
-  Средства:Карта
-2024-09-07 *
-  Расходы:Жилье                60 GEL
-  Расходы:Еда                  73 GEL
-  Расходы:Еда                  78 GEL
-  Расходы:Еда                  10 GEL
-  Средства:Карта
-2024-09-08 *
-  Расходы:Жилье                55 GEL
-  Расходы:Транспорт:Топливо    103 GEL
-  Расходы:Еда                  100 GEL
-  Расходы:Еда                  18 GEL
-  Расходы:Еда                  18 GEL
-  Расходы:Еда                  78 GEL
-  Средства:Карта
-2024-09-09 *
-  Расходы:Жилье                60 GEL
-  Расходы:Еда                  39 GEL
-  Расходы:Еда                  103 GEL
-  Средства:Карта
-2024-09-10 *
-  Расходы:Жилье                60 GEL
-  Расходы:Еда                  27 GEL
-  Расходы:Еда                  51 GEL
-  Расходы:Еда                  140 GEL
-  Расходы:Еда                  16 GEL
-  Средства:Карта
-2024-09-11 *
-  Расходы:Жилье                60 GEL
-  Расходы:Еда                  35 GEL
-  Расходы:Еда                  20 GEL
-  Расходы:Еда                  100 GEL
-  Расходы:Транспорт:Топливо    125 GEL
-  Средства:Карта
-2024-09-12 *
-  Расходы:Жилье                70 GEL
-  Расходы:Еда                  50 GEL
-  Расходы:Еда                  120 GEL
-  Расходы:Еда                  40 GEL
-  Расходы:Экскурсии            30 EUR
-  Средства:Карта
-2024-09-13 *
-  Расходы:Транспорт:Топливо    81 GEL
-  Расходы:Жилье                15000 AMD
-  Расходы:Еда                  4180 AMD
-  Расходы:Еда                  55000 AMD
-  Средства:Карта
-2024-09-14 *
-  Расходы:Экскурсии            40 EUR
-  Расходы:Еда                  6500 AMD
-  Расходы:Еда                  15000 AMD
-  Расходы:Еда                  1600 AMD
-  Расходы:Еда                  6000 AMD
-  Расходы:Еда                  34430 AMD
-  Средства:Карта
+#+name: get-other-date
+#+begin_src emacs-lisp :exports none
+(defun get-other-date (date delta)
+  (intern
+   (format-time-string
+    "%Y-%m-%d"
+    (encode-time
+     (decoded-time-add
+      (parse-time-string (symbol-name date))
+      (make-decoded-time :day delta))))))
+#+end_src
+
+#+name: get-next-date
+#+begin_src emacs-lisp :noweb yes :exports none
+  <<get-other-date>>
+  (defun get-next-date (date)
+    (get-other-date date 1))
+#+end_src
+
+#+name: get-prev-date
+#+begin_src emacs-lisp :noweb yes :exports none
+  <<get-other-date>>
+  (defun get-prev-date (date)
+    (get-other-date date -1))
 #+end_src
 
 #+name: distances
 #+begin_src emacs-lisp :noweb yes :results output :exports results :var values=distance-values :var date='2024-08-29
+  <<get-prev-date>>
   (let* ((walk (cdr (alist-get date values)))
-         (prev-date
-          (intern
-           (format-time-string
-            "%Y-%m-%d"
-            (encode-time
-             (decoded-time-add
-              (parse-time-string (symbol-name date))
-              (make-decoded-time :day -1))))))
+         (prev-date (get-prev-date date))
          (drive (- (car (alist-get date values))
                    (car (alist-get prev-date values)))))
     (princ "Дистанция\n")
     (princ (format "  Авто:   %d км\n" drive))
     (princ (format "  Пешком: %d км" walk)))
+#+end_src
+
+#+name: expenses
+#+begin_src emacs-lisp :noweb yes :exports none :var date='2024-08-28 :var to-date='none
+  <<get-next-date>>
+  (let ((next-date (if (eq to-date 'none)
+                       (get-next-date date)
+                     (get-next-date to-date))))
+    (shell-command-to-string
+     (concat
+      "ledger -f report.ledger bal Расходы --no-total -X EUR -b "
+      (symbol-name date)
+      " -e "
+      (symbol-name next-date))))
 #+end_src
 
 * Хронология событий
@@ -200,7 +95,7 @@ P 2024-09-02 GEL 0.3470123457 EUR
 
 *** Статистика
 
-#+call: expenses[:cmdline bal Расходы --no-total -S "-abs(total)" -X EUR -p "from 2024-08-28 to 2024-08-29"]
+#+call: expenses(date='2024-08-28)
 
 ** День 1
 <2024-08-29 Thu>
@@ -217,7 +112,7 @@ P 2024-09-02 GEL 0.3470123457 EUR
 
 #+call: distances(date='2024-08-29)
 
-#+call: expenses[:cmdline bal Расходы --no-total -S "-abs(total)" -X EUR -p "from 2024-08-29 to 2024-08-30"]
+#+call: expenses(date='2024-08-29)
 
 ** День 2
 <2024-08-30 Fri>
@@ -268,7 +163,7 @@ P 2024-09-02 GEL 0.3470123457 EUR
 
 #+call: distances(date='2024-08-30)
 
-#+call: expenses[:cmdline bal Расходы --no-total -S "-abs(total)" -X EUR -p "from 2024-08-30 to 2024-08-31"]
+#+call: expenses(date='2024-08-30)
 
 ** День 3
 <2024-08-31 Sat>
@@ -346,7 +241,7 @@ P 2024-09-02 GEL 0.3470123457 EUR
 
 #+call: distances(date='2024-08-31)
 
-#+call: expenses[:cmdline bal Расходы --no-total -S "-abs(total)" -X EUR -p "from 2024-08-31 to 2024-09-01"]
+#+call: expenses(date='2024-08-31)
 
 ** День 4
 <2024-09-01 Sun>
@@ -413,7 +308,7 @@ P 2024-09-02 GEL 0.3470123457 EUR
 
 #+call: distances(date='2024-09-01)
 
-#+call: expenses[:cmdline bal Расходы --no-total -S "-abs(total)" -X EUR -p "from 2024-09-01 to 2024-09-02"]
+#+call: expenses(date='2024-09-01)
 
 ** День 5
 <2024-09-02 Mon>
@@ -495,7 +390,7 @@ P 2024-09-02 GEL 0.3470123457 EUR
 
 #+call: distances(date='2024-09-02)
 
-#+call: expenses[:cmdline bal Расходы --no-total -S "-abs(total)" -X EUR -p "from 2024-09-02 to 2024-09-03"]
+#+call: expenses(date='2024-09-02)
 
 ** День 6
 <2024-09-03 Tue>
@@ -582,7 +477,7 @@ P 2024-09-02 GEL 0.3470123457 EUR
 
 #+call: distances(date='2024-09-03)
 
-#+call: expenses[:cmdline bal Расходы --no-total -S "-abs(total)" -X EUR -p "from 2024-09-03 to 2024-09-04"]
+#+call: expenses(date='2024-09-03)
 
 ** День 7
 <2024-09-04 Wed>
@@ -627,7 +522,7 @@ P 2024-09-02 GEL 0.3470123457 EUR
 
 #+call: distances(date='2024-09-04)
 
-#+call: expenses[:cmdline bal Расходы --no-total -S "-abs(total)" -X EUR -p "from 2024-09-04 to 2024-09-05"]
+#+call: expenses(date='2024-09-04)
 
 ** День 8
 <2024-09-05 Thu>
@@ -658,7 +553,7 @@ P 2024-09-02 GEL 0.3470123457 EUR
 
 #+call: distances(date='2024-09-05)
 
-#+call: expenses[:cmdline bal Расходы --no-total -S "-abs(total)" -X EUR -p "from 2024-09-05 to 2024-09-06"]
+#+call: expenses(date='2024-09-05)
 
 ** День 9
 <2024-09-06 Fri>
@@ -703,7 +598,7 @@ P 2024-09-02 GEL 0.3470123457 EUR
 
 #+call: distances(date='2024-09-06)
 
-#+call: expenses[:cmdline bal Расходы --no-total -S "-abs(total)" -X EUR -p "from 2024-09-06 to 2024-09-07"]
+#+call: expenses(date='2024-09-06)
 
 ** День 10
 <2024-09-07 Sat>
@@ -802,7 +697,7 @@ P 2024-09-02 GEL 0.3470123457 EUR
 
 #+call: distances(date='2024-09-07)
 
-#+call: expenses[:cmdline bal Расходы --no-total -S "-abs(total)" -X EUR -p "from 2024-09-07 to 2024-09-08"]
+#+call: expenses(date='2024-09-07)
 
 ** День 11
 <2024-09-08 Sun>
@@ -875,7 +770,7 @@ P 2024-09-02 GEL 0.3470123457 EUR
 
 #+call: distances(date='2024-09-08)
 
-#+call: expenses[:cmdline bal Расходы --no-total -S "-abs(total)" -X EUR -p "from 2024-09-08 to 2024-09-09"]
+#+call: expenses(date='2024-09-08)
 
 ** День 12
 <2024-09-09 Mon>
@@ -890,7 +785,7 @@ P 2024-09-02 GEL 0.3470123457 EUR
 
 #+call: distances(date='2024-09-09)
 
-#+call: expenses[:cmdline bal Расходы --no-total -S "-abs(total)" -X EUR -p "from 2024-09-09 to 2024-09-10"]
+#+call: expenses(date='2024-09-09)
 
 ** День 13
 <2024-09-10 Tue>
@@ -899,7 +794,7 @@ P 2024-09-02 GEL 0.3470123457 EUR
 
 #+call: distances(date='2024-09-10)
 
-#+call: expenses[:cmdline bal Расходы --no-total -S "-abs(total)" -X EUR -p "from 2024-09-10 to 2024-09-11"]
+#+call: expenses(date='2024-09-10)
 
 ** День 14
 <2024-09-11 Wed>
@@ -908,7 +803,7 @@ P 2024-09-02 GEL 0.3470123457 EUR
 
 #+call: distances(date='2024-09-11)
 
-#+call: expenses[:cmdline bal Расходы --no-total -S "-abs(total)" -X EUR -p "from 2024-09-11 to 2024-09-12"]
+#+call: expenses(date='2024-09-11)
 
 ** День 15
 <2024-09-12 Thu>
@@ -917,7 +812,7 @@ P 2024-09-02 GEL 0.3470123457 EUR
 
 #+call: distances(date='2024-09-12)
 
-#+call: expenses[:cmdline bal Расходы --no-total -S "-abs(total)" -X EUR -p "from 2024-09-12 to 2024-09-13"]
+#+call: expenses(date='2024-09-12)
 
 ** День 16
 <2024-09-13 Fri>
@@ -926,7 +821,7 @@ P 2024-09-02 GEL 0.3470123457 EUR
 
 #+call: distances(date='2024-09-13)
 
-#+call: expenses[:cmdline bal Расходы --no-total -S "-abs(total)" -X EUR -p "from 2024-09-13 to 2024-09-14"]
+#+call: expenses(date='2024-09-13) to 2024-09-14"]
 
 ** День 17
 <2024-09-14 Sat>
@@ -935,7 +830,7 @@ P 2024-09-02 GEL 0.3470123457 EUR
 
 #+call: distances(date='2024-09-14)
 
-#+call: expenses[:cmdline bal Расходы --no-total -S "-abs(total)" -X EUR -p "from 2024-09-14 to 2024-09-15"]
+#+call: expenses(date='2024-09-14)
 
 * Общая статистика
 
@@ -950,7 +845,7 @@ P 2024-09-02 GEL 0.3470123457 EUR
     (princ (format "  Пешком: %d км" total-walk)))
 #+end_src
 
-#+call: expenses[:cmdline bal Расходы --no-total -S "-abs(total)" -X EUR -p "from 2024-08-28 to 2024-09-15"]
+#+call: expenses(date='2024-08-28,to-date='2024-09-14)
 
 #+begin_src emacs-lisp :results output :exports results :var expenses=expenses :var days=16 :var persons=2
   (let ((total (string-to-number (substring expenses 1))))
