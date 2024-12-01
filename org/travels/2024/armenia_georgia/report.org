@@ -59,7 +59,7 @@
 #+end_src
 
 #+name: distances
-#+begin_src emacs-lisp :noweb yes :results output :exports results :var values=distance-values :var date='2024-08-29
+#+begin_src emacs-lisp :noweb yes :results output :exports none :var values=distance-values :var date='2024-08-29
   <<distance-values>>
   <<get-prev-date>>
   (let* ((walk (cdr (alist-get date values)))
