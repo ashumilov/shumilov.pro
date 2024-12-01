@@ -102,15 +102,6 @@
 #+call: expenses(date='2024-12-13)
 
 ** День 1
-<2024-12-14 Thu>
-
-*** Статистика
-
-#+call: distances(date='2024-12-14)
-
-#+call: expenses(date='2024-12-14)
-
-** День 2
 <2024-12-15 Sun>
 
 *** Статистика
@@ -119,7 +110,7 @@
 
 #+call: expenses(date='2024-12-15)
 
-** День 3
+** День 2
 <2024-12-16 Mon>
 
 *** Статистика
@@ -128,7 +119,7 @@
 
 #+call: expenses(date='2024-12-16)
 
-** День 4
+** День 3
 <2024-12-17 Tue>
 
 *** Статистика
@@ -137,7 +128,7 @@
 
 #+call: expenses(date='2024-12-17)
 
-** День 5
+** День 4
 <2024-12-18 Wed>
 
 *** Статистика
@@ -146,7 +137,7 @@
 
 #+call: expenses(date='2024-12-18)
 
-** День 6
+** День 5
 <2024-12-19 Thu>
 
 *** Статистика
@@ -155,7 +146,7 @@
 
 #+call: expenses(date='2024-12-19)
 
-** День 7
+** День 6
 <2024-12-20 Fri>
 
 *** Статистика
@@ -164,7 +155,7 @@
 
 #+call: expenses(date='2024-12-20)
 
-** День 8
+** День 7
 <2024-12-21 Sat>
 
 *** Статистика
@@ -173,7 +164,7 @@
 
 #+call: expenses(date='2024-12-21)
 
-** День 9
+** День 8
 <2024-12-22 Sun>
 
 *** Статистика
@@ -182,7 +173,7 @@
 
 #+call: expenses(date='2024-12-22)
 
-** День 10
+** День 9
 <2024-12-23 Mon>
 
 *** Статистика
@@ -191,7 +182,7 @@
 
 #+call: expenses(date='2024-12-23)
 
-** День 11
+** День 10
 <2024-12-24 Tue>
 
 *** Статистика
@@ -200,7 +191,7 @@
 
 #+call: expenses(date='2024-12-24)
 
-** День 12
+** День 11
 <2024-12-25 Wed>
 
 *** Статистика
@@ -209,7 +200,7 @@
 
 #+call: expenses(date='2024-12-25)
 
-** День 13
+** День 12
 <2024-12-26 Thu>
 
 *** Статистика
@@ -218,7 +209,7 @@
 
 #+call: expenses(date='2024-12-26)
 
-** День 14
+** День 13
 <2024-12-27 Fri>
 
 *** Статистика
@@ -227,7 +218,7 @@
 
 #+call: expenses(date='2024-12-27)
 
-** День 15
+** День 14
 <2024-12-28 Sat>
 
 *** Статистика
@@ -236,7 +227,7 @@
 
 #+call: expenses(date='2024-12-28)
 
-** День 16
+** День 15
 <2024-12-29 Sun>
 
 *** Статистика
@@ -245,7 +236,7 @@
 
 #+call: expenses(date='2024-12-29)
 
-** День 17
+** День 16
 <2024-12-30 Mon>
 
 *** Статистика
@@ -254,7 +245,7 @@
 
 #+call: expenses(date='2024-12-30)
 
-** День 18
+** День 17
 <2024-12-31 Tue>
 
 *** Статистика
@@ -263,7 +254,7 @@
 
 #+call: expenses(date='2024-12-31)
 
-** День 19
+** День 18
 <2025-01-01 Wed>
 
 *** Статистика
@@ -272,7 +263,7 @@
 
 #+call: expenses(date='2025-01-01)
 
-** День 20
+** День 19
 <2025-01-02 Thu>
 
 *** Статистика
@@ -281,7 +272,7 @@
 
 #+call: expenses(date='2025-01-02)
 
-** День 21
+** День 20
 <2025-01-03 Fri>
 
 *** Статистика
@@ -290,7 +281,7 @@
 
 #+call: expenses(date='2025-01-03)
 
-** День 22
+** День 21
 <2025-01-04 Sat>
 
 *** Статистика
@@ -328,7 +319,7 @@
 
 https://maps.app.goo.gl/6NW96YgKnkAKZZji7
 
-** Пидурангала
+** Pidurangala Rock
 
 https://maps.app.goo.gl/L1ixTAMTpU2iAHkaA
 
@@ -402,23 +393,59 @@ https://maps.app.goo.gl/pnMG3RdAAMnNT9Bj6
 
 Цена: 200 LKR (€0.6)
 
+** Bluefield Tea Factory
+
+https://maps.app.goo.gl/4n9FXq4DRafXWhNLA
+
 ** Labookellie Tea Lounge
 
 https://maps.app.goo.gl/WkfkUR1TXQeL98Vn7
+
+** Lover's Leap Waterfall
+
+https://maps.app.goo.gl/fF6djFh9MV9dCSSP9
+
+** Heritance Tea Factory
+
+https://maps.app.goo.gl/LryQDjXW7A8MmJhD9
+
+** Single Tree Hill
+
+https://maps.app.goo.gl/vtz4M9qFeHM6D9J78
 
 ** Lake Gregory
 
 https://maps.app.goo.gl/UTJFgYbkFiwMePsU6
 
+** Bomburu Ella Waterfall
+
+https://maps.app.goo.gl/ytNgQcGweoxVf8RFA
+
 ** Ambewela Farm
 
 https://maps.app.goo.gl/ZBh1my3nCRqAFBrJ6
+
+** Adisham Bungalow (St.Benedict's Monastery)
+
+https://maps.app.goo.gl/EKSN4EFsT64DNZjt6
+
+** Eagle's Rock View Point
+
+https://maps.app.goo.gl/W1MeHTuDwh9PDVHG9
+
+** Lipton's Seat
+
+https://maps.app.goo.gl/9tLVSbveTpPrzaRh7
 
 ** Diyaluma Falls
 
 https://maps.app.goo.gl/qvifWUWcwv2RA1HQ7
 
 Можно плавать
+
+** Rakkiththa Kanda Rajamaha Viharaya
+
+https://maps.app.goo.gl/XZAURnokuGre9fPj8
 
 ** Ravana Waterfall
 
@@ -435,6 +462,46 @@ https://maps.app.goo.gl/hETWQrsFtBq49bWt6
 ** Nine Arches Bridge Viewpoint
 
 https://maps.app.goo.gl/AAMr4fiihd3ztknv8
+
+** LightHouse View From Sea
+
+https://maps.app.goo.gl/enbgfhSBAwzdDGHv5
+
+** Coconut Tree Hill
+
+https://maps.app.goo.gl/4jNSiZQ4Ljijk7DR9
+
+** Parrot Rock
+
+https://maps.app.goo.gl/3P8jSoL4EusUEY1i9
+
+** Sea Turtle Hatchery - Habaraduwa
+
+https://maps.app.goo.gl/EmZT1Ky7YCGLM3aD6
+
+** Japanese Peace Pagoda - Rumassala
+
+https://maps.app.goo.gl/gHHRfPycHWPQeg9S6
+
+** Sea Turtle Hatchery Centre, Mahamodara
+
+https://maps.app.goo.gl/3zyRbGm2eq4EuG2s6
+
+** Turtle Beach - Hikkaduwa
+
+https://maps.app.goo.gl/myZLtWDqfLNcgdCaA
+
+** Sea Turtle Hatchery & Rescue Center
+
+https://maps.app.goo.gl/RPtsMTHuRwPn7AcJ9
+
+** Sea Turtle Hatchery
+
+https://maps.app.goo.gl/jywujmkRvH3CfLoSA
+
+** Dehiwala Zoological Gardens
+
+https://maps.app.goo.gl/TN4P4AEVfNpzetWR9
 
 * Маршруты
 ** Diyaluma Falls
