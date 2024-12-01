@@ -1,6 +1,8 @@
 #+language: ru
 #+author: Александр Шумилов
 #+title: Отчет о поездке в Шри Ланку
+#+date: <2024-12-15 Sun>--<2025-01-04 Sat>
+
 #+options: toc:2 num:nil
 #+html_head: <link rel="stylesheet" type="text/css" href="https://gongzhitaao.org/orgcss/org.css"/>
 #+html_head_extra: <style> img { width: 100%; } </style>
@@ -64,7 +66,7 @@
 #+end_src
 
 #+name: distances
-#+begin_src emacs-lisp :noweb yes :results output :exports results :var values=distance-values :var date='2024-12-15
+#+begin_src emacs-lisp :noweb yes :results output :exports none :var values=distance-values :var date='2024-12-15
   <<distance-values>>
   <<get-prev-date>>
   (let* ((walk (cdr (alist-get date values)))
@@ -96,6 +98,18 @@
 
 * Хронология событий
 ** Подготовка
+
+В начале 2024 года мы решили, что следующий Новый Год проведем в Шри Ланке. Купили билеты в [[http://turkishairlines.com][Turkish Airlines]], забронировали автомобиль Daihatsu Terios в [[http://malkey.lk][Malkey Rent A Car]], а также гостиницы на первый и последний дни поездки. За месяц до вылета я оформил разрешение на въезд (ETA) на сайте [[https://eta.gov.lk][Electronic Travel Authorization]].
+
+В течении года я приблизительно накидал маршрут через основные точки, которые хотелось бы посетить. Расписывать каждый день не стал, так как заранее была непонятна скорость передвижения. Google Maps давал одну оценку, а на форумах писали о средней скорости перемещения в районе 25-30 км/ч.
+
+В итоге решили, что первые две недели проведем в центральной части острова, а последнюю неделю (или сколько останется) на побережье. Жилье будем бронировать на ходу.
+
+Я решил отказаться от посещения большинства национальных парков из-за высокой цены билетов (30-40 евро на человека) и использовать бесплатные альтернативы в виде [[*Маршруты][хайкинговых маршрутов]] длительностью от получаса до 4 часов, где обещались ничуть не менее красивые виды.
+
+Так выглядел план нашего перемещения по острову.
+
+[[./plan.jpg]]
 
 *** Статистика
 
