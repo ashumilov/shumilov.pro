@@ -1,0 +1,330 @@
+#+language: ru
+#+author: Александр Шумилов
+#+title: Отчет о поездке в Шри Ланку
+#+options: toc:2 num:nil
+#+html_head: <link rel="stylesheet" type="text/css" href="https://gongzhitaao.org/orgcss/org.css"/>
+#+html_head_extra: <style> img { width: 100%; } </style>
+#+html_head_extra: <style> video { width: 100%; } </style>
+#+html_head_extra: <style> pre { background-color: white; } </style>
+
+#+name: distance-values
+#+begin_src emacs-lisp :exports none
+  (setq distance-values
+        '(
+          (2024-12-13 . (0 . 0))
+          (2024-12-14 . (0 . 0))
+          (2024-12-15 . (0 . 0))
+          (2024-12-16 . (0 . 0))
+          (2024-12-17 . (0 . 0))
+          (2024-12-18 . (0 . 0))
+          (2024-12-19 . (0 . 0))
+          (2024-12-20 . (0 . 0))
+          (2024-12-21 . (0 . 0))
+          (2024-12-22 . (0 . 0))
+          (2024-12-23 . (0 . 0))
+          (2024-12-24 . (0 . 0))
+          (2024-12-25 . (0 . 0))
+          (2024-12-26 . (0 . 0))
+          (2024-12-27 . (0 . 0))
+          (2024-12-28 . (0 . 0))
+          (2024-12-29 . (0 . 0))
+          (2024-12-30 . (0 . 0))
+          (2024-12-31 . (0 . 0))
+          (2025-01-01 . (0 . 0))
+          (2025-01-02 . (0 . 0))
+          (2025-01-03 . (0 . 0))
+          (2025-01-04 . (0 . 0))
+          ))
+#+end_src
+
+#+name: get-other-date
+#+begin_src emacs-lisp :exports none
+(defun get-other-date (date delta)
+  (intern
+   (format-time-string
+    "%Y-%m-%d"
+    (encode-time
+     (decoded-time-add
+      (parse-time-string (symbol-name date))
+      (make-decoded-time :day delta))))))
+#+end_src
+
+#+name: get-next-date
+#+begin_src emacs-lisp :noweb yes :exports none
+  <<get-other-date>>
+  (defun get-next-date (date)
+    (get-other-date date 1))
+#+end_src
+
+#+name: get-prev-date
+#+begin_src emacs-lisp :noweb yes :exports none
+  <<get-other-date>>
+  (defun get-prev-date (date)
+    (get-other-date date -1))
+#+end_src
+
+#+name: distances
+#+begin_src emacs-lisp :noweb yes :results output :exports results :var values=distance-values :var date='2024-12-15
+  <<distance-values>>
+  <<get-prev-date>>
+  (let* ((walk (cdr (alist-get date values)))
+         (prev-date (get-prev-date date))
+         (drive (- (car (alist-get date values))
+                   (car (alist-get prev-date values)))))
+    (princ "Дистанция\n")
+    (princ (format "  Авто:   %d км\n" drive))
+    (princ (format "  Пешком: %d км" walk)))
+#+end_src
+
+#+name: expenses
+#+begin_src emacs-lisp :noweb yes :exports none :var date='2024-12-13 :var to-date='none :var total=0
+  <<get-next-date>>
+  (let ((next-date (if (eq to-date 'none)
+                       (get-next-date date)
+                     (get-next-date to-date))))
+    (shell-command-to-string
+     (concat
+      "ledger -f report.ledger bal Расходы -X EUR "
+      (if (equal total 0)
+          "--no-total "
+        "-n --balance-format \"%(display_total)\"")
+      " -b "
+      (symbol-name date)
+      " -e "
+      (symbol-name next-date))))
+#+end_src
+
+* Хронология событий
+** Подготовка
+
+*** Статистика
+
+#+call: expenses(date='2024-12-13)
+
+** День 1
+<2024-12-14 Thu>
+
+*** Статистика
+
+#+call: distances(date='2024-12-14)
+
+#+call: expenses(date='2024-12-14)
+
+** День 2
+<2024-12-15 Sun>
+
+*** Статистика
+
+#+call: distances(date='2024-12-15)
+
+#+call: expenses(date='2024-12-15)
+
+** День 3
+<2024-12-16 Mon>
+
+*** Статистика
+
+#+call: distances(date='2024-12-16)
+
+#+call: expenses(date='2024-12-16)
+
+** День 4
+<2024-12-17 Tue>
+
+*** Статистика
+
+#+call: distances(date='2024-12-17)
+
+#+call: expenses(date='2024-12-17)
+
+** День 5
+<2024-12-18 Wed>
+
+*** Статистика
+
+#+call: distances(date='2024-12-18)
+
+#+call: expenses(date='2024-12-18)
+
+** День 6
+<2024-12-19 Thu>
+
+*** Статистика
+
+#+call: distances(date='2024-12-19)
+
+#+call: expenses(date='2024-12-19)
+
+** День 7
+<2024-12-20 Fri>
+
+*** Статистика
+
+#+call: distances(date='2024-12-20)
+
+#+call: expenses(date='2024-12-20)
+
+** День 8
+<2024-12-21 Sat>
+
+*** Статистика
+
+#+call: distances(date='2024-12-21)
+
+#+call: expenses(date='2024-12-21)
+
+** День 9
+<2024-12-22 Sun>
+
+*** Статистика
+
+#+call: distances(date='2024-12-22)
+
+#+call: expenses(date='2024-12-22)
+
+** День 10
+<2024-12-23 Mon>
+
+*** Статистика
+
+#+call: distances(date='2024-12-23)
+
+#+call: expenses(date='2024-12-23)
+
+** День 11
+<2024-12-24 Tue>
+
+*** Статистика
+
+#+call: distances(date='2024-12-24)
+
+#+call: expenses(date='2024-12-24)
+
+** День 12
+<2024-12-25 Wed>
+
+*** Статистика
+
+#+call: distances(date='2024-12-25)
+
+#+call: expenses(date='2024-12-25)
+
+** День 13
+<2024-12-26 Thu>
+
+*** Статистика
+
+#+call: distances(date='2024-12-26)
+
+#+call: expenses(date='2024-12-26)
+
+** День 14
+<2024-12-27 Fri>
+
+*** Статистика
+
+#+call: distances(date='2024-12-27)
+
+#+call: expenses(date='2024-12-27)
+
+** День 15
+<2024-12-28 Sat>
+
+*** Статистика
+
+#+call: distances(date='2024-12-28)
+
+#+call: expenses(date='2024-12-28)
+
+** День 16
+<2024-12-29 Sun>
+
+*** Статистика
+
+#+call: distances(date='2024-12-29)
+
+#+call: expenses(date='2024-12-29)
+
+** День 17
+<2024-12-30 Mon>
+
+*** Статистика
+
+#+call: distances(date='2024-12-30)
+
+#+call: expenses(date='2024-12-30)
+
+** День 18
+<2024-12-31 Tue>
+
+*** Статистика
+
+#+call: distances(date='2024-12-31)
+
+#+call: expenses(date='2024-12-31)
+
+** День 19
+<2025-01-01 Wed>
+
+*** Статистика
+
+#+call: distances(date='2025-01-01)
+
+#+call: expenses(date='2025-01-01)
+
+** День 20
+<2025-01-02 Thu>
+
+*** Статистика
+
+#+call: distances(date='2025-01-02)
+
+#+call: expenses(date='2025-01-02)
+
+** День 21
+<2025-01-03 Fri>
+
+*** Статистика
+
+#+call: distances(date='2025-01-03)
+
+#+call: expenses(date='2025-01-03)
+
+** День 22
+<2025-01-04 Sat>
+
+*** Статистика
+
+#+call: distances(date='2025-01-04)
+
+#+call: expenses(date='2025-01-04)
+
+** Итог
+
+*** Общая статистика
+
+#+begin_src emacs-lisp :noweb yes :results output :exports results :var values=distance-values
+  (let* ((pairs (mapcar 'cdr values))
+         (walks (mapcar 'cdr pairs))
+         (drives (mapcar 'car pairs))
+        (total-walk (apply '+ walks))
+        (total-drive (- (car (last drives)) (car drives))))
+    (princ "Дистанция\n")
+    (princ (format "  Авто:   %d км\n" total-drive))
+    (princ (format "  Пешком: %d км" total-walk)))
+#+end_src
+
+#+call: expenses(date='2024-12-14,to-date='2025-01-04)
+
+#+begin_src emacs-lisp :results output :exports results :var expenses=expenses(date='2024-12-13,to-date='2025-01-04,total=1) :var days=21 :var persons=5
+  (let ((total (string-to-number (substring expenses 1))))
+    (princ (format "Количество дней:            %d\n" days))
+    (princ (format "Количество человек:         %d\n" persons))
+    (princ (format "Расходы на человека в день: €%s" (/ total (* days persons)))))
+#+end_src
+
+* Достопримечательности
+
+* Рестораны
+
+* Гостиницы

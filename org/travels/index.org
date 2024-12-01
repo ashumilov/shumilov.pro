@@ -117,3 +117,7 @@
 - [[file:2024/armenia_georgia/report.org][Отчет]]
 - [[https://www.icloud.com/sharedalbum/#B0Q5p3ichG3Wr6g][Фотографии в Apple iCloud]]
 - [[https://photos.app.goo.gl/rxa4LYkRRsiEFsaV8][Фотографии в Google Photos]]
+** Шри Ланка
+<2024-12-14 Sat> -- <2025-01-04 Sat>
+- [[file:2024/sri_lanka/report.org][Отчет]]
+  
