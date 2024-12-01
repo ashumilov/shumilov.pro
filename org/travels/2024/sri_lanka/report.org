@@ -305,7 +305,7 @@
     (princ (format "  Пешком: %d км" total-walk)))
 #+end_src
 
-#+call: expenses(date='2024-12-14,to-date='2025-01-04)
+#+call: expenses(date='2024-12-13,to-date='2025-01-04)
 
 #+begin_src emacs-lisp :results output :exports results :var expenses=expenses(date='2024-12-13,to-date='2025-01-04,total=1) :var days=21 :var persons=5
   (let ((total (string-to-number (substring expenses 1))))
