@@ -82,11 +82,6 @@
       (princ (format "  Пешком: %d км" walk))))
 #+end_src
 
-#+RESULTS: func-distances
-: Дистанция
-:   Авто:   1 км
-:   Пешком: 1 км
-
 #+name: distances
 #+begin_src emacs-lisp :noweb yes :results output :exports none :var date='none
   <<func-distances>>
@@ -122,15 +117,21 @@
         (expenses date to-date 0 "Расходы")))
 #+end_src
 
+
 #+name: total-expenses
 #+begin_src emacs-lisp :noweb yes :exports none
   <<func-expenses>>
   (defun total-expenses (type persons days)
-    (let ((total (string-to-number
-                  (substring
-                   (expenses <<first-date>> <<last-date>> 1 type)
-                   1))))
-      (/ total (* persons days))))
+    (let* ((expenses (expenses <<first-date>> <<last-date>> 1 type))
+           (total
+            (if (= (length expenses) 0)
+                0
+              (string-to-number
+               (substring
+                expenses
+                1))))
+           (per-total (if (= total 0) 0 (/ total (* persons days)))))
+      per-total))
 #+end_src
 
 * Хронология событий
@@ -1154,17 +1155,6 @@
   (print-type-total "Экскурсии")
   (print-type-total "Самолет")
 #+end_src
-
-#+RESULTS:
-: Количество человек:         2
-: Количество дней:            16
-: 
-: Расходы на человека в день
-:   Всего:                  €119
-:   Жилье:                   €14
-:   Еда:                     €45
-:   Транспорт:               €40
-:   Самолет:                 €14
 
 * Достопримечательности
 ** Монастырь Хор Вирап

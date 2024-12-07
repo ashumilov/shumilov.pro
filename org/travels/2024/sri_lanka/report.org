@@ -9,6 +9,16 @@
 #+html_head_extra: <style> video { width: 100%; } </style>
 #+html_head_extra: <style> pre { background-color: white; } </style>
 
+#+name: first-date
+#+begin_src emacs-lisp :exports none
+  '2024-12-13
+#+end_src
+
+#+name: last-date
+#+begin_src emacs-lisp :exports none
+  '2025-01-05
+#+end_src
+
 #+name: distance-values
 #+begin_src emacs-lisp :exports none
   (setq distance-values
@@ -65,35 +75,69 @@
     (get-other-date date -1))
 #+end_src
 
-#+name: distances
-#+begin_src emacs-lisp :noweb yes :results output :exports none :var values=distance-values :var date='2024-12-15
+#+name: func-distances
+#+begin_src emacs-lisp :noweb yes :results output :exports none
   <<distance-values>>
   <<get-prev-date>>
-  (let* ((walk (cdr (alist-get date values)))
-         (prev-date (get-prev-date date))
-         (drive (- (car (alist-get date values))
-                   (car (alist-get prev-date values)))))
-    (princ "Дистанция\n")
-    (princ (format "  Авто:   %d км\n" drive))
-    (princ (format "  Пешком: %d км" walk)))
+  (defun distances (date)
+    (let* ((walk (cdr (alist-get date distance-values)))
+           (prev-date (get-prev-date date))
+           (drive (- (car (alist-get date distance-values))
+                     (car (alist-get prev-date distance-values)))))
+      (princ "Дистанция\n")
+      (princ (format "  Авто:   %d км\n" drive))
+      (princ (format "  Пешком: %d км" walk))))
 #+end_src
 
-#+name: expenses
-#+begin_src emacs-lisp :noweb yes :exports none :var date='2024-12-13 :var to-date='none :var total=0
+#+name: distances
+#+begin_src emacs-lisp :noweb yes :results output :exports none :var date='none
+  <<func-distances>>
+  (if (not (eq date 'none))
+      (distances date))
+#+end_src
+
+#+name: func-expenses
+#+begin_src emacs-lisp :noweb yes :exports none
   <<get-next-date>>
-  (let ((next-date (if (eq to-date 'none)
-                       (get-next-date date)
-                     (get-next-date to-date))))
+  (defun expenses (from-date to-date total type)
     (shell-command-to-string
      (concat
-      "ledger -f report.ledger bal Расходы -X EUR "
+      "ledger -f report.ledger bal "
+      type
+      " -X EUR "
       (if (equal total 0)
           "--no-total "
         "-n --balance-format \"%(display_total)\"")
       " -b "
-      (symbol-name date)
+      (symbol-name from-date)
       " -e "
-      (symbol-name next-date))))
+      (symbol-name to-date))))
+#+end_src
+
+#+name: expenses
+#+begin_src emacs-lisp :noweb yes :exports none :var date='none end-date='none
+  <<func-expenses>>
+  (if (not (eq date 'none))
+      (let ((to-date (if (eq end-date 'none)
+                         (get-next-date date)
+                       end-date)))
+        (expenses date to-date 0 "Расходы")))
+#+end_src
+
+#+name: total-expenses
+#+begin_src emacs-lisp :noweb yes :exports none
+  <<func-expenses>>
+  (defun total-expenses (type persons days)
+    (let* ((expenses (expenses <<first-date>> <<last-date>> 1 type))
+           (total
+            (if (= (length expenses) 0)
+                0
+              (string-to-number
+               (substring
+                expenses
+                1))))
+           (per-total (if (= total 0) 0 (/ total (* persons days)))))
+      per-total))
 #+end_src
 
 * Хронология событий
@@ -319,13 +363,24 @@
     (princ (format "  Пешком: %d км" total-walk)))
 #+end_src
 
-#+call: expenses(date='2024-12-13,to-date='2025-01-04)
+#+call: expenses(date='2024-12-13,end-date='2025-01-04)
 
-#+begin_src emacs-lisp :results output :exports results :var expenses=expenses(date='2024-12-13,to-date='2025-01-04,total=1) :var days=21 :var persons=5
-  (let ((total (string-to-number (substring expenses 1))))
-    (princ (format "Количество дней:            %d\n" days))
-    (princ (format "Количество человек:         %d\n" persons))
-    (princ (format "Расходы на человека в день: €%s" (/ total (* days persons)))))
+#+begin_src emacs-lisp :noweb yes :results output :exports results :var persons=5 :var days=21
+  <<total-expenses>>
+  (defun print-type-total (type &optional name)
+    (let ((name (concat (if name name type) ":"))
+          (value (concat "€" (number-to-string (total-expenses type persons days)))))
+    (princ (format "  %-10s%18s\n" name value))))
+
+  (princ (format "Количество человек:         %d\n" persons))
+  (princ (format "Количество дней:            %d\n\n" days))
+  (princ (format "Расходы на человека в день\n"))
+  (print-type-total "Расходы" "Всего")
+  (print-type-total "Жилье")
+  (print-type-total "Еда")
+  (print-type-total "Транспорт")
+  (print-type-total "Экскурсии")
+  (print-type-total "Самолет")
 #+end_src
 
 * Достопримечательности
