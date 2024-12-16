@@ -190,14 +190,12 @@
 ** День 2
 <2024-12-16 Mon>
 
-*** Статистика
-
 Утро началось с посещения рыбного рынка в Негомбо, где сушат рыбу прямо на замле, подстелив брезент.
 
 #+begin_export html
 <object
   style="width: 820px; height: 461.25px; float: none; clear: both; margin: 2px auto;"
-  data="http://www.youtube.com/embed/t6CI8ioyR98">
+  data="http://www.youtube.com/embed/MQc4PdelIuI">
 </object>
 #+end_export
 
@@ -217,7 +215,7 @@
 #+begin_export html
 <object
   style="width: 820px; height: 461.25px; float: none; clear: both; margin: 2px auto;"
-  data="http://www.youtube.com/embed/MQc4PdelIuI">
+  data="http://www.youtube.com/embed/GREdQ-EtT-c">
 </object>
 #+end_export
 
@@ -262,6 +260,8 @@
   data="http://www.youtube.com/embed/mcME8I6IQY0">
 </object>
 #+end_export
+
+*** Статистика
 
 #+call: distances(date='2024-12-16)
 
