@@ -159,7 +159,7 @@
 
 #+call: expenses(date='2024-12-13)
 
-** День 1
+** День 1. Аэропорт - Негомбо
 <2024-12-15 Sun>
 
 Получив в аэропорту арендованную машину, мы доехали до [[*Sand & Surf Guest House][гостиницы]] и зарегистрировавшись пошли на пляж, который находился в 10 минутах ходьбы. Пляж недалеко от нашей гостиницы оказался вполне подходящим: мало людей и неопасные, но сильные волны.
@@ -175,10 +175,10 @@
 Около часа мы провели в воде, потом переодевшись в гостинице пошли ужинать в [[*Ceylon Kitchen][ресторан]]. Ресторан оказался с довольно приличной обстановкой и открытой кухней, но обслуживаиние было очень медленным, а еда ничем не выделялась.
 
 #+begin_export html
-<object
-  style="width: 820px; height: 461.25px; float: none; clear: both; margin: 2px auto;"
-  data="http://www.youtube.com/embed/cTg52Asm3z8">
-</object>
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/cTg52Asm3z8"></iframe>
+</div>
 #+end_export
 
 *** Статистика
@@ -187,16 +187,16 @@
 
 #+call: expenses(date='2024-12-15)
 
-** День 2
+** День 2. Курунегала - Думбала - Сигирия
 <2024-12-16 Mon>
 
 Утро началось с посещения рыбного рынка в Негомбо, где сушат рыбу прямо на замле, подстелив брезент.
 
 #+begin_export html
-<object
-  style="width: 820px; height: 461.25px; float: none; clear: both; margin: 2px auto;"
-  data="http://www.youtube.com/embed/MQc4PdelIuI">
-</object>
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/MQc4PdelIuI"></iframe>
+</div>
 #+end_export
 
 Запах, конечно, непередаваемый!
@@ -213,10 +213,10 @@
 Разнообразную рыбу также продают с импровизированных прилавков.
 
 #+begin_export html
-<object
-  style="width: 820px; height: 461.25px; float: none; clear: both; margin: 2px auto;"
-  data="http://www.youtube.com/embed/GREdQ-EtT-c">
-</object>
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/GREdQ-EtT-c"></iframe>
+</div>
 #+end_export
 
 [[./IMG_8438.jpg]]
@@ -239,27 +239,29 @@
 
 [[./IMG_0354.jpg]]
 
-[[https://maps.app.goo.gl/7LmPiFUdZPJ77gpd8][Место купания]] оказалось не очень привлекательным и было огорожено пластиковыми бутылками и угрожающим плакатом. Мы решили воздержаться и поехали в [[*Sigiria Green Garden Home Stay][гостиницу]].
+[[https://maps.app.goo.gl/7LmPiFUdZPJ77gpd8][Место купания]] оказалось не очень привлекательным и было огорожено пластиковыми бутылками и угрожающим плакатом. Мы решили воздержаться и поехали в [[*Sigiriya Green Garden Home Stay][гостиницу]].
 
 [[./IMG_0356.jpg]]
 
 По пути дорога возле реки оказалась затопленной, часть машин остановились на обочине, но самые смелые все же рискнули поехать.
 
 #+begin_export html
-<object
-  style="width: 820px; height: 461.25px; float: none; clear: both; margin: 2px auto;"
-  data="http://www.youtube.com/embed/t6CI8ioyR98">
-</object>
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/t6CI8ioyR98"></iframe>
+</div>
 #+end_export
 
 Мы решили, что мы не хуже и двинулись пересекать препятствие вброд!
 
 #+begin_export html
-<object
-  style="width: 820px; height: 461.25px; float: none; clear: both; margin: 2px auto;"
-  data="http://www.youtube.com/embed/mcME8I6IQY0">
-</object>
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/mcME8I6IQY0"></iframe>
+</div>
 #+end_export
+
+Поужинали мы в неплохом [[*Sigiriya Karaoke Pub Restaurant][ресторане]] напротив гостиницы.
 
 *** Статистика
 
@@ -811,6 +813,12 @@ https://maps.app.goo.gl/NsB8MKgMCbBPSQZY9
 
 Неплохой ресторан с понятными ценами. Жареный рис с яйцом был вкусным.
 
+** Sigiriya Karaoke Pub Restaurant
+
+https://maps.app.goo.gl/RjBp4XxLT6LDdwvX6
+
+Хороший ресторан среднего ценового диапазона.
+
 * Гостиницы
 
 ** Sand & Surf Guest House
@@ -819,7 +827,7 @@ https://maps.app.goo.gl/ahayYhwMyR2uashg8
 
 Цена: 10000 LKR (€33)
 
-** Sigiria Green Garden Home Stay
+** Sigiriya Green Garden Home Stay
 
 https://maps.app.goo.gl/XNPVfovS62wg4ZaL9?g_st=ia
 
