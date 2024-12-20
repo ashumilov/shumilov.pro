@@ -29,8 +29,8 @@
           (2024-12-16 . (210525 . 4))
           (2024-12-17 . (210642 . 9))
           (2024-12-18 . (210734 . 15))
-          (2024-12-19 . (0 . 0))
-          (2024-12-20 . (0 . 0))
+          (2024-12-19 . (210836 . 8))
+          (2024-12-20 . (210939 . 10))
           (2024-12-21 . (0 . 0))
           (2024-12-22 . (0 . 0))
           (2024-12-23 . (0 . 0))
@@ -614,6 +614,15 @@
 </video>
 #+end_export
 
+На обратном пути мы встретили необычную процессию состоящую из местной молодежи, которые несли икону и зажженные свечи.
+
+#+begin_export html
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/5Ov5WafQDS0"></iframe>
+</div>
+#+end_export
+
 Ехать до Канди пришлось по темноте, что было не очень приятно: пешеходы шли по краю проезжей части без отражателей и появлялись в поле зрения в последний момент, встречные машины слепили фарами, а сзади часто шли на обгон. Добравшись до [[*Sobasee holiday bungalow][аппартаментов]] мы заселились и пошли ужинать.
 [[*Kurumbunkz][Ресторан]] оказался с приличной кухней и красивым видом, но довольно дорогой.
 
@@ -623,8 +632,161 @@
 
 #+call: expenses(date='2024-12-18)
 
-** День 5
+** День 5. Башня Амбулувава - Водопад Galpoththa - Пещера Белилена
 <2024-12-19 Thu>
+
+Вид из гостиницы с утра.
+
+[[./IMG_8764.jpg]]
+
+[[./IMG_8765.jpg]]
+
+Дорого по европейски [[*Cafe Lavia][позавтракав]] мы двинулись к [[*Ambuluwawa Tower][башне Амбулувава]].
+Башня стоит на возвышении 1050 метров и ее высота 48 метров.
+
+[[./IMG_8770.jpg]]
+
+[[./IMG_8778.jpg]]
+
+С нее открывается неплохой вид на остров.
+
+[[./IMG_8780.jpg]]
+
+[[./IMG_8781.jpg]]
+
+[[./IMG_8784.jpg]]
+
+Объекты вокруг башни.
+
+[[./IMG_8772.jpg]]
+
+[[./IMG_8774.jpg]]
+
+[[./IMG_8775.jpg]]
+
+[[./IMG_8785.jpg]]
+
+Но подняться наверх осмелится не каждый.
+
+#+begin_export html
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/v0FoR4GTzSs"></iframe>
+</div>
+#+end_export
+
+Спускаться еще страшнее, но виды рассматривать удобнее.
+
+#+begin_export html
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/l8GD8dyHoSA"></iframe>
+</div>
+#+end_export
+
+Зарисовки по дороге.
+
+[[./IMG_8768.jpg]]
+
+После башни мы поехали на [[*Galpoththa][натуральные водные горки]], которые по сути являлись пологими водопадами.
+
+[[./IMG_8804.jpg]]
+
+[[./IMG_8796.jpg]]
+
+#+begin_export html
+<video controls autoplay loop>
+<source src="./IMG_8791.mp4" type="video/mp4">
+</video>
+#+end_export
+
+Пока мы пытались понять насколько безопасно там скатываться, пришли местные парни и показали мастер класс.
+
+#+begin_export html
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/iEySImoajZM"></iframe>
+</div>
+#+end_export
+
+#+begin_export html
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/tolvFnByTys"></iframe>
+</div>
+#+end_export
+
+Мы решили, что рисковать не стоит, ибо выглядело это все очень травмоопасно.
+
+#+begin_export html
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/4xolxjruWVs"></iframe>
+</div>
+#+end_export
+
+Мы отправились плавать на плоских участках, а в это время местные обнаружили под камнем змею.
+
+#+begin_export html
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/lEIA7gfFIr8"></iframe>
+</div>
+#+end_export
+
+После купания мы отправились в ближайший город, чтобы [[*Pallet house Restaurant][перекусить]].
+
+Кадры по дороге.
+
+[[./IMG_8807.jpg]]
+
+Автовокзал.
+
+[[./IMG_8809.jpg]]
+
+[[./IMG_8814.jpg]]
+
+Различные блюда местной кухни.
+
+[[./IMG_8817.jpg]]
+
+Последним пунктом у нас значилась [[*Belilena Cave][пещера Белилена]].
+
+Пейзажи по пути.
+
+[[./IMG_8819.jpg]]
+
+[[./IMG_8830.jpg]]
+
+[[./IMG_8831.jpg]]
+
+[[./IMG_8832.jpg]]
+
+[[./IMG_8833.jpg]]
+
+[[./IMG_8835.jpg]]
+
+На подъезде к пещере у нас случился казус. Я загляделся и съехал с дороги. Оба левых колеса оказались в кювете, а оба правых на дорожной плите. Пока мы размышляли, как нам выбраться, нам навстречу выехали жда джипа полных местных жителей. Они помогли нам, один сел за руль, а остальные приподняли машину и в итоге удалось вырулить на проезжую часть. Нам реально повезло, так как это происходило в полной глухомани, где на пути встречались только старики и дети.
+
+[[./IMG_8826.jpg]]
+
+Сама пещера оказалась милой, но довольно заброшенной.
+
+#+begin_export html
+<video controls autoplay loop>
+<source src="./IMG_8828.mp4" type="video/mp4">
+</video>
+#+end_export
+
+#+begin_export html
+<video controls autoplay loop>
+<source src="./IMG_8829.mp4" type="video/mp4">
+</video>
+#+end_export
+
+К моменту, когда закончили осмотр, уже начало смеркаться. Мы доехали до ближайшей гостиницы затерянной в джунглях, но там оказался только один свободный номер, да и тот стоил больше 200 долларов.
+
+Пришлось спускаться в город, где мы просто заехали в первую [[*The Cave Kithulgala][гостиницу]] по дороге и она оказалось весьма неплохой по качеству и цене.
 
 *** Статистика
 
@@ -634,6 +796,32 @@
 
 ** День 6
 <2024-12-20 Fri>
+
+Позввтракав в гостинице мы поехали к [[*Laxapana Falls][водопаду Лаксапана]].
+
+Виды по дороге к водопаду.
+
+[[./IMG_8842.jpg]]
+
+[[./IMG_8847.jpg]]
+
+[[./IMG_8850.jpg]]
+
+Водопад оказался очень красивым, правда чтобы к нему попасть нужно было спуститься по 650 ступеням.
+
+#+begin_export html
+<video controls autoplay loop>
+<source src="./IMG_8852.mp4" type="video/mp4">
+</video>
+#+end_export
+
+[[./IMG_8867.jpg]]
+
+#+begin_export html
+<video controls autoplay loop>
+<source src="./IMG_0719.mp4" type="video/mp4">
+</video>
+#+end_export
 
 *** Статистика
 
@@ -896,6 +1084,10 @@ https://maps.app.goo.gl/oueXq9xwBmDqKAJMA
 https://maps.app.goo.gl/sFzXT8uDRsELQZ2Y7
 
 Цена: 2000 LKR (€6)
+
+** Galpoththa
+
+https://maps.app.goo.gl/zAdf8dZFJv4FRf2f7
 
 ** Belilena Cave
 
@@ -1165,6 +1357,18 @@ https://maps.app.goo.gl/fcXsNesXWQNaGLqUA
 
 Приличный дорогой ресторан.
 
+** Cafe Lavia
+
+https://maps.app.goo.gl/ztREzo74jR4bJKb16
+
+Дорогие европейские завтрака и приличный кофе. Яйцо бенедикт было неплохим, но соус был не голландский. Можно заказать омлет, которого нет в меню.
+
+** Pallet house Restaurant
+
+https://maps.app.goo.gl/7oet8LnJMCxnTRzJ8
+
+Хорошее и недорогое заведение с местной и индийской кухней.
+
 * Гостиницы
 
 ** Sand & Surf Guest House
@@ -1190,6 +1394,12 @@ https://maps.app.goo.gl/FZ9GTeLnRYM8YySC9
 https://maps.app.goo.gl/anHd2j9ts2XVDkKz9
 
 Цена: 12200 LKR (€40)
+
+** The Cave Kithulgala
+
+https://maps.app.goo.gl/BU8zhUEuP8ptpjhL7
+
+Цена: 16000 LKR (€53)
 
 ** House Of Esanya
 
