@@ -824,6 +824,12 @@
 </video>
 #+end_export
 
+#+begin_export html
+<video controls autoplay loop>
+<source src="./video/IMG_8870.mp4" type="video/mp4">
+</video>
+#+end_export
+
 Подъем наверх к дороге оказался очень тяжелым.
 Поднявшись наверх мы обнаружили собак гоняющих обезъяну.
 
@@ -843,6 +849,12 @@
 
 Следующим местом по плану был резервуар [[*Maskeliya][Маскелия]].
 Виды по пути.
+
+#+begin_export html
+<video controls autoplay loop>
+<source src="./video/IMG_8880.mp4" type="video/mp4">
+</video>
+#+end_export
 
 [[./images_small/IMG_8876.jpg]]
 
@@ -991,7 +1003,6 @@
 Мы взяли полный пакет и нас сначала на джипе отвезли к водопаду Рабата с красивым видом.
 Дорога туда и обратно заняла больше часа.
 
-
 [[./images_small/IMG_0812.jpg]]
 
 [[./images_small/IMG_0814.jpg]]
@@ -1027,6 +1038,12 @@
 [[./images_small/IMG_9070.jpg]]
 
 [[./images_small/IMG_9076.jpg]]
+
+#+begin_export html
+<video controls autoplay loop>
+<source src="./video/IMG_9042.mp4" type="video/mp4">
+</video>
+#+end_export
 
 #+begin_export html
 <div class="container">
@@ -1175,8 +1192,107 @@
 
 #+call: expenses(date='2024-12-22)
 
-** День 9
+** День 9. Гора Элла - Секретный водопад - Девятиарочный мост
 <2024-12-23 Mon>
+
+С утра мы совершили хайкинг поднявшись на [[*Ella Rock View Point][гору Элла]]. Подъем занял больше часа и был достаточно тяжелым, так как местами тропа была очень крутой. Особых видов по пути не было, кроме одного места, где с мостика был виден небольшой живописный водопад.
+
+#+begin_export html
+<!--
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/"></iframe>
+</div>
+-->
+#+end_export
+
+В основном путь пролегал через лес и небольшую чайную плантацию.
+
+[[./images_small/IMG_9242.jpg]]
+
+Наверху нужно было заплатить за вход чуть более 900 рупий за взрослого и половину суммы за ребенка.
+Вид с горы был красивый, но по-моему не стоил усилий затраченных на подъем.
+
+[[./images_small/IMG_9230.jpg]]
+
+[[./images_small/IMG_9232.jpg]]
+
+Позитивным моментом были козы и щенки, которых мы встретили по дороге.
+
+[[./images_small/IMG_0893.jpg]]
+
+#+begin_export html
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/6EQFDc5E7Jg"></iframe>
+</div>
+#+end_export
+
+После хайкинга мы позавтракали в [[*Jade Green][кафе]] и отправились купаться к [[*Secret Waterfall][секретному водопаду]], который находился в получасе езды от города.
+
+Водопад был многоуровневый и довольно пологий, состоящий из порогов образованный небольшой речкой.
+
+#+begin_export html
+<video controls autoplay loop>
+<source src="./video/IMG_9262.mp4" type="video/mp4">
+</video>
+#+end_export
+
+В самом начале мы встретили змею.
+
+[[./images_small/IMG_9261.jpg]]
+
+Потом местных, которые мылись в воде с гелем и шампунем.
+
+[[./images_small/IMG_9265.jpg]]
+
+Пройдя дальше, мы нашли место, где можно было спокойно купаться.
+
+Саша прыгал в воду с камня.
+
+#+begin_export html
+<!--
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/"></iframe>
+</div>
+-->
+#+end_export
+
+После купания в водопаде мы вернулись в город и отправились к [[*Nine Arches Bridge Viewpoint][девятиарочному мосту]].
+Дорога к мосту была несложной, но очень загруженной туристами.
+
+[[./images_small/IMG_0908.jpg]]
+
+Когда мы подходили к мосту на него заехал и остановился поезд.
+
+[[./images_small/IMG_9319.jpg]]
+
+[[./images_small/IMG_9323.jpg]]
+
+Люди забирались на него и фотографировались.
+
+[[./images_small/IMG_0911.jpg]]
+
+Вид с моста.
+
+[[./images_small/IMG_9329.jpg]]
+
+[[./images_small/IMG_9330.jpg]]
+
+Вид из под моста.
+
+[[./images_small/IMG_0914.jpg]]
+
+Дети на мосту.
+
+[[./images_small/IMG_9333.jpg]]
+
+[[./images_small/IMG_9335.jpg]]
+
+[[./images_small/IMG_9338.jpg]]
+
+За ужином мы опять разделились: дети отправились кушать (невкусную) [[*Spice Ella][европейскую еду]], а мы - (вкусную) [[*Sleek spoon restaurant Ella][ланкийскую]].
 
 *** Статистика
 
@@ -1529,6 +1645,10 @@ https://maps.app.goo.gl/UwwH49426hbCXNAR8
 
 https://maps.app.goo.gl/hETWQrsFtBq49bWt6
 
+** Secret Waterfall
+
+https://maps.app.goo.gl/9JuTYNRBrSa94LxY6
+
 ** Nine Arches Bridge Viewpoint
 
 https://maps.app.goo.gl/AAMr4fiihd3ztknv8
@@ -1732,6 +1852,22 @@ https://maps.app.goo.gl/1uRed6tWnqbzfXkg7?g_st=ia
 ** House of Kitchen
 
 https://maps.app.goo.gl/qAXe9t5ES59fNJKq7
+
+** Jade Green
+
+https://maps.app.goo.gl/YZjeCQHcMY34tnR16
+
+** Spice Ella
+
+https://maps.app.goo.gl/ainfDQh4k61QoPJe6
+
+Так себе европейская кухня
+
+** Sleek spoon restaurant Ella
+
+https://maps.app.goo.gl/ainfDQh4k61QoPJe6
+
+Вкусная ланкийская кухня
 
 * Гостиницы
 
