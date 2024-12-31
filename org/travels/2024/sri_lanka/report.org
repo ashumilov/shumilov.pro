@@ -38,9 +38,9 @@
           (2024-12-25 . (211327 . 8))
           (2024-12-26 . (211327 . 9))
           (2024-12-27 . (211327 . 9))
-          (2024-12-28 . (0 . 0))
-          (2024-12-29 . (0 . 0))
-          (2024-12-30 . (0 . 0))
+          (2024-12-28 . (211335 . 6))
+          (2024-12-29 . (211414 . 4))
+          (2024-12-30 . (211590 . 10))
           (2024-12-31 . (0 . 0))
           (2025-01-01 . (0 . 0))
           (2025-01-02 . (0 . 0))
@@ -1410,6 +1410,7 @@
 
 Пляж оказался куда более живописным и, главное,
 оборудованным. Основной контингент состоял из белых туристов.
+Лежаки при ресторанах условно бесплатные, если заказываешь у них еду или напитки.
 
 [[./images_small/goyambokka.jpg]]
 
@@ -1421,6 +1422,9 @@
     src="https://www.youtube.com/embed/TuETxxRaAsE"></iframe>
 </div>
 #+end_export
+
+В отсутствии опыта мы получили небольшие травмы в процессе купания в волнах:
+Катя ударила колено, меня впечатало в дно макушкой, а Алиса ударилась носом и губой.
 
 Саша с Николь поймали краба.
 
@@ -1481,8 +1485,25 @@
 
 #+call: expenses(date='2024-12-25)
 
-** День 12
+** День 12. Пляж Гоямбокка
 <2024-12-26 Thu>
+
+Мы поехали на тот же пляж, но уже запаслись с собой закусками и напитками,
+так как вчера вышло недешево, наценка за питание на пляже оказалась существенной.
+Легли в другом [[*Yellow Mellow][ресторане]], там оказался единственный душ на пляже и доски для плавания.
+
+Я взял с собой на пляж ноутбук и вошел в образ цифрового номада.
+
+[[./images_small/IMG_9414.jpg]]
+
+Мы решили изловить больше ежей и принести их в гостиницу в сумке холодильнике.
+Утром Саши купил шипцы в магазине и перед уходом с пляжа мы собрали семь ежей.
+
+[[./images_small/IMG_1018.jpg]]
+
+К сожалению все ежи оказались пустые внутри. Саша нашел информацию, что сейчас не сезон.
+
+Вечером мы пошли поесть в дорогой [[*Serenity Sea Food Restaurant][ресторан]] неподалеку от нас.
 
 *** Статистика
 
@@ -1490,8 +1511,24 @@
 
 #+call: expenses(date='2024-12-26)
 
-** День 13
+** День 13. Пляж Гоямбокка
 <2024-12-27 Fri>
+
+После обеда на пляже к нам присоединилась семья Ханиных: Андрей, Катя и Виктория.
+Они приехали из Унаватуны на три дня.
+
+Виктория нашла в песке рака-отшельника.
+
+#+begin_export html
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/Lvte5eYJyAc"></iframe>
+</div>
+#+end_export
+
+Вечером мы вместе пошли в уже проверенный [[*Let's Sea][ресторан]].
+
+[[./images_small/IMG_5934.jpg]]
 
 *** Статистика
 
@@ -1502,6 +1539,8 @@
 ** День 14
 <2024-12-28 Sat>
 
+Весь день пробыв на пляже вечером мы пошли в новый [[*Foodee][ресторан]].
+
 *** Статистика
 
 #+call: distances(date='2024-12-28)
@@ -1511,6 +1550,12 @@
 ** День 15
 <2024-12-29 Sun>
 
+Мы с Сашей пораньше уехали с пляжа, так как решили посетить дождевой лес
+Синхараджа. До города Денийяйя, где мы решили остановиться на ночь,
+ехать нужно было около двух с половиной часов.
+
+Доехав до [[*Sinharaja Rest][гостиницы]], мы поужинали и рано легли спать, так как решили рано вставать.
+
 *** Статистика
 
 #+call: distances(date='2024-12-29)
@@ -1519,6 +1564,145 @@
 
 ** День 16
 <2024-12-30 Mon>
+
+С утра мы встали в шесть часов и быстро собравшись выехали в сторону [[https://maps.app.goo.gl/6r6BM5nvXgJ6VFHK9][входа Ланкагама]].
+
+Немного поплутав по дороге, мы приехали к 7:50. Касса была еще закрыта, но местные гиды
+предложили нам заплатить потом, а сейчас отправиться с одним из них за 8000 рупий.
+Я знал, что билеты на двоих стоят 2500 рупий и услуги гида 1500 рупий и стал торговаться.
+В итоге сошлись на 6000 рупий и мы пошли смотреть дождевой лес.
+
+Дождевой лес Синхараджа уникален тем, что 60% его флоры и фауны составляют эндемики,
+то есть виды, среда обитания которых ограничена областью леса.
+
+Водопад.
+
+#+begin_export html
+<video controls autoplay loop>
+<source src="./video/IMG_1034.mp4" type="video/mp4">
+</video>
+#+end_export
+
+Ящерица маскируется на дереве.
+
+[[./images_small/IMG_1035.jpg]]
+
+Зеленая улитка.
+
+[[./images_small/IMG_1036.jpg]]
+
+Древесные грибы.
+
+[[./images_small/IMG_1037.jpg]]
+
+Ядовитая змея.
+
+[[./images_small/IMG_1039.jpg]]
+
+Красивый водопад.
+
+#+begin_export html
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/Te1KZYJOzZI"></iframe>
+</div>
+#+end_export
+
+#+begin_export html
+<video controls autoplay loop>
+<source src="./video/IMG_1042.mp4" type="video/mp4">
+</video>
+#+end_export
+
+Еще древесные грибы.
+
+[[./images_small/IMG_1044.jpg]]
+
+Ящерица.
+
+[[./images_small/IMG_1047.jpg]]
+
+Паук.
+
+#+begin_export html
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/bHNe8qTyl-s"></iframe>
+</div>
+#+end_export
+
+Многоножка.
+
+#+begin_export html
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/LEM53Y_HyxY"></iframe>
+</div>
+#+end_export
+
+Водопад.
+
+#+begin_export html
+<video controls autoplay loop>
+<source src="./video/IMG_1054.mp4" type="video/mp4">
+</video>
+#+end_export
+
+Дерево.
+
+[[./images_small/IMG_1055.jpg]]
+
+Ящерица.
+
+[[./images_small/IMG_1058.jpg]]
+
+Водопад.
+
+#+begin_export html
+<video controls autoplay loop>
+<source src="./video/IMG_1060.mp4" type="video/mp4">
+</video>
+#+end_export
+
+Красивый цветок.
+
+[[./images_small/IMG_1063-1.jpg]]
+
+Симбиоз с деревом.
+
+[[./images_small/IMG_1064.jpg]]
+
+
+Рыбки, которые прилипают к ногам.
+
+#+begin_export html
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/Uv-lJRLwo4I"></iframe>
+</div>
+#+end_export
+
+Радуга в водопаде.
+
+#+begin_export html
+<video controls autoplay loop>
+<source src="./video/IMG_1078.mp4" type="video/mp4">
+</video>
+#+end_export
+
+После посещения дождевого леса мы доехали до Матары, где поехали в приличной [[*DelTano's Wood Fired Pizza & Pasta][пиццерии]]
+и захватили три пицы для с собой.
+
+Вечером пошел дождь, мы поздно пошли в [[*Ceylon Excel][ресторан]].
+Свободных столов не было, а так как на улице шел дождь,
+нас впустили в жилую зону хозяев подождать. Это был интересный опыт.
+
+#+begin_export html
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/VLx8cZ5rnYQ"></iframe>
+</div>
+#+end_export
 
 *** Статистика
 
@@ -2054,6 +2238,36 @@ https://maps.app.goo.gl/xWP4HBXMbGDwwowB9
 
 Неплохой ресторан с небольшим выбором блюд, которые показывают с телефона
 
+** Yellow Mellow
+
+https://maps.app.goo.gl/2U5h69qTxjVMccwA8
+
+Отличный пляжный ресторан с душем и досками для плавания
+
+** Serenity Sea Food Restaurant
+
+https://maps.app.goo.gl/vtgak81TYzLjtscU9
+
+Неплохой ресторан с высокими ценами
+
+** Foodee
+
+https://maps.app.goo.gl/CLxmdA3CJoeogjYZ7
+
+Дешевый ресторан со средней кухней и маленькими порциями
+
+** DelTano's Wood Fired Pizza & Pasta
+
+https://maps.app.goo.gl/gW4E1TELx2Ym9g2a6
+
+Очень вкусные пиццы, не хуже, чем в Италии
+
+** Ceylon Excel
+
+https://maps.app.goo.gl/JTPyzWD62AJUYgAL6
+
+Средняя кухня, радушные хозяева
+
 * Гостиницы
 
 ** Sand & Surf Guest House
@@ -2109,6 +2323,14 @@ https://maps.app.goo.gl/aWKU7Et3R8ZVeiKJ6
 Цена: 20000 LKR (€657) (10 ночей)
 
 https://maps.app.goo.gl/2Z1T7yRtJffqKcFk8?g_st=ia
+
+** Sinharaja Rest
+
+Неплохая гостиницы с ванной выходящей в джунгли.
+
+Цена: 11400 LKR (€37)
+
+https://maps.app.goo.gl/EiLQpuBjXNhEKX7Q8
 
 ** House Of Esanya
 
