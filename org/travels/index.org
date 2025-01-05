@@ -121,4 +121,5 @@
 <2024-12-14 Sat> -- <2025-01-04 Sat>
 - [[file:2024/sri_lanka/report.org][Отчет]]
 - [[https://www.icloud.com/sharedalbum/#B1jG1CvrSmIDER][Фотографии в Apple iCloud]]
+- [[file:2024/sri_lanka/sri_lanka_2024.gpx][Трек маршрута (интервал 15 минут)]]
 
