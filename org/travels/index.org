@@ -120,4 +120,5 @@
 ** Шри Ланка
 <2024-12-14 Sat> -- <2025-01-04 Sat>
 - [[file:2024/sri_lanka/report.org][Отчет]]
-  
+- [[https://www.icloud.com/sharedalbum/#B1jG1CvrSmIDER][Фотографии в Apple iCloud]]
+
