@@ -1,0 +1,39 @@
+#+language: ru
+
+#+STARTUP: showall
+#+options: toc:nil num:nil
+
+#+INCLUDE: "style.org"
+#+INCLUDE: "functions.org"
+
+** День 18. Пляж Гоямбокка
+<2025-01-01 Wed>
+
+Мы выбрались на пляж только к обеду. Работники ресторана, похоже,
+тоже отмечали Новый Год накануне.
+
+[[./images_small/IMG_1118.jpg]]
+
+Так как лежаки были заняты, я сел с компьютером на террасе ресторана.
+
+[[./images_small/IMG_1117.jpg]]
+
+Вечером мы пошли в уже знакомый [[file:restaurants.org::*Let's Sea][ресторан]] с друзьями, где попробовали омаров.
+
+[[./images_small/IMG_6307.jpg]]
+
+[[./images_small/IMG_9540.jpg]]
+
+*** Статистика
+
+#+call: distances(date='2025-01-01)
+
+#+call: expenses(date='2025-01-01)
+
+
+[[file:toc.org][Содержание]]
+
+[[file:2024-12-31.org][День 17. Пляж Гоямбокка]]
+
+[[file:2025-01-02.org][День 19. Мирисса]]
+

@@ -1,0 +1,155 @@
+#+language: ru
+
+#+STARTUP: showall
+#+options: toc:nil num:nil
+
+#+INCLUDE: "style.org"
+
+* Рестораны
+
+** Ceylon Kitchen
+
+Понтовый ресторан с высокими ценами и медленным обслуживанием. Коту очень посредственный.
+
+https://maps.app.goo.gl/sYokcQvhriKUqkZ88
+
+** Cafe Olu
+
+https://maps.app.goo.gl/NsB8MKgMCbBPSQZY9
+
+Неплохой ресторан с понятными ценами. Жареный рис с яйцом был вкусным.
+
+** Sigiriya Karaoke Pub Restaurant
+
+https://maps.app.goo.gl/RjBp4XxLT6LDdwvX6
+
+Хороший ресторан среднего ценового диапазона. Помимо ланкийких блюд делают неплохую пиццу в печи.
+
+** Kurumbunkz
+
+https://maps.app.goo.gl/fcXsNesXWQNaGLqUA
+
+Приличный дорогой ресторан.
+
+** Cafe Lavia
+
+https://maps.app.goo.gl/ztREzo74jR4bJKb16
+
+Дорогие европейские завтрака и приличный кофе. Яйцо бенедикт было неплохим, но соус был не голландский. Можно заказать омлет, которого нет в меню.
+
+** Pallet house Restaurant
+
+https://maps.app.goo.gl/7oet8LnJMCxnTRzJ8
+
+Хорошее и недорогое заведение с местной и индийской кухней.
+
+** Bakers Dyner
+
+https://maps.app.goo.gl/niJZ9AvuDaFisNwWA
+
+** Thawalama Restaurant
+
+https://maps.app.goo.gl/5gN3fRRWgZTt2hMYA
+
+Неплохая кухня и есть два снукерных стола
+
+** Frostbite
+
+https://maps.app.goo.gl/ubU4LCpmB5YtFQ8a7
+
+Отличная кухня, но на улице убогие столы, лучше сидеть внутри
+
+** Mr berry
+
+https://maps.app.goo.gl/1uRed6tWnqbzfXkg7?g_st=ia
+
+** House of Kitchen
+
+https://maps.app.goo.gl/qAXe9t5ES59fNJKq7
+
+** Jade Green
+
+https://maps.app.goo.gl/YZjeCQHcMY34tnR16
+
+** Spice Ella
+
+https://maps.app.goo.gl/ainfDQh4k61QoPJe6
+
+Так себе европейская кухня
+
+** Sleek spoon restaurant Ella
+
+https://maps.app.goo.gl/ainfDQh4k61QoPJe6
+
+Вкусная ланкийская кухня
+
+** Kiri Kopi
+
+https://maps.app.goo.gl/U9TLcC4Xbp2tTo5x6
+
+** Chill Hut Cafe & Restaurent
+
+https://maps.app.goo.gl/WYyg5pe3vvxq5wsM9
+
+Средняя еда и доброжелательные, но навязчивые хозяева
+
+** Cafe Salt Breeze
+
+Хорошие завтраки, отличный эспрессо и латте
+
+https://maps.app.goo.gl/DAc6A4xp5Qyp7WFi8?g_st=ia
+
+** Let's Sea
+
+https://maps.app.goo.gl/xWP4HBXMbGDwwowB9
+
+Неплохой ресторан с небольшим выбором блюд, которые показывают с телефона
+
+** Yellow Mellow
+
+https://maps.app.goo.gl/2U5h69qTxjVMccwA8
+
+Отличный пляжный ресторан с душем и досками для плавания
+
+** Serenity Sea Food Restaurant
+
+https://maps.app.goo.gl/vtgak81TYzLjtscU9
+
+Неплохой ресторан с высокими ценами
+
+** Foodee
+
+https://maps.app.goo.gl/CLxmdA3CJoeogjYZ7
+
+Дешевый ресторан со средней кухней и маленькими порциями
+
+** DelTano's Wood Fired Pizza & Pasta
+
+https://maps.app.goo.gl/gW4E1TELx2Ym9g2a6
+
+Очень вкусные пиццы, не хуже, чем в Италии
+
+** Ceylon Excel
+
+https://maps.app.goo.gl/JTPyzWD62AJUYgAL6
+
+Средняя кухня, радушные хозяева
+
+** YUM Drinks & Food Restaurant
+
+https://maps.app.goo.gl/E5dFxySAvmJpL3oRA
+
+Неплохая европейская кухня: паста и бургер. Есть кальян.
+
+** SkinnyTom's Deli
+
+https://maps.app.goo.gl/gdMVM6EgzM7Xk4NB6
+
+Отличное место. Заказывать на кассе, приносят быстро.
+
+** Unwind Restaurant & Hostel
+
+https://maps.app.goo.gl/uADkdN75QbcjJpxC8
+
+Приличная кухня, средние цены.
+

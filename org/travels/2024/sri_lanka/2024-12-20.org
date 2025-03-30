@@ -1,0 +1,194 @@
+#+language: ru
+
+#+STARTUP: showall
+#+options: toc:nil num:nil
+
+#+INCLUDE: "style.org"
+#+INCLUDE: "functions.org"
+
+** День 6. Водопад Лаксапана - Маскелия - Хаттон
+<2024-12-20 Fri>
+
+Позввтракав в гостинице мы поехали к [[file:poi.org::*Laxapana Falls][водопаду Лаксапана]].
+
+Виды по дороге к водопаду.
+
+[[./images_small/IMG_8842.jpg]]
+
+[[./images_small/IMG_8847.jpg]]
+
+[[./images_small/IMG_8850.jpg]]
+
+Водопад оказался очень красивым, правда чтобы к нему попасть нужно было спуститься по 650 ступеням.
+
+#+begin_export html
+<video controls autoplay loop>
+<source src="./video/IMG_8852.mp4" type="video/mp4">
+</video>
+#+end_export
+
+[[./images_small/IMG_8867.jpg]]
+
+#+begin_export html
+<video controls autoplay loop>
+<source src="./video/IMG_0719.mp4" type="video/mp4">
+</video>
+#+end_export
+
+#+begin_export html
+<video controls autoplay loop>
+<source src="./video/IMG_8870.mp4" type="video/mp4">
+</video>
+#+end_export
+
+Подъем наверх к дороге оказался очень тяжелым.
+Поднявшись наверх мы обнаружили собак гоняющих обезъяну.
+
+#+begin_export html
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/QIfjPWKSbIg"></iframe>
+</div>
+#+end_export
+
+#+begin_export html
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/jj32DqpDuDQ"></iframe>
+</div>
+#+end_export
+
+Следующим местом по плану был резервуар [[file:poi.org::*Maskeliya][Маскелия]].
+Виды по пути.
+
+#+begin_export html
+<video controls autoplay loop>
+<source src="./video/IMG_8880.mp4" type="video/mp4">
+</video>
+#+end_export
+
+[[./images_small/IMG_8876.jpg]]
+
+[[./images_small/IMG_8887.jpg]]
+
+[[./images_small/IMG_8888.jpg]]
+
+Чайная плантация.
+
+[[./images_small/IMG_8896.jpg]]
+[[./images_small/IMG_8901.jpg]]
+
+Сбор чая.
+
+[[./images_small/IMG_8899.jpg]]
+
+
+Сначала мы поехали на западную часть водохранилища.
+Там был небольшой [[file:poi.org::*Mohini Falls][водопад]].
+
+[[./images_small/FullSizeRender2.jpg]]
+
+И красивая ящерица.
+
+[[./images_small/IMG_8912.jpg]]
+
+[[./images_small/IMG_8913.jpg]]
+
+Потом объехали его с востока и направились к [[file:poi.org::*Gartmore Falls][водопаду]], который падал прямо в резервуар.
+
+Недоезжая 3 км нас остановили водители туктуков и сообщили нам,
+что дальше дорога разбитая и опасная, и что нужно запарковать машину
+и воспользоваться их услугами, чтобы добраться до водопада.
+
+Мы поблагодарили их за совет и сказали, что попытаем счастья сами.
+
+Дорога и впрямь оказалась не лучшего качества, но мы смогли проехать.
+
+С обоих сторон дороги находились чайные плантации, на которых трудились тамилы.
+
+[[./images_small/IMG_8915.jpg]]
+
+[[./images_small/IMG_8916.jpg]]
+
+[[./images_small/IMG_8925.jpg]]
+
+[[./images_small/IMG_8928.jpg]]
+
+[[./images_small/IMG_8932.jpg]]
+
+[[./images_small/IMG_8933.jpg]]
+
+Виды были потрясающие.
+
+[[./images_small/IMG_8938.jpg]]
+
+[[./images_small/IMG_8941.jpg]]
+
+[[./images_small/IMG_8947.jpg]]
+
+[[./images_small/IMG_8946.jpg]]
+
+[[./images_small/IMG_8952.jpg]]
+
+[[./images_small/IMG_8954.jpg]]
+
+Мы здоровались с проходящими мимо людьми и они улыбались и махали нам в ответ.
+Вообще по ощущению тамилы очень простые, приветливые и открытые люди.
+
+[[./images_small/IMG_8956.jpg]]
+
+[[./images_small/IMG_8963.jpg]]
+
+[[./images_small/IMG_8965.jpg]]
+
+[[./images_small/IMG_8969.jpg]]
+
+[[./images_small/IMG_8973.jpg]]
+
+[[./images_small/IMG_8974.jpg]]
+
+Когда мы добрались до конца дороги пошел сильный дождь. Мы разделились, девочки остались
+в машине, а мы с Сашей под проливным дождем пошли к водопаду. Водопад оказался интересным,
+но виден был не целиком.
+
+#+begin_export html
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/GRzH9yh3MN8"></iframe>
+</div>
+#+end_export
+
+#+begin_export html
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/1u9_0GcyCoM"></iframe>
+</div>
+#+end_export
+
+Мы решили остановиться в городе Хаттон, но не нашли подходящих вариантов в интернете.
+Решили заехать в понравившуюся [[file:hotels.org::*White House Bungalow][гостиницу]] и договориться на месте. Результат оказался положительный,
+номера были отличными и цена адекватной.
+
+Ужинали мы с детьми в разных ресторанах, дети ели [[file:restaurants.org::*Bakers Dyner][европейскую кухню]], а мы этажом выше - [[file:restaurants.org::*Thawalama Restaurant][ланкийскую]].
+
+В нашем ресторане оказались снукерные столы и я сыграл пару партий с местными ребятами.
+
+#+begin_export html
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/jaFcB5APMY4"></iframe>
+</div>
+#+end_export
+
+*** Статистика
+
+#+call: distances(date='2024-12-20)
+
+#+call: expenses(date='2024-12-20)
+
+
+[[file:toc.org][Содержание]]
+
+[[file:2024-12-19.org][День 5. Башня Амбулувава - Водопад Galpoththa - Пещера Белилена]]
+
+[[file:2024-12-21.org][День 7. Чайная фабрика Bluefield - водопад Lover's Leap - Нувара-Элия]]

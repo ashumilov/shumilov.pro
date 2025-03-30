@@ -1,0 +1,41 @@
+#+language: ru
+
+#+STARTUP: showall
+#+options: toc:nil num:nil
+
+#+INCLUDE: "style.org"
+#+INCLUDE: "functions.org"
+
+** День 1. Аэропорт - Негомбо
+<2024-12-15 Sun>
+
+Получив в аэропорту арендованную машину, мы доехали до [[file:hotels.org::*Sand & Surf Guest House][гостиницы]] и зарегистрировавшись пошли на пляж, который находился в 10 минутах ходьбы. Пляж недалеко от нашей гостиницы оказался вполне подходящим: мало людей и неопасные, но сильные волны.
+
+[[./images_small/IMG_8422.jpg]]
+
+[[./images_small/IMG_8419.jpg]]
+
+[[./images_small/IMG_8414.jpg]]
+
+[[./images_small/IMG_8396.jpg]]
+
+Около часа мы провели в воде, потом переодевшись в гостинице пошли ужинать в [[file:restaurants.org::*Ceylon Kitchen][ресторан]]. Ресторан оказался с довольно приличной обстановкой и открытой кухней, но обслуживаиние было очень медленным, а еда ничем не выделялась.
+
+#+begin_export html
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/cTg52Asm3z8"></iframe>
+</div>
+#+end_export
+
+*** Статистика
+
+#+call: distances(date='2024-12-15)
+
+#+call: expenses(date='2024-12-15)
+
+[[file:toc.org][Содержание]]
+
+[[file:preparation.org][Подготовка]]
+
+[[file:2024-12-16.org][День 2. Негомбо - Дамбулла]]

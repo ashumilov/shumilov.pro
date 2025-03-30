@@ -1,0 +1,98 @@
+#+language: ru
+
+#+STARTUP: showall
+#+options: toc:nil num:nil
+
+#+INCLUDE: "style.org"
+#+INCLUDE: "functions.org"
+
+** День 19. Мирисса
+<2025-01-02 Thu>
+
+С утра шел дождь, поэтому мы решили не идти на пляж, а прокатиться
+вдоль побережья до Мириссы и обратно, посетив разные интересные точки.
+Первая остановка была возле [[file:poi.org::*Hummanaya Blow Hole][естественного фонтана]].
+Это своеобразное ущелье на берегу, где набегающие волны выплескиваются вверх фонтаном.
+
+#+begin_export html
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/HXobC7Cfgls"></iframe>
+</div>
+#+end_export
+
+#+begin_export html
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/8BcXqW2kDnw"></iframe>
+</div>
+#+end_export
+
+[[./images_small/IMG_9565.jpg]]
+
+По пути мы заехали на [[https://maps.app.goo.gl/1QQ1KNXaiuysS9hb9][пляж Hiriketiya]], где было много серферов.
+
+[[./images_small/IMG_9567.jpg]]
+
+Далее мы остановились в месте, где можно увидеть [[file:poi.org::*Turtle Point Bathigama Dickwella][черепах]]. Там так же были качели.
+
+#+begin_export html
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/aEgQCzj-CX8"></iframe>
+</div>
+#+end_export
+Плавать мы не стали, но видели как черепахи высовывают из воды голову, чтобы набрать воздух.
+
+Побережье в этом месте было довольно красивым.
+
+[[./images_small/IMG_9573.jpg]]
+
+[[./images_small/IMG_9574.jpg]]
+
+Там же в океан впадала небольшая речка, где дети увидели в кустах огромного варана.
+Когда я туда пришел, варан уже спрятался и мне удалось заснять его только в воде.
+
+#+begin_export html
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/XO1XnJboklw"></iframe>
+</div>
+#+end_export
+
+Далее мы заехали на [[file:poi.org::*Coconut Tree Hill][холм с пальмами]], на котором было довольно многолюдно,
+но открывался живописный вид на лагуну.
+
+[[./images_small/IMG_9578.jpg]]
+
+#+begin_export html
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/9Tka1eOcrdg"></iframe>
+</div>
+#+end_export
+
+Последней точкой была живописная [[file:poi.org::*Parrot Rock][скала]].
+
+[[./images_small/IMG_9583.jpg]]
+
+[[./images_small/IMG_9584.jpg]]
+
+Вечером мы опять пошли в ресторан, где можно покурить кальян.
+Телефон, паста, мохито и кальян - счастье есть!
+
+[[./images_small/IMG_1135.jpg]]
+
+*** Статистика
+
+#+call: distances(date='2025-01-02)
+
+#+call: expenses(date='2025-01-02)
+
+
+[[file:toc.org][Содержание]]
+
+[[file:2025-01-01.org][День 18. Пляж Гоямбокка]]
+
+[[file:2025-01-03.org][День 20. Унаватуна - Коломбо]]
+

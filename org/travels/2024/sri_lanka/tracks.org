@@ -1,0 +1,96 @@
+#+language: ru
+
+#+STARTUP: showall
+#+options: toc:nil num:nil
+
+#+INCLUDE: "style.org"
+
+* Маршруты
+** Diyaluma Falls
+
+https://www.alltrails.com/trail/sri-lanka/badulla/diyaluma-falls
+
+Дистанция: 2.4 км
+
+Время: 54 мин
+
+Диапазон высот: 640 м - 746 м
+
+Цена: 350 LKR (€1)
+
+** Ella Rock Trail
+
+https://www.alltrails.com/trail/sri-lanka/badulla/ellas-rock
+
+Дистанция: 5.3 км
+
+Время: 2 часа 9 мин
+
+Диапазон высот: 1069 м - 1356 м
+
+Цена: 930 LKR (€2.8) (в конце за вход на sunrise spot)
+
+** Knucles 5 Peak Trail
+
+https://www.alltrails.com/trail/sri-lanka/kandy/knuckles-5-peak-trail--2
+
+Дистанция: 7.7 км
+
+Время: 3 часа 44 мин
+
+Диапазон высот: 1241 м - 1843 м
+
+** Kondagala Mountain Summit
+
+https://www.alltrails.com/trail/sri-lanka/kandy/kondagala-montain-summit--2
+
+Дистанция: 2.3 км
+
+Время: 46 мин
+
+Диапазон высот: 1406 м - 1488 м
+
+** Little Adam's Peak
+
+https://www.alltrails.com/trail/sri-lanka/badulla/little-adams-peak
+
+Дистанция: 1.4 км
+
+Время: 31 мин
+
+Диапазон высот: 1039 м - 1109 м
+
+** Pidurangala Rock
+
+https://www.alltrails.com/trail/sri-lanka/matale/pidurangala-rock
+
+Дистанция: 1.4 км
+
+Время: 40 мин
+
+Диапазон высот: 202 м - 325 м
+
+Цена: 1000 LKR (€3)
+
+** Ramboda Falls
+
+https://www.alltrails.com/trail/sri-lanka/nuwara-eliya/ramboda-falls
+
+Дистанция: 1.1 км
+
+Время: 42 мин
+
+Диапазон высот: 996 м - 1149 м
+
+Цена: 200 LKR (€0.6)
+
+** The Pekoe Trail Stage 16: Ella To Demodara
+
+https://www.alltrails.com/trail/sri-lanka/badulla/the-pekoe-trail-stage-16-ella-to-demodara
+
+Дистанция: 8.5 км
+
+Время: 2 часа 44 мин
+
+Диапазон высот: 875 м - 1058 м
+

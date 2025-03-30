@@ -1,0 +1,136 @@
+#+language: ru
+
+#+STARTUP: showall
+#+options: toc:nil num:nil
+
+#+INCLUDE: "style.org"
+#+INCLUDE: "functions.org"
+
+** День 11. Пляж Тангале - пляж Гоямбокка
+<2024-12-25 Wed>
+
+С утра мы пошли в ближайшее [[file:restaurants.org::*Cafe Salt Breeze][кафе]], где была кофе-машина.
+Я решил попробовать фруктовый бойл (фрукты с йогуртом).
+
+[[./images_small/IMG_9387.jpg]]
+
+Фруктов оказалось мало, а йогурта много.
+
+Также недалеко от гостиницы мы обнаружили милых щенков.
+
+[[./images_small/IMG_9390.jpg]]
+
+После завтрака мы решили пойти на пляж Тангале. По пути оказался рыбный рынок.
+
+[[./images_small/IMG_9395.jpg]]
+
+[[./images_small/IMG_9396.jpg]]
+
+Когда мы дошли до пляжа, то оказалось, что мы там одни белые.
+Пляж был очень маленький, без лежаков и с кучей народа.
+
+#+begin_export html
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/LnMBKigeCOY"></iframe>
+</div>
+#+end_export
+
+Немного поплавав и ощутив нездоровый интерес к себе со стороны местного населения,
+мы решили доехать до пляжа Гаямбокка.
+
+Поехали мы туда на автобусе, который является местной субкультурой.
+
+#+begin_export html
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/-XGJDQ-OAes"></iframe>
+</div>
+#+end_export
+
+Пляж оказался куда более живописным и, главное,
+оборудованным. Основной контингент состоял из белых туристов.
+Лежаки при ресторанах условно бесплатные, если заказываешь у них еду или напитки.
+
+[[./images_small/goyambokka.jpg]]
+
+[[./images_small/IMG_9398.jpg]]
+
+Волны в океане были временами очень сильными. Это средний вариант.
+
+#+begin_export html
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/TuETxxRaAsE"></iframe>
+</div>
+#+end_export
+
+В отсутствии опыта мы получили небольшие травмы в процессе купания в волнах:
+Катя ударила колено, меня впечатало в дно макушкой, а Алиса ударилась носом и губой.
+
+Саша с Николь поймали краба.
+
+#+begin_export html
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/6Dxpuc6k_VI"></iframe>
+</div>
+#+end_export
+
+Также было поймано несколько раков-отшельников.
+
+#+begin_export html
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/aoiqFVRFVYg"></iframe>
+</div>
+#+end_export
+
+Саша изловил морского ежа, которого мы повезли в гостиницу, чтобы съесть.
+
+#+begin_export html
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/tc0VP2L0GzY"></iframe>
+</div>
+#+end_export
+
+Саша тайно везет ежа в автобусе.
+
+[[./images_small/IMG_0997.jpg]]
+
+Николь вскрывает ежа.
+
+#+begin_export html
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/7aTDLqXXidQ"></iframe>
+</div>
+#+end_export
+
+Я пробую ежа.
+
+#+begin_export html
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/A5-klxx-9uU"></iframe>
+</div>
+#+end_export
+
+Вкус оказался невнятный, съедобной части было очень мало.
+
+Вечером мы пошли в популярный местный [[file:restaurants.org::*Let's Sea][ресторан]].
+
+*** Статистика
+
+#+call: distances(date='2024-12-25)
+
+#+call: expenses(date='2024-12-25)
+
+
+[[file:toc.org][Содержание]]
+
+[[file:2024-12-24.org][День 10. Буддийский храм - водопад Диялума - Тангале]]
+
+[[file:2024-12-26.org][День 12. Пляж Гоямбокка]]
+

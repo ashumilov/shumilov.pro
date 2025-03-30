@@ -1,0 +1,99 @@
+#+language: ru
+
+#+STARTUP: showall
+#+options: toc:nil num:nil
+
+#+INCLUDE: "style.org"
+#+INCLUDE: "functions.org"
+
+** День 2. Курунегала - Думбала - Сигирия
+<2024-12-16 Mon>
+
+Утро началось с посещения рыбного рынка в Негомбо, где сушат рыбу прямо на земле, подстелив брезент.
+
+#+begin_export html
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/MQc4PdelIuI"></iframe>
+</div>
+#+end_export
+
+Запах, конечно, непередаваемый!
+
+[[./images_small/IMG_8431.jpg]]
+
+[[./images_small/IMG_8432.jpg]]
+
+[[./images_small/IMG_8433.jpg]]
+
+[[./images_small/IMG_8436.jpg]]
+
+
+Разнообразную рыбу также продают с импровизированных прилавков.
+
+#+begin_export html
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/GREdQ-EtT-c"></iframe>
+</div>
+#+end_export
+
+[[./images_small/IMG_8438.jpg]]
+
+[[./images_small/IMG_8439.jpg]]
+
+[[./images_small/IMG_8440.jpg]]
+
+[[./images_small/IMG_8450.jpg]]
+
+Посмотрев рынок мы отправились в сторону Сигирии.
+
+По пути остановились [[file:restaurants.org::*Cafe Olu][перекусить]] в городе Курунегала, а затем поехали к озеру Кандалама, чтобы искупаться.
+
+По пути заехали к храмовому коплексу с Золотым Буддой в городе Думбала.
+
+[[./images_small/IMG_8446.jpg]]
+
+Возле храма спали собаки.
+
+[[./images_small/IMG_0354.jpg]]
+
+[[https://maps.app.goo.gl/7LmPiFUdZPJ77gpd8][Место купания]] оказалось не очень привлекательным и было огорожено пластиковыми бутылками и угрожающим плакатом. Мы решили воздержаться и поехали в [[file:hotels.org::*Sigiriya Green Garden Home Stay][гостиницу]].
+
+[[./images_small/IMG_0356.jpg]]
+
+По пути дорога возле реки оказалась затопленной, часть машин остановились на обочине, но самые смелые все же рискнули поехать.
+
+#+begin_export html
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/t6CI8ioyR98"></iframe>
+</div>
+#+end_export
+
+Мы решили, что мы не хуже и двинулись пересекать препятствие вброд!
+
+#+begin_export html
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/mcME8I6IQY0"></iframe>
+</div>
+#+end_export
+
+Поужинали мы в неплохом [[file:restaurants.org::*Sigiriya Karaoke Pub Restaurant][ресторане]] напротив гостиницы.
+
+Пруд на территории гостиницы уходящий в джунгли.
+
+[[./images_small/IMG_0380.jpg]]
+
+*** Статистика
+
+#+call: distances(date='2024-12-16)
+
+#+call: expenses(date='2024-12-16)
+
+[[file:toc.org][Содержание]]
+
+[[file:2024-12-15.org][День 1. Аэропорт - Негомбо]]
+
+[[file:2024-12-17.org][День 3. Дамбулла - Водопады]]

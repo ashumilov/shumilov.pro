@@ -1,0 +1,141 @@
+#+language: ru
+
+#+STARTUP: showall
+#+options: toc:nil num:nil
+
+#+INCLUDE: "style.org"
+#+INCLUDE: "functions.org"
+
+** День 9. Гора Элла - Секретный водопад - Девятиарочный мост
+<2024-12-23 Mon>
+
+С утра мы совершили хайкинг поднявшись на [[file:poi.org::*Ella Rock View Point][гору Элла]]. Подъем занял больше часа и был достаточно тяжелым, так как местами тропа была очень крутой. Особых видов по пути не было, кроме одного места, где с мостика был виден небольшой живописный водопад.
+
+#+begin_export html
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/ajiYAwo0dS0"></iframe>
+</div>
+#+end_export
+
+В основном путь пролегал через лес и небольшую чайную плантацию.
+
+[[./images_small/IMG_9242.jpg]]
+
+Наверху нужно было заплатить за вход чуть более 900 рупий за взрослого и половину суммы за ребенка.
+Вид с горы был красивый, но по-моему не стоил усилий затраченных на подъем.
+
+[[./images_small/IMG_9230.jpg]]
+
+[[./images_small/IMG_9232.jpg]]
+
+Позитивным моментом были козы и щенки, которых мы встретили по дороге.
+
+[[./images_small/IMG_0893.jpg]]
+
+#+begin_export html
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/6EQFDc5E7Jg"></iframe>
+</div>
+#+end_export
+
+После хайкинга мы позавтракали в [[file:restaurants.org::*Jade Green][кафе]] и отправились купаться к [[file:poi.org::*Secret Waterfall][секретному водопаду]], который находился в получасе езды от города.
+
+Водопад был многоуровневый и довольно пологий, состоящий из порогов образованный небольшой речкой.
+
+#+begin_export html
+<video controls autoplay loop>
+<source src="./video/IMG_9262.mp4" type="video/mp4">
+</video>
+#+end_export
+
+В самом начале мы встретили змею.
+
+[[./images_small/IMG_9261.jpg]]
+
+#+begin_export html
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/FfqSKy5IYYE"></iframe>
+</div>
+#+end_export
+
+Потом местных, которые мылись в воде с гелем и шампунем.
+
+[[./images_small/IMG_9265.jpg]]
+
+Пройдя дальше, мы нашли место, где можно было спокойно купаться.
+
+Саша прыгал в воду с камня.
+
+#+begin_export html
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/1Q49DVMiVns"></iframe>
+</div>
+#+end_export
+
+После купания в водопаде мы вернулись в город и отправились к [[file:poi.org::*Nine Arches Bridge Viewpoint][девятиарочному мосту]].
+Дорога к мосту была несложной, но очень загруженной туристами.
+
+[[./images_small/IMG_0908.jpg]]
+
+Когда мы подходили к мосту на него заехал и остановился поезд.
+
+[[./images_small/IMG_9319.jpg]]
+
+[[./images_small/IMG_9323.jpg]]
+
+Люди забирались на него и фотографировались.
+
+[[./images_small/IMG_0911.jpg]]
+
+Вид с моста.
+
+[[./images_small/IMG_9329.jpg]]
+
+[[./images_small/IMG_9330.jpg]]
+
+Вид из под моста.
+
+[[./images_small/IMG_0914.jpg]]
+
+Дети на мосту.
+
+[[./images_small/IMG_9333.jpg]]
+
+[[./images_small/IMG_9335.jpg]]
+
+[[./images_small/IMG_9338.jpg]]
+
+Уезжающий поезд.
+
+#+begin_export html
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/OFLhrV8wDV0"></iframe>
+</div>
+#+end_export
+
+За ужином мы опять разделились: дети отправились кушать (невкусную) [[file:restaurants.org::*Spice Ella][европейскую еду]], а мы - (вкусную) [[file:restaurants.org::*Sleek spoon restaurant Ella][ланкийскую]].
+
+[[./images_small/IMG_9346.jpg]]
+
+[[./images_small/IMG_9347.jpg]]
+
+[[./images_small/IMG_9348.jpg]]
+
+*** Статистика
+
+#+call: distances(date='2024-12-23)
+
+#+call: expenses(date='2024-12-23)
+
+
+[[file:toc.org][Содержание]]
+
+[[file:2024-12-22.org][День 8. Молочная ферма - Малый пик Адама - Элла]]
+
+[[file:2024-12-24.org][День 10. Буддийский храм - водопад Диялума - Тангале]]
+

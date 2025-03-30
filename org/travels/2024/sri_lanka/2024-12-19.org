@@ -1,0 +1,176 @@
+#+language: ru
+
+#+STARTUP: showall
+#+options: toc:nil num:nil
+
+#+INCLUDE: "style.org"
+#+INCLUDE: "functions.org"
+
+** День 5. Башня Амбулувава - Водопад Galpoththa - Пещера Белилена
+<2024-12-19 Thu>
+
+Вид из гостиницы с утра.
+
+[[./images_small/IMG_8764.jpg]]
+
+[[./images_small/IMG_8765.jpg]]
+
+Дорого по европейски [[file:restaurants.org::*Cafe Lavia][позавтракав]] мы двинулись к [[file:poi.org::*Ambuluwawa Tower][башне Амбулувава]].
+Башня стоит на возвышении 1050 метров и ее высота 48 метров.
+
+[[./images_small/IMG_8770.jpg]]
+
+[[./images_small/IMG_8778.jpg]]
+
+С нее открывается неплохой вид на остров.
+
+[[./images_small/IMG_8780.jpg]]
+
+[[./images_small/IMG_8781.jpg]]
+
+[[./images_small/IMG_8784.jpg]]
+
+Объекты вокруг башни.
+
+[[./images_small/IMG_8772.jpg]]
+
+[[./images_small/IMG_8774.jpg]]
+
+[[./images_small/IMG_8775.jpg]]
+
+[[./images_small/IMG_8785.jpg]]
+
+Но подняться наверх осмелится не каждый.
+
+#+begin_export html
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/v0FoR4GTzSs"></iframe>
+</div>
+#+end_export
+
+Спускаться еще страшнее, но виды рассматривать удобнее.
+
+#+begin_export html
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/l8GD8dyHoSA"></iframe>
+</div>
+#+end_export
+
+Зарисовки по дороге.
+
+[[./images_small/IMG_8768.jpg]]
+
+После башни мы поехали на [[file:poi.org::*Galpoththa][натуральные водные горки]], которые по сути являлись пологими водопадами.
+
+[[./images_small/IMG_8804.jpg]]
+
+[[./images_small/IMG_8796.jpg]]
+
+#+begin_export html
+<video controls autoplay loop>
+<source src="./video/IMG_8791.mp4" type="video/mp4">
+</video>
+#+end_export
+
+Пока мы пытались понять насколько безопасно там скатываться, пришли местные парни и показали мастер класс.
+
+#+begin_export html
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/iEySImoajZM"></iframe>
+</div>
+#+end_export
+
+#+begin_export html
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/tolvFnByTys"></iframe>
+</div>
+#+end_export
+
+Мы решили, что рисковать не стоит, ибо выглядело это все очень травмоопасно.
+
+#+begin_export html
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/4xolxjruWVs"></iframe>
+</div>
+#+end_export
+
+Мы отправились плавать на плоских участках, а в это время местные обнаружили под камнем змею.
+
+#+begin_export html
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/lEIA7gfFIr8"></iframe>
+</div>
+#+end_export
+
+После купания мы отправились в ближайший город, чтобы [[file:restaurants.org::*Pallet house Restaurant][перекусить]].
+
+Кадры по дороге.
+
+[[./images_small/IMG_8807.jpg]]
+
+Автовокзал.
+
+[[./images_small/IMG_8809.jpg]]
+
+[[./images_small/IMG_8814.jpg]]
+
+Различные блюда местной кухни.
+
+[[./images_small/IMG_8817.jpg]]
+
+Последним пунктом у нас значилась [[file:poi.org::*Belilena Cave][пещера Белилена]].
+
+Пейзажи по пути.
+
+[[./images_small/IMG_8819.jpg]]
+
+[[./images_small/IMG_8830.jpg]]
+
+[[./images_small/IMG_8831.jpg]]
+
+[[./images_small/IMG_8832.jpg]]
+
+[[./images_small/IMG_8833.jpg]]
+
+[[./images_small/IMG_8835.jpg]]
+
+На подъезде к пещере у нас случился казус. Я загляделся и съехал с дороги. Оба левых колеса оказались в кювете, а оба правых на дорожной плите. Пока мы размышляли, как нам выбраться, нам навстречу выехали два джипа полные местных жителей. Они помогли нам, один сел за руль, а остальные приподняли машину и в итоге удалось вырулить на проезжую часть. Нам реально повезло, так как это происходило в полной глухомани, где на пути встречались только старики и дети.
+
+[[./images_small/IMG_8826.jpg]]
+
+Сама пещера оказалась милой, но довольно заброшенной.
+
+#+begin_export html
+<video controls autoplay loop>
+<source src="./video/IMG_8828.mp4" type="video/mp4">
+</video>
+#+end_export
+
+#+begin_export html
+<video controls autoplay loop>
+<source src="./video/IMG_8829.mp4" type="video/mp4">
+</video>
+#+end_export
+
+К моменту, когда закончили осмотр, уже начало смеркаться. Мы доехали до ближайшей гостиницы затерянной в джунглях, но там оказался только один свободный номер, да и тот стоил больше 200 долларов.
+
+Пришлось спускаться в город, где мы просто заехали в первую [[file:hotels.org::*The Cave Kithulgala][гостиницу]] по дороге и она оказалось весьма неплохой по качеству и цене.
+
+*** Статистика
+
+#+call: distances(date='2024-12-19)
+
+#+call: expenses(date='2024-12-19)
+
+
+[[file:toc.org][Содержание]]
+
+[[file:2024-12-18.org][День 4. Сад специй - Озеро Сембуватта - Водопады]]
+
+[[file:2024-12-20.org][День 6. Водопад Лаксапана - Маскелия - Хаттон]]

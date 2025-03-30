@@ -1,0 +1,93 @@
+#+language: ru
+
+#+STARTUP: showall
+#+options: toc:nil num:nil
+
+#+INCLUDE: "style.org"
+#+INCLUDE: "functions.org"
+
+** День 8. Молочная ферма - Малый пик Адама - Элла
+<2024-12-22 Sun>
+
+Утро началось с того, что в номер к детям забралась хозяйская собака.
+
+#+begin_export html
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/L6qbmg3uDBE"></iframe>
+</div>
+#+end_export
+
+С утра мы подъехали к зданию старой почты, потом поднялись к чайным плантациям,
+откуда открывается неплохой вид на озеро Грегори.
+
+[[./images_small/IMG_9160.jpg]]
+
+[[./images_small/IMG_9161.jpg]]
+
+[[./images_small/IMG_9165.jpg]]
+
+После этого мы поехали на [[file:poi.org::*Ambewela Farm][молочную ферму]]. Виды по пути.
+
+[[./images_small/IMG_9168.jpg]]
+
+[[./images_small/IMG_9169.jpg]]
+
+[[./images_small/IMG_9170.jpg]]
+
+На молочной ферме очень интересный автоматизированный процесс дойки коров.
+
+Сначала коров загоняют в зону ожидания, потом открывают заслонку и они
+идут дальше, где каждая корова становится в определенное место и фиксируется
+перегородкой и ограничителем на шее. Тогда к ним подсоединяют аппарат для дойки.
+
+[[./images_small/IMG_9183.jpg]]
+
+В общей зоне, где коровы живут, по полу ползет сборник отходов.
+
+[[./images_small/IMG_9181.jpg]]
+
+[[./images_small/IMG_9189.jpg]]
+
+Вид с фермы.
+
+[[./images_small/IMG_9185.jpg]]
+
+По пути в Эллу мы заехали в небольшое [[file:restaurants.org::*Mr berry][кафе]], где поели мороженое.
+
+Доехав до города Элла, мы поехали к [[file:poi.org::*Little Adam's Peak][Малому пику Адама]]. После 20 минутного хайкинга,
+наверху открылись неплохие виды.
+
+[[./images_small/IMG_9201.jpg]]
+
+[[./images_small/IMG_9207.jpg]]
+
+[[./images_small/IMG_9210.jpg]]
+
+Дети скатились на зип-лайне вниз.
+
+[[./images_small/IMG_9211.jpg]]
+
+#+begin_export html
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/EvQeMIywMPg"></iframe>
+</div>
+#+end_export
+
+Засилившись в [[file:hotels.org::*Sohili 3R Resort Ella][гостиницу]], мы пошли кушать в [[file:restaurants.org::*House of Kitchen][ресторан]] местной кухни
+с рейтингом 5 баллов на google maps. Оказалось действительно очень вкусно.
+
+*** Статистика
+
+#+call: distances(date='2024-12-22)
+
+#+call: expenses(date='2024-12-22)
+
+
+[[file:toc.org][Содержание]]
+
+[[file:2024-12-21.org][День 7. Чайная фабрика Bluefield - водопад Lover's Leap - Нувара-Элия]]
+
+[[file:2024-12-23.org][День 9. Гора Элла - Секретный водопад - Девятиарочный мост]]
+

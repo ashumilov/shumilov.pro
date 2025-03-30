@@ -1,0 +1,155 @@
+#+language: ru
+
+#+STARTUP: showall
+#+options: toc:nil num:nil
+
+#+INCLUDE: "style.org"
+#+INCLUDE: "functions.org"
+
+** День 7. Чайная фабрика Bluefield - водопад Lover's Leap - Нувара-Элия
+<2024-12-21 Sat>
+
+С утра мы заехали покушать в ресторан с прекрасным видом с очень медленным обслуживанием.
+
+#+begin_export html
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/TJ2JR9Z4i_4"></iframe>
+</div>
+#+end_export
+
+[[./images_small/IMG_8990.jpg]]
+
+[[./images_small/IMG_8992.jpg]]
+
+[[./images_small/IMG_8993.jpg]]
+
+[[./images_small/IMG_8996.jpg]]
+
+По дороге мы встретили машину с дедом Морозом. Он ехал на машине с открытым верхом и
+когда увидел нас, то жестом показал, чтобы мы остановились и начал кидать нам
+в открытые окна конфеты из своего мешка с подарками. Было неожиданно и весело.
+
+После этого мы поехали на [[file:poi.org::*Bluefield Tea Factory][чайную фабрику]] где нам провели экскурсию. 
+Мы взяли полный пакет и нас сначала на джипе отвезли к водопаду Рабата с красивым видом.
+Дорога туда и обратно заняла больше часа.
+
+[[./images_small/IMG_0812.jpg]]
+
+[[./images_small/IMG_0814.jpg]]
+
+[[./images_small/IMG_9001.jpg]]
+
+[[./images_small/IMG_9004.jpg]]
+
+[[./images_small/IMG_9012.jpg]]
+
+[[./images_small/IMG_9016.jpg]]
+
+[[./images_small/IMG_9023.jpg]]
+
+[[./images_small/IMG_9024.jpg]]
+
+[[./images_small/IMG_9028.jpg]]
+
+[[./images_small/IMG_9031.jpg]]
+
+[[./images_small/IMG_9033.jpg]]
+
+[[./images_small/IMG_9038.jpg]]
+
+[[./images_small/IMG_9001.jpg]]
+
+[[./images_small/IMG_9044.jpg]]
+
+[[./images_small/IMG_9056.jpg]]
+
+[[./images_small/IMG_9059.jpg]]
+
+[[./images_small/IMG_9070.jpg]]
+
+[[./images_small/IMG_9076.jpg]]
+
+#+begin_export html
+<video controls autoplay loop>
+<source src="./video/IMG_9042.mp4" type="video/mp4">
+</video>
+#+end_export
+
+#+begin_export html
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/KOGJUGI1LuM"></iframe>
+</div>
+#+end_export
+
+Когда мы вернулись нас отвели на плантации, там девочки переоделись национальной одежду
+и сделали вид что они собирают чай.
+
+[[./images_small/IMG_9088.jpg]]
+
+[[./images_small/IMG_9125.jpg]]
+
+Потом нас отвели на саму фабрику и
+объяснили весь процесс производства чая. Гид у нас знал русский язык на троечку с минусом.
+По теме мог рассказывать довольно понятно, но на вопросы по другим темам ответить не мог.
+
+Увядание чая.
+
+[[./images_small/IMG_9128.jpg]]
+
+Сушка чая.
+
+#+begin_export html
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/-KXULwpQpbg"></iframe>
+</div>
+#+end_export
+
+Сортировка чая.
+
+#+begin_export html
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/eBR_oQlDI9U"></iframe>
+</div>
+#+end_export
+
+В самом конце экскурсии была чайная дегустация: два вида белого чая (золотой и серебняный),
+зеленый и 6 видов черного.
+
+[[./images_small/IMG_0816.jpg]]
+
+Радостное ожидание.
+
+[[./images_small/IMG_9137.jpg]]
+
+[[./images_small/IMG_9141.jpg]]
+
+После посещения чайной фабрики мы доехали до водопада [[file:poi.org::*Lover's Leap Waterfall][Lover's Leap]],
+который находится возле города Нувара-Элия, мы поднялись к нему, там было довольно красиво.
+
+[[./images_small/FullSizeRender_8430.jpg]]
+
+[[./images_small/IMG_0818.jpg]]
+
+В городе было сложно найти гостиницу, в итоге мы остановились в более-менеее
+подходящем [[file:hotels.org::*Himawari Hills Hotel][варианте]] на окраине города.
+
+[[./images_small/IMG_9149.jpg]]
+
+Поужинали мы в небольшом семейном [[file:restaurants.org::*Frostbite][ресторане]].
+
+*** Статистика
+
+#+call: distances(date='2024-12-21)
+
+#+call: expenses(date='2024-12-21)
+
+
+[[file:toc.org][Содержание]]
+
+[[file:2024-12-20.org][День 6. Водопад Лаксапана - Маскелия - Хаттон]]
+
+[[file:2024-12-22.org][День 8. Молочная ферма - Малый пик Адама - Элла]]

@@ -1,0 +1,73 @@
+#+language: ru
+
+#+STARTUP: showall
+#+options: toc:nil num:nil
+
+#+INCLUDE: "style.org"
+#+INCLUDE: "functions.org"
+
+** День 10. Буддийский храм - водопад Диялума - Тангале
+<2024-12-24 Tue>
+
+С утра мы позавтракали в [[file:restaurants.org::*Kiri Kopi][хипстерском заведении]].
+
+[[./images_small/IMG_9351.jpg]]
+
+[[./images_small/IMG_9352.jpg]]
+
+[[./images_small/IMG_9353.jpg]]
+
+По дороге к побережью мы заехали в [[file:poi.org::*Rakkiththa Kanda Rajamaha Viharaya][буддийский храм]].
+
+[[./images_small/IMG_9354.jpg]]
+
+[[./images_small/IMG_0938.jpg]]
+
+[[./images_small/IMG_9358.jpg]]
+
+Выслушав буддийские нравоучения и почитав молитвы, мы поехали к водопаду Диялума.
+
+#+begin_export html
+<video controls autoplay loop>
+<source src="./video/IMG_9362.mp4" type="video/mp4">
+</video>
+#+end_export
+
+[[./images_small/IMG_0941.jpg]]
+
+#+begin_export html
+<video controls autoplay loop>
+<source src="./video/IMG_9370.mp4" type="video/mp4">
+</video>
+#+end_export
+
+В верхней части водопада можно было купаться.
+
+#+begin_export html
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/hm-xhhcMIKI"></iframe>
+</div>
+#+end_export
+
+Искупавшись мы поехали дальше.
+
+[[./images_small/IMG_9380.jpg]]
+
+Приехав в Тангале мы заселились в [[file:hotels.org::*BV Residence][гостиницу]] и пошли на ужин.
+[[file:restaurants.org::*Chill Hut Cafe & Restaurent][Ресторан]] оказался довольно странным: кухня средняя, а хозяева
+все время выходили из дома и смотрели как мы едим при этом улыбаясь.
+
+*** Статистика
+
+#+call: distances(date='2024-12-24)
+
+#+call: expenses(date='2024-12-24)
+
+
+[[file:toc.org][Содержание]]
+
+[[file:2024-12-23.org][День 9. Гора Элла - Секретный водопад - Девятиарочный мост]]
+
+[[file:2024-12-25.org][День 11. Пляж Тангале - пляж Гоямбокка]]
+

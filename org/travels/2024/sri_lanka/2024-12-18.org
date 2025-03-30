@@ -1,0 +1,207 @@
+#+language: ru
+
+#+STARTUP: showall
+#+options: toc:nil num:nil
+
+#+INCLUDE: "style.org"
+#+INCLUDE: "functions.org"
+
+** День 4. Сад специй - Озеро Сембуватта - Водопады
+
+<2024-12-18 Wed>
+
+Утром полюбовавшись видом из гостиницы мы поехали в сторону озера Сембуватта.
+
+[[./images_small/IMG_8564.jpg]]
+
+Изначально мы выбрали более короткий путь и поначалу все было прекрасно.
+Дорога была достаточно живописной.
+
+[[./images_small/IMG_8587.jpg]]
+
+Встречались ступы.
+
+[[./images_small/IMG_8579.jpg]]
+
+Небольшие водопады.
+
+#+begin_export html
+<video controls autoplay loop>
+<source src="./video/IMG_8567.mp4" type="video/mp4">
+</video>
+#+end_export
+
+И даже рисовые террасы.
+
+[[./images_small/IMG_8572.jpg]]
+
+[[./images_small/IMG_8574.jpg]]
+
+[[./images_small/IMG_8577.jpg]]
+
+[[./images_small/IMG_8581.jpg]]
+
+Но дорога становилась все уже и хуже и в итоге нам пришлось развернуться и поехать в объезд через Матале.
+
+#+begin_export html
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/ToBP2gMq4n0"></iframe>
+</div>
+#+end_export
+
+Зато мы посетили [[file:poi.org::*National Spice Garden of Sri Lanka][сад специй]], где нам провели бесплатную полуторачасовую экскурсию и показали как растут различные специи.
+
+[[./images_small/IMG_8622.jpg]]
+
+Перец.
+
+[[./images_small/IMG_8591.jpg]]
+
+Корица.
+
+[[./images_small/IMG_8592.jpg]]
+
+[[./images_small/IMG_8593.jpg]]
+
+Имбирь.
+
+[[./images_small/IMG_8601.jpg]]
+
+Ваниль.
+
+[[./images_small/IMG_8608.jpg]]
+
+Кориандр.
+
+[[./images_small/IMG_8612.jpg]]
+
+После экскурсии мы продолжили путь через леса.
+
+[[./images_small/IMG_8624.jpg]]
+
+[[./images_small/IMG_8628.jpg]]
+
+По пути встречались деревья с необычно яркими цветами.
+
+[[./images_small/IMG_8635.jpg]]
+
+А также чайные плантации.
+
+[[./images_small/IMG_8647.jpg]]
+
+[[./images_small/IMG_8649.jpg]]
+
+[[./images_small/IMG_8651.jpg]]
+
+На подъезде к озеру мы обнаружили водопад, который стекал из озера.
+
+#+begin_export html
+<video controls autoplay loop>
+<source src="./video/IMG_8662.mp4" type="video/mp4">
+</video>
+#+end_export
+
+Само озеро оказалалось очень живописным и покрытым туманом.
+
+[[./images_small/IMG_0479.jpg]]
+
+[[./images_small/IMG_8666.jpg]]
+
+[[./images_small/IMG_8667.jpg]]
+
+[[./images_small/IMG_8669.jpg]]
+
+[[./images_small/IMG_8671.jpg]]
+
+[[./images_small/IMG_8676.jpg]]
+
+[[./images_small/IMG_8681.jpg]]
+
+[[./images_small/IMG_8686.jpg]]
+
+[[./images_small/IMG_8693.jpg]]
+
+После озера мы отправились к водопаду Хунансвол. Он оказался очень высоким.
+
+#+begin_export html
+<video controls autoplay loop>
+<source src="./video/IMG_8704.mp4" type="video/mp4">
+</video>
+#+end_export
+
+#+begin_export html
+<video controls autoplay loop>
+<source src="./video/IMG_8707.mp4" type="video/mp4">
+</video>
+#+end_export
+
+#+begin_export html
+<video controls autoplay loop>
+<source src="./video/IMG_8726.mp4" type="video/mp4">
+</video>
+#+end_export
+
+#+begin_export html
+<video controls autoplay loop>
+<source src="./video/IMG_8730.mp4" type="video/mp4">
+</video>
+#+end_export
+
+Там же было место для плавания и пикника.
+
+[[./images_small/IMG_8709.jpg]]
+
+[[./images_small/IMG_8723.jpg]]
+
+Последний водопад, который мы планировали посетить находился на окраине деревни.
+
+[[./images_small/IMG_8742.jpg]]
+
+[[./images_small/IMG_8744.jpg]]
+
+Сам водопад протекал прямо через дорогу.
+
+#+begin_export html
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/RnoLCFscg6U"></iframe>
+</div>
+#+end_export
+
+#+begin_export html
+<video controls autoplay loop>
+<source src="./video/IMG_8747.mp4" type="video/mp4">
+</video>
+#+end_export
+
+#+begin_export html
+<video controls autoplay loop>
+<source src="./video/IMG_8749.mp4" type="video/mp4">
+</video>
+#+end_export
+
+На обратном пути мы встретили необычную процессию состоящую из местной молодежи, которые несли икону и зажженные свечи.
+
+#+begin_export html
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/5Ov5WafQDS0"></iframe>
+</div>
+#+end_export
+
+Ехать до Канди пришлось по темноте, что было не очень приятно: пешеходы шли по краю проезжей части без отражателей и появлялись в поле зрения в последний момент, встречные машины слепили фарами, а сзади часто шли на обгон. Добравшись до [[file:hotels.org::*Sobasee holiday bungalow][аппартаментов]] мы заселились и пошли ужинать.
+[[file:restaurants.org::*Kurumbunkz][Ресторан]] оказался с приличной кухней и красивым видом, но довольно дорогой.
+
+*** Статистика
+
+#+call: distances(date='2024-12-18)
+
+#+call: expenses(date='2024-12-18)
+
+
+[[file:toc.org][Содержание]]
+
+[[file:2024-12-17.org][День 3. Дамбулла - Водопады]]
+
+[[file:2024-12-19.org][День 5. Башня Амбулувава - Водопад Galpoththa - Пещера Белилена]]

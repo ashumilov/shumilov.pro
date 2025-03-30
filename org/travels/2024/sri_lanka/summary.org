@@ -1,0 +1,54 @@
+#+language: ru
+
+#+STARTUP: showall
+#+options: toc:nil num:nil
+
+#+INCLUDE: "style.org"
+#+INCLUDE: "functions.org"
+
+** Итог
+
+Мы немного отклонились от маршрута и пропустили несколько запланированных хайкинговых троп из-за дождей.
+Итоговый маршрут выглядел так (красный цвет - запланированный маршрут, а синий - реальный).
+
+[[./images_small/recorded.jpg]]
+
+*** Общая статистика
+
+#+begin_src emacs-lisp :noweb yes :results output :exports results :var values=distance-values
+  (let* ((pairs (mapcar 'cdr values))
+         (walks (mapcar 'cdr pairs))
+         (drives (mapcar 'car pairs))
+        (total-walk (apply '+ walks))
+        (total-drive (- (car (last drives)) (car drives))))
+    (princ "Дистанция\n")
+    (princ (format "  Авто:   %d км\n" total-drive))
+    (princ (format "  Пешком: %d км" total-walk)))
+#+end_src
+
+#+call: expenses(date='2024-12-13,end-date='2025-01-04)
+
+#+begin_src emacs-lisp :noweb yes :results output :exports results :var persons=5 :var days=21
+  <<total-expenses>>
+  (defun print-type-total (type &optional name)
+    (let ((name (concat (if name name type) ":"))
+          (value (concat "€" (number-to-string (total-expenses type persons days)))))
+    (princ (format "  %-22s%12s\n" name value))))
+
+  (princ (format "Количество человек:         %d\n" persons))
+  (princ (format "Количество дней:            %d\n\n" days))
+  (princ (format "Расходы на человека в день\n"))
+  (print-type-total "Расходы" "Всего")
+  (print-type-total "Жилье")
+  (print-type-total "Еда")
+  (print-type-total "Транспорт")
+  (print-type-total "Достопримечательности")
+  (print-type-total "Самолет")
+#+end_src
+
+
+
+[[file:toc.org][Содержание]]
+
+[[file:2025-01-04.org][День 21. Стамбул - Рига]]
+

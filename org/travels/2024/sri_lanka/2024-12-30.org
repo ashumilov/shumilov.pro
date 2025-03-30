@@ -1,0 +1,163 @@
+#+language: ru
+
+#+STARTUP: showall
+#+options: toc:nil num:nil
+
+#+INCLUDE: "style.org"
+#+INCLUDE: "functions.org"
+
+** День 16. Синхараджа - Пляж Гоямбокка
+<2024-12-30 Mon>
+
+С утра мы встали в шесть часов и быстро собравшись выехали в сторону [[https://maps.app.goo.gl/6r6BM5nvXgJ6VFHK9][входа Ланкагама]].
+
+Немного поплутав по дороге, мы приехали к 7:50. Касса была еще закрыта, но местные гиды
+предложили нам заплатить потом, а сейчас отправиться с одним из них за 8000 рупий.
+Я знал, что билеты на двоих стоят 2500 рупий и услуги гида 1500 рупий и стал торговаться.
+В итоге сошлись на 6000 рупий и мы пошли смотреть дождевой лес.
+
+Дождевой лес Синхараджа уникален тем, что 60% его флоры и фауны составляют эндемики,
+то есть виды, среда обитания которых ограничена областью леса.
+
+Водопад.
+
+#+begin_export html
+<video controls autoplay loop>
+<source src="./video/IMG_1034.mp4" type="video/mp4">
+</video>
+#+end_export
+
+Ящерица маскируется на дереве.
+
+[[./images_small/IMG_1035.jpg]]
+
+Зеленая улитка.
+
+[[./images_small/IMG_1036.jpg]]
+
+Древесные грибы.
+
+[[./images_small/IMG_1037.jpg]]
+
+Ядовитая змея.
+
+[[./images_small/IMG_1039.jpg]]
+
+Красивый водопад.
+
+#+begin_export html
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/Te1KZYJOzZI"></iframe>
+</div>
+#+end_export
+
+#+begin_export html
+<video controls autoplay loop>
+<source src="./video/IMG_1042.mp4" type="video/mp4">
+</video>
+#+end_export
+
+Еще древесные грибы.
+
+[[./images_small/IMG_1044.jpg]]
+
+Ящерица.
+
+[[./images_small/IMG_1047.jpg]]
+
+Паук.
+
+#+begin_export html
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/bHNe8qTyl-s"></iframe>
+</div>
+#+end_export
+
+Многоножка.
+
+#+begin_export html
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/LEM53Y_HyxY"></iframe>
+</div>
+#+end_export
+
+Водопад.
+
+#+begin_export html
+<video controls autoplay loop>
+<source src="./video/IMG_1054.mp4" type="video/mp4">
+</video>
+#+end_export
+
+Дерево.
+
+[[./images_small/IMG_1055.jpg]]
+
+Ящерица.
+
+[[./images_small/IMG_1058.jpg]]
+
+Водопад.
+
+#+begin_export html
+<video controls autoplay loop>
+<source src="./video/IMG_1060.mp4" type="video/mp4">
+</video>
+#+end_export
+
+Красивый цветок.
+
+[[./images_small/IMG_1063-1.jpg]]
+
+Симбиоз с деревом.
+
+[[./images_small/IMG_1064.jpg]]
+
+
+Рыбки, которые прилипают к ногам.
+
+#+begin_export html
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/Uv-lJRLwo4I"></iframe>
+</div>
+#+end_export
+
+Радуга в водопаде.
+
+#+begin_export html
+<video controls autoplay loop>
+<source src="./video/IMG_1078.mp4" type="video/mp4">
+</video>
+#+end_export
+
+После посещения дождевого леса мы доехали до Матары, где поели в приличной [[file:restaurants.org::*DelTano's Wood Fired Pizza & Pasta][пиццерии]]
+и захватили три пиццы с собой.
+
+Вечером пошел дождь, мы поздно пошли в [[file:restaurants.org::*Ceylon Excel][ресторан]].
+Свободных столов не было, а так как на улице шел дождь,
+нас впустили в жилую зону хозяев подождать. Это был интересный опыт.
+
+#+begin_export html
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/VLx8cZ5rnYQ"></iframe>
+</div>
+#+end_export
+
+*** Статистика
+
+#+call: distances(date='2024-12-30)
+
+#+call: expenses(date='2024-12-30)
+
+
+[[file:toc.org][Содержание]]
+
+[[file:2024-12-29.org][День 15. Пляж Гоямбокка - Денийяйя]]
+
+[[file:2024-12-31.org][День 17. Пляж Гоямбокка]]
+

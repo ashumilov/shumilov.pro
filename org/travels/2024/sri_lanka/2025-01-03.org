@@ -1,0 +1,30 @@
+#+language: ru
+
+#+STARTUP: showall
+#+options: toc:nil num:nil
+
+#+INCLUDE: "style.org"
+#+INCLUDE: "functions.org"
+
+** День 20. Унаватуна - Коломбо
+<2025-01-03 Fri>
+
+С утра мы доехали до Унаватуны и позавтракав в неплохом [[file:restaurants.org::*SkinnyTom's Deli][месте]] пошли на пляж.
+
+Вечером я сдал машину и заселившись в [[file:hotels.org::*House Of Esanya][гостиницу]] мы поехали покушать с [[file:restaurants.org::*Unwind Restaurant & Hostel][ресторан]] неподалеку.
+
+[[./images_small/IMG_9594.jpg]]
+
+*** Статистика
+
+#+call: distances(date='2025-01-03)
+
+#+call: expenses(date='2025-01-03)
+
+
+[[file:toc.org][Содержание]]
+
+[[file:2025-01-02.org][День 19. Мерисса]]
+
+[[file:2025-01-04.org][День 21. Стамбул - Рига]]
+

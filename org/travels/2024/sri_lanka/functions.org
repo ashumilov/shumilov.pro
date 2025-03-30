@@ -1,0 +1,131 @@
+#+name: first-date
+#+begin_src emacs-lisp :exports none
+  '2024-12-13
+#+end_src
+
+#+name: last-date
+#+begin_src emacs-lisp :exports none
+  '2025-01-05
+#+end_src
+
+#+name: distance-values
+#+begin_src emacs-lisp :exports none
+  (setq distance-values
+        '(
+;          (2024-12-13 . (210353 . 0))
+          (2024-12-14 . (210353 . 0))
+          (2024-12-15 . (210363 . 12))
+          (2024-12-16 . (210525 . 5))
+          (2024-12-17 . (210642 . 11))
+          (2024-12-18 . (210734 . 15))
+          (2024-12-19 . (210836 . 8))
+          (2024-12-20 . (210939 . 10))
+          (2024-12-21 . (211029 . 13))
+          (2024-12-22 . (211119 . 11))
+          (2024-12-23 . (211150 . 18))
+          (2024-12-24 . (211327 . 10))
+          (2024-12-25 . (211327 . 8))
+          (2024-12-26 . (211327 . 9))
+          (2024-12-27 . (211327 . 9))
+          (2024-12-28 . (211335 . 6))
+          (2024-12-29 . (211414 . 4))
+          (2024-12-30 . (211590 . 10))
+          (2024-12-31 . (211595 . 7))
+          (2025-01-01 . (211605 . 6))
+          (2025-01-02 . (211702 . 11))
+          (2025-01-03 . (211940 . 5))
+          (2025-01-04 . (211940 . 10))
+          ))
+#+end_src
+
+#+name: get-other-date
+#+begin_src emacs-lisp :exports none
+(defun get-other-date (date delta)
+  (intern
+   (format-time-string
+    "%Y-%m-%d"
+    (encode-time
+     (decoded-time-add
+      (parse-time-string (symbol-name date))
+      (make-decoded-time :day delta))))))
+#+end_src
+
+#+name: get-next-date
+#+begin_src emacs-lisp :noweb yes :exports none
+  <<get-other-date>>
+  (defun get-next-date (date)
+    (get-other-date date 1))
+#+end_src
+
+#+name: get-prev-date
+#+begin_src emacs-lisp :noweb yes :exports none
+  <<get-other-date>>
+  (defun get-prev-date (date)
+    (get-other-date date -1))
+#+end_src
+
+#+name: func-distances
+#+begin_src emacs-lisp :noweb yes :results output :exports none
+  <<distance-values>>
+  <<get-prev-date>>
+  (defun distances (date)
+    (let* ((walk (cdr (alist-get date distance-values)))
+           (prev-date (get-prev-date date))
+           (drive (- (car (alist-get date distance-values))
+                     (car (alist-get prev-date distance-values)))))
+      (princ "Дистанция\n")
+      (princ (format "  Авто:   %d км\n" drive))
+      (princ (format "  Пешком: %d км" walk))))
+#+end_src
+
+#+name: distances
+#+begin_src emacs-lisp :noweb yes :results output :exports none :var date='none
+  <<func-distances>>
+  (if (not (eq date 'none))
+      (distances date))
+#+end_src
+
+#+name: func-expenses
+#+begin_src emacs-lisp :noweb yes :exports none
+  <<get-next-date>>
+  (defun expenses (from-date to-date total type)
+    (shell-command-to-string
+     (concat
+      "ledger -f report.txt bal "
+      type
+      " -X EUR "
+      (if (equal total 0)
+          "--no-total "
+        "-n --balance-format \"%(display_total)\"")
+      " -b "
+      (symbol-name from-date)
+      " -e "
+      (symbol-name to-date))))
+#+end_src
+
+#+name: expenses
+#+begin_src emacs-lisp :noweb yes :exports none :var date='none end-date='none
+  <<func-expenses>>
+  (if (not (eq date 'none))
+      (let ((to-date (if (eq end-date 'none)
+                         (get-next-date date)
+                       end-date)))
+        (expenses date to-date 0 "Расходы")))
+#+end_src
+
+#+name: total-expenses
+#+begin_src emacs-lisp :noweb yes :exports none
+  <<func-expenses>>
+  (defun total-expenses (type persons days)
+    (let* ((expenses (expenses <<first-date>> <<last-date>> 1 type))
+           (total
+            (if (= (length expenses) 0)
+                0
+              (string-to-number
+               (substring
+                expenses
+                1))))
+           (per-total (if (= total 0) 0 (/ total (* persons days)))))
+      per-total))
+#+end_src
+
