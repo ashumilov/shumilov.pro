@@ -1,0 +1,531 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru" xml:lang="ru">
+<head>
+<!-- 2025-01-24 Fri 17:21 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="author" content="Alexander Shumilov" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="https://gongzhitaao.org/orgcss/org.css"/>
+<style> img { width: 100%; } </style>
+<style> video { width: 100%; } </style>
+<style> pre { background-color: white; } </style>
+</head>
+<body>
+<div id="content" class="content">
+<div id="outline-container-org40da73b" class="outline-2">
+<h2 id="org40da73b">День 5. Башня Амбулувава - Водопад Galpoththa - Пещера Белилена</h2>
+<div class="outline-text-2" id="text-org40da73b">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">2024-12-19 Thu</span></span>
+</p>
+
+<p>
+Вид из гостиницы с утра.
+</p>
+
+
+<div id="orgb5f984c" class="figure">
+<p><img src="./images_small/IMG_8764.jpg" alt="IMG_8764.jpg" />
+</p>
+</div>
+
+
+<div id="org3356769" class="figure">
+<p><img src="./images_small/IMG_8765.jpg" alt="IMG_8765.jpg" />
+</p>
+</div>
+
+<p>
+Дорого по европейски <a href="restaurants.html#org9dbdd6a">позавтракав</a> мы двинулись к <a href="poi.html#org41e940b">башне Амбулувава</a>.
+Башня стоит на возвышении 1050 метров и ее высота 48 метров.
+</p>
+
+
+<div id="org0cf672c" class="figure">
+<p><img src="./images_small/IMG_8770.jpg" alt="IMG_8770.jpg" />
+</p>
+</div>
+
+
+<div id="org136ea66" class="figure">
+<p><img src="./images_small/IMG_8778.jpg" alt="IMG_8778.jpg" />
+</p>
+</div>
+
+<p>
+С нее открывается неплохой вид на остров.
+</p>
+
+
+<div id="orgbff48c8" class="figure">
+<p><img src="./images_small/IMG_8780.jpg" alt="IMG_8780.jpg" />
+</p>
+</div>
+
+
+<div id="orga4da699" class="figure">
+<p><img src="./images_small/IMG_8781.jpg" alt="IMG_8781.jpg" />
+</p>
+</div>
+
+
+<div id="org600c2c2" class="figure">
+<p><img src="./images_small/IMG_8784.jpg" alt="IMG_8784.jpg" />
+</p>
+</div>
+
+<p>
+Объекты вокруг башни.
+</p>
+
+
+<div id="orgd81071d" class="figure">
+<p><img src="./images_small/IMG_8772.jpg" alt="IMG_8772.jpg" />
+</p>
+</div>
+
+
+<div id="orgf83eb0c" class="figure">
+<p><img src="./images_small/IMG_8774.jpg" alt="IMG_8774.jpg" />
+</p>
+</div>
+
+
+<div id="orgbefc023" class="figure">
+<p><img src="./images_small/IMG_8775.jpg" alt="IMG_8775.jpg" />
+</p>
+</div>
+
+
+<div id="orgc4144d8" class="figure">
+<p><img src="./images_small/IMG_8785.jpg" alt="IMG_8785.jpg" />
+</p>
+</div>
+
+<p>
+Но подняться наверх осмелится не каждый.
+</p>
+
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/v0FoR4GTzSs"></iframe>
+</div>
+
+<p>
+Спускаться еще страшнее, но виды рассматривать удобнее.
+</p>
+
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/l8GD8dyHoSA"></iframe>
+</div>
+
+<p>
+Зарисовки по дороге.
+</p>
+
+
+<div id="orgd3d45a9" class="figure">
+<p><img src="./images_small/IMG_8768.jpg" alt="IMG_8768.jpg" />
+</p>
+</div>
+
+<p>
+После башни мы поехали на <a href="poi.html#org1ff42dc">натуральные водные горки</a>, которые по сути являлись пологими водопадами.
+</p>
+
+
+<div id="orgad05228" class="figure">
+<p><img src="./images_small/IMG_8804.jpg" alt="IMG_8804.jpg" />
+</p>
+</div>
+
+
+<div id="org5a6f9b2" class="figure">
+<p><img src="./images_small/IMG_8796.jpg" alt="IMG_8796.jpg" />
+</p>
+</div>
+
+<video controls autoplay loop>
+<source src="./video/IMG_8791.mp4" type="video/mp4">
+</video>
+
+<p>
+Пока мы пытались понять насколько безопасно там скатываться, пришли местные парни и показали мастер класс.
+</p>
+
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/iEySImoajZM"></iframe>
+</div>
+
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/tolvFnByTys"></iframe>
+</div>
+
+<p>
+Мы решили, что рисковать не стоит, ибо выглядело это все очень травмоопасно.
+</p>
+
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/4xolxjruWVs"></iframe>
+</div>
+
+<p>
+Мы отправились плавать на плоских участках, а в это время местные обнаружили под камнем змею.
+</p>
+
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/lEIA7gfFIr8"></iframe>
+</div>
+
+<p>
+После купания мы отправились в ближайший город, чтобы <a href="restaurants.html#org4b114f4">перекусить</a>.
+</p>
+
+<p>
+Кадры по дороге.
+</p>
+
+
+<div id="org735ac75" class="figure">
+<p><img src="./images_small/IMG_8807.jpg" alt="IMG_8807.jpg" />
+</p>
+</div>
+
+<p>
+Автовокзал.
+</p>
+
+
+<div id="org543ce5c" class="figure">
+<p><img src="./images_small/IMG_8809.jpg" alt="IMG_8809.jpg" />
+</p>
+</div>
+
+
+<div id="org1abb17d" class="figure">
+<p><img src="./images_small/IMG_8814.jpg" alt="IMG_8814.jpg" />
+</p>
+</div>
+
+<p>
+Различные блюда местной кухни.
+</p>
+
+
+<div id="org8872b8a" class="figure">
+<p><img src="./images_small/IMG_8817.jpg" alt="IMG_8817.jpg" />
+</p>
+</div>
+
+<p>
+Последним пунктом у нас значилась <a href="poi.html#org73b2bad">пещера Белилена</a>.
+</p>
+
+<p>
+Пейзажи по пути.
+</p>
+
+
+<div id="org140c0b3" class="figure">
+<p><img src="./images_small/IMG_8819.jpg" alt="IMG_8819.jpg" />
+</p>
+</div>
+
+
+<div id="orge17bea1" class="figure">
+<p><img src="./images_small/IMG_8830.jpg" alt="IMG_8830.jpg" />
+</p>
+</div>
+
+
+<div id="orgb34ee15" class="figure">
+<p><img src="./images_small/IMG_8831.jpg" alt="IMG_8831.jpg" />
+</p>
+</div>
+
+
+<div id="orga2d0a81" class="figure">
+<p><img src="./images_small/IMG_8832.jpg" alt="IMG_8832.jpg" />
+</p>
+</div>
+
+
+<div id="org031bd59" class="figure">
+<p><img src="./images_small/IMG_8833.jpg" alt="IMG_8833.jpg" />
+</p>
+</div>
+
+
+<div id="org5182b91" class="figure">
+<p><img src="./images_small/IMG_8835.jpg" alt="IMG_8835.jpg" />
+</p>
+</div>
+
+<p>
+На подъезде к пещере у нас случился казус. Я загляделся и съехал с дороги. Оба левых колеса оказались в кювете, а оба правых на дорожной плите. Пока мы размышляли, как нам выбраться, нам навстречу выехали два джипа полные местных жителей. Они помогли нам, один сел за руль, а остальные приподняли машину и в итоге удалось вырулить на проезжую часть. Нам реально повезло, так как это происходило в полной глухомани, где на пути встречались только старики и дети.
+</p>
+
+
+<div id="org54373ee" class="figure">
+<p><img src="./images_small/IMG_8826.jpg" alt="IMG_8826.jpg" />
+</p>
+</div>
+
+<p>
+Сама пещера оказалась милой, но довольно заброшенной.
+</p>
+
+<video controls autoplay loop>
+<source src="./video/IMG_8828.mp4" type="video/mp4">
+</video>
+
+<video controls autoplay loop>
+<source src="./video/IMG_8829.mp4" type="video/mp4">
+</video>
+
+<p>
+К моменту, когда закончили осмотр, уже начало смеркаться. Мы доехали до ближайшей гостиницы затерянной в джунглях, но там оказался только один свободный номер, да и тот стоил больше 200 долларов.
+</p>
+
+<p>
+Пришлось спускаться в город, где мы просто заехали в первую <a href="hotels.html#orgd221f19">гостиницу</a> по дороге и она оказалось весьма неплохой по качеству и цене.
+</p>
+</div>
+
+<div id="outline-container-org26aa208" class="outline-3">
+<h3 id="org26aa208">Статистика</h3>
+<div class="outline-text-3" id="text-org26aa208">
+<pre class="example">
+Дистанция
+  Авто:   102 км
+  Пешком: 8 км
+</pre>
+
+
+<pre class="example">
+€234  Расходы
+ €26    Достопримечательности
+€119    Еда
+ €37      Магазин
+ €82      Ресторан
+ €53    Жилье
+ €35    Транспорт:Топливо
+</pre>
+
+
+
+<p>
+<a href="toc.html">Содержание</a>
+</p>
+
+<p>
+<a href="2024-12-18.html">День 4. Сад специй - Озеро Сембуватта - Водопады</a>
+</p>
+
+<p>
+<a href="2024-12-20.html">День 6. Водопад Лаксапана - Маскелия - Хаттон</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">&#1040;&#1074;&#1090;&#1086;&#1088;: Alexander Shumilov</p>
+<p class="date">Created: 2025-01-24 Fri 17:21</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

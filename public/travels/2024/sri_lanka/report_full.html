@@ -1,0 +1,5194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru" xml:lang="ru">
+<head>
+<!-- 2025-02-15 Sat 08:52 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Отчет о поездке в Шри Ланку</title>
+<meta name="author" content="Александр Шумилов" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="https://gongzhitaao.org/orgcss/org.css"/>
+<style> img { width: 100%; } </style>
+<style> video { width: 100%; } </style>
+<style> pre { background-color: white; } </style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Отчет о поездке в Шри Ланку</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>&#1057;&#1086;&#1076;&#1077;&#1088;&#1078;&#1072;&#1085;&#1080;&#1077;</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgc6b33d7">Хронология событий</a>
+<ul>
+<li><a href="#orgdb71390">Подготовка</a></li>
+<li><a href="#org1e066fc">День 1. Аэропорт - Негомбо</a></li>
+<li><a href="#org7e42dea">День 2. Курунегала - Думбала - Сигирия</a></li>
+<li><a href="#org0071fb5">День 3. Дамбулла - Водопады</a></li>
+<li><a href="#org2e86837">День 4. Сад специй - Озеро Сембуватта - Водопады</a></li>
+<li><a href="#orgb3e1064">День 5. Башня Амбулувава - Водопад Galpoththa - Пещера Белилена</a></li>
+<li><a href="#orgf9f9a9f">День 6. Водопад Лаксапана - Маскелия - Хаттон</a></li>
+<li><a href="#org2d0bc66">День 7. Чайная фабрика Bluefield - водопад Lover's Leap - Нувара-Элия</a></li>
+<li><a href="#org8f48552">День 8. Молочная ферма - Малый пик Адама - Элла</a></li>
+<li><a href="#orga0b67c6">День 9. Гора Элла - Секретный водопад - Девятиарочный мост</a></li>
+<li><a href="#orgb864417">День 10. Буддийский храм - водопад Диялума - Тангале</a></li>
+<li><a href="#orgfb4dc20">День 11. Пляж Тангале - пляж Гоямбокка</a></li>
+<li><a href="#orgf50ae9b">День 12. Пляж Гоямбокка</a></li>
+<li><a href="#orgb68bcde">День 13. Пляж Гоямбокка</a></li>
+<li><a href="#orge3dac53">День 14. Пляж Гоямбокка</a></li>
+<li><a href="#org51431c6">День 15. Пляж Гоямбокка - Денийяйя</a></li>
+<li><a href="#orgbae6a67">День 16. Синхараджа - Пляж Гоямбокка</a></li>
+<li><a href="#orgbac5d64">День 17. Пляж Гоямбокка</a></li>
+<li><a href="#orgbbdd954">День 18. Пляж Гоямбокка</a></li>
+<li><a href="#orge76075c">День 19. Мирисса</a></li>
+<li><a href="#org793b81f">День 20. Унаватуна - Коломбо</a></li>
+<li><a href="#org5430e77">День 21. Стамбул - Рига</a></li>
+<li><a href="#orgec56941">Итог</a></li>
+</ul>
+</li>
+<li><a href="#org69733cf">Достопримечательности</a>
+<ul>
+<li><a href="#orgc3a8649">Negombo Dry fish Processing Area</a></li>
+<li><a href="#orgc82cb97">Pidurangala Rock</a></li>
+<li><a href="#org867cffb">Aluviharaya Rock Cave Temple</a></li>
+<li><a href="#org66e1753">Bambarakiri Ella</a></li>
+<li><a href="#orgce7d1ee">Rathninda Ella Waterfall</a></li>
+<li><a href="#org28b0950">Hunnasgiriya Water Fall</a></li>
+<li><a href="#org69429f2">Themali Kaan Waterfall</a></li>
+<li><a href="#orgdde2ffa">Sri Dalada Maligawa (Храм Зуба Будды)</a></li>
+<li><a href="#org031dc42">Sri Maha Bodhi Viharaya</a></li>
+<li><a href="#org51f48cc">Kande Sudu Ella Waterfall</a></li>
+<li><a href="#orgc42a886">Knuckles Falls</a></li>
+<li><a href="#org390a3f1">Kondagala Rock</a></li>
+<li><a href="#org47f1552">National Spice Garden of Sri Lanka</a></li>
+<li><a href="#orga2e12d6">Ambuluwawa Tower</a></li>
+<li><a href="#org31419b1">Galpoththa</a></li>
+<li><a href="#org87dab38">Belilena Cave</a></li>
+<li><a href="#orgad602fa">Laxapana Falls</a></li>
+<li><a href="#orga72876c">Maskeliya</a></li>
+<li><a href="#orgf3bb2bc">Mohini Falls</a></li>
+<li><a href="#org676cad5">Gartmore Falls</a></li>
+<li><a href="#org6fd20ff">Bluefield Tea Factory</a></li>
+<li><a href="#orgaa39f42">Devon Falls</a></li>
+<li><a href="#org89baf51">Kotmale Reservoir Observation Point</a></li>
+<li><a href="#org6b7be2f">Ramboda Falls</a></li>
+<li><a href="#orgfb6dc76">Bluefield Tea Factory</a></li>
+<li><a href="#orgd7d15fd">Labookellie Tea Lounge</a></li>
+<li><a href="#orgf6518aa">Lover's Leap Waterfall</a></li>
+<li><a href="#org81414e6">Heritance Tea Factory</a></li>
+<li><a href="#orgfed7a78">Single Tree Hill</a></li>
+<li><a href="#org498a23d">Lake Gregory</a></li>
+<li><a href="#orgd6b7e35">Bomburu Ella Waterfall</a></li>
+<li><a href="#org3e759a1">Ambewela Farm</a></li>
+<li><a href="#orgcb398c9">Adisham Bungalow (St.Benedict's Monastery)</a></li>
+<li><a href="#org2d186f9">Eagle's Rock View Point</a></li>
+<li><a href="#orga77daa2">Lipton's Seat</a></li>
+<li><a href="#org36725bf">Diyaluma Falls</a></li>
+<li><a href="#orgd04e4de">Rakkiththa Kanda Rajamaha Viharaya</a></li>
+<li><a href="#orga805161">Ravana Waterfall</a></li>
+<li><a href="#org70b436a">Ella Rock View Point</a></li>
+<li><a href="#orgb621002">Little Adam's Peak</a></li>
+<li><a href="#org9dab44c">Secret Waterfall</a></li>
+<li><a href="#org9e10972">Nine Arches Bridge Viewpoint</a></li>
+<li><a href="#orgbd27d8b">NilDiya Pokuna</a></li>
+<li><a href="#org86caa26">LightHouse View From Sea</a></li>
+<li><a href="#orga4e0b5a">Hummanaya Blow Hole</a></li>
+<li><a href="#orgd3f4486">Turtle Point Bathigama Dickwella</a></li>
+<li><a href="#org494f663">Coconut Tree Hill</a></li>
+<li><a href="#orgef26006">Parrot Rock</a></li>
+<li><a href="#org2a7678f">Sea Turtle Hatchery - Habaraduwa</a></li>
+<li><a href="#org34e7ab7">Japanese Peace Pagoda - Rumassala</a></li>
+<li><a href="#org570c2f9">Sea Turtle Hatchery Centre, Mahamodara</a></li>
+<li><a href="#orgd255a4d">Turtle Beach - Hikkaduwa</a></li>
+<li><a href="#org7233eb6">Sea Turtle Hatchery &amp; Rescue Center</a></li>
+<li><a href="#orgb0b496a">Sea Turtle Hatchery</a></li>
+<li><a href="#org99d7eca">Dehiwala Zoological Gardens</a></li>
+</ul>
+</li>
+<li><a href="#orgf4a63d5">Маршруты</a>
+<ul>
+<li><a href="#org6a9bc46">Diyaluma Falls</a></li>
+<li><a href="#orge066115">Ella Rock Trail</a></li>
+<li><a href="#orgf0ae27e">Knucles 5 Peak Trail</a></li>
+<li><a href="#org1d88db9">Kondagala Mountain Summit</a></li>
+<li><a href="#orgc805db1">Little Adam's Peak</a></li>
+<li><a href="#org67045e4">Pidurangala Rock</a></li>
+<li><a href="#org568efd3">Ramboda Falls</a></li>
+<li><a href="#org0a24d83">The Pekoe Trail Stage 16: Ella To Demodara</a></li>
+</ul>
+</li>
+<li><a href="#org913ca3c">Рестораны</a>
+<ul>
+<li><a href="#orgf843d6c">Ceylon Kitchen</a></li>
+<li><a href="#orgd83a805">Cafe Olu</a></li>
+<li><a href="#org249cbc9">Sigiriya Karaoke Pub Restaurant</a></li>
+<li><a href="#orgb9a0433">Kurumbunkz</a></li>
+<li><a href="#orgf975639">Cafe Lavia</a></li>
+<li><a href="#orgd6f2a82">Pallet house Restaurant</a></li>
+<li><a href="#org7ec7248">Bakers Dyner</a></li>
+<li><a href="#org4de84ab">Thawalama Restaurant</a></li>
+<li><a href="#org74e00e9">Frostbite</a></li>
+<li><a href="#orgc9aa798">Mr berry</a></li>
+<li><a href="#orgfc90a60">House of Kitchen</a></li>
+<li><a href="#org1cdf300">Jade Green</a></li>
+<li><a href="#orga34abf8">Spice Ella</a></li>
+<li><a href="#orgbed5dd8">Sleek spoon restaurant Ella</a></li>
+<li><a href="#org603ac05">Kiri Kopi</a></li>
+<li><a href="#org16603b3">Chill Hut Cafe &amp; Restaurent</a></li>
+<li><a href="#org887552f">Cafe Salt Breeze</a></li>
+<li><a href="#orgb078083">Let's Sea</a></li>
+<li><a href="#orge7fe0c5">Yellow Mellow</a></li>
+<li><a href="#orgea50f03">Serenity Sea Food Restaurant</a></li>
+<li><a href="#orgc33261d">Foodee</a></li>
+<li><a href="#orgdf1959a">DelTano's Wood Fired Pizza &amp; Pasta</a></li>
+<li><a href="#orgc31d272">Ceylon Excel</a></li>
+<li><a href="#orgd8210c7">YUM Drinks &amp; Food Restaurant</a></li>
+<li><a href="#orgf372acf">SkinnyTom's Deli</a></li>
+<li><a href="#orgbfdec43">Unwind Restaurant &amp; Hostel</a></li>
+</ul>
+</li>
+<li><a href="#org0cf32a5">Гостиницы</a>
+<ul>
+<li><a href="#orga8480e1">Sand &amp; Surf Guest House</a></li>
+<li><a href="#org1a637c9">Sigiriya Green Garden Home Stay</a></li>
+<li><a href="#org8ff8948">Riverston Holiday Village</a></li>
+<li><a href="#org1b963c2">Sobasee holiday bungalow</a></li>
+<li><a href="#org116eeeb">The Cave Kithulgala</a></li>
+<li><a href="#org6b4b9a9">White House Bungalow</a></li>
+<li><a href="#org02025ae">Himawari Hills Hotel</a></li>
+<li><a href="#org3b5a4e8">Sohili 3R Resort Ella</a></li>
+<li><a href="#orge865951">BV Residence</a></li>
+<li><a href="#orgda62471">Sinharaja Rest</a></li>
+<li><a href="#orgf10af79">House Of Esanya</a></li>
+<li><a href="#org0935d11">G Wanda Vista Istanbul</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgc6b33d7" class="outline-2">
+<h2 id="orgc6b33d7">Хронология событий</h2>
+<div class="outline-text-2" id="text-orgc6b33d7">
+</div>
+<div id="outline-container-orgdb71390" class="outline-3">
+<h3 id="orgdb71390">Подготовка</h3>
+<div class="outline-text-3" id="text-orgdb71390">
+<p>
+В начале 2024 года мы решили, что следующий Новый Год проведем всей нашей семьей из пяти человек на Шри Ланке . Купили билеты в <a href="http://turkishairlines.com">Turkish Airlines</a>, забронировали автомобиль Daihatsu Terios в <a href="http://malkey.lk">Malkey Rent A Car</a>, а также гостиницы на первый и последний дни поездки. За месяц до вылета я оформил разрешение на въезд (ETA) на сайте <a href="https://eta.gov.lk">Electronic Travel Authorization</a>.
+</p>
+
+<p>
+В течении года я приблизительно накидал маршрут через основные точки, которые хотелось бы посетить за три недели. Расписывать каждый день не стал, так как заранее была непонятна скорость передвижения. Google Maps давал одну оценку, а на форумах писали о средней скорости перемещения в районе 25-30 км/ч.
+</p>
+
+<p>
+В итоге решили, что первые две недели проведем в центральной части острова, а последнюю неделю (или сколько останется) на побережье. Жилье будем бронировать на ходу.
+</p>
+
+<p>
+Я решил отказаться от посещения большинства национальных парков из-за высокой цены билетов (30-40 евро на человека) и использовать бесплатные альтернативы в виде <a href="#orgf4a63d5">хайкинговых маршрутов</a> длительностью от получаса до 4 часов, где обещались ничуть не менее красивые виды.
+</p>
+
+<p>
+Так выглядел план нашего перемещения по острову.
+</p>
+
+
+<div id="org84f2620" class="figure">
+<p><img src="./images_small/plan.jpg" alt="plan.jpg" />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd8cd7d1" class="outline-4">
+<h4 id="orgd8cd7d1">Статистика</h4>
+<div class="outline-text-4" id="text-orgd8cd7d1">
+<pre class="example">
+€4752  Расходы
+ €246    Визы
+€3714    Самолет
+ €792    Транспорт:Аренда
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1e066fc" class="outline-3">
+<h3 id="org1e066fc">День 1. Аэропорт - Негомбо</h3>
+<div class="outline-text-3" id="text-org1e066fc">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">2024-12-15 Sun</span></span>
+</p>
+
+<p>
+Получив в аэропорту арендованную машину, мы доехали до <a href="#orga8480e1">гостиницы</a> и зарегистрировавшись пошли на пляж, который находился в 10 минутах ходьбы. Пляж недалеко от нашей гостиницы оказался вполне подходящим: мало людей и неопасные, но сильные волны.
+</p>
+
+
+<div id="org44dc179" class="figure">
+<p><img src="./images_small/IMG_8422.jpg" alt="IMG_8422.jpg" />
+</p>
+</div>
+
+
+<div id="org44d93d7" class="figure">
+<p><img src="./images_small/IMG_8419.jpg" alt="IMG_8419.jpg" />
+</p>
+</div>
+
+
+<div id="orgee25239" class="figure">
+<p><img src="./images_small/IMG_8414.jpg" alt="IMG_8414.jpg" />
+</p>
+</div>
+
+
+<div id="orgd619185" class="figure">
+<p><img src="./images_small/IMG_8396.jpg" alt="IMG_8396.jpg" />
+</p>
+</div>
+
+<p>
+Около часа мы провели в воде, потом переодевшись в гостинице пошли ужинать в <a href="#orgf843d6c">ресторан</a>. Ресторан оказался с довольно приличной обстановкой и открытой кухней, но обслуживаиние было очень медленным, а еда ничем не выделялась.
+</p>
+
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/cTg52Asm3z8"></iframe>
+</div>
+</div>
+
+<div id="outline-container-orgaa33cff" class="outline-4">
+<h4 id="orgaa33cff">Статистика</h4>
+<div class="outline-text-4" id="text-orgaa33cff">
+<pre class="example">
+Дистанция
+  Авто:   10 км
+  Пешком: 12 км
+</pre>
+
+
+<pre class="example">
+€210  Расходы
+€134    Еда
+ €73      Магазин
+ €61      Ресторан
+ €33    Жилье
+ €43    Связь
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7e42dea" class="outline-3">
+<h3 id="org7e42dea">День 2. Курунегала - Думбала - Сигирия</h3>
+<div class="outline-text-3" id="text-org7e42dea">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">2024-12-16 Mon</span></span>
+</p>
+
+<p>
+Утро началось с посещения рыбного рынка в Негомбо, где сушат рыбу прямо на земле, подстелив брезент.
+</p>
+
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/MQc4PdelIuI"></iframe>
+</div>
+
+<p>
+Запах, конечно, непередаваемый!
+</p>
+
+
+<div id="orgbf0fb66" class="figure">
+<p><img src="./images_small/IMG_8431.jpg" alt="IMG_8431.jpg" />
+</p>
+</div>
+
+
+<div id="org58431e3" class="figure">
+<p><img src="./images_small/IMG_8432.jpg" alt="IMG_8432.jpg" />
+</p>
+</div>
+
+
+<div id="org4da09e3" class="figure">
+<p><img src="./images_small/IMG_8433.jpg" alt="IMG_8433.jpg" />
+</p>
+</div>
+
+
+<div id="org5968ac4" class="figure">
+<p><img src="./images_small/IMG_8436.jpg" alt="IMG_8436.jpg" />
+</p>
+</div>
+
+
+<p>
+Разнообразную рыбу также продают с импровизированных прилавков.
+</p>
+
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/GREdQ-EtT-c"></iframe>
+</div>
+
+
+<div id="org37f889e" class="figure">
+<p><img src="./images_small/IMG_8438.jpg" alt="IMG_8438.jpg" />
+</p>
+</div>
+
+
+<div id="orge0caa56" class="figure">
+<p><img src="./images_small/IMG_8439.jpg" alt="IMG_8439.jpg" />
+</p>
+</div>
+
+
+<div id="org053ccae" class="figure">
+<p><img src="./images_small/IMG_8440.jpg" alt="IMG_8440.jpg" />
+</p>
+</div>
+
+
+<div id="org9a7e26d" class="figure">
+<p><img src="./images_small/IMG_8450.jpg" alt="IMG_8450.jpg" />
+</p>
+</div>
+
+<p>
+Посмотрев рынок мы отправились в сторону Сигирии.
+</p>
+
+<p>
+По пути остановились <a href="#orgd83a805">перекусить</a> в городе Курунегала, а затем поехали к озеру Кандалама, чтобы искупаться.
+</p>
+
+<p>
+По пути заехали к храмовому коплексу с Золотым Буддой в городе Думбала.
+</p>
+
+
+<div id="org9d268ce" class="figure">
+<p><img src="./images_small/IMG_8446.jpg" alt="IMG_8446.jpg" />
+</p>
+</div>
+
+<p>
+Возле храма спали собаки.
+</p>
+
+
+<div id="orgfcf8b0c" class="figure">
+<p><img src="./images_small/IMG_0354.jpg" alt="IMG_0354.jpg" />
+</p>
+</div>
+
+<p>
+<a href="https://maps.app.goo.gl/7LmPiFUdZPJ77gpd8">Место купания</a> оказалось не очень привлекательным и было огорожено пластиковыми бутылками и угрожающим плакатом. Мы решили воздержаться и поехали в <a href="#org1a637c9">гостиницу</a>.
+</p>
+
+
+<div id="org832762d" class="figure">
+<p><img src="./images_small/IMG_0356.jpg" alt="IMG_0356.jpg" />
+</p>
+</div>
+
+<p>
+По пути дорога возле реки оказалась затопленной, часть машин остановились на обочине, но самые смелые все же рискнули поехать.
+</p>
+
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/t6CI8ioyR98"></iframe>
+</div>
+
+<p>
+Мы решили, что мы не хуже и двинулись пересекать препятствие вброд!
+</p>
+
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/mcME8I6IQY0"></iframe>
+</div>
+
+<p>
+Поужинали мы в неплохом <a href="#org249cbc9">ресторане</a> напротив гостиницы.
+</p>
+
+<p>
+Пруд на территории гостиницы уходящий в джунгли.
+</p>
+
+
+<div id="org47c21a9" class="figure">
+<p><img src="./images_small/IMG_0380.jpg" alt="IMG_0380.jpg" />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9882da6" class="outline-4">
+<h4 id="org9882da6">Статистика</h4>
+<div class="outline-text-4" id="text-org9882da6">
+<pre class="example">
+Дистанция
+  Авто:   162 км
+  Пешком: 5 км
+</pre>
+
+
+<pre class="example">
+€113  Расходы
+ €79    Еда
+  €6      Магазин
+ €72      Ресторан
+ €33    Жилье
+  €1    Транспорт:Другое
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0071fb5" class="outline-3">
+<h3 id="org0071fb5">День 3. Дамбулла - Водопады</h3>
+<div class="outline-text-3" id="text-org0071fb5">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">2024-12-17 Tue</span></span>
+</p>
+
+<p>
+Утро началось с завтрака, который входил в стоимость проживания.
+Мы пришли в ресторан к 8:15 как договаривались, но нас там никто не ждал и ресторан был закрыт.
+Увидев нас работники открыли заведение и начали шевелиться.
+В ожидании завтрака мы наблюдали как собака гоняла мартышек и помечала рекламный щит ресторана.
+</p>
+
+
+<div id="orgbf74607" class="figure">
+<p><img src="./images_small/IMG_0381.jpg" alt="IMG_0381.jpg" />
+</p>
+</div>
+
+<p>
+После завтрака мы отправились искать подъем на гору, откуда окрывался вид на окрестности и Сигирию.
+Саму Сигирию мы решили не посещать, так как вход стоил 35 евро с человека, а детям (да и нам) вряд ли было бы там интересно.
+</p>
+
+<p>
+Не с первой попытки найдя путь наверх мы поднялись на вершину. Виды оттуда действительно были замечательные!
+</p>
+
+
+<div id="org5c60e92" class="figure">
+<p><img src="./images_small/IMG_8551.jpg" alt="IMG_8551.jpg" />
+</p>
+</div>
+
+
+<div id="orga977743" class="figure">
+<p><img src="./images_small/IMG_8546.jpg" alt="IMG_8546.jpg" />
+</p>
+</div>
+
+
+<div id="org9e5621a" class="figure">
+<p><img src="./images_small/IMG_8542.jpg" alt="IMG_8542.jpg" />
+</p>
+</div>
+
+
+<div id="orgc7d2fac" class="figure">
+<p><img src="./images_small/IMG_8459.jpg" alt="IMG_8459.jpg" />
+</p>
+</div>
+
+
+<div id="org476b5d0" class="figure">
+<p><img src="./images_small/IMG_8458.jpg" alt="IMG_8458.jpg" />
+</p>
+</div>
+
+<p>
+Сделали детям фотосессию.
+</p>
+
+
+<div id="org37b6e61" class="figure">
+<p><img src="./images_small/IMG_8467.jpg" alt="IMG_8467.jpg" />
+</p>
+</div>
+
+
+<div id="org99bf897" class="figure">
+<p><img src="./images_small/IMG_8470.jpg" alt="IMG_8470.jpg" />
+</p>
+</div>
+
+
+<div id="org2c564a8" class="figure">
+<p><img src="./images_small/IMG_8473.jpg" alt="IMG_8473.jpg" />
+</p>
+</div>
+
+
+<div id="org4e914cf" class="figure">
+<p><img src="./images_small/IMG_8474.jpg" alt="IMG_8474.jpg" />
+</p>
+</div>
+
+
+<div id="org1971b89" class="figure">
+<p><img src="./images_small/IMG_8475.jpg" alt="IMG_8475.jpg" />
+</p>
+</div>
+
+
+<div id="org448cf6b" class="figure">
+<p><img src="./images_small/IMG_8482.jpg" alt="IMG_8482.jpg" />
+</p>
+</div>
+
+
+<p>
+Спустившись вниз мы обнаружили небольшой алтарь возле которого молился местный житель.
+</p>
+
+
+<div id="org89ffd12" class="figure">
+<p><img src="./images_small/IMG_0387.jpg" alt="IMG_0387.jpg" />
+</p>
+</div>
+
+<p>
+А также катали на слоне.
+</p>
+
+
+<div id="org9d440ea" class="figure">
+<p><img src="./images_small/IMG_8489.jpg" alt="IMG_8489.jpg" />
+</p>
+</div>
+
+<p>
+Следующей остановкой был храм недалеко от города Матале.
+</p>
+
+
+<div id="org031f107" class="figure">
+<p><img src="./images_small/IMG_8508.jpg" alt="IMG_8508.jpg" />
+</p>
+</div>
+
+
+<div id="org225dbc7" class="figure">
+<p><img src="./images_small/IMG_8506.jpg" alt="IMG_8506.jpg" />
+</p>
+</div>
+
+
+<div id="org69ca91e" class="figure">
+<p><img src="./images_small/IMG_8514.jpg" alt="IMG_8514.jpg" />
+</p>
+</div>
+
+<p>
+Внутри храма есть помещение, проходя через которое ты очищаешься от всех грехов, наблюдая за сценами из ада.
+</p>
+
+
+<div id="org2a3c296" class="figure">
+<p><img src="./images_small/IMG_0391.jpg" alt="IMG_0391.jpg" />
+</p>
+</div>
+
+
+<div id="org540e013" class="figure">
+<p><img src="./images_small/IMG_0392.jpg" alt="IMG_0392.jpg" />
+</p>
+</div>
+
+
+<div id="orga2dce4b" class="figure">
+<p><img src="./images_small/IMG_0393.jpg" alt="IMG_0393.jpg" />
+</p>
+</div>
+
+
+<div id="orgd130d24" class="figure">
+<p><img src="./images_small/IMG_0394.jpg" alt="IMG_0394.jpg" />
+</p>
+</div>
+
+<p>
+А в музее при храме был экспонат в виде двух котов.
+</p>
+
+
+<div id="org2afe002" class="figure">
+<p><img src="./images_small/IMG_0397.jpg" alt="IMG_0397.jpg" />
+</p>
+</div>
+
+<p>
+Дети разбудили кота.
+</p>
+
+
+<div id="org553a0f4" class="figure">
+<p><img src="./images_small/IMG_0980.jpg" alt="IMG_0980.jpg" />
+</p>
+</div>
+
+<p>
+Колокол в который не получилось позвонить.
+</p>
+
+
+<div id="org7777af3" class="figure">
+<p><img src="./images_small/IMG_0398.jpg" alt="IMG_0398.jpg" />
+</p>
+</div>
+
+<p>
+Далее по плану было несколько водопадов в которых мы планировали искупаться.
+Первый водопад оказался красивым, но купаться там было слишком опасно.
+</p>
+
+<video controls autoplay loop>
+<source src="./video/IMG_8527.mp4" type="video/mp4">
+</video>
+
+<video controls autoplay loop>
+<source src="./video/IMG_8532.mp4" type="video/mp4">
+</video>
+
+<video controls autoplay loop>
+<source src="./video/IMG_8533.mp4" type="video/mp4">
+</video>
+
+<p>
+Дорога начала подниматься вверх и открылись живописные виды.
+</p>
+
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/auN39ggdZeA"></iframe>
+</div>
+
+
+<div id="org1843d81" class="figure">
+<p><img src="./images_small/IMG_0423.jpg" alt="IMG_0423.jpg" />
+</p>
+</div>
+
+<p>
+Следующий водопад мы слышали с дороги, но не смогли понять как к нему подобраться.
+Третий водопад был достаточно далеко, но обещал быть очень красивым и с возможностью искупаться.
+По пути остановились в живописном месте и встретили местных.
+</p>
+
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/-tGJ39Nzf-U"></iframe>
+</div>
+
+<p>
+В гугл мапс было написано, что вход через территорию гостиницы, но она была закрыта.
+Мы обнаружили узкую тропу через лес и решили рискнуть.
+</p>
+
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/kgG04t9B25A"></iframe>
+</div>
+
+<p>
+Через 5 минут на нас напали пиявки. Первую нашла Николь, о чем мы узнали по истошным воплям.
+Через пару минут их стали обнаруживать на себе все и девочки отказались идти дальше.
+Я отдал им ключи от машины и мы с Сашей продолжили путь, снимая с себя пиявок через каждые пару минут пути.
+Минут через 30 мы вышли к водопаду и он был прекрасен.
+</p>
+
+
+<div id="orga695dbe" class="figure">
+<p><img src="./images_small/IMG_0439.jpg" alt="IMG_0439.jpg" />
+</p>
+</div>
+
+<p>
+Плавать там было негде и мы ограничились принятием холодного душа.
+</p>
+
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/e-8WVRQ094k"></iframe>
+</div>
+
+<p>
+Вернувшись к машине, мы обнаружили, что местный житель помог Кате и девочкам снять пиявок.
+</p>
+
+
+<div id="org8d109fe" class="figure">
+<p><img src="./images_small/IMG_1063.jpg" alt="IMG_1063.jpg" />
+</p>
+</div>
+
+<p>
+Он еще принес нам воды из реки и всячески нас поддерживал.
+Мы угостили его пивом и шоколадками и отправились искать гостиницу, так как оставался час до заката.
+</p>
+
+
+<div id="org9d0d286" class="figure">
+<p><img src="./images_small/IMG_8559.jpg" alt="IMG_8559.jpg" />
+</p>
+</div>
+
+<p>
+В дороге интернет ловил очень слабо и найти что-то было сложно. К тому же сгустился туман и видимость упала до 10 метров.
+Мы с трудом разъезжались со встречными машинами, начинало темнеть.
+В итоге мы остановились в каком-то поселке в приличном с виду <a href="#org8ff8948">отеле</a>, где еще работал ресторан и нас покормили.
+</p>
+</div>
+
+<div id="outline-container-orga68b7c6" class="outline-4">
+<h4 id="orga68b7c6">Статистика</h4>
+<div class="outline-text-4" id="text-orga68b7c6">
+<pre class="example">
+Дистанция
+  Авто:   117 км
+  Пешком: 11 км
+</pre>
+
+
+<pre class="example">
+€162  Расходы
+ €67    Еда
+ €27      Магазин
+ €40      Ресторан
+ €46    Жилье
+ €49    Транспорт:Топливо
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2e86837" class="outline-3">
+<h3 id="org2e86837">День 4. Сад специй - Озеро Сембуватта - Водопады</h3>
+<div class="outline-text-3" id="text-org2e86837">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">2024-12-18 Wed</span></span>
+</p>
+
+<p>
+Утром полюбовавшись видом из гостиницы мы поехали в сторону озера Сембуватта.
+</p>
+
+
+<div id="orgd89ee80" class="figure">
+<p><img src="./images_small/IMG_8564.jpg" alt="IMG_8564.jpg" />
+</p>
+</div>
+
+<p>
+Изначально мы выбрали более короткий путь и поначалу все было прекрасно.
+Дорога была достаточно живописной.
+</p>
+
+
+<div id="org3301d34" class="figure">
+<p><img src="./images_small/IMG_8587.jpg" alt="IMG_8587.jpg" />
+</p>
+</div>
+
+<p>
+Встречались ступы.
+</p>
+
+
+<div id="org0e3dac2" class="figure">
+<p><img src="./images_small/IMG_8579.jpg" alt="IMG_8579.jpg" />
+</p>
+</div>
+
+<p>
+Небольшие водопады.
+</p>
+
+<video controls autoplay loop>
+<source src="./video/IMG_8567.mp4" type="video/mp4">
+</video>
+
+<p>
+И даже рисовые террасы.
+</p>
+
+
+<div id="orgd9be8a7" class="figure">
+<p><img src="./images_small/IMG_8572.jpg" alt="IMG_8572.jpg" />
+</p>
+</div>
+
+
+<div id="orgdde33c5" class="figure">
+<p><img src="./images_small/IMG_8574.jpg" alt="IMG_8574.jpg" />
+</p>
+</div>
+
+
+<div id="orga0ef8d0" class="figure">
+<p><img src="./images_small/IMG_8577.jpg" alt="IMG_8577.jpg" />
+</p>
+</div>
+
+
+<div id="orgb608dd2" class="figure">
+<p><img src="./images_small/IMG_8581.jpg" alt="IMG_8581.jpg" />
+</p>
+</div>
+
+<p>
+Но дорога становилась все уже и хуже и в итоге нам пришлось развернуться и поехать в объезд через Матале.
+</p>
+
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/ToBP2gMq4n0"></iframe>
+</div>
+
+<p>
+Зато мы посетили <a href="#org47f1552">сад специй</a>, где нам провели бесплатную полуторачасовую экскурсию и показали как растут различные специи.
+</p>
+
+
+<div id="orgdf91981" class="figure">
+<p><img src="./images_small/IMG_8622.jpg" alt="IMG_8622.jpg" />
+</p>
+</div>
+
+<p>
+Перец.
+</p>
+
+
+<div id="org10903e8" class="figure">
+<p><img src="./images_small/IMG_8591.jpg" alt="IMG_8591.jpg" />
+</p>
+</div>
+
+<p>
+Корица.
+</p>
+
+
+<div id="orgba504fa" class="figure">
+<p><img src="./images_small/IMG_8592.jpg" alt="IMG_8592.jpg" />
+</p>
+</div>
+
+
+<div id="org05dcac2" class="figure">
+<p><img src="./images_small/IMG_8593.jpg" alt="IMG_8593.jpg" />
+</p>
+</div>
+
+<p>
+Имбирь.
+</p>
+
+
+<div id="org8384830" class="figure">
+<p><img src="./images_small/IMG_8601.jpg" alt="IMG_8601.jpg" />
+</p>
+</div>
+
+<p>
+Ваниль.
+</p>
+
+
+<div id="org9f1d84e" class="figure">
+<p><img src="./images_small/IMG_8608.jpg" alt="IMG_8608.jpg" />
+</p>
+</div>
+
+<p>
+Кориандр.
+</p>
+
+
+<div id="org3d107e4" class="figure">
+<p><img src="./images_small/IMG_8612.jpg" alt="IMG_8612.jpg" />
+</p>
+</div>
+
+<p>
+После экскурсии мы продолжили путь через леса.
+</p>
+
+
+<div id="org77c20cb" class="figure">
+<p><img src="./images_small/IMG_8624.jpg" alt="IMG_8624.jpg" />
+</p>
+</div>
+
+
+<div id="org3840a6c" class="figure">
+<p><img src="./images_small/IMG_8628.jpg" alt="IMG_8628.jpg" />
+</p>
+</div>
+
+<p>
+По пути встречались деревья с необычно яркими цветами.
+</p>
+
+
+<div id="org5d2f436" class="figure">
+<p><img src="./images_small/IMG_8635.jpg" alt="IMG_8635.jpg" />
+</p>
+</div>
+
+<p>
+А также чайные плантации.
+</p>
+
+
+<div id="orgeb8de0e" class="figure">
+<p><img src="./images_small/IMG_8647.jpg" alt="IMG_8647.jpg" />
+</p>
+</div>
+
+
+<div id="org6f8dde0" class="figure">
+<p><img src="./images_small/IMG_8649.jpg" alt="IMG_8649.jpg" />
+</p>
+</div>
+
+
+<div id="orgd086a09" class="figure">
+<p><img src="./images_small/IMG_8651.jpg" alt="IMG_8651.jpg" />
+</p>
+</div>
+
+<p>
+На подъезде к озеру мы обнаружили водопад, который стекал из озера.
+</p>
+
+<video controls autoplay loop>
+<source src="./video/IMG_8662.mp4" type="video/mp4">
+</video>
+
+<p>
+Само озеро оказалалось очень живописным и покрытым туманом.
+</p>
+
+
+<div id="org2353b43" class="figure">
+<p><img src="./images_small/IMG_0479.jpg" alt="IMG_0479.jpg" />
+</p>
+</div>
+
+
+<div id="orgf776c1f" class="figure">
+<p><img src="./images_small/IMG_8666.jpg" alt="IMG_8666.jpg" />
+</p>
+</div>
+
+
+<div id="orgc004e7f" class="figure">
+<p><img src="./images_small/IMG_8667.jpg" alt="IMG_8667.jpg" />
+</p>
+</div>
+
+
+<div id="org9576626" class="figure">
+<p><img src="./images_small/IMG_8669.jpg" alt="IMG_8669.jpg" />
+</p>
+</div>
+
+
+<div id="org710632e" class="figure">
+<p><img src="./images_small/IMG_8671.jpg" alt="IMG_8671.jpg" />
+</p>
+</div>
+
+
+<div id="orgfe333ae" class="figure">
+<p><img src="./images_small/IMG_8676.jpg" alt="IMG_8676.jpg" />
+</p>
+</div>
+
+
+<div id="orgc15301f" class="figure">
+<p><img src="./images_small/IMG_8681.jpg" alt="IMG_8681.jpg" />
+</p>
+</div>
+
+
+<div id="org86fbe49" class="figure">
+<p><img src="./images_small/IMG_8686.jpg" alt="IMG_8686.jpg" />
+</p>
+</div>
+
+
+<div id="orgb8dcf85" class="figure">
+<p><img src="./images_small/IMG_8693.jpg" alt="IMG_8693.jpg" />
+</p>
+</div>
+
+<p>
+После озера мы отправились к водопаду Хунансвол. Он оказался очень высоким.
+</p>
+
+<video controls autoplay loop>
+<source src="./video/IMG_8704.mp4" type="video/mp4">
+</video>
+
+<video controls autoplay loop>
+<source src="./video/IMG_8707.mp4" type="video/mp4">
+</video>
+
+<video controls autoplay loop>
+<source src="./video/IMG_8726.mp4" type="video/mp4">
+</video>
+
+<video controls autoplay loop>
+<source src="./video/IMG_8730.mp4" type="video/mp4">
+</video>
+
+<p>
+Там же было место для плавания и пикника.
+</p>
+
+
+<div id="org9a59709" class="figure">
+<p><img src="./images_small/IMG_8709.jpg" alt="IMG_8709.jpg" />
+</p>
+</div>
+
+
+<div id="org17b374c" class="figure">
+<p><img src="./images_small/IMG_8723.jpg" alt="IMG_8723.jpg" />
+</p>
+</div>
+
+<p>
+Последний водопад, который мы планировали посетить находился на окраине деревни.
+</p>
+
+
+<div id="orgebdf88d" class="figure">
+<p><img src="./images_small/IMG_8742.jpg" alt="IMG_8742.jpg" />
+</p>
+</div>
+
+
+<div id="org7e69ee7" class="figure">
+<p><img src="./images_small/IMG_8744.jpg" alt="IMG_8744.jpg" />
+</p>
+</div>
+
+<p>
+Сам водопад протекал прямо через дорогу.
+</p>
+
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/RnoLCFscg6U"></iframe>
+</div>
+
+<video controls autoplay loop>
+<source src="./video/IMG_8747.mp4" type="video/mp4">
+</video>
+
+<video controls autoplay loop>
+<source src="./video/IMG_8749.mp4" type="video/mp4">
+</video>
+
+<p>
+На обратном пути мы встретили необычную процессию состоящую из местной молодежи, которые несли икону и зажженные свечи.
+</p>
+
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/5Ov5WafQDS0"></iframe>
+</div>
+
+<p>
+Ехать до Канди пришлось по темноте, что было не очень приятно: пешеходы шли по краю проезжей части без отражателей и появлялись в поле зрения в последний момент, встречные машины слепили фарами, а сзади часто шли на обгон. Добравшись до <a href="#org1b963c2">аппартаментов</a> мы заселились и пошли ужинать.
+<a href="#orgb9a0433">Ресторан</a> оказался с приличной кухней и красивым видом, но довольно дорогой.
+</p>
+</div>
+
+<div id="outline-container-org8e440ef" class="outline-4">
+<h4 id="org8e440ef">Статистика</h4>
+<div class="outline-text-4" id="text-org8e440ef">
+<pre class="example">
+Дистанция
+  Авто:   92 км
+  Пешком: 15 км
+</pre>
+
+
+<pre class="example">
+€228  Расходы
+ €36    Достопримечательности
+€151    Еда
+ €59      Магазин
+ €92      Ресторан
+ €40    Жилье
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb3e1064" class="outline-3">
+<h3 id="orgb3e1064">День 5. Башня Амбулувава - Водопад Galpoththa - Пещера Белилена</h3>
+<div class="outline-text-3" id="text-orgb3e1064">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">2024-12-19 Thu</span></span>
+</p>
+
+<p>
+Вид из гостиницы с утра.
+</p>
+
+
+<div id="org9eba417" class="figure">
+<p><img src="./images_small/IMG_8764.jpg" alt="IMG_8764.jpg" />
+</p>
+</div>
+
+
+<div id="org7b92e61" class="figure">
+<p><img src="./images_small/IMG_8765.jpg" alt="IMG_8765.jpg" />
+</p>
+</div>
+
+<p>
+Дорого по европейски <a href="#orgf975639">позавтракав</a> мы двинулись к <a href="#orga2e12d6">башне Амбулувава</a>.
+Башня стоит на возвышении 1050 метров и ее высота 48 метров.
+</p>
+
+
+<div id="org43bedac" class="figure">
+<p><img src="./images_small/IMG_8770.jpg" alt="IMG_8770.jpg" />
+</p>
+</div>
+
+
+<div id="orga200de3" class="figure">
+<p><img src="./images_small/IMG_8778.jpg" alt="IMG_8778.jpg" />
+</p>
+</div>
+
+<p>
+С нее открывается неплохой вид на остров.
+</p>
+
+
+<div id="org4d16cda" class="figure">
+<p><img src="./images_small/IMG_8780.jpg" alt="IMG_8780.jpg" />
+</p>
+</div>
+
+
+<div id="org56e675a" class="figure">
+<p><img src="./images_small/IMG_8781.jpg" alt="IMG_8781.jpg" />
+</p>
+</div>
+
+
+<div id="org52bc697" class="figure">
+<p><img src="./images_small/IMG_8784.jpg" alt="IMG_8784.jpg" />
+</p>
+</div>
+
+<p>
+Объекты вокруг башни.
+</p>
+
+
+<div id="org9ba6861" class="figure">
+<p><img src="./images_small/IMG_8772.jpg" alt="IMG_8772.jpg" />
+</p>
+</div>
+
+
+<div id="orgb0483fd" class="figure">
+<p><img src="./images_small/IMG_8774.jpg" alt="IMG_8774.jpg" />
+</p>
+</div>
+
+
+<div id="org40556eb" class="figure">
+<p><img src="./images_small/IMG_8775.jpg" alt="IMG_8775.jpg" />
+</p>
+</div>
+
+
+<div id="org9741317" class="figure">
+<p><img src="./images_small/IMG_8785.jpg" alt="IMG_8785.jpg" />
+</p>
+</div>
+
+<p>
+Но подняться наверх осмелится не каждый.
+</p>
+
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/v0FoR4GTzSs"></iframe>
+</div>
+
+<p>
+Спускаться еще страшнее, но виды рассматривать удобнее.
+</p>
+
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/l8GD8dyHoSA"></iframe>
+</div>
+
+<p>
+Зарисовки по дороге.
+</p>
+
+
+<div id="org1d83ae5" class="figure">
+<p><img src="./images_small/IMG_8768.jpg" alt="IMG_8768.jpg" />
+</p>
+</div>
+
+<p>
+После башни мы поехали на <a href="#org31419b1">натуральные водные горки</a>, которые по сути являлись пологими водопадами.
+</p>
+
+
+<div id="org2ca7290" class="figure">
+<p><img src="./images_small/IMG_8804.jpg" alt="IMG_8804.jpg" />
+</p>
+</div>
+
+
+<div id="org2b482ff" class="figure">
+<p><img src="./images_small/IMG_8796.jpg" alt="IMG_8796.jpg" />
+</p>
+</div>
+
+<video controls autoplay loop>
+<source src="./video/IMG_8791.mp4" type="video/mp4">
+</video>
+
+<p>
+Пока мы пытались понять насколько безопасно там скатываться, пришли местные парни и показали мастер класс.
+</p>
+
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/iEySImoajZM"></iframe>
+</div>
+
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/tolvFnByTys"></iframe>
+</div>
+
+<p>
+Мы решили, что рисковать не стоит, ибо выглядело это все очень травмоопасно.
+</p>
+
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/4xolxjruWVs"></iframe>
+</div>
+
+<p>
+Мы отправились плавать на плоских участках, а в это время местные обнаружили под камнем змею.
+</p>
+
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/lEIA7gfFIr8"></iframe>
+</div>
+
+<p>
+После купания мы отправились в ближайший город, чтобы <a href="#orgd6f2a82">перекусить</a>.
+</p>
+
+<p>
+Кадры по дороге.
+</p>
+
+
+<div id="org9db130d" class="figure">
+<p><img src="./images_small/IMG_8807.jpg" alt="IMG_8807.jpg" />
+</p>
+</div>
+
+<p>
+Автовокзал.
+</p>
+
+
+<div id="org325414b" class="figure">
+<p><img src="./images_small/IMG_8809.jpg" alt="IMG_8809.jpg" />
+</p>
+</div>
+
+
+<div id="org5c4be29" class="figure">
+<p><img src="./images_small/IMG_8814.jpg" alt="IMG_8814.jpg" />
+</p>
+</div>
+
+<p>
+Различные блюда местной кухни.
+</p>
+
+
+<div id="org8375ea3" class="figure">
+<p><img src="./images_small/IMG_8817.jpg" alt="IMG_8817.jpg" />
+</p>
+</div>
+
+<p>
+Последним пунктом у нас значилась <a href="#org87dab38">пещера Белилена</a>.
+</p>
+
+<p>
+Пейзажи по пути.
+</p>
+
+
+<div id="org2c47070" class="figure">
+<p><img src="./images_small/IMG_8819.jpg" alt="IMG_8819.jpg" />
+</p>
+</div>
+
+
+<div id="org03eb50e" class="figure">
+<p><img src="./images_small/IMG_8830.jpg" alt="IMG_8830.jpg" />
+</p>
+</div>
+
+
+<div id="org51ff203" class="figure">
+<p><img src="./images_small/IMG_8831.jpg" alt="IMG_8831.jpg" />
+</p>
+</div>
+
+
+<div id="org812ef92" class="figure">
+<p><img src="./images_small/IMG_8832.jpg" alt="IMG_8832.jpg" />
+</p>
+</div>
+
+
+<div id="orgff1ba2c" class="figure">
+<p><img src="./images_small/IMG_8833.jpg" alt="IMG_8833.jpg" />
+</p>
+</div>
+
+
+<div id="orgd5865e5" class="figure">
+<p><img src="./images_small/IMG_8835.jpg" alt="IMG_8835.jpg" />
+</p>
+</div>
+
+<p>
+На подъезде к пещере у нас случился казус. Я загляделся и съехал с дороги. Оба левых колеса оказались в кювете, а оба правых на дорожной плите. Пока мы размышляли, как нам выбраться, нам навстречу выехали два джипа полные местных жителей. Они помогли нам, один сел за руль, а остальные приподняли машину и в итоге удалось вырулить на проезжую часть. Нам реально повезло, так как это происходило в полной глухомани, где на пути встречались только старики и дети.
+</p>
+
+
+<div id="orgf625528" class="figure">
+<p><img src="./images_small/IMG_8826.jpg" alt="IMG_8826.jpg" />
+</p>
+</div>
+
+<p>
+Сама пещера оказалась милой, но довольно заброшенной.
+</p>
+
+<video controls autoplay loop>
+<source src="./video/IMG_8828.mp4" type="video/mp4">
+</video>
+
+<video controls autoplay loop>
+<source src="./video/IMG_8829.mp4" type="video/mp4">
+</video>
+
+<p>
+К моменту, когда закончили осмотр, уже начало смеркаться. Мы доехали до ближайшей гостиницы затерянной в джунглях, но там оказался только один свободный номер, да и тот стоил больше 200 долларов.
+</p>
+
+<p>
+Пришлось спускаться в город, где мы просто заехали в первую <a href="#org116eeeb">гостиницу</a> по дороге и она оказалось весьма неплохой по качеству и цене.
+</p>
+</div>
+
+<div id="outline-container-org5d4e8f8" class="outline-4">
+<h4 id="org5d4e8f8">Статистика</h4>
+<div class="outline-text-4" id="text-org5d4e8f8">
+<pre class="example">
+Дистанция
+  Авто:   102 км
+  Пешком: 8 км
+</pre>
+
+
+<pre class="example">
+€234  Расходы
+ €26    Достопримечательности
+€119    Еда
+ €37      Магазин
+ €82      Ресторан
+ €53    Жилье
+ €35    Транспорт:Топливо
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf9f9a9f" class="outline-3">
+<h3 id="orgf9f9a9f">День 6. Водопад Лаксапана - Маскелия - Хаттон</h3>
+<div class="outline-text-3" id="text-orgf9f9a9f">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">2024-12-20 Fri</span></span>
+</p>
+
+<p>
+Позввтракав в гостинице мы поехали к <a href="#orgad602fa">водопаду Лаксапана</a>.
+</p>
+
+<p>
+Виды по дороге к водопаду.
+</p>
+
+
+<div id="orgfac1922" class="figure">
+<p><img src="./images_small/IMG_8842.jpg" alt="IMG_8842.jpg" />
+</p>
+</div>
+
+
+<div id="orgbe15c16" class="figure">
+<p><img src="./images_small/IMG_8847.jpg" alt="IMG_8847.jpg" />
+</p>
+</div>
+
+
+<div id="orgf505f3f" class="figure">
+<p><img src="./images_small/IMG_8850.jpg" alt="IMG_8850.jpg" />
+</p>
+</div>
+
+<p>
+Водопад оказался очень красивым, правда чтобы к нему попасть нужно было спуститься по 650 ступеням.
+</p>
+
+<video controls autoplay loop>
+<source src="./video/IMG_8852.mp4" type="video/mp4">
+</video>
+
+
+<div id="orgc4e9ae8" class="figure">
+<p><img src="./images_small/IMG_8867.jpg" alt="IMG_8867.jpg" />
+</p>
+</div>
+
+<video controls autoplay loop>
+<source src="./video/IMG_0719.mp4" type="video/mp4">
+</video>
+
+<video controls autoplay loop>
+<source src="./video/IMG_8870.mp4" type="video/mp4">
+</video>
+
+<p>
+Подъем наверх к дороге оказался очень тяжелым.
+Поднявшись наверх мы обнаружили собак гоняющих обезъяну.
+</p>
+
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/QIfjPWKSbIg"></iframe>
+</div>
+
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/jj32DqpDuDQ"></iframe>
+</div>
+
+<p>
+Следующим местом по плану был резервуар <a href="#orga72876c">Маскелия</a>.
+Виды по пути.
+</p>
+
+<video controls autoplay loop>
+<source src="./video/IMG_8880.mp4" type="video/mp4">
+</video>
+
+
+<div id="orgba40af9" class="figure">
+<p><img src="./images_small/IMG_8876.jpg" alt="IMG_8876.jpg" />
+</p>
+</div>
+
+
+<div id="org8252f35" class="figure">
+<p><img src="./images_small/IMG_8887.jpg" alt="IMG_8887.jpg" />
+</p>
+</div>
+
+
+<div id="org91afb47" class="figure">
+<p><img src="./images_small/IMG_8888.jpg" alt="IMG_8888.jpg" />
+</p>
+</div>
+
+<p>
+Чайная плантация.
+</p>
+
+<p>
+<img src="./images_small/IMG_8896.jpg" alt="IMG_8896.jpg" />
+<img src="./images_small/IMG_8901.jpg" alt="IMG_8901.jpg" />
+</p>
+
+<p>
+Сбор чая.
+</p>
+
+
+<div id="org2cc2707" class="figure">
+<p><img src="./images_small/IMG_8899.jpg" alt="IMG_8899.jpg" />
+</p>
+</div>
+
+
+<p>
+Сначала мы поехали на западную часть водохранилища.
+Там был небольшой <a href="#orgf3bb2bc">водопад</a>.
+</p>
+
+
+<div id="org261a372" class="figure">
+<p><img src="./images_small/FullSizeRender2.jpg" alt="FullSizeRender2.jpg" />
+</p>
+</div>
+
+<p>
+И красивая ящерица.
+</p>
+
+
+<div id="orge407269" class="figure">
+<p><img src="./images_small/IMG_8912.jpg" alt="IMG_8912.jpg" />
+</p>
+</div>
+
+
+<div id="org29ffc30" class="figure">
+<p><img src="./images_small/IMG_8913.jpg" alt="IMG_8913.jpg" />
+</p>
+</div>
+
+<p>
+Потом объехали его с востока и направились к <a href="#org676cad5">водопаду</a>, который падал прямо в резервуар.
+</p>
+
+<p>
+Недоезжая 3 км нас остановили водители туктуков и сообщили нам,
+что дальше дорога разбитая и опасная, и что нужно запарковать машину
+и воспользоваться их услугами, чтобы добраться до водопада.
+</p>
+
+<p>
+Мы поблагодарили их за совет и сказали, что попытаем счастья сами.
+</p>
+
+<p>
+Дорога и впрямь оказалась не лучшего качества, но мы смогли проехать.
+</p>
+
+<p>
+С обоих сторон дороги находились чайные плантации, на которых трудились тамилы.
+</p>
+
+
+<div id="orgd758724" class="figure">
+<p><img src="./images_small/IMG_8915.jpg" alt="IMG_8915.jpg" />
+</p>
+</div>
+
+
+<div id="org0d3efbe" class="figure">
+<p><img src="./images_small/IMG_8916.jpg" alt="IMG_8916.jpg" />
+</p>
+</div>
+
+
+<div id="orgfe306ad" class="figure">
+<p><img src="./images_small/IMG_8925.jpg" alt="IMG_8925.jpg" />
+</p>
+</div>
+
+
+<div id="orgba07282" class="figure">
+<p><img src="./images_small/IMG_8928.jpg" alt="IMG_8928.jpg" />
+</p>
+</div>
+
+
+<div id="org2bdf026" class="figure">
+<p><img src="./images_small/IMG_8932.jpg" alt="IMG_8932.jpg" />
+</p>
+</div>
+
+
+<div id="org5936105" class="figure">
+<p><img src="./images_small/IMG_8933.jpg" alt="IMG_8933.jpg" />
+</p>
+</div>
+
+<p>
+Виды были потрясающие.
+</p>
+
+
+<div id="org7323233" class="figure">
+<p><img src="./images_small/IMG_8938.jpg" alt="IMG_8938.jpg" />
+</p>
+</div>
+
+
+<div id="org8065ffc" class="figure">
+<p><img src="./images_small/IMG_8941.jpg" alt="IMG_8941.jpg" />
+</p>
+</div>
+
+
+<div id="org0640836" class="figure">
+<p><img src="./images_small/IMG_8947.jpg" alt="IMG_8947.jpg" />
+</p>
+</div>
+
+
+<div id="orgfeae1e2" class="figure">
+<p><img src="./images_small/IMG_8946.jpg" alt="IMG_8946.jpg" />
+</p>
+</div>
+
+
+<div id="org10ae0e1" class="figure">
+<p><img src="./images_small/IMG_8952.jpg" alt="IMG_8952.jpg" />
+</p>
+</div>
+
+
+<div id="org9f90994" class="figure">
+<p><img src="./images_small/IMG_8954.jpg" alt="IMG_8954.jpg" />
+</p>
+</div>
+
+<p>
+Мы здоровались с проходящими мимо людьми и они улыбались и махали нам в ответ.
+Вообще по ощущению тамилы очень простые, приветливые и открытые люди.
+</p>
+
+
+<div id="orgac5a99d" class="figure">
+<p><img src="./images_small/IMG_8956.jpg" alt="IMG_8956.jpg" />
+</p>
+</div>
+
+
+<div id="org383e93e" class="figure">
+<p><img src="./images_small/IMG_8963.jpg" alt="IMG_8963.jpg" />
+</p>
+</div>
+
+
+<div id="org0745c3b" class="figure">
+<p><img src="./images_small/IMG_8965.jpg" alt="IMG_8965.jpg" />
+</p>
+</div>
+
+
+<div id="orgdf06ad4" class="figure">
+<p><img src="./images_small/IMG_8969.jpg" alt="IMG_8969.jpg" />
+</p>
+</div>
+
+
+<div id="org5e23af0" class="figure">
+<p><img src="./images_small/IMG_8973.jpg" alt="IMG_8973.jpg" />
+</p>
+</div>
+
+
+<div id="org6fd630b" class="figure">
+<p><img src="./images_small/IMG_8974.jpg" alt="IMG_8974.jpg" />
+</p>
+</div>
+
+<p>
+Когда мы добрались до конца дороги пошел сильный дождь. Мы разделились, девочки остались
+в машине, а мы с Сашей под проливным дождем пошли к водопаду. Водопад оказался интересным,
+но виден был не целиком.
+</p>
+
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/GRzH9yh3MN8"></iframe>
+</div>
+
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/1u9_0GcyCoM"></iframe>
+</div>
+
+<p>
+Мы решили остановиться в городе Хаттон, но не нашли подходящих вариантов в интернете.
+Решили заехать в понравившуюся <a href="#org6b4b9a9">гостиницу</a> и договориться на месте. Результат оказался положительный,
+номера были отличными и цена адекватной.
+</p>
+
+<p>
+Ужинали мы с детьми в разных ресторанах, дети ели <a href="#org7ec7248">европейскую кухню</a>, а мы этажом выше - <a href="#org4de84ab">ланкийскую</a>.
+</p>
+
+<p>
+В нашем ресторане оказались снукерные столы и я сыграл пару партий с местными ребятами.
+</p>
+
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/jaFcB5APMY4"></iframe>
+</div>
+</div>
+
+<div id="outline-container-org31f35b0" class="outline-4">
+<h4 id="org31f35b0">Статистика</h4>
+<div class="outline-text-4" id="text-org31f35b0">
+<pre class="example">
+Дистанция
+  Авто:   103 км
+  Пешком: 10 км
+</pre>
+
+
+<pre class="example">
+€100  Расходы
+  €2    Достопримечательности
+ €59    Еда
+  €5      Магазин
+ €54      Ресторан
+ €38    Жилье
+  €1    Транспорт:Другое
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2d0bc66" class="outline-3">
+<h3 id="org2d0bc66">День 7. Чайная фабрика Bluefield - водопад Lover's Leap - Нувара-Элия</h3>
+<div class="outline-text-3" id="text-org2d0bc66">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">2024-12-21 Sat</span></span>
+</p>
+
+<p>
+С утра мы заехали покушать в ресторан с прекрасным видом с очень медленным обслуживанием.
+</p>
+
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/TJ2JR9Z4i_4"></iframe>
+</div>
+
+
+<div id="org0103a84" class="figure">
+<p><img src="./images_small/IMG_8990.jpg" alt="IMG_8990.jpg" />
+</p>
+</div>
+
+
+<div id="org140cd7c" class="figure">
+<p><img src="./images_small/IMG_8992.jpg" alt="IMG_8992.jpg" />
+</p>
+</div>
+
+
+<div id="org1a837f3" class="figure">
+<p><img src="./images_small/IMG_8993.jpg" alt="IMG_8993.jpg" />
+</p>
+</div>
+
+
+<div id="orga0ba6fa" class="figure">
+<p><img src="./images_small/IMG_8996.jpg" alt="IMG_8996.jpg" />
+</p>
+</div>
+
+<p>
+По дороге мы встретили машину с дедом Морозом. Он ехал на машине с открытым верхом и
+когда увидел нас, то жестом показал, чтобы мы остановились и начал кидать нам
+в открытые окна конфеты из своего мешка с подарками. Было неожиданно и весело.
+</p>
+
+<p>
+После этого мы поехали на <a href="#orgfb6dc76">чайную фабрику</a> где нам провели экскурсию. 
+Мы взяли полный пакет и нас сначала на джипе отвезли к водопаду Рабата с красивым видом.
+Дорога туда и обратно заняла больше часа.
+</p>
+
+
+<div id="org3a631d3" class="figure">
+<p><img src="./images_small/IMG_0812.jpg" alt="IMG_0812.jpg" />
+</p>
+</div>
+
+
+<div id="org611bd00" class="figure">
+<p><img src="./images_small/IMG_0814.jpg" alt="IMG_0814.jpg" />
+</p>
+</div>
+
+
+<div id="org26668b8" class="figure">
+<p><img src="./images_small/IMG_9001.jpg" alt="IMG_9001.jpg" />
+</p>
+</div>
+
+
+<div id="orgaac6275" class="figure">
+<p><img src="./images_small/IMG_9004.jpg" alt="IMG_9004.jpg" />
+</p>
+</div>
+
+
+<div id="orgec270c4" class="figure">
+<p><img src="./images_small/IMG_9012.jpg" alt="IMG_9012.jpg" />
+</p>
+</div>
+
+
+<div id="org1d84c17" class="figure">
+<p><img src="./images_small/IMG_9016.jpg" alt="IMG_9016.jpg" />
+</p>
+</div>
+
+
+<div id="orgf3b1e5e" class="figure">
+<p><img src="./images_small/IMG_9023.jpg" alt="IMG_9023.jpg" />
+</p>
+</div>
+
+
+<div id="org9da45c6" class="figure">
+<p><img src="./images_small/IMG_9024.jpg" alt="IMG_9024.jpg" />
+</p>
+</div>
+
+
+<div id="orgc7ccd44" class="figure">
+<p><img src="./images_small/IMG_9028.jpg" alt="IMG_9028.jpg" />
+</p>
+</div>
+
+
+<div id="org79c71ac" class="figure">
+<p><img src="./images_small/IMG_9031.jpg" alt="IMG_9031.jpg" />
+</p>
+</div>
+
+
+<div id="orgdef1009" class="figure">
+<p><img src="./images_small/IMG_9033.jpg" alt="IMG_9033.jpg" />
+</p>
+</div>
+
+
+<div id="orgaba7846" class="figure">
+<p><img src="./images_small/IMG_9038.jpg" alt="IMG_9038.jpg" />
+</p>
+</div>
+
+
+<div id="orgb04ed73" class="figure">
+<p><img src="./images_small/IMG_9001.jpg" alt="IMG_9001.jpg" />
+</p>
+</div>
+
+
+<div id="org78de60d" class="figure">
+<p><img src="./images_small/IMG_9044.jpg" alt="IMG_9044.jpg" />
+</p>
+</div>
+
+
+<div id="org9f9c4e7" class="figure">
+<p><img src="./images_small/IMG_9056.jpg" alt="IMG_9056.jpg" />
+</p>
+</div>
+
+
+<div id="org6f6d811" class="figure">
+<p><img src="./images_small/IMG_9059.jpg" alt="IMG_9059.jpg" />
+</p>
+</div>
+
+
+<div id="org6a6914c" class="figure">
+<p><img src="./images_small/IMG_9070.jpg" alt="IMG_9070.jpg" />
+</p>
+</div>
+
+
+<div id="orge6980bd" class="figure">
+<p><img src="./images_small/IMG_9076.jpg" alt="IMG_9076.jpg" />
+</p>
+</div>
+
+<video controls autoplay loop>
+<source src="./video/IMG_9042.mp4" type="video/mp4">
+</video>
+
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/KOGJUGI1LuM"></iframe>
+</div>
+
+<p>
+Когда мы вернулись нас отвели на плантации, там девочки переоделись национальной одежду
+и сделали вид что они собирают чай.
+</p>
+
+
+<div id="org52d9250" class="figure">
+<p><img src="./images_small/IMG_9088.jpg" alt="IMG_9088.jpg" />
+</p>
+</div>
+
+
+<div id="org5c65ae0" class="figure">
+<p><img src="./images_small/IMG_9125.jpg" alt="IMG_9125.jpg" />
+</p>
+</div>
+
+<p>
+Потом нас отвели на саму фабрику и
+объяснили весь процесс производства чая. Гид у нас знал русский язык на троечку с минусом.
+По теме мог рассказывать довольно понятно, но на вопросы по другим темам ответить не мог.
+</p>
+
+<p>
+Увядание чая.
+</p>
+
+
+<div id="orgdae65f4" class="figure">
+<p><img src="./images_small/IMG_9128.jpg" alt="IMG_9128.jpg" />
+</p>
+</div>
+
+<p>
+Сушка чая.
+</p>
+
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/-KXULwpQpbg"></iframe>
+</div>
+
+<p>
+Сортировка чая.
+</p>
+
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/eBR_oQlDI9U"></iframe>
+</div>
+
+<p>
+В самом конце экскурсии была чайная дегустация: два вида белого чая (золотой и серебняный),
+зеленый и 6 видов черного.
+</p>
+
+
+<div id="org72a6624" class="figure">
+<p><img src="./images_small/IMG_0816.jpg" alt="IMG_0816.jpg" />
+</p>
+</div>
+
+<p>
+Радостное ожидание.
+</p>
+
+
+<div id="orgd1e06aa" class="figure">
+<p><img src="./images_small/IMG_9137.jpg" alt="IMG_9137.jpg" />
+</p>
+</div>
+
+
+<div id="orge9c9175" class="figure">
+<p><img src="./images_small/IMG_9141.jpg" alt="IMG_9141.jpg" />
+</p>
+</div>
+
+<p>
+После посещения чайной фабрики мы доехали до водопада <a href="#orgf6518aa">Lover's Leap</a>,
+который находится возле города Нувара-Элия, мы поднялись к нему, там было довольно красиво.
+</p>
+
+
+<div id="org60cdd5f" class="figure">
+<p><img src="./images_small/FullSizeRender_8430.jpg" alt="FullSizeRender_8430.jpg" />
+</p>
+</div>
+
+
+<div id="orgb04d82b" class="figure">
+<p><img src="./images_small/IMG_0818.jpg" alt="IMG_0818.jpg" />
+</p>
+</div>
+
+<p>
+В городе было сложно найти гостиницу, в итоге мы остановились в более-менеее
+подходящем <a href="#org02025ae">варианте</a> на окраине города.
+</p>
+
+
+<div id="org5b303ab" class="figure">
+<p><img src="./images_small/IMG_9149.jpg" alt="IMG_9149.jpg" />
+</p>
+</div>
+
+<p>
+Поужинали мы в небольшом семейном <a href="#org74e00e9">ресторане</a>.
+</p>
+</div>
+
+<div id="outline-container-orgdd59d70" class="outline-4">
+<h4 id="orgdd59d70">Статистика</h4>
+<div class="outline-text-4" id="text-orgdd59d70">
+<pre class="example">
+Дистанция
+  Авто:   90 км
+  Пешком: 13 км
+</pre>
+
+
+<pre class="example">
+€263  Расходы
+ €70    Достопримечательности
+€123    Еда
+ €25      Магазин
+ €97      Ресторан
+ €43    Жилье
+ €27    Транспорт:Топливо
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8f48552" class="outline-3">
+<h3 id="org8f48552">День 8. Молочная ферма - Малый пик Адама - Элла</h3>
+<div class="outline-text-3" id="text-org8f48552">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">2024-12-22 Sun</span></span>
+</p>
+
+<p>
+Утро началось с того, что в номер к детям забралась хозяйская собака.
+</p>
+
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/L6qbmg3uDBE"></iframe>
+</div>
+
+<p>
+С утра мы подъехали к зданию старой почты, потом поднялись к чайным плантациям,
+откуда открывается неплохой вид на озеро Грегори.
+</p>
+
+
+<div id="orgad0e5db" class="figure">
+<p><img src="./images_small/IMG_9160.jpg" alt="IMG_9160.jpg" />
+</p>
+</div>
+
+
+<div id="orga30c8ad" class="figure">
+<p><img src="./images_small/IMG_9161.jpg" alt="IMG_9161.jpg" />
+</p>
+</div>
+
+
+<div id="org5d614d0" class="figure">
+<p><img src="./images_small/IMG_9165.jpg" alt="IMG_9165.jpg" />
+</p>
+</div>
+
+<p>
+После этого мы поехали на <a href="#org3e759a1">молочную ферму</a>. Виды по пути.
+</p>
+
+
+<div id="orgb6f9254" class="figure">
+<p><img src="./images_small/IMG_9168.jpg" alt="IMG_9168.jpg" />
+</p>
+</div>
+
+
+<div id="org064ced5" class="figure">
+<p><img src="./images_small/IMG_9169.jpg" alt="IMG_9169.jpg" />
+</p>
+</div>
+
+
+<div id="org92f4a81" class="figure">
+<p><img src="./images_small/IMG_9170.jpg" alt="IMG_9170.jpg" />
+</p>
+</div>
+
+<p>
+На молочной ферме очень интересный автоматизированный процесс дойки коров.
+</p>
+
+<p>
+Сначала коров загоняют в зону ожидания, потом открывают заслонку и они
+идут дальше, где каждая корова становится в определенное место и фиксируется
+перегородкой и ограничителем на шее. Тогда к ним подсоединяют аппарат для дойки.
+</p>
+
+
+<div id="org210d344" class="figure">
+<p><img src="./images_small/IMG_9183.jpg" alt="IMG_9183.jpg" />
+</p>
+</div>
+
+<p>
+В общей зоне, где коровы живут, по полу ползет сборник отходов.
+</p>
+
+
+<div id="org0d8d0d9" class="figure">
+<p><img src="./images_small/IMG_9181.jpg" alt="IMG_9181.jpg" />
+</p>
+</div>
+
+
+<div id="org3defe50" class="figure">
+<p><img src="./images_small/IMG_9189.jpg" alt="IMG_9189.jpg" />
+</p>
+</div>
+
+<p>
+Вид с фермы.
+</p>
+
+
+<div id="org625964f" class="figure">
+<p><img src="./images_small/IMG_9185.jpg" alt="IMG_9185.jpg" />
+</p>
+</div>
+
+<p>
+По пути в Эллу мы заехали в небольшое <a href="#orgc9aa798">кафе</a>, где поели мороженое.
+</p>
+
+<p>
+Доехав до города Элла, мы поехали к <a href="#orgc805db1">Малому пику Адама</a>. После 20 минутного хайкинга,
+наверху открылись неплохие виды.
+</p>
+
+
+<div id="org0cb6255" class="figure">
+<p><img src="./images_small/IMG_9201.jpg" alt="IMG_9201.jpg" />
+</p>
+</div>
+
+
+<div id="org4db3e6a" class="figure">
+<p><img src="./images_small/IMG_9207.jpg" alt="IMG_9207.jpg" />
+</p>
+</div>
+
+
+<div id="orgfa240ec" class="figure">
+<p><img src="./images_small/IMG_9210.jpg" alt="IMG_9210.jpg" />
+</p>
+</div>
+
+<p>
+Дети скатились на зип-лайне вниз.
+</p>
+
+
+<div id="orgf077ba3" class="figure">
+<p><img src="./images_small/IMG_9211.jpg" alt="IMG_9211.jpg" />
+</p>
+</div>
+
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/EvQeMIywMPg"></iframe>
+</div>
+
+<p>
+Засилившись в <a href="#org3b5a4e8">гостиницу</a>, мы пошли кушать в <a href="#orgfc90a60">ресторан</a> местной кухни
+с рейтингом 5 баллов на google maps. Оказалось действительно очень вкусно.
+</p>
+</div>
+
+<div id="outline-container-org768919b" class="outline-4">
+<h4 id="org768919b">Статистика</h4>
+<div class="outline-text-4" id="text-org768919b">
+<pre class="example">
+Дистанция
+  Авто:   90 км
+  Пешком: 11 км
+</pre>
+
+
+<pre class="example">
+€256  Расходы
+ €79    Достопримечательности
+ €94    Еда
+ €45      Магазин
+ €50      Ресторан
+ €82    Жилье
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga0b67c6" class="outline-3">
+<h3 id="orga0b67c6">День 9. Гора Элла - Секретный водопад - Девятиарочный мост</h3>
+<div class="outline-text-3" id="text-orga0b67c6">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">2024-12-23 Mon</span></span>
+</p>
+
+<p>
+С утра мы совершили хайкинг поднявшись на <a href="#org70b436a">гору Элла</a>. Подъем занял больше часа и был достаточно тяжелым, так как местами тропа была очень крутой. Особых видов по пути не было, кроме одного места, где с мостика был виден небольшой живописный водопад.
+</p>
+
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/ajiYAwo0dS0"></iframe>
+</div>
+
+<p>
+В основном путь пролегал через лес и небольшую чайную плантацию.
+</p>
+
+
+<div id="orgf8f26c5" class="figure">
+<p><img src="./images_small/IMG_9242.jpg" alt="IMG_9242.jpg" />
+</p>
+</div>
+
+<p>
+Наверху нужно было заплатить за вход чуть более 900 рупий за взрослого и половину суммы за ребенка.
+Вид с горы был красивый, но по-моему не стоил усилий затраченных на подъем.
+</p>
+
+
+<div id="org57cbc1c" class="figure">
+<p><img src="./images_small/IMG_9230.jpg" alt="IMG_9230.jpg" />
+</p>
+</div>
+
+
+<div id="orgad09e98" class="figure">
+<p><img src="./images_small/IMG_9232.jpg" alt="IMG_9232.jpg" />
+</p>
+</div>
+
+<p>
+Позитивным моментом были козы и щенки, которых мы встретили по дороге.
+</p>
+
+
+<div id="orgd30a23d" class="figure">
+<p><img src="./images_small/IMG_0893.jpg" alt="IMG_0893.jpg" />
+</p>
+</div>
+
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/6EQFDc5E7Jg"></iframe>
+</div>
+
+<p>
+После хайкинга мы позавтракали в <a href="#org1cdf300">кафе</a> и отправились купаться к <a href="#org9dab44c">секретному водопаду</a>, который находился в получасе езды от города.
+</p>
+
+<p>
+Водопад был многоуровневый и довольно пологий, состоящий из порогов образованный небольшой речкой.
+</p>
+
+<video controls autoplay loop>
+<source src="./video/IMG_9262.mp4" type="video/mp4">
+</video>
+
+<p>
+В самом начале мы встретили змею.
+</p>
+
+
+<div id="orgd762e7a" class="figure">
+<p><img src="./images_small/IMG_9261.jpg" alt="IMG_9261.jpg" />
+</p>
+</div>
+
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/FfqSKy5IYYE"></iframe>
+</div>
+
+<p>
+Потом местных, которые мылись в воде с гелем и шампунем.
+</p>
+
+
+<div id="org9a370cd" class="figure">
+<p><img src="./images_small/IMG_9265.jpg" alt="IMG_9265.jpg" />
+</p>
+</div>
+
+<p>
+Пройдя дальше, мы нашли место, где можно было спокойно купаться.
+</p>
+
+<p>
+Саша прыгал в воду с камня.
+</p>
+
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/1Q49DVMiVns"></iframe>
+</div>
+
+<p>
+После купания в водопаде мы вернулись в город и отправились к <a href="#org9e10972">девятиарочному мосту</a>.
+Дорога к мосту была несложной, но очень загруженной туристами.
+</p>
+
+
+<div id="org5aedb97" class="figure">
+<p><img src="./images_small/IMG_0908.jpg" alt="IMG_0908.jpg" />
+</p>
+</div>
+
+<p>
+Когда мы подходили к мосту на него заехал и остановился поезд.
+</p>
+
+
+<div id="orgc2f5515" class="figure">
+<p><img src="./images_small/IMG_9319.jpg" alt="IMG_9319.jpg" />
+</p>
+</div>
+
+
+<div id="org3633368" class="figure">
+<p><img src="./images_small/IMG_9323.jpg" alt="IMG_9323.jpg" />
+</p>
+</div>
+
+<p>
+Люди забирались на него и фотографировались.
+</p>
+
+
+<div id="org7c8aa77" class="figure">
+<p><img src="./images_small/IMG_0911.jpg" alt="IMG_0911.jpg" />
+</p>
+</div>
+
+<p>
+Вид с моста.
+</p>
+
+
+<div id="org449fb74" class="figure">
+<p><img src="./images_small/IMG_9329.jpg" alt="IMG_9329.jpg" />
+</p>
+</div>
+
+
+<div id="org12e4b72" class="figure">
+<p><img src="./images_small/IMG_9330.jpg" alt="IMG_9330.jpg" />
+</p>
+</div>
+
+<p>
+Вид из под моста.
+</p>
+
+
+<div id="org826b6ba" class="figure">
+<p><img src="./images_small/IMG_0914.jpg" alt="IMG_0914.jpg" />
+</p>
+</div>
+
+<p>
+Дети на мосту.
+</p>
+
+
+<div id="orgae18cde" class="figure">
+<p><img src="./images_small/IMG_9333.jpg" alt="IMG_9333.jpg" />
+</p>
+</div>
+
+
+<div id="org0565cee" class="figure">
+<p><img src="./images_small/IMG_9335.jpg" alt="IMG_9335.jpg" />
+</p>
+</div>
+
+
+<div id="org64ddc99" class="figure">
+<p><img src="./images_small/IMG_9338.jpg" alt="IMG_9338.jpg" />
+</p>
+</div>
+
+<p>
+Уезжающий поезд.
+</p>
+
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/OFLhrV8wDV0"></iframe>
+</div>
+
+<p>
+За ужином мы опять разделились: дети отправились кушать (невкусную) <a href="#orga34abf8">европейскую еду</a>, а мы - (вкусную) <a href="#orgbed5dd8">ланкийскую</a>.
+</p>
+
+
+<div id="org920543f" class="figure">
+<p><img src="./images_small/IMG_9346.jpg" alt="IMG_9346.jpg" />
+</p>
+</div>
+
+
+<div id="org320c8ad" class="figure">
+<p><img src="./images_small/IMG_9347.jpg" alt="IMG_9347.jpg" />
+</p>
+</div>
+
+
+<div id="org2daaf33" class="figure">
+<p><img src="./images_small/IMG_9348.jpg" alt="IMG_9348.jpg" />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1a3e39a" class="outline-4">
+<h4 id="org1a3e39a">Статистика</h4>
+<div class="outline-text-4" id="text-org1a3e39a">
+<pre class="example">
+Дистанция
+  Авто:   31 км
+  Пешком: 18 км
+</pre>
+
+
+<pre class="example">
+€229  Расходы
+ €11    Достопримечательности
+€115    Еда
+ €25      Магазин
+ €89      Ресторан
+ €80    Жилье
+ €24    Прачка
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb864417" class="outline-3">
+<h3 id="orgb864417">День 10. Буддийский храм - водопад Диялума - Тангале</h3>
+<div class="outline-text-3" id="text-orgb864417">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">2024-12-24 Tue</span></span>
+</p>
+
+<p>
+С утра мы позавтракали в <a href="#org603ac05">хипстерском заведении</a>.
+</p>
+
+
+<div id="org524c11f" class="figure">
+<p><img src="./images_small/IMG_9351.jpg" alt="IMG_9351.jpg" />
+</p>
+</div>
+
+
+<div id="org3c43c38" class="figure">
+<p><img src="./images_small/IMG_9352.jpg" alt="IMG_9352.jpg" />
+</p>
+</div>
+
+
+<div id="org6d1bd44" class="figure">
+<p><img src="./images_small/IMG_9353.jpg" alt="IMG_9353.jpg" />
+</p>
+</div>
+
+<p>
+По дороге к побережью мы заехали в <a href="#orgd04e4de">буддийский храм</a>.
+</p>
+
+
+<div id="org6a1ca95" class="figure">
+<p><img src="./images_small/IMG_9354.jpg" alt="IMG_9354.jpg" />
+</p>
+</div>
+
+
+<div id="org7db6c72" class="figure">
+<p><img src="./images_small/IMG_0938.jpg" alt="IMG_0938.jpg" />
+</p>
+</div>
+
+
+<div id="org0958c26" class="figure">
+<p><img src="./images_small/IMG_9358.jpg" alt="IMG_9358.jpg" />
+</p>
+</div>
+
+<p>
+Выслушав буддийские нравоучения и почитав молитвы, мы поехали к водопаду Диялума.
+</p>
+
+<video controls autoplay loop>
+<source src="./video/IMG_9362.mp4" type="video/mp4">
+</video>
+
+
+<div id="org1d4d79a" class="figure">
+<p><img src="./images_small/IMG_0941.jpg" alt="IMG_0941.jpg" />
+</p>
+</div>
+
+<video controls autoplay loop>
+<source src="./video/IMG_9370.mp4" type="video/mp4">
+</video>
+
+<p>
+В верхней части водопада можно было купаться.
+</p>
+
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/hm-xhhcMIKI"></iframe>
+</div>
+
+<p>
+Искупавшись мы поехали дальше.
+</p>
+
+
+<div id="org19d502c" class="figure">
+<p><img src="./images_small/IMG_9380.jpg" alt="IMG_9380.jpg" />
+</p>
+</div>
+
+<p>
+Приехав в Тангале мы заселились в <a href="#orge865951">гостиницу</a> и пошли на ужин.
+<a href="#org16603b3">Ресторан</a> оказался довольно странным: кухня средняя, а хозяева
+все время выходили из дома и смотрели как мы едим при этом улыбаясь.
+</p>
+</div>
+
+<div id="outline-container-org4a9b638" class="outline-4">
+<h4 id="org4a9b638">Статистика</h4>
+<div class="outline-text-4" id="text-org4a9b638">
+<pre class="example">
+Дистанция
+  Авто:   177 км
+  Пешком: 10 км
+</pre>
+
+
+<pre class="example">
+€261  Расходы
+ €22    Достопримечательности
+€136    Еда
+ €33      Магазин
+€103      Ресторан
+ €65    Жилье
+ €37    Транспорт:Топливо
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgfb4dc20" class="outline-3">
+<h3 id="orgfb4dc20">День 11. Пляж Тангале - пляж Гоямбокка</h3>
+<div class="outline-text-3" id="text-orgfb4dc20">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">2024-12-25 Wed</span></span>
+</p>
+
+<p>
+С утра мы пошли в ближайшее <a href="#org887552f">кафе</a>, где была кофе-машина.
+Я решил попробовать фруктовый бойл (фрукты с йогуртом).
+</p>
+
+
+<div id="orgb8cc9cf" class="figure">
+<p><img src="./images_small/IMG_9387.jpg" alt="IMG_9387.jpg" />
+</p>
+</div>
+
+<p>
+Фруктов оказалось мало, а йогурта много.
+</p>
+
+<p>
+Также недалеко от гостиницы мы обнаружили милых щенков.
+</p>
+
+
+<div id="org331376d" class="figure">
+<p><img src="./images_small/IMG_9390.jpg" alt="IMG_9390.jpg" />
+</p>
+</div>
+
+<p>
+После завтрака мы решили пойти на пляж Тангале. По пути оказался рыбный рынок.
+</p>
+
+
+<div id="org6825ca1" class="figure">
+<p><img src="./images_small/IMG_9395.jpg" alt="IMG_9395.jpg" />
+</p>
+</div>
+
+
+<div id="org90b5540" class="figure">
+<p><img src="./images_small/IMG_9396.jpg" alt="IMG_9396.jpg" />
+</p>
+</div>
+
+<p>
+Когда мы дошли до пляжа, то оказалось, что мы там одни белые.
+Пляж был очень маленький, без лежаков и с кучей народа.
+</p>
+
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/LnMBKigeCOY"></iframe>
+</div>
+
+<p>
+Немного поплавав и ощутив нездоровый интерес к себе со стороны местного населения,
+мы решили доехать до пляжа Гаямбокка.
+</p>
+
+<p>
+Поехали мы туда на автобусе, который является местной субкультурой.
+</p>
+
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/-XGJDQ-OAes"></iframe>
+</div>
+
+<p>
+Пляж оказался куда более живописным и, главное,
+оборудованным. Основной контингент состоял из белых туристов.
+Лежаки при ресторанах условно бесплатные, если заказываешь у них еду или напитки.
+</p>
+
+
+<div id="orgb80000b" class="figure">
+<p><img src="./images_small/goyambokka.jpg" alt="goyambokka.jpg" />
+</p>
+</div>
+
+
+<div id="orgb1117fb" class="figure">
+<p><img src="./images_small/IMG_9398.jpg" alt="IMG_9398.jpg" />
+</p>
+</div>
+
+<p>
+Волны в океане были временами очень сильными. Это средний вариант.
+</p>
+
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/TuETxxRaAsE"></iframe>
+</div>
+
+<p>
+В отсутствии опыта мы получили небольшие травмы в процессе купания в волнах:
+Катя ударила колено, меня впечатало в дно макушкой, а Алиса ударилась носом и губой.
+</p>
+
+<p>
+Саша с Николь поймали краба.
+</p>
+
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/6Dxpuc6k_VI"></iframe>
+</div>
+
+<p>
+Также было поймано несколько раков-отшельников.
+</p>
+
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/aoiqFVRFVYg"></iframe>
+</div>
+
+<p>
+Саша изловил морского ежа, которого мы повезли в гостиницу, чтобы съесть.
+</p>
+
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/tc0VP2L0GzY"></iframe>
+</div>
+
+<p>
+Саша тайно везет ежа в автобусе.
+</p>
+
+
+<div id="org64ad750" class="figure">
+<p><img src="./images_small/IMG_0997.jpg" alt="IMG_0997.jpg" />
+</p>
+</div>
+
+<p>
+Николь вскрывает ежа.
+</p>
+
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/7aTDLqXXidQ"></iframe>
+</div>
+
+<p>
+Я пробую ежа.
+</p>
+
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/A5-klxx-9uU"></iframe>
+</div>
+
+<p>
+Вкус оказался невнятный, съедобной части было очень мало.
+</p>
+
+<p>
+Вечером мы пошли в популярный местный <a href="#orgb078083">ресторан</a>.
+</p>
+</div>
+
+<div id="outline-container-org5647678" class="outline-4">
+<h4 id="org5647678">Статистика</h4>
+<div class="outline-text-4" id="text-org5647678">
+<pre class="example">
+Дистанция
+  Авто:   0 км
+  Пешком: 8 км
+</pre>
+
+
+<pre class="example">
+€284  Расходы
+€216    Еда
+  €4      Магазин
+€213      Ресторан
+ €66    Жилье
+  €2    Транспорт:Другое
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf50ae9b" class="outline-3">
+<h3 id="orgf50ae9b">День 12. Пляж Гоямбокка</h3>
+<div class="outline-text-3" id="text-orgf50ae9b">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">2024-12-26 Thu</span></span>
+</p>
+
+<p>
+Мы поехали на тот же пляж, но уже запаслись с собой закусками и напитками,
+так как вчера вышло недешево, наценка за питание на пляже оказалась существенной.
+Легли в другом <a href="#orge7fe0c5">ресторане</a>, там оказался единственный душ на пляже и доски для плавания.
+</p>
+
+<p>
+Я взял с собой на пляж ноутбук и вошел в образ цифрового номада.
+</p>
+
+
+<div id="org1aa6603" class="figure">
+<p><img src="./images_small/IMG_9414.jpg" alt="IMG_9414.jpg" />
+</p>
+</div>
+
+<p>
+Мы решили изловить больше ежей и принести их в гостиницу в сумке холодильнике.
+Утром Саши купил шипцы в магазине и перед уходом с пляжа мы собрали семь ежей.
+</p>
+
+
+<div id="org06c4a33" class="figure">
+<p><img src="./images_small/IMG_1018.jpg" alt="IMG_1018.jpg" />
+</p>
+</div>
+
+<p>
+К сожалению все ежи оказались пустые внутри. Саша нашел информацию, что сейчас не сезон.
+</p>
+
+<p>
+Вечером мы пошли поесть в дорогой <a href="#orgea50f03">ресторан</a> неподалеку от нас.
+</p>
+</div>
+
+<div id="outline-container-org0623228" class="outline-4">
+<h4 id="org0623228">Статистика</h4>
+<div class="outline-text-4" id="text-org0623228">
+<pre class="example">
+Дистанция
+  Авто:   0 км
+  Пешком: 9 км
+</pre>
+
+
+<pre class="example">
+€267  Расходы
+€192    Еда
+ €52      Магазин
+€140      Ресторан
+ €66    Жилье
+  €8    Связь
+  €1    Транспорт:Другое
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb68bcde" class="outline-3">
+<h3 id="orgb68bcde">День 13. Пляж Гоямбокка</h3>
+<div class="outline-text-3" id="text-orgb68bcde">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">2024-12-27 Fri</span></span>
+</p>
+
+<p>
+После обеда на пляже к нам присоединилась семья Ханиных: Андрей, Катя и Виктория.
+Они приехали из Унаватуны на три дня.
+</p>
+
+<p>
+Виктория нашла в песке рака-отшельника.
+</p>
+
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/Lvte5eYJyAc"></iframe>
+</div>
+
+<p>
+Вечером мы вместе пошли в уже проверенный <a href="#orgb078083">ресторан</a>.
+</p>
+
+
+<div id="orgcb5710d" class="figure">
+<p><img src="./images_small/IMG_5934.jpg" alt="IMG_5934.jpg" />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgefa89a7" class="outline-4">
+<h4 id="orgefa89a7">Статистика</h4>
+<div class="outline-text-4" id="text-orgefa89a7">
+<pre class="example">
+Дистанция
+  Авто:   0 км
+  Пешком: 9 км
+</pre>
+
+
+<pre class="example">
+€250  Расходы
+€183    Еда
+ €37      Магазин
+€146      Ресторан
+ €66    Жилье
+  €1    Транспорт:Другое
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge3dac53" class="outline-3">
+<h3 id="orge3dac53">День 14. Пляж Гоямбокка</h3>
+<div class="outline-text-3" id="text-orge3dac53">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">2024-12-28 Sat</span></span>
+</p>
+
+<p>
+Весь день пробыв на пляже вечером мы пошли в новый <a href="#orgc33261d">ресторан</a>.
+Там мы встретили очень милых котов.
+</p>
+
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/9Gqp96Wj2ME"></iframe>
+</div>
+
+<p>
+На Шри Ланке очень много бродячих собак: они безопасные и голодные.
+</p>
+
+
+<div id="orge3d9d25" class="figure">
+<p><img src="./images_small/IMG_9477.jpg" alt="IMG_9477.jpg" />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgfd551c7" class="outline-4">
+<h4 id="orgfd551c7">Статистика</h4>
+<div class="outline-text-4" id="text-orgfd551c7">
+<pre class="example">
+Дистанция
+  Авто:   8 км
+  Пешком: 6 км
+</pre>
+
+
+<pre class="example">
+€203  Расходы
+€125    Еда
+ €27      Магазин
+ €97      Ресторан
+ €66    Жилье
+ €12    Прачка
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org51431c6" class="outline-3">
+<h3 id="org51431c6">День 15. Пляж Гоямбокка - Денийяйя</h3>
+<div class="outline-text-3" id="text-org51431c6">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">2024-12-29 Sun</span></span>
+</p>
+
+<p>
+Мы с Сашей пораньше уехали с пляжа, так как решили посетить дождевой лес
+Синхараджа. До города Денийяйя, где мы решили остановиться на ночь,
+ехать нужно было около двух с половиной часов.
+</p>
+
+<p>
+Доехав до <a href="#orgda62471">гостиницы</a>, мы поужинали и рано легли спать, так как решили рано вставать.
+</p>
+</div>
+
+<div id="outline-container-org1a2945c" class="outline-4">
+<h4 id="org1a2945c">Статистика</h4>
+<div class="outline-text-4" id="text-org1a2945c">
+<pre class="example">
+Дистанция
+  Авто:   79 км
+  Пешком: 4 км
+</pre>
+
+
+<pre class="example">
+€283  Расходы
+€179    Еда
+ €38      Магазин
+€141      Ресторан
+€104    Жилье
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbae6a67" class="outline-3">
+<h3 id="orgbae6a67">День 16. Синхараджа - Пляж Гоямбокка</h3>
+<div class="outline-text-3" id="text-orgbae6a67">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">2024-12-30 Mon</span></span>
+</p>
+
+<p>
+С утра мы встали в шесть часов и быстро собравшись выехали в сторону <a href="https://maps.app.goo.gl/6r6BM5nvXgJ6VFHK9">входа Ланкагама</a>.
+</p>
+
+<p>
+Немного поплутав по дороге, мы приехали к 7:50. Касса была еще закрыта, но местные гиды
+предложили нам заплатить потом, а сейчас отправиться с одним из них за 8000 рупий.
+Я знал, что билеты на двоих стоят 2500 рупий и услуги гида 1500 рупий и стал торговаться.
+В итоге сошлись на 6000 рупий и мы пошли смотреть дождевой лес.
+</p>
+
+<p>
+Дождевой лес Синхараджа уникален тем, что 60% его флоры и фауны составляют эндемики,
+то есть виды, среда обитания которых ограничена областью леса.
+</p>
+
+<p>
+Водопад.
+</p>
+
+<video controls autoplay loop>
+<source src="./video/IMG_1034.mp4" type="video/mp4">
+</video>
+
+<p>
+Ящерица маскируется на дереве.
+</p>
+
+
+<div id="orgf926dbb" class="figure">
+<p><img src="./images_small/IMG_1035.jpg" alt="IMG_1035.jpg" />
+</p>
+</div>
+
+<p>
+Зеленая улитка.
+</p>
+
+
+<div id="orgf3224c8" class="figure">
+<p><img src="./images_small/IMG_1036.jpg" alt="IMG_1036.jpg" />
+</p>
+</div>
+
+<p>
+Древесные грибы.
+</p>
+
+
+<div id="org8a02efc" class="figure">
+<p><img src="./images_small/IMG_1037.jpg" alt="IMG_1037.jpg" />
+</p>
+</div>
+
+<p>
+Ядовитая змея.
+</p>
+
+
+<div id="org2735c55" class="figure">
+<p><img src="./images_small/IMG_1039.jpg" alt="IMG_1039.jpg" />
+</p>
+</div>
+
+<p>
+Красивый водопад.
+</p>
+
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/Te1KZYJOzZI"></iframe>
+</div>
+
+<video controls autoplay loop>
+<source src="./video/IMG_1042.mp4" type="video/mp4">
+</video>
+
+<p>
+Еще древесные грибы.
+</p>
+
+
+<div id="orgf862b7c" class="figure">
+<p><img src="./images_small/IMG_1044.jpg" alt="IMG_1044.jpg" />
+</p>
+</div>
+
+<p>
+Ящерица.
+</p>
+
+
+<div id="orge06dab3" class="figure">
+<p><img src="./images_small/IMG_1047.jpg" alt="IMG_1047.jpg" />
+</p>
+</div>
+
+<p>
+Паук.
+</p>
+
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/bHNe8qTyl-s"></iframe>
+</div>
+
+<p>
+Многоножка.
+</p>
+
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/LEM53Y_HyxY"></iframe>
+</div>
+
+<p>
+Водопад.
+</p>
+
+<video controls autoplay loop>
+<source src="./video/IMG_1054.mp4" type="video/mp4">
+</video>
+
+<p>
+Дерево.
+</p>
+
+
+<div id="orgb7ad00e" class="figure">
+<p><img src="./images_small/IMG_1055.jpg" alt="IMG_1055.jpg" />
+</p>
+</div>
+
+<p>
+Ящерица.
+</p>
+
+
+<div id="org7575f7c" class="figure">
+<p><img src="./images_small/IMG_1058.jpg" alt="IMG_1058.jpg" />
+</p>
+</div>
+
+<p>
+Водопад.
+</p>
+
+<video controls autoplay loop>
+<source src="./video/IMG_1060.mp4" type="video/mp4">
+</video>
+
+<p>
+Красивый цветок.
+</p>
+
+
+<div id="orge86511e" class="figure">
+<p><img src="./images_small/IMG_1063-1.jpg" alt="IMG_1063-1.jpg" />
+</p>
+</div>
+
+<p>
+Симбиоз с деревом.
+</p>
+
+
+<div id="orge8df582" class="figure">
+<p><img src="./images_small/IMG_1064.jpg" alt="IMG_1064.jpg" />
+</p>
+</div>
+
+
+<p>
+Рыбки, которые прилипают к ногам.
+</p>
+
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/Uv-lJRLwo4I"></iframe>
+</div>
+
+<p>
+Радуга в водопаде.
+</p>
+
+<video controls autoplay loop>
+<source src="./video/IMG_1078.mp4" type="video/mp4">
+</video>
+
+<p>
+После посещения дождевого леса мы доехали до Матары, где поели в приличной <a href="#orgdf1959a">пиццерии</a>
+и захватили три пиццы с собой.
+</p>
+
+<p>
+Вечером пошел дождь, мы поздно пошли в <a href="#orgc31d272">ресторан</a>.
+Свободных столов не было, а так как на улице шел дождь,
+нас впустили в жилую зону хозяев подождать. Это был интересный опыт.
+</p>
+
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/VLx8cZ5rnYQ"></iframe>
+</div>
+</div>
+
+<div id="outline-container-orga548577" class="outline-4">
+<h4 id="orga548577">Статистика</h4>
+<div class="outline-text-4" id="text-orga548577">
+<pre class="example">
+Дистанция
+  Авто:   176 км
+  Пешком: 10 км
+</pre>
+
+
+<pre class="example">
+€292  Расходы
+ €29    Достопримечательности
+€193    Еда
+ €37      Магазин
+€156      Ресторан
+ €66    Жилье
+  €4    Связь
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbac5d64" class="outline-3">
+<h3 id="orgbac5d64">День 17. Пляж Гоямбокка</h3>
+<div class="outline-text-3" id="text-orgbac5d64">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">2024-12-31 Tue</span></span>
+</p>
+
+<p>
+Бариста в кафе, где мы завтракаем.
+</p>
+
+
+<div id="orgaccb977" class="figure">
+<p><img src="./images_small/IMG_1095.jpg" alt="IMG_1095.jpg" />
+</p>
+</div>
+
+<p>
+Вид на океан из кафе. Зонтики в цвет песка.
+</p>
+
+
+<div id="org60fbb63" class="figure">
+<p><img src="./images_small/IMG_1114.jpg" alt="IMG_1114.jpg" />
+</p>
+</div>
+
+<p>
+Обезьяна наблюдает за нами.
+</p>
+
+
+<div id="orge4ec250" class="figure">
+<p><img src="./images_small/IMG_9505.jpg" alt="IMG_9505.jpg" />
+</p>
+</div>
+
+<p>
+На пляж приехали военные, что-то произошло в окрестностях и они что-то искали.
+Забрали на проверку продавца ракушек.
+</p>
+
+
+<div id="orgfaba554" class="figure">
+<p><img src="./images_small/IMG_1101.jpg" alt="IMG_1101.jpg" />
+</p>
+</div>
+
+<p>
+Вечером мы пошли покушать европейскую еду и покурить кальян в неплохой <a href="#orgd8210c7">ресторан</a>
+с расслабляющей атмосферой.
+</p>
+
+<p>
+Новый год мы встретили на террасе в нашей гостинице, наблюдая за фейерверками
+с пляжа и дождем.
+</p>
+</div>
+
+<div id="outline-container-org562b123" class="outline-4">
+<h4 id="org562b123">Статистика</h4>
+<div class="outline-text-4" id="text-org562b123">
+<pre class="example">
+Дистанция
+  Авто:   5 км
+  Пешком: 7 км
+</pre>
+
+
+<pre class="example">
+€215  Расходы
+€143    Еда
+ €18      Магазин
+€125      Ресторан
+ €66    Жилье
+  €6    Связь
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbbdd954" class="outline-3">
+<h3 id="orgbbdd954">День 18. Пляж Гоямбокка</h3>
+<div class="outline-text-3" id="text-orgbbdd954">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">2025-01-01 Wed</span></span>
+</p>
+
+<p>
+Мы выбрались на пляж только к обеду. Работники ресторана, похоже,
+тоже отмечали Новый Год накануне.
+</p>
+
+
+<div id="orgef08b84" class="figure">
+<p><img src="./images_small/IMG_1118.jpg" alt="IMG_1118.jpg" />
+</p>
+</div>
+
+<p>
+Так как лежаки были заняты, я сел с компьютером на террасе ресторана.
+</p>
+
+
+<div id="org15a2280" class="figure">
+<p><img src="./images_small/IMG_1117.jpg" alt="IMG_1117.jpg" />
+</p>
+</div>
+
+<p>
+Вечером мы пошли в уже знакомый <a href="#orgb078083">ресторан</a> с друзьями, где попробовали омаров.
+</p>
+
+
+<div id="org2850dd1" class="figure">
+<p><img src="./images_small/IMG_6307.jpg" alt="IMG_6307.jpg" />
+</p>
+</div>
+
+
+<div id="orgad0d1e5" class="figure">
+<p><img src="./images_small/IMG_9540.jpg" alt="IMG_9540.jpg" />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgeb9a87e" class="outline-4">
+<h4 id="orgeb9a87e">Статистика</h4>
+<div class="outline-text-4" id="text-orgeb9a87e">
+<pre class="example">
+Дистанция
+  Авто:   10 км
+  Пешком: 6 км
+</pre>
+
+
+<pre class="example">
+€266  Расходы
+€198    Еда
+ €60      Магазин
+€138      Ресторан
+ €66    Жилье
+  €2    Транспорт:Другое
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge76075c" class="outline-3">
+<h3 id="orge76075c">День 19. Мирисса</h3>
+<div class="outline-text-3" id="text-orge76075c">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">2025-01-02 Thu</span></span>
+</p>
+
+<p>
+С утра шел дождь, поэтому мы решили не идти на пляж, а прокатиться
+вдоль побережья до Мириссы и обратно, посетив разные интересные точки.
+Первая остановка была возле <a href="#orga4e0b5a">естественного фонтана</a>.
+Это своеобразное ущелье на берегу, где набегающие волны выплескиваются вверх фонтаном.
+</p>
+
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/HXobC7Cfgls"></iframe>
+</div>
+
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/8BcXqW2kDnw"></iframe>
+</div>
+
+
+<div id="org4fe9948" class="figure">
+<p><img src="./images_small/IMG_9565.jpg" alt="IMG_9565.jpg" />
+</p>
+</div>
+
+<p>
+По пути мы заехали на <a href="https://maps.app.goo.gl/1QQ1KNXaiuysS9hb9">пляж Hiriketiya</a>, где было много серферов.
+</p>
+
+
+<div id="org6c8f01e" class="figure">
+<p><img src="./images_small/IMG_9567.jpg" alt="IMG_9567.jpg" />
+</p>
+</div>
+
+<p>
+Далее мы остановились в месте, где можно увидеть <a href="#orgd3f4486">черепах</a>. Там так же были качели.
+</p>
+
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/aEgQCzj-CX8"></iframe>
+</div>
+<p>
+Плавать мы не стали, но видели как черепахи высовывают из воды голову, чтобы набрать воздух.
+</p>
+
+<p>
+Побережье в этом месте было довольно красивым.
+</p>
+
+
+<div id="org7f03eae" class="figure">
+<p><img src="./images_small/IMG_9573.jpg" alt="IMG_9573.jpg" />
+</p>
+</div>
+
+
+<div id="orgb4127b0" class="figure">
+<p><img src="./images_small/IMG_9574.jpg" alt="IMG_9574.jpg" />
+</p>
+</div>
+
+<p>
+Там же в океан впадала небольшая речка, где дети увидели в кустах огромного варана.
+Когда я туда пришел, варан уже спрятался и мне удалось заснять его только в воде.
+</p>
+
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/XO1XnJboklw"></iframe>
+</div>
+
+<p>
+Далее мы заехали на <a href="#org494f663">холм с пальмами</a>, на котором было довольно многолюдно,
+но открывался живописный вид на лагуну.
+</p>
+
+
+<div id="orgb572c36" class="figure">
+<p><img src="./images_small/IMG_9578.jpg" alt="IMG_9578.jpg" />
+</p>
+</div>
+
+<div class="container">
+    <iframe style="aspect-ratio: 16 / 9; width: 100% !important;"
+    src="https://www.youtube.com/embed/9Tka1eOcrdg"></iframe>
+</div>
+
+<p>
+Последней точкой была живописная <a href="#orgef26006">скала</a>.
+</p>
+
+
+<div id="org8593c6a" class="figure">
+<p><img src="./images_small/IMG_9583.jpg" alt="IMG_9583.jpg" />
+</p>
+</div>
+
+
+<div id="org914a378" class="figure">
+<p><img src="./images_small/IMG_9584.jpg" alt="IMG_9584.jpg" />
+</p>
+</div>
+
+<p>
+Вечером мы опять пошли в ресторан, где можно покурить кальян.
+Телефон, паста, мохито и кальян - счастье есть!
+</p>
+
+
+<div id="org8c096e0" class="figure">
+<p><img src="./images_small/IMG_1135.jpg" alt="IMG_1135.jpg" />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org68306a4" class="outline-4">
+<h4 id="org68306a4">Статистика</h4>
+<div class="outline-text-4" id="text-org68306a4">
+<pre class="example">
+Дистанция
+  Авто:   97 км
+  Пешком: 11 км
+</pre>
+
+
+<pre class="example">
+€329  Расходы
+€218    Еда
+ €38      Магазин
+€180      Ресторан
+ €66    Жилье
+ €45    Транспорт
+  €1      Другое
+ €45      Топливо
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org793b81f" class="outline-3">
+<h3 id="org793b81f">День 20. Унаватуна - Коломбо</h3>
+<div class="outline-text-3" id="text-org793b81f">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">2025-01-03 Fri</span></span>
+</p>
+
+<p>
+С утра мы доехали до Унаватуны и позавтракав в неплохом <a href="#orgf372acf">месте</a> пошли на пляж.
+</p>
+
+<p>
+Вечером я сдал машину и заселившись в <a href="#orgf10af79">гостиницу</a> мы поехали покушать с <a href="#orgbfdec43">ресторан</a> неподалеку.
+</p>
+
+
+<div id="org218bfb4" class="figure">
+<p><img src="./images_small/IMG_9594.jpg" alt="IMG_9594.jpg" />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org182fbcf" class="outline-4">
+<h4 id="org182fbcf">Статистика</h4>
+<div class="outline-text-4" id="text-org182fbcf">
+<pre class="example">
+Дистанция
+  Авто:   238 км
+  Пешком: 5 км
+</pre>
+
+
+<pre class="example">
+€273  Расходы
+€201    Еда
+ €41      Магазин
+€160      Ресторан
+ €20    Жилье
+ €52    Транспорт
+ €34      Другое
+ €18      Топливо
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5430e77" class="outline-3">
+<h3 id="org5430e77">День 21. Стамбул - Рига</h3>
+<div class="outline-text-3" id="text-org5430e77">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">2025-01-04 Sat</span></span>
+</p>
+
+<p>
+С утра мы встали в половине пятого, чтобы обнаружить, что наш рейс задерживают на 2 часа.
+В итоге поспали еще и поехали в аэропорт.
+Прилетев в Стамбул мы обнаружили, что самолет на Ригу уже улетел.
+Мы прошли паспортный контроль и в Hotel Desk нам выдали гостиницу и новые билеты на следующее утро.
+Когда нас привезли в <a href="#org0935d11">гостиницу</a>, она оказался весьма приличным пятизвездочным отелем, где нас неплохо покормили ужином.
+Также в гостинице был общительный кот.
+</p>
+
+
+<div id="orga30cd32" class="figure">
+<p><img src="./images_small/IMG_9601.jpg" alt="IMG_9601.jpg" />
+</p>
+</div>
+
+<p>
+Проблема оказалась в том, что в ближайшем торговом центре не продавали алкоголь. Пришлось задорого купить бутылку вина в отеле.
+</p>
+
+
+<div id="orgb39f4e8" class="figure">
+<p><img src="./images_small/IMG_9607.jpg" alt="IMG_9607.jpg" />
+</p>
+</div>
+
+<p>
+С утра нас забрали в пять часов и отвезли в аэропорт.
+Через несколько часов мы приземлились в Риге.
+</p>
+</div>
+
+<div id="outline-container-org1e4000d" class="outline-4">
+<h4 id="org1e4000d">Статистика</h4>
+<div class="outline-text-4" id="text-org1e4000d">
+<pre class="example">
+Дистанция
+  Авто:   0 км
+  Пешком: 10 км
+</pre>
+
+
+<pre class="example">
+€64  Расходы
+€57    Еда
+€12      Магазин
+€45      Ресторан
+ €7    Транспорт:Другое
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgec56941" class="outline-3">
+<h3 id="orgec56941">Итог</h3>
+<div class="outline-text-3" id="text-orgec56941">
+<p>
+Мы немного отклонились от маршрута и пропустили несколько запланированных хайкинговых троп из-за дождей.
+Итоговый маршрут выглядел так (красный цвет - запланированный маршрут, а синий - реальный).
+</p>
+
+
+<div id="org0887ddd" class="figure">
+<p><img src="./images_small/recorded.jpg" alt="recorded.jpg" />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgbb2e4b7" class="outline-4">
+<h4 id="orgbb2e4b7">Общая статистика</h4>
+<div class="outline-text-4" id="text-orgbb2e4b7">
+<pre class="example">
+Дистанция
+  Авто:   1587 км
+  Пешком: 198 км
+</pre>
+
+
+<pre class="example" id="org73b16f3">
+€9469  Расходы
+ €246    Визы
+ €275    Достопримечательности
+€2926    Еда
+ €687      Магазин
+€2238      Ресторан
+€1165    Жилье
+  €36    Прачка
+€3714    Самолет
+  €61    Связь
+€1046    Транспорт
+ €792      Аренда
+  €43      Другое
+ €211      Топливо
+</pre>
+
+<pre class="example" id="org58d7560">
+Количество человек:         5
+Количество дней:            21
+
+Расходы на человека в день
+  Всего:                         €90
+  Жилье:                         €11
+  Еда:                           €28
+  Транспорт:                     €10
+  Достопримечательности:          €2
+  Самолет:                       €35
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org69733cf" class="outline-2">
+<h2 id="org69733cf">Достопримечательности</h2>
+<div class="outline-text-2" id="text-org69733cf">
+</div>
+<div id="outline-container-orgc3a8649" class="outline-3">
+<h3 id="orgc3a8649">Negombo Dry fish Processing Area</h3>
+<div class="outline-text-3" id="text-orgc3a8649">
+<p>
+<a href="https://maps.app.goo.gl/6NW96YgKnkAKZZji7">https://maps.app.goo.gl/6NW96YgKnkAKZZji7</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc82cb97" class="outline-3">
+<h3 id="orgc82cb97">Pidurangala Rock</h3>
+<div class="outline-text-3" id="text-orgc82cb97">
+<p>
+<a href="https://maps.app.goo.gl/L1ixTAMTpU2iAHkaA">https://maps.app.goo.gl/L1ixTAMTpU2iAHkaA</a>
+</p>
+
+<p>
+Вид на Сигирию
+</p>
+
+<p>
+Цена: 1000 LKR (€3)
+</p>
+</div>
+</div>
+
+<div id="outline-container-org867cffb" class="outline-3">
+<h3 id="org867cffb">Aluviharaya Rock Cave Temple</h3>
+<div class="outline-text-3" id="text-org867cffb">
+<p>
+<a href="https://maps.app.goo.gl/RqLTTyCEbnQBHmSg8">https://maps.app.goo.gl/RqLTTyCEbnQBHmSg8</a>
+</p>
+
+<p>
+Цена: 500 LKR (€1.5)
+</p>
+</div>
+</div>
+
+<div id="outline-container-org66e1753" class="outline-3">
+<h3 id="org66e1753">Bambarakiri Ella</h3>
+<div class="outline-text-3" id="text-org66e1753">
+<p>
+<a href="https://maps.app.goo.gl/yhV5XbVtyXziU6fLA">https://maps.app.goo.gl/yhV5XbVtyXziU6fLA</a>
+</p>
+
+<p>
+Висячий мост, можно плавать (красный флаг)
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgce7d1ee" class="outline-3">
+<h3 id="orgce7d1ee">Rathninda Ella Waterfall</h3>
+<div class="outline-text-3" id="text-orgce7d1ee">
+<p>
+<a href="https://maps.app.goo.gl/BLfnoqwfD7WufajV9">https://maps.app.goo.gl/BLfnoqwfD7WufajV9</a>
+</p>
+
+<p>
+Можно плавать
+</p>
+
+<p>
+От отеля Alki Bunglows минут 10-15 пешком
+Есть другой путь из деревни
+</p>
+</div>
+</div>
+
+<div id="outline-container-org28b0950" class="outline-3">
+<h3 id="org28b0950">Hunnasgiriya Water Fall</h3>
+<div class="outline-text-3" id="text-org28b0950">
+<p>
+<a href="https://maps.app.goo.gl/TbzWqsnGUhB8qQjB6">https://maps.app.goo.gl/TbzWqsnGUhB8qQjB6</a>
+</p>
+
+<p>
+Цена: 500 LKR (€1.5)
+</p>
+
+<p>
+Можно плавать
+</p>
+</div>
+</div>
+
+<div id="outline-container-org69429f2" class="outline-3">
+<h3 id="org69429f2">Themali Kaan Waterfall</h3>
+<div class="outline-text-3" id="text-org69429f2">
+<p>
+<a href="https://maps.app.goo.gl/CZcgQvFrCmQkVhWK7">https://maps.app.goo.gl/CZcgQvFrCmQkVhWK7</a>
+</p>
+
+<p>
+Прямо на дороге
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgdde2ffa" class="outline-3">
+<h3 id="orgdde2ffa">Sri Dalada Maligawa (Храм Зуба Будды)</h3>
+<div class="outline-text-3" id="text-orgdde2ffa">
+<p>
+<a href="https://maps.app.goo.gl/DfXCeLFtuZfYZCQ19">https://maps.app.goo.gl/DfXCeLFtuZfYZCQ19</a>
+</p>
+
+<p>
+Цена: 2000 LKR (€6)
+</p>
+</div>
+</div>
+
+<div id="outline-container-org031dc42" class="outline-3">
+<h3 id="org031dc42">Sri Maha Bodhi Viharaya</h3>
+<div class="outline-text-3" id="text-org031dc42">
+<p>
+<a href="https://maps.app.goo.gl/6LGwysZF14bzvt4z5">https://maps.app.goo.gl/6LGwysZF14bzvt4z5</a>
+</p>
+
+<p>
+Цена: 300 LKR (€1)
+</p>
+</div>
+</div>
+
+<div id="outline-container-org51f48cc" class="outline-3">
+<h3 id="org51f48cc">Kande Sudu Ella Waterfall</h3>
+<div class="outline-text-3" id="text-org51f48cc">
+<p>
+<a href="https://maps.app.goo.gl/UGzrfiYYekeUhRM39">https://maps.app.goo.gl/UGzrfiYYekeUhRM39</a>
+</p>
+
+<p>
+Можно плавать
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc42a886" class="outline-3">
+<h3 id="orgc42a886">Knuckles Falls</h3>
+<div class="outline-text-3" id="text-orgc42a886">
+<p>
+<a href="https://maps.app.goo.gl/64tRE4d6hsQgdsnaA">https://maps.app.goo.gl/64tRE4d6hsQgdsnaA</a>
+</p>
+
+<p>
+Начало трека до вершины Knuclkes
+</p>
+</div>
+</div>
+
+<div id="outline-container-org390a3f1" class="outline-3">
+<h3 id="org390a3f1">Kondagala Rock</h3>
+<div class="outline-text-3" id="text-org390a3f1">
+<p>
+<a href="https://maps.app.goo.gl/pLtWx95PSEYvQe9F8">https://maps.app.goo.gl/pLtWx95PSEYvQe9F8</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org47f1552" class="outline-3">
+<h3 id="org47f1552">National Spice Garden of Sri Lanka</h3>
+<div class="outline-text-3" id="text-org47f1552">
+<p>
+<a href="https://maps.app.goo.gl/oueXq9xwBmDqKAJMA">https://maps.app.goo.gl/oueXq9xwBmDqKAJMA</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga2e12d6" class="outline-3">
+<h3 id="orga2e12d6">Ambuluwawa Tower</h3>
+<div class="outline-text-3" id="text-orga2e12d6">
+<p>
+<a href="https://maps.app.goo.gl/sFzXT8uDRsELQZ2Y7">https://maps.app.goo.gl/sFzXT8uDRsELQZ2Y7</a>
+</p>
+
+<p>
+Цена: 2000 LKR (€6)
+</p>
+</div>
+</div>
+
+<div id="outline-container-org31419b1" class="outline-3">
+<h3 id="org31419b1">Galpoththa</h3>
+<div class="outline-text-3" id="text-org31419b1">
+<p>
+<a href="https://maps.app.goo.gl/zAdf8dZFJv4FRf2f7">https://maps.app.goo.gl/zAdf8dZFJv4FRf2f7</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org87dab38" class="outline-3">
+<h3 id="org87dab38">Belilena Cave</h3>
+<div class="outline-text-3" id="text-org87dab38">
+<p>
+<a href="https://maps.app.goo.gl/7eLuhmvDhERh2j5m8">https://maps.app.goo.gl/7eLuhmvDhERh2j5m8</a>
+</p>
+
+<p>
+Цена: бесплатно
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgad602fa" class="outline-3">
+<h3 id="orgad602fa">Laxapana Falls</h3>
+<div class="outline-text-3" id="text-orgad602fa">
+<p>
+<a href="https://maps.app.goo.gl/8G4jjB6FnHNbeua96">https://maps.app.goo.gl/8G4jjB6FnHNbeua96</a>
+</p>
+
+<p>
+Лестница вниз, 650 ступеней, 20 минут, можно плавать
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga72876c" class="outline-3">
+<h3 id="orga72876c">Maskeliya</h3>
+<div class="outline-text-3" id="text-orga72876c">
+<p>
+<a href="https://maps.app.goo.gl/3dUoZMmuZ7c74Cde9">https://maps.app.goo.gl/3dUoZMmuZ7c74Cde9</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf3bb2bc" class="outline-3">
+<h3 id="orgf3bb2bc">Mohini Falls</h3>
+<div class="outline-text-3" id="text-orgf3bb2bc">
+<p>
+<a href="https://maps.app.goo.gl/oTEMRbC4hEGaqonZ6">https://maps.app.goo.gl/oTEMRbC4hEGaqonZ6</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org676cad5" class="outline-3">
+<h3 id="org676cad5">Gartmore Falls</h3>
+<div class="outline-text-3" id="text-org676cad5">
+<p>
+<a href="https://maps.app.goo.gl/6iWsczfDhhshzxsj7">https://maps.app.goo.gl/6iWsczfDhhshzxsj7</a>
+</p>
+
+<p>
+Можно плавать
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6fd20ff" class="outline-3">
+<h3 id="org6fd20ff">Bluefield Tea Factory</h3>
+<div class="outline-text-3" id="text-org6fd20ff">
+<p>
+<a href="https://maps.app.goo.gl/Yht6RHTNwwR4RbhU9">https://maps.app.goo.gl/Yht6RHTNwwR4RbhU9</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgaa39f42" class="outline-3">
+<h3 id="orgaa39f42">Devon Falls</h3>
+<div class="outline-text-3" id="text-orgaa39f42">
+<p>
+<a href="https://maps.app.goo.gl/g6nJ5j1wTCi7eaYn8">https://maps.app.goo.gl/g6nJ5j1wTCi7eaYn8</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org89baf51" class="outline-3">
+<h3 id="org89baf51">Kotmale Reservoir Observation Point</h3>
+<div class="outline-text-3" id="text-org89baf51">
+<p>
+<a href="https://maps.app.goo.gl/Qv1ueMCwLxeZhUU86">https://maps.app.goo.gl/Qv1ueMCwLxeZhUU86</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6b7be2f" class="outline-3">
+<h3 id="org6b7be2f">Ramboda Falls</h3>
+<div class="outline-text-3" id="text-org6b7be2f">
+<p>
+<a href="https://maps.app.goo.gl/pnMG3RdAAMnNT9Bj6">https://maps.app.goo.gl/pnMG3RdAAMnNT9Bj6</a>
+</p>
+
+<p>
+Цена: 200 LKR (€0.6)
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgfb6dc76" class="outline-3">
+<h3 id="orgfb6dc76">Bluefield Tea Factory</h3>
+<div class="outline-text-3" id="text-orgfb6dc76">
+<p>
+<a href="https://maps.app.goo.gl/4n9FXq4DRafXWhNLA">https://maps.app.goo.gl/4n9FXq4DRafXWhNLA</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd7d15fd" class="outline-3">
+<h3 id="orgd7d15fd">Labookellie Tea Lounge</h3>
+<div class="outline-text-3" id="text-orgd7d15fd">
+<p>
+<a href="https://maps.app.goo.gl/WkfkUR1TXQeL98Vn7">https://maps.app.goo.gl/WkfkUR1TXQeL98Vn7</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf6518aa" class="outline-3">
+<h3 id="orgf6518aa">Lover's Leap Waterfall</h3>
+<div class="outline-text-3" id="text-orgf6518aa">
+<p>
+<a href="https://maps.app.goo.gl/fF6djFh9MV9dCSSP9">https://maps.app.goo.gl/fF6djFh9MV9dCSSP9</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org81414e6" class="outline-3">
+<h3 id="org81414e6">Heritance Tea Factory</h3>
+<div class="outline-text-3" id="text-org81414e6">
+<p>
+<a href="https://maps.app.goo.gl/LryQDjXW7A8MmJhD9">https://maps.app.goo.gl/LryQDjXW7A8MmJhD9</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgfed7a78" class="outline-3">
+<h3 id="orgfed7a78">Single Tree Hill</h3>
+<div class="outline-text-3" id="text-orgfed7a78">
+<p>
+<a href="https://maps.app.goo.gl/vtz4M9qFeHM6D9J78">https://maps.app.goo.gl/vtz4M9qFeHM6D9J78</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org498a23d" class="outline-3">
+<h3 id="org498a23d">Lake Gregory</h3>
+<div class="outline-text-3" id="text-org498a23d">
+<p>
+<a href="https://maps.app.goo.gl/UTJFgYbkFiwMePsU6">https://maps.app.goo.gl/UTJFgYbkFiwMePsU6</a>
+</p>
+
+<p>
+Цена: 600 LKR (€2)
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd6b7e35" class="outline-3">
+<h3 id="orgd6b7e35">Bomburu Ella Waterfall</h3>
+<div class="outline-text-3" id="text-orgd6b7e35">
+<p>
+<a href="https://maps.app.goo.gl/ytNgQcGweoxVf8RFA">https://maps.app.goo.gl/ytNgQcGweoxVf8RFA</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3e759a1" class="outline-3">
+<h3 id="org3e759a1">Ambewela Farm</h3>
+<div class="outline-text-3" id="text-org3e759a1">
+<p>
+<a href="https://maps.app.goo.gl/ZBh1my3nCRqAFBrJ6">https://maps.app.goo.gl/ZBh1my3nCRqAFBrJ6</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgcb398c9" class="outline-3">
+<h3 id="orgcb398c9">Adisham Bungalow (St.Benedict's Monastery)</h3>
+<div class="outline-text-3" id="text-orgcb398c9">
+<p>
+<a href="https://maps.app.goo.gl/EKSN4EFsT64DNZjt6">https://maps.app.goo.gl/EKSN4EFsT64DNZjt6</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2d186f9" class="outline-3">
+<h3 id="org2d186f9">Eagle's Rock View Point</h3>
+<div class="outline-text-3" id="text-org2d186f9">
+<p>
+<a href="https://maps.app.goo.gl/W1MeHTuDwh9PDVHG9">https://maps.app.goo.gl/W1MeHTuDwh9PDVHG9</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga77daa2" class="outline-3">
+<h3 id="orga77daa2">Lipton's Seat</h3>
+<div class="outline-text-3" id="text-orga77daa2">
+<p>
+<a href="https://maps.app.goo.gl/9tLVSbveTpPrzaRh7">https://maps.app.goo.gl/9tLVSbveTpPrzaRh7</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org36725bf" class="outline-3">
+<h3 id="org36725bf">Diyaluma Falls</h3>
+<div class="outline-text-3" id="text-org36725bf">
+<p>
+<a href="https://maps.app.goo.gl/qvifWUWcwv2RA1HQ7">https://maps.app.goo.gl/qvifWUWcwv2RA1HQ7</a>
+</p>
+
+<p>
+Можно плавать
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd04e4de" class="outline-3">
+<h3 id="orgd04e4de">Rakkiththa Kanda Rajamaha Viharaya</h3>
+<div class="outline-text-3" id="text-orgd04e4de">
+<p>
+<a href="https://maps.app.goo.gl/XZAURnokuGre9fPj8">https://maps.app.goo.gl/XZAURnokuGre9fPj8</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga805161" class="outline-3">
+<h3 id="orga805161">Ravana Waterfall</h3>
+<div class="outline-text-3" id="text-orga805161">
+<p>
+<a href="https://maps.app.goo.gl/5j5HCkbbfeRAtaJs9">https://maps.app.goo.gl/5j5HCkbbfeRAtaJs9</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org70b436a" class="outline-3">
+<h3 id="org70b436a">Ella Rock View Point</h3>
+<div class="outline-text-3" id="text-org70b436a">
+<p>
+<a href="https://maps.app.goo.gl/UwwH49426hbCXNAR8">https://maps.app.goo.gl/UwwH49426hbCXNAR8</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb621002" class="outline-3">
+<h3 id="orgb621002">Little Adam's Peak</h3>
+<div class="outline-text-3" id="text-orgb621002">
+<p>
+<a href="https://maps.app.goo.gl/hETWQrsFtBq49bWt6">https://maps.app.goo.gl/hETWQrsFtBq49bWt6</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9dab44c" class="outline-3">
+<h3 id="org9dab44c">Secret Waterfall</h3>
+<div class="outline-text-3" id="text-org9dab44c">
+<p>
+<a href="https://maps.app.goo.gl/9JuTYNRBrSa94LxY6">https://maps.app.goo.gl/9JuTYNRBrSa94LxY6</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9e10972" class="outline-3">
+<h3 id="org9e10972">Nine Arches Bridge Viewpoint</h3>
+<div class="outline-text-3" id="text-org9e10972">
+<p>
+<a href="https://maps.app.goo.gl/AAMr4fiihd3ztknv8">https://maps.app.goo.gl/AAMr4fiihd3ztknv8</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgbd27d8b" class="outline-3">
+<h3 id="orgbd27d8b">NilDiya Pokuna</h3>
+<div class="outline-text-3" id="text-orgbd27d8b">
+<p>
+<a href="https://maps.app.goo.gl/16S7UJHW62Z3zEo48">https://maps.app.goo.gl/16S7UJHW62Z3zEo48</a>
+</p>
+
+<p>
+Цена: 3000 LKR (€9), 1-4 человек 1500 LKR (€4.5) за человека, 5-7 человек 7500 LKR (€22.5)
+Время: 2 часа, 500 метров в джунгли до входа и 800 метров вниз до озера в пещере
+</p>
+
+<p>
+Отзыв: <a href="https://maps.app.goo.gl/d6xjidvAeoDcPRx18">https://maps.app.goo.gl/d6xjidvAeoDcPRx18</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org86caa26" class="outline-3">
+<h3 id="org86caa26">LightHouse View From Sea</h3>
+<div class="outline-text-3" id="text-org86caa26">
+<p>
+<a href="https://maps.app.goo.gl/enbgfhSBAwzdDGHv5">https://maps.app.goo.gl/enbgfhSBAwzdDGHv5</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga4e0b5a" class="outline-3">
+<h3 id="orga4e0b5a">Hummanaya Blow Hole</h3>
+<div class="outline-text-3" id="text-orga4e0b5a">
+<p>
+<a href="https://maps.app.goo.gl/BVyCd7fzBnxcDjW48">https://maps.app.goo.gl/BVyCd7fzBnxcDjW48</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd3f4486" class="outline-3">
+<h3 id="orgd3f4486">Turtle Point Bathigama Dickwella</h3>
+<div class="outline-text-3" id="text-orgd3f4486">
+<p>
+<a href="https://maps.app.goo.gl/ibE6ne3CMaKyeG7X9">https://maps.app.goo.gl/ibE6ne3CMaKyeG7X9</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org494f663" class="outline-3">
+<h3 id="org494f663">Coconut Tree Hill</h3>
+<div class="outline-text-3" id="text-org494f663">
+<p>
+<a href="https://maps.app.goo.gl/4jNSiZQ4Ljijk7DR9">https://maps.app.goo.gl/4jNSiZQ4Ljijk7DR9</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgef26006" class="outline-3">
+<h3 id="orgef26006">Parrot Rock</h3>
+<div class="outline-text-3" id="text-orgef26006">
+<p>
+<a href="https://maps.app.goo.gl/3P8jSoL4EusUEY1i9">https://maps.app.goo.gl/3P8jSoL4EusUEY1i9</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2a7678f" class="outline-3">
+<h3 id="org2a7678f">Sea Turtle Hatchery - Habaraduwa</h3>
+<div class="outline-text-3" id="text-org2a7678f">
+<p>
+<a href="https://maps.app.goo.gl/EmZT1Ky7YCGLM3aD6">https://maps.app.goo.gl/EmZT1Ky7YCGLM3aD6</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org34e7ab7" class="outline-3">
+<h3 id="org34e7ab7">Japanese Peace Pagoda - Rumassala</h3>
+<div class="outline-text-3" id="text-org34e7ab7">
+<p>
+<a href="https://maps.app.goo.gl/gHHRfPycHWPQeg9S6">https://maps.app.goo.gl/gHHRfPycHWPQeg9S6</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org570c2f9" class="outline-3">
+<h3 id="org570c2f9">Sea Turtle Hatchery Centre, Mahamodara</h3>
+<div class="outline-text-3" id="text-org570c2f9">
+<p>
+<a href="https://maps.app.goo.gl/3zyRbGm2eq4EuG2s6">https://maps.app.goo.gl/3zyRbGm2eq4EuG2s6</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd255a4d" class="outline-3">
+<h3 id="orgd255a4d">Turtle Beach - Hikkaduwa</h3>
+<div class="outline-text-3" id="text-orgd255a4d">
+<p>
+<a href="https://maps.app.goo.gl/myZLtWDqfLNcgdCaA">https://maps.app.goo.gl/myZLtWDqfLNcgdCaA</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7233eb6" class="outline-3">
+<h3 id="org7233eb6">Sea Turtle Hatchery &amp; Rescue Center</h3>
+<div class="outline-text-3" id="text-org7233eb6">
+<p>
+<a href="https://maps.app.goo.gl/RPtsMTHuRwPn7AcJ9">https://maps.app.goo.gl/RPtsMTHuRwPn7AcJ9</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb0b496a" class="outline-3">
+<h3 id="orgb0b496a">Sea Turtle Hatchery</h3>
+<div class="outline-text-3" id="text-orgb0b496a">
+<p>
+<a href="https://maps.app.goo.gl/jywujmkRvH3CfLoSA">https://maps.app.goo.gl/jywujmkRvH3CfLoSA</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org99d7eca" class="outline-3">
+<h3 id="org99d7eca">Dehiwala Zoological Gardens</h3>
+<div class="outline-text-3" id="text-org99d7eca">
+<p>
+<a href="https://maps.app.goo.gl/TN4P4AEVfNpzetWR9">https://maps.app.goo.gl/TN4P4AEVfNpzetWR9</a>
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf4a63d5" class="outline-2">
+<h2 id="orgf4a63d5">Маршруты</h2>
+<div class="outline-text-2" id="text-orgf4a63d5">
+</div>
+<div id="outline-container-org6a9bc46" class="outline-3">
+<h3 id="org6a9bc46">Diyaluma Falls</h3>
+<div class="outline-text-3" id="text-org6a9bc46">
+<p>
+<a href="https://www.alltrails.com/trail/sri-lanka/badulla/diyaluma-falls">https://www.alltrails.com/trail/sri-lanka/badulla/diyaluma-falls</a>
+</p>
+
+<p>
+Дистанция: 2.4 км
+</p>
+
+<p>
+Время: 54 мин
+</p>
+
+<p>
+Диапазон высот: 640 м - 746 м
+</p>
+
+<p>
+Цена: 350 LKR (€1)
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge066115" class="outline-3">
+<h3 id="orge066115">Ella Rock Trail</h3>
+<div class="outline-text-3" id="text-orge066115">
+<p>
+<a href="https://www.alltrails.com/trail/sri-lanka/badulla/ellas-rock">https://www.alltrails.com/trail/sri-lanka/badulla/ellas-rock</a>
+</p>
+
+<p>
+Дистанция: 5.3 км
+</p>
+
+<p>
+Время: 2 часа 9 мин
+</p>
+
+<p>
+Диапазон высот: 1069 м - 1356 м
+</p>
+
+<p>
+Цена: 930 LKR (€2.8) (в конце за вход на sunrise spot)
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf0ae27e" class="outline-3">
+<h3 id="orgf0ae27e">Knucles 5 Peak Trail</h3>
+<div class="outline-text-3" id="text-orgf0ae27e">
+<p>
+<a href="https://www.alltrails.com/trail/sri-lanka/kandy/knuckles-5-peak-trail--2">https://www.alltrails.com/trail/sri-lanka/kandy/knuckles-5-peak-trail--2</a>
+</p>
+
+<p>
+Дистанция: 7.7 км
+</p>
+
+<p>
+Время: 3 часа 44 мин
+</p>
+
+<p>
+Диапазон высот: 1241 м - 1843 м
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1d88db9" class="outline-3">
+<h3 id="org1d88db9">Kondagala Mountain Summit</h3>
+<div class="outline-text-3" id="text-org1d88db9">
+<p>
+<a href="https://www.alltrails.com/trail/sri-lanka/kandy/kondagala-montain-summit--2">https://www.alltrails.com/trail/sri-lanka/kandy/kondagala-montain-summit--2</a>
+</p>
+
+<p>
+Дистанция: 2.3 км
+</p>
+
+<p>
+Время: 46 мин
+</p>
+
+<p>
+Диапазон высот: 1406 м - 1488 м
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc805db1" class="outline-3">
+<h3 id="orgc805db1">Little Adam's Peak</h3>
+<div class="outline-text-3" id="text-orgc805db1">
+<p>
+<a href="https://www.alltrails.com/trail/sri-lanka/badulla/little-adams-peak">https://www.alltrails.com/trail/sri-lanka/badulla/little-adams-peak</a>
+</p>
+
+<p>
+Дистанция: 1.4 км
+</p>
+
+<p>
+Время: 31 мин
+</p>
+
+<p>
+Диапазон высот: 1039 м - 1109 м
+</p>
+</div>
+</div>
+
+<div id="outline-container-org67045e4" class="outline-3">
+<h3 id="org67045e4">Pidurangala Rock</h3>
+<div class="outline-text-3" id="text-org67045e4">
+<p>
+<a href="https://www.alltrails.com/trail/sri-lanka/matale/pidurangala-rock">https://www.alltrails.com/trail/sri-lanka/matale/pidurangala-rock</a>
+</p>
+
+<p>
+Дистанция: 1.4 км
+</p>
+
+<p>
+Время: 40 мин
+</p>
+
+<p>
+Диапазон высот: 202 м - 325 м
+</p>
+
+<p>
+Цена: 1000 LKR (€3)
+</p>
+</div>
+</div>
+
+<div id="outline-container-org568efd3" class="outline-3">
+<h3 id="org568efd3">Ramboda Falls</h3>
+<div class="outline-text-3" id="text-org568efd3">
+<p>
+<a href="https://www.alltrails.com/trail/sri-lanka/nuwara-eliya/ramboda-falls">https://www.alltrails.com/trail/sri-lanka/nuwara-eliya/ramboda-falls</a>
+</p>
+
+<p>
+Дистанция: 1.1 км
+</p>
+
+<p>
+Время: 42 мин
+</p>
+
+<p>
+Диапазон высот: 996 м - 1149 м
+</p>
+
+<p>
+Цена: 200 LKR (€0.6)
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0a24d83" class="outline-3">
+<h3 id="org0a24d83">The Pekoe Trail Stage 16: Ella To Demodara</h3>
+<div class="outline-text-3" id="text-org0a24d83">
+<p>
+<a href="https://www.alltrails.com/trail/sri-lanka/badulla/the-pekoe-trail-stage-16-ella-to-demodara">https://www.alltrails.com/trail/sri-lanka/badulla/the-pekoe-trail-stage-16-ella-to-demodara</a>
+</p>
+
+<p>
+Дистанция: 8.5 км
+</p>
+
+<p>
+Время: 2 часа 44 мин
+</p>
+
+<p>
+Диапазон высот: 875 м - 1058 м
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org913ca3c" class="outline-2">
+<h2 id="org913ca3c">Рестораны</h2>
+<div class="outline-text-2" id="text-org913ca3c">
+</div>
+<div id="outline-container-orgf843d6c" class="outline-3">
+<h3 id="orgf843d6c">Ceylon Kitchen</h3>
+<div class="outline-text-3" id="text-orgf843d6c">
+<p>
+Понтовый ресторан с высокими ценами и медленным обслуживанием. Коту очень посредственный.
+</p>
+
+<p>
+<a href="https://maps.app.goo.gl/sYokcQvhriKUqkZ88">https://maps.app.goo.gl/sYokcQvhriKUqkZ88</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd83a805" class="outline-3">
+<h3 id="orgd83a805">Cafe Olu</h3>
+<div class="outline-text-3" id="text-orgd83a805">
+<p>
+<a href="https://maps.app.goo.gl/NsB8MKgMCbBPSQZY9">https://maps.app.goo.gl/NsB8MKgMCbBPSQZY9</a>
+</p>
+
+<p>
+Неплохой ресторан с понятными ценами. Жареный рис с яйцом был вкусным.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org249cbc9" class="outline-3">
+<h3 id="org249cbc9">Sigiriya Karaoke Pub Restaurant</h3>
+<div class="outline-text-3" id="text-org249cbc9">
+<p>
+<a href="https://maps.app.goo.gl/RjBp4XxLT6LDdwvX6">https://maps.app.goo.gl/RjBp4XxLT6LDdwvX6</a>
+</p>
+
+<p>
+Хороший ресторан среднего ценового диапазона. Помимо ланкийких блюд делают неплохую пиццу в печи.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb9a0433" class="outline-3">
+<h3 id="orgb9a0433">Kurumbunkz</h3>
+<div class="outline-text-3" id="text-orgb9a0433">
+<p>
+<a href="https://maps.app.goo.gl/fcXsNesXWQNaGLqUA">https://maps.app.goo.gl/fcXsNesXWQNaGLqUA</a>
+</p>
+
+<p>
+Приличный дорогой ресторан.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf975639" class="outline-3">
+<h3 id="orgf975639">Cafe Lavia</h3>
+<div class="outline-text-3" id="text-orgf975639">
+<p>
+<a href="https://maps.app.goo.gl/ztREzo74jR4bJKb16">https://maps.app.goo.gl/ztREzo74jR4bJKb16</a>
+</p>
+
+<p>
+Дорогие европейские завтрака и приличный кофе. Яйцо бенедикт было неплохим, но соус был не голландский. Можно заказать омлет, которого нет в меню.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd6f2a82" class="outline-3">
+<h3 id="orgd6f2a82">Pallet house Restaurant</h3>
+<div class="outline-text-3" id="text-orgd6f2a82">
+<p>
+<a href="https://maps.app.goo.gl/7oet8LnJMCxnTRzJ8">https://maps.app.goo.gl/7oet8LnJMCxnTRzJ8</a>
+</p>
+
+<p>
+Хорошее и недорогое заведение с местной и индийской кухней.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7ec7248" class="outline-3">
+<h3 id="org7ec7248">Bakers Dyner</h3>
+<div class="outline-text-3" id="text-org7ec7248">
+<p>
+<a href="https://maps.app.goo.gl/niJZ9AvuDaFisNwWA">https://maps.app.goo.gl/niJZ9AvuDaFisNwWA</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4de84ab" class="outline-3">
+<h3 id="org4de84ab">Thawalama Restaurant</h3>
+<div class="outline-text-3" id="text-org4de84ab">
+<p>
+<a href="https://maps.app.goo.gl/5gN3fRRWgZTt2hMYA">https://maps.app.goo.gl/5gN3fRRWgZTt2hMYA</a>
+</p>
+
+<p>
+Неплохая кухня и есть два снукерных стола
+</p>
+</div>
+</div>
+
+<div id="outline-container-org74e00e9" class="outline-3">
+<h3 id="org74e00e9">Frostbite</h3>
+<div class="outline-text-3" id="text-org74e00e9">
+<p>
+<a href="https://maps.app.goo.gl/ubU4LCpmB5YtFQ8a7">https://maps.app.goo.gl/ubU4LCpmB5YtFQ8a7</a>
+</p>
+
+<p>
+Отличная кухня, но на улице убогие столы, лучше сидеть внутри
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc9aa798" class="outline-3">
+<h3 id="orgc9aa798">Mr berry</h3>
+<div class="outline-text-3" id="text-orgc9aa798">
+<p>
+<a href="https://maps.app.goo.gl/1uRed6tWnqbzfXkg7?g_st=ia">https://maps.app.goo.gl/1uRed6tWnqbzfXkg7?g_st=ia</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgfc90a60" class="outline-3">
+<h3 id="orgfc90a60">House of Kitchen</h3>
+<div class="outline-text-3" id="text-orgfc90a60">
+<p>
+<a href="https://maps.app.goo.gl/qAXe9t5ES59fNJKq7">https://maps.app.goo.gl/qAXe9t5ES59fNJKq7</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1cdf300" class="outline-3">
+<h3 id="org1cdf300">Jade Green</h3>
+<div class="outline-text-3" id="text-org1cdf300">
+<p>
+<a href="https://maps.app.goo.gl/YZjeCQHcMY34tnR16">https://maps.app.goo.gl/YZjeCQHcMY34tnR16</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga34abf8" class="outline-3">
+<h3 id="orga34abf8">Spice Ella</h3>
+<div class="outline-text-3" id="text-orga34abf8">
+<p>
+<a href="https://maps.app.goo.gl/ainfDQh4k61QoPJe6">https://maps.app.goo.gl/ainfDQh4k61QoPJe6</a>
+</p>
+
+<p>
+Так себе европейская кухня
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgbed5dd8" class="outline-3">
+<h3 id="orgbed5dd8">Sleek spoon restaurant Ella</h3>
+<div class="outline-text-3" id="text-orgbed5dd8">
+<p>
+<a href="https://maps.app.goo.gl/ainfDQh4k61QoPJe6">https://maps.app.goo.gl/ainfDQh4k61QoPJe6</a>
+</p>
+
+<p>
+Вкусная ланкийская кухня
+</p>
+</div>
+</div>
+
+<div id="outline-container-org603ac05" class="outline-3">
+<h3 id="org603ac05">Kiri Kopi</h3>
+<div class="outline-text-3" id="text-org603ac05">
+<p>
+<a href="https://maps.app.goo.gl/U9TLcC4Xbp2tTo5x6">https://maps.app.goo.gl/U9TLcC4Xbp2tTo5x6</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org16603b3" class="outline-3">
+<h3 id="org16603b3">Chill Hut Cafe &amp; Restaurent</h3>
+<div class="outline-text-3" id="text-org16603b3">
+<p>
+<a href="https://maps.app.goo.gl/WYyg5pe3vvxq5wsM9">https://maps.app.goo.gl/WYyg5pe3vvxq5wsM9</a>
+</p>
+
+<p>
+Средняя еда и доброжелательные, но навязчивые хозяева
+</p>
+</div>
+</div>
+
+<div id="outline-container-org887552f" class="outline-3">
+<h3 id="org887552f">Cafe Salt Breeze</h3>
+<div class="outline-text-3" id="text-org887552f">
+<p>
+Хорошие завтраки, отличный эспрессо и латте
+</p>
+
+<p>
+<a href="https://maps.app.goo.gl/DAc6A4xp5Qyp7WFi8?g_st=ia">https://maps.app.goo.gl/DAc6A4xp5Qyp7WFi8?g_st=ia</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb078083" class="outline-3">
+<h3 id="orgb078083">Let's Sea</h3>
+<div class="outline-text-3" id="text-orgb078083">
+<p>
+<a href="https://maps.app.goo.gl/xWP4HBXMbGDwwowB9">https://maps.app.goo.gl/xWP4HBXMbGDwwowB9</a>
+</p>
+
+<p>
+Неплохой ресторан с небольшим выбором блюд, которые показывают с телефона
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge7fe0c5" class="outline-3">
+<h3 id="orge7fe0c5">Yellow Mellow</h3>
+<div class="outline-text-3" id="text-orge7fe0c5">
+<p>
+<a href="https://maps.app.goo.gl/2U5h69qTxjVMccwA8">https://maps.app.goo.gl/2U5h69qTxjVMccwA8</a>
+</p>
+
+<p>
+Отличный пляжный ресторан с душем и досками для плавания
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgea50f03" class="outline-3">
+<h3 id="orgea50f03">Serenity Sea Food Restaurant</h3>
+<div class="outline-text-3" id="text-orgea50f03">
+<p>
+<a href="https://maps.app.goo.gl/vtgak81TYzLjtscU9">https://maps.app.goo.gl/vtgak81TYzLjtscU9</a>
+</p>
+
+<p>
+Неплохой ресторан с высокими ценами
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc33261d" class="outline-3">
+<h3 id="orgc33261d">Foodee</h3>
+<div class="outline-text-3" id="text-orgc33261d">
+<p>
+<a href="https://maps.app.goo.gl/CLxmdA3CJoeogjYZ7">https://maps.app.goo.gl/CLxmdA3CJoeogjYZ7</a>
+</p>
+
+<p>
+Дешевый ресторан со средней кухней и маленькими порциями
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgdf1959a" class="outline-3">
+<h3 id="orgdf1959a">DelTano's Wood Fired Pizza &amp; Pasta</h3>
+<div class="outline-text-3" id="text-orgdf1959a">
+<p>
+<a href="https://maps.app.goo.gl/gW4E1TELx2Ym9g2a6">https://maps.app.goo.gl/gW4E1TELx2Ym9g2a6</a>
+</p>
+
+<p>
+Очень вкусные пиццы, не хуже, чем в Италии
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc31d272" class="outline-3">
+<h3 id="orgc31d272">Ceylon Excel</h3>
+<div class="outline-text-3" id="text-orgc31d272">
+<p>
+<a href="https://maps.app.goo.gl/JTPyzWD62AJUYgAL6">https://maps.app.goo.gl/JTPyzWD62AJUYgAL6</a>
+</p>
+
+<p>
+Средняя кухня, радушные хозяева
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd8210c7" class="outline-3">
+<h3 id="orgd8210c7">YUM Drinks &amp; Food Restaurant</h3>
+<div class="outline-text-3" id="text-orgd8210c7">
+<p>
+<a href="https://maps.app.goo.gl/E5dFxySAvmJpL3oRA">https://maps.app.goo.gl/E5dFxySAvmJpL3oRA</a>
+</p>
+
+<p>
+Неплохая европейская кухня: паста и бургер. Есть кальян.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf372acf" class="outline-3">
+<h3 id="orgf372acf">SkinnyTom's Deli</h3>
+<div class="outline-text-3" id="text-orgf372acf">
+<p>
+<a href="https://maps.app.goo.gl/gdMVM6EgzM7Xk4NB6">https://maps.app.goo.gl/gdMVM6EgzM7Xk4NB6</a>
+</p>
+
+<p>
+Отличное место. Заказывать на кассе, приносят быстро.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgbfdec43" class="outline-3">
+<h3 id="orgbfdec43">Unwind Restaurant &amp; Hostel</h3>
+<div class="outline-text-3" id="text-orgbfdec43">
+<p>
+<a href="https://maps.app.goo.gl/uADkdN75QbcjJpxC8">https://maps.app.goo.gl/uADkdN75QbcjJpxC8</a>
+</p>
+
+<p>
+Приличная кухня, средние цены.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0cf32a5" class="outline-2">
+<h2 id="org0cf32a5">Гостиницы</h2>
+<div class="outline-text-2" id="text-org0cf32a5">
+</div>
+<div id="outline-container-orga8480e1" class="outline-3">
+<h3 id="orga8480e1">Sand &amp; Surf Guest House</h3>
+<div class="outline-text-3" id="text-orga8480e1">
+<p>
+<a href="https://maps.app.goo.gl/ahayYhwMyR2uashg8">https://maps.app.goo.gl/ahayYhwMyR2uashg8</a>
+</p>
+
+<p>
+Цена: 10000 LKR (€33)
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1a637c9" class="outline-3">
+<h3 id="org1a637c9">Sigiriya Green Garden Home Stay</h3>
+<div class="outline-text-3" id="text-org1a637c9">
+<p>
+<a href="https://maps.app.goo.gl/XNPVfovS62wg4ZaL9?g_st=ia">https://maps.app.goo.gl/XNPVfovS62wg4ZaL9?g_st=ia</a>
+</p>
+
+<p>
+Цена: 10000 LKR (€33)
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8ff8948" class="outline-3">
+<h3 id="org8ff8948">Riverston Holiday Village</h3>
+<div class="outline-text-3" id="text-org8ff8948">
+<p>
+Цена: 14000 LKR (€46)
+</p>
+
+<p>
+<a href="https://maps.app.goo.gl/FZ9GTeLnRYM8YySC9">https://maps.app.goo.gl/FZ9GTeLnRYM8YySC9</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1b963c2" class="outline-3">
+<h3 id="org1b963c2">Sobasee holiday bungalow</h3>
+<div class="outline-text-3" id="text-org1b963c2">
+<p>
+<a href="https://maps.app.goo.gl/anHd2j9ts2XVDkKz9">https://maps.app.goo.gl/anHd2j9ts2XVDkKz9</a>
+</p>
+
+<p>
+Цена: 12200 LKR (€40)
+</p>
+</div>
+</div>
+
+<div id="outline-container-org116eeeb" class="outline-3">
+<h3 id="org116eeeb">The Cave Kithulgala</h3>
+<div class="outline-text-3" id="text-org116eeeb">
+<p>
+<a href="https://maps.app.goo.gl/BU8zhUEuP8ptpjhL7">https://maps.app.goo.gl/BU8zhUEuP8ptpjhL7</a>
+</p>
+
+<p>
+Цена: 16000 LKR (€53)
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6b4b9a9" class="outline-3">
+<h3 id="org6b4b9a9">White House Bungalow</h3>
+<div class="outline-text-3" id="text-org6b4b9a9">
+<p>
+<a href="https://maps.app.goo.gl/ooCghLTTAa4GLm8a7">https://maps.app.goo.gl/ooCghLTTAa4GLm8a7</a>
+</p>
+
+<p>
+Цена: 11500 LKR (€38)
+</p>
+</div>
+</div>
+
+<div id="outline-container-org02025ae" class="outline-3">
+<h3 id="org02025ae">Himawari Hills Hotel</h3>
+<div class="outline-text-3" id="text-org02025ae">
+<p>
+<a href="https://maps.app.goo.gl/3DgoHzhRoWNdU47q7">https://maps.app.goo.gl/3DgoHzhRoWNdU47q7</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3b5a4e8" class="outline-3">
+<h3 id="org3b5a4e8">Sohili 3R Resort Ella</h3>
+<div class="outline-text-3" id="text-org3b5a4e8">
+<p>
+<a href="https://maps.app.goo.gl/aWKU7Et3R8ZVeiKJ6">https://maps.app.goo.gl/aWKU7Et3R8ZVeiKJ6</a>
+</p>
+
+<p>
+Цена: 50000 LKR (€162) (2 ночи)
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge865951" class="outline-3">
+<h3 id="orge865951">BV Residence</h3>
+<div class="outline-text-3" id="text-orge865951">
+<p>
+Отличная гостиница, единственный минус - плохой wifi
+</p>
+
+<p>
+Цена: 20000 LKR (€657) (10 ночей)
+</p>
+
+<p>
+<a href="https://maps.app.goo.gl/2Z1T7yRtJffqKcFk8?g_st=ia">https://maps.app.goo.gl/2Z1T7yRtJffqKcFk8?g_st=ia</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgda62471" class="outline-3">
+<h3 id="orgda62471">Sinharaja Rest</h3>
+<div class="outline-text-3" id="text-orgda62471">
+<p>
+Неплохая гостиницы с ванной выходящей в джунгли.
+</p>
+
+<p>
+Цена: 11400 LKR (€37)
+</p>
+
+<p>
+<a href="https://maps.app.goo.gl/EiLQpuBjXNhEKX7Q8">https://maps.app.goo.gl/EiLQpuBjXNhEKX7Q8</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf10af79" class="outline-3">
+<h3 id="orgf10af79">House Of Esanya</h3>
+<div class="outline-text-3" id="text-orgf10af79">
+<p>
+<a href="https://maps.app.goo.gl/51QTCj7syu1ovdr68">https://maps.app.goo.gl/51QTCj7syu1ovdr68</a>
+</p>
+
+<p>
+Цена: 6000 LKR (€20)
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0935d11" class="outline-3">
+<h3 id="org0935d11">G Wanda Vista Istanbul</h3>
+<div class="outline-text-3" id="text-org0935d11">
+<p>
+<a href="https://maps.app.goo.gl/c29MVTU2RjeJPFTc7">https://maps.app.goo.gl/c29MVTU2RjeJPFTc7</a>
+</p>
+
+<p>
+Цена: за счет авиакомпании
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">&#1044;&#1072;&#1090;&#1072;: 2024-12-15 Sun 00:00</p>
+<p class="author">&#1040;&#1074;&#1090;&#1086;&#1088;: Александр Шумилов</p>
+<p class="date">Created: 2025-02-15 Sat 08:52</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

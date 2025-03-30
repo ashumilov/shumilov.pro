@@ -1,0 +1,713 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru" xml:lang="ru">
+<head>
+<!-- 2025-01-09 Thu 08:39 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Путешествия</title>
+<meta name="author" content="Александр Шумилов" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="https://gongzhitaao.org/orgcss/org.css"/>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Путешествия</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>&#1057;&#1086;&#1076;&#1077;&#1088;&#1078;&#1072;&#1085;&#1080;&#1077;</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org208195b">2017</a>
+<ul>
+<li><a href="#orgef0a328">Вьетнам</a></li>
+<li><a href="#org4bdd35d">Македония, Черногория, Албания, Косово</a></li>
+</ul>
+</li>
+<li><a href="#org4b78077">2018</a>
+<ul>
+<li><a href="#org6dcfeb1">Неаполь</a></li>
+<li><a href="#org875a8f2">Филлипины</a></li>
+<li><a href="#org98ea0af">Киев</a></li>
+<li><a href="#org39ebd5b">Чернобыль</a></li>
+<li><a href="#org51fb308">Португалия</a></li>
+<li><a href="#org74b3f66">Таллин</a></li>
+<li><a href="#org0108db8">Венеция</a></li>
+<li><a href="#org3ee138b">Стамбул</a></li>
+</ul>
+</li>
+<li><a href="#orgc4d564a">2019</a>
+<ul>
+<li><a href="#org50dd2f0">Сингапур</a></li>
+<li><a href="#org57eb7f5">Малайзия</a></li>
+<li><a href="#org3856768">Индонезия</a></li>
+<li><a href="#org77dc504">Одесса</a></li>
+<li><a href="#orgc6b1578">Майорка</a></li>
+<li><a href="#orgad097c7">Греция</a></li>
+<li><a href="#orgc2a23d9">Париж</a></li>
+</ul>
+</li>
+<li><a href="#org3c2c35c">2020</a>
+<ul>
+<li><a href="#org08443bd">Бангкок</a></li>
+<li><a href="#org3087ae8">Камбоджа</a></li>
+<li><a href="#orgbd57b39">Италия</a></li>
+</ul>
+</li>
+<li><a href="#org37083b1">2021</a>
+<ul>
+<li><a href="#org3422f84">Хорватия, Словения, Босния и Герцеговина</a></li>
+<li><a href="#orgb0f7d30">Санторини</a></li>
+<li><a href="#org8c1ab6b">Берлин</a></li>
+</ul>
+</li>
+<li><a href="#org5f9785c">2022</a>
+<ul>
+<li><a href="#org8738c63">Мексика</a></li>
+<li><a href="#org78c0101">Варшава</a></li>
+<li><a href="#orgfeb0251">Италия, Швейцария, Франция, Монако</a></li>
+</ul>
+</li>
+<li><a href="#org367bb1d">2023</a>
+<ul>
+<li><a href="#org6bc0428">Мексика</a></li>
+<li><a href="#org599ff4e">Турция</a></li>
+<li><a href="#orgd7b5416">Венна</a></li>
+</ul>
+</li>
+<li><a href="#org57316c3">2024</a>
+<ul>
+<li><a href="#orgca5f1e2">Таиланд</a></li>
+<li><a href="#org52d408f">Прага</a></li>
+<li><a href="#org7867a4f">Италия (Доломиты)</a></li>
+<li><a href="#orge503d93">Осло</a></li>
+<li><a href="#orgc93716b">Армения, Грузия</a></li>
+<li><a href="#org53c4250">Шри Ланка</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org208195b" class="outline-2">
+<h2 id="org208195b">2017</h2>
+<div class="outline-text-2" id="text-org208195b">
+</div>
+<div id="outline-container-orgef0a328" class="outline-3">
+<h3 id="orgef0a328">Вьетнам</h3>
+<div class="outline-text-3" id="text-orgef0a328">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">2017-02-01 Wed</span></span>
+</p>
+<ul class="org-ul">
+<li><a href="https://www.icloud.com/sharedalbum/#B0Q5ejO17Gcr0pA">Фотографии в Apple iCloud</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org4bdd35d" class="outline-3">
+<h3 id="org4bdd35d">Македония, Черногория, Албания, Косово</h3>
+<div class="outline-text-3" id="text-org4bdd35d">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">2017-06-01 Thu</span></span>
+</p>
+<ul class="org-ul">
+<li><a href="https://www.icloud.com/sharedalbum/#B0QGRMtznlZd3t">Фотографии в Apple iCloud</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org4b78077" class="outline-2">
+<h2 id="org4b78077">2018</h2>
+<div class="outline-text-2" id="text-org4b78077">
+</div>
+<div id="outline-container-org6dcfeb1" class="outline-3">
+<h3 id="org6dcfeb1">Неаполь</h3>
+<div class="outline-text-3" id="text-org6dcfeb1">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">2018-01-01 Mon</span></span>
+</p>
+<ul class="org-ul">
+<li><a href="https://www.icloud.com/sharedalbum/#B0QGWBC59OEOIL">Фотографии в Apple iCloud</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org875a8f2" class="outline-3">
+<h3 id="org875a8f2">Филлипины</h3>
+<div class="outline-text-3" id="text-org875a8f2">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">2018-03-01 Thu</span></span>
+</p>
+<ul class="org-ul">
+<li><a href="https://www.icloud.com/sharedalbum/#B0QGdIshaT1Y3s">Фотографии в Apple iCloud</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org98ea0af" class="outline-3">
+<h3 id="org98ea0af">Киев</h3>
+<div class="outline-text-3" id="text-org98ea0af">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">2018-05-01 Tue</span></span>
+</p>
+<ul class="org-ul">
+<li><a href="https://www.icloud.com/sharedalbum/#B0Q5aVbMKJPe9Me">Фотографии в Apple iCloud</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org39ebd5b" class="outline-3">
+<h3 id="org39ebd5b">Чернобыль</h3>
+<div class="outline-text-3" id="text-org39ebd5b">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">2018-05-01 Tue</span></span>
+</p>
+<ul class="org-ul">
+<li><a href="https://www.icloud.com/sharedalbum/#B0QGQOeMmG0qiZb">Фотографии в Apple iCloud</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org51fb308" class="outline-3">
+<h3 id="org51fb308">Португалия</h3>
+<div class="outline-text-3" id="text-org51fb308">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">2018-06-01 Fri</span></span>
+</p>
+<ul class="org-ul">
+<li><a href="https://www.icloud.com/sharedalbum/#B0C5GH8MqGolhVQ">Фотографии в Apple iCloud</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org74b3f66" class="outline-3">
+<h3 id="org74b3f66">Таллин</h3>
+<div class="outline-text-3" id="text-org74b3f66">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">2018-07-01 Sun</span></span>
+</p>
+<ul class="org-ul">
+<li><a href="https://www.icloud.com/sharedalbum/#B0CGFssfGc0GqJ">Фотографии в Apple iCloud</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org0108db8" class="outline-3">
+<h3 id="org0108db8">Венеция</h3>
+<div class="outline-text-3" id="text-org0108db8">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">2018-11-01 Thu</span></span>
+</p>
+<ul class="org-ul">
+<li><a href="https://www.icloud.com/sharedalbum/#B0Q5NI45MG8hrC3">Фотографии в Apple iCloud</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org3ee138b" class="outline-3">
+<h3 id="org3ee138b">Стамбул</h3>
+<div class="outline-text-3" id="text-org3ee138b">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">2018-12-01 Sat</span></span>
+</p>
+<ul class="org-ul">
+<li><a href="https://www.icloud.com/sharedalbum/#B0Q5CmvASJIxOUh">Фотографии в Apple iCloud</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgc4d564a" class="outline-2">
+<h2 id="orgc4d564a">2019</h2>
+<div class="outline-text-2" id="text-orgc4d564a">
+</div>
+<div id="outline-container-org50dd2f0" class="outline-3">
+<h3 id="org50dd2f0">Сингапур</h3>
+<div class="outline-text-3" id="text-org50dd2f0">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">2019-02-01 Fri</span></span>
+</p>
+<ul class="org-ul">
+<li><a href="https://www.icloud.com/sharedalbum/#B0CGdPblXTsBAL">Фотографии в Apple iCloud</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org57eb7f5" class="outline-3">
+<h3 id="org57eb7f5">Малайзия</h3>
+<div class="outline-text-3" id="text-org57eb7f5">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">2019-02-01 Fri</span></span>
+</p>
+<ul class="org-ul">
+<li><a href="https://www.icloud.com/sharedalbum/#B0CJRveFpM0tKx">Фотографии в Apple iCloud</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org3856768" class="outline-3">
+<h3 id="org3856768">Индонезия</h3>
+<div class="outline-text-3" id="text-org3856768">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">2019-02-01 Fri</span></span>
+</p>
+<ul class="org-ul">
+<li><a href="https://www.icloud.com/sharedalbum/#B0C5aDWbrJPWAVN">Фотографии в Apple iCloud</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org77dc504" class="outline-3">
+<h3 id="org77dc504">Одесса</h3>
+<div class="outline-text-3" id="text-org77dc504">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">2019-04-01 Mon</span></span>
+</p>
+<ul class="org-ul">
+<li><a href="https://www.icloud.com/sharedalbum/#B0QGJDfWGGzvimg">Фотографии в Apple iCloud</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc6b1578" class="outline-3">
+<h3 id="orgc6b1578">Майорка</h3>
+<div class="outline-text-3" id="text-orgc6b1578">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">2019-05-01 Wed</span></span>
+</p>
+<ul class="org-ul">
+<li><a href="https://www.icloud.com/sharedalbum/#B0CGIcgc27N5mH">Фотографии в Apple iCloud</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgad097c7" class="outline-3">
+<h3 id="orgad097c7">Греция</h3>
+<div class="outline-text-3" id="text-orgad097c7">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">2019-06-01 Sat</span></span>
+</p>
+<ul class="org-ul">
+<li><a href="https://www.icloud.com/sharedalbum/#B0QG0ehgLGQIWUS">Фотографии в Apple iCloud</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc2a23d9" class="outline-3">
+<h3 id="orgc2a23d9">Париж</h3>
+<div class="outline-text-3" id="text-orgc2a23d9">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">2019-11-01 Fri</span></span>
+</p>
+<ul class="org-ul">
+<li><a href="https://www.icloud.com/sharedalbum/#B0QGrhkPx2ry8N">Фотографии в Apple iCloud</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org3c2c35c" class="outline-2">
+<h2 id="org3c2c35c">2020</h2>
+<div class="outline-text-2" id="text-org3c2c35c">
+</div>
+<div id="outline-container-org08443bd" class="outline-3">
+<h3 id="org08443bd">Бангкок</h3>
+<div class="outline-text-3" id="text-org08443bd">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">2020-01-01 Wed</span></span>
+</p>
+<ul class="org-ul">
+<li><a href="https://www.icloud.com/sharedalbum/#B0QJqstnBxsJdg">Фотографии в Apple iCloud</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org3087ae8" class="outline-3">
+<h3 id="org3087ae8">Камбоджа</h3>
+<div class="outline-text-3" id="text-org3087ae8">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">2020-02-01 Sat</span></span>
+</p>
+<ul class="org-ul">
+<li><a href="https://www.icloud.com/sharedalbum/#B0Q5BydzFJKiMCR">Фотографии в Apple iCloud</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgbd57b39" class="outline-3">
+<h3 id="orgbd57b39">Италия</h3>
+<div class="outline-text-3" id="text-orgbd57b39">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">2020-07-01 Wed</span></span>
+</p>
+<ul class="org-ul">
+<li><a href="https://www.icloud.com/sharedalbum/#B0CGdFryYTRcTz">Фотографии в Apple iCloud</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org37083b1" class="outline-2">
+<h2 id="org37083b1">2021</h2>
+<div class="outline-text-2" id="text-org37083b1">
+</div>
+<div id="outline-container-org3422f84" class="outline-3">
+<h3 id="org3422f84">Хорватия, Словения, Босния и Герцеговина</h3>
+<div class="outline-text-3" id="text-org3422f84">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">2021-06-01 Tue</span></span>
+</p>
+<ul class="org-ul">
+<li><a href="https://www.icloud.com/sharedalbum/#B0QJr1PPdL1sLZ">Фотографии в Apple iCloud</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgb0f7d30" class="outline-3">
+<h3 id="orgb0f7d30">Санторини</h3>
+<div class="outline-text-3" id="text-orgb0f7d30">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">2021-08-01 Sun</span></span>
+</p>
+<ul class="org-ul">
+<li><a href="https://www.icloud.com/sharedalbum/#B0QJ8GySPCOk6w">Фотографии в Apple iCloud</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org8c1ab6b" class="outline-3">
+<h3 id="org8c1ab6b">Берлин</h3>
+<div class="outline-text-3" id="text-org8c1ab6b">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">2021-11-01 Mon</span></span>
+</p>
+<ul class="org-ul">
+<li><a href="https://www.icloud.com/sharedalbum/#B0QGPCdxkRw3c5">Фотографии в Apple iCloud</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org5f9785c" class="outline-2">
+<h2 id="org5f9785c">2022</h2>
+<div class="outline-text-2" id="text-org5f9785c">
+</div>
+<div id="outline-container-org8738c63" class="outline-3">
+<h3 id="org8738c63">Мексика</h3>
+<div class="outline-text-3" id="text-org8738c63">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">2022-02-01 Tue</span></span>
+</p>
+<ul class="org-ul">
+<li><a href="https://www.icloud.com/sharedalbum/#B0QJsHvHoDwkvj">Фотографии в Apple iCloud</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org78c0101" class="outline-3">
+<h3 id="org78c0101">Варшава</h3>
+<div class="outline-text-3" id="text-org78c0101">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">2022-04-01 Fri</span></span>
+</p>
+<ul class="org-ul">
+<li><a href="https://www.icloud.com/sharedalbum/#B0QGVfZ2vIHfDH">Фотографии в Apple iCloud</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgfeb0251" class="outline-3">
+<h3 id="orgfeb0251">Италия, Швейцария, Франция, Монако</h3>
+<div class="outline-text-3" id="text-orgfeb0251">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">2022-06-01 Wed</span></span>
+</p>
+<ul class="org-ul">
+<li><a href="https://www.icloud.com/sharedalbum/#B0QGKQPy6mhuIS">Фотографии в Apple iCloud</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org367bb1d" class="outline-2">
+<h2 id="org367bb1d">2023</h2>
+<div class="outline-text-2" id="text-org367bb1d">
+</div>
+<div id="outline-container-org6bc0428" class="outline-3">
+<h3 id="org6bc0428">Мексика</h3>
+<div class="outline-text-3" id="text-org6bc0428">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">2023-01-01 Sun</span></span>
+</p>
+<ul class="org-ul">
+<li><a href="https://www.icloud.com/sharedalbum/#B0QGAfJVYGJHH8D">Фотографии в Apple iCloud</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org599ff4e" class="outline-3">
+<h3 id="org599ff4e">Турция</h3>
+<div class="outline-text-3" id="text-org599ff4e">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">2023-06-01 Thu</span></span>
+</p>
+<ul class="org-ul">
+<li><a href="https://www.icloud.com/sharedalbum/#B0Q5kuVsbGMENz0">Фотографии в Apple iCloud</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgd7b5416" class="outline-3">
+<h3 id="orgd7b5416">Венна</h3>
+<div class="outline-text-3" id="text-orgd7b5416">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">2023-10-01 Sun</span></span>
+</p>
+<ul class="org-ul">
+<li><a href="https://www.icloud.com/sharedalbum/#B0QGqQrCL1Gcu9">Фотографии в Apple iCloud</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org57316c3" class="outline-2">
+<h2 id="org57316c3">2024</h2>
+<div class="outline-text-2" id="text-org57316c3">
+</div>
+<div id="outline-container-orgca5f1e2" class="outline-3">
+<h3 id="orgca5f1e2">Таиланд</h3>
+<div class="outline-text-3" id="text-orgca5f1e2">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">2024-01-01 Mon</span></span>
+</p>
+<ul class="org-ul">
+<li><a href="https://www.icloud.com/sharedalbum/#B0QGDZLe8E7ZZg">Фотографии в Apple iCloud</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org52d408f" class="outline-3">
+<h3 id="org52d408f">Прага</h3>
+<div class="outline-text-3" id="text-org52d408f">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">2024-04-01 Mon</span></span>
+</p>
+<ul class="org-ul">
+<li><a href="https://www.icloud.com/sharedalbum/#B0Q5cLqfNG7AQ5l">Фотографии в Apple iCloud</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org7867a4f" class="outline-3">
+<h3 id="org7867a4f">Италия (Доломиты)</h3>
+<div class="outline-text-3" id="text-org7867a4f">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">2024-06-01 Sat</span></span>
+</p>
+<ul class="org-ul">
+<li><a href="https://www.icloud.com/sharedalbum/#B0QJ5HumnGpTyFq">Фотографии в Apple iCloud</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orge503d93" class="outline-3">
+<h3 id="orge503d93">Осло</h3>
+<div class="outline-text-3" id="text-orge503d93">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">2024-08-20 Tue </span></span> &#x2013; <span class="timestamp-wrapper"><span class="timestamp">2024-08-26 Mon</span></span>
+</p>
+<ul class="org-ul">
+<li><a href="https://www.icloud.com/sharedalbum/#B0QGsCn7GGktp84">Фотографии в Apple iCloud</a></li>
+<li><a href="https://photos.app.goo.gl/4HbeUNWFyWKrz5cH9">Фотографии в Google Photos</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc93716b" class="outline-3">
+<h3 id="orgc93716b">Армения, Грузия</h3>
+<div class="outline-text-3" id="text-orgc93716b">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">2024-08-29 Thu </span></span> &#x2013; <span class="timestamp-wrapper"><span class="timestamp">2024-09-15 Sun</span></span>
+</p>
+<ul class="org-ul">
+<li><a href="2024/armenia_georgia/report.html">Отчет</a></li>
+<li><a href="https://www.icloud.com/sharedalbum/#B0Q5p3ichG3Wr6g">Фотографии в Apple iCloud</a></li>
+<li><a href="https://photos.app.goo.gl/rxa4LYkRRsiEFsaV8">Фотографии в Google Photos</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org53c4250" class="outline-3">
+<h3 id="org53c4250">Шри Ланка</h3>
+<div class="outline-text-3" id="text-org53c4250">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">2024-12-14 Sat </span></span> &#x2013; <span class="timestamp-wrapper"><span class="timestamp">2025-01-04 Sat</span></span>
+</p>
+<ul class="org-ul">
+<li><a href="2024/sri_lanka/report.html">Отчет</a> (<a href="2024/sri_lanka/report_full.html">целиком на одной странице</a>)</li>
+<li><a href="https://www.icloud.com/sharedalbum/#B1jG1CvrSmIDER">Фотографии в Apple iCloud</a></li>
+<li><a href="2024/sri_lanka/sri_lanka_2024.gpx">Трек маршрута (интервал 15 минут)</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">&#1040;&#1074;&#1090;&#1086;&#1088;: Александр Шумилов</p>
+<p class="date">Created: 2025-01-09 Thu 08:39</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

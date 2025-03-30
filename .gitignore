@@ -1,5 +1,10 @@
 .DS_Store
 
+*.pdf
+*.png
+*.jpg
+*.mp4
+
 # Logs
 logs
 *.log
@@ -66,5 +71,3 @@ node_modules/
 
 # dotenv environment variables file
 .env
-
-public/
