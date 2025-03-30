@@ -1,0 +1,166 @@
+#+language: ru
+#+author: Александр Шумилов
+#+title: Отчет о поездке в Краков
+#+date: <2025-04-19 Sat>--<2025-04-22 Tue>
+
+#+STARTUP: showall
+#+options: toc:2 num:nil
+
+#+INCLUDE: "style.org"
+#+INCLUDE: "functions.org"
+
+* Отчет о поездке в Краков
+
+** Подготовка
+
+На пасхальные праздники мы решили поехать в Краков.
+Купили билеты на самолет в [[https://www.ryanair.com][Ryanair]] и забронировали гостиницу надалеко от старого города на сайте [[https://www.booking.com][Booking.com]].
+
+*** Статистика
+
+#+call: expenses(date='2025-04-18)
+
+** День 1. Краков
+<2025-04-19 Sat>
+
+Бла-бла-бла
+
+*** Статистика
+
+#+call: distances(date='2025-04-19)
+
+#+call: expenses(date='2025-04-19)
+
+** День 2. Краков
+<2025-04-20 Sun>
+
+Бла-бла-бла
+
+*** Статистика
+
+#+call: distances(date='2025-04-20)
+
+#+call: expenses(date='2025-04-20)
+
+** День 3. Краков
+<2025-04-21 Mon>
+
+Бла-бла-бла
+
+*** Статистика
+
+#+call: distances(date='2025-04-21)
+
+#+call: expenses(date='2025-04-21)
+
+** День 4. Краков
+<2025-04-22 Tue>
+
+Бла-бла-бла
+
+*** Статистика
+
+#+call: distances(date='2025-04-22)
+
+#+call: expenses(date='2025-04-22)
+
+** Итог
+
+Бла-бла-бла
+
+*** Общая статистика
+
+#+begin_src emacs-lisp :noweb yes :results output :exports results :var values=distance-values
+  (let* ((pairs (mapcar 'cdr values))
+         (walks (mapcar 'cdr pairs))
+         (drives (mapcar 'car pairs))
+        (total-walk (apply '+ walks))
+        (total-drive (- (car (last drives)) (car drives))))
+    (princ "Дистанция\n")
+;;    (princ (format "  Авто:   %d км\n" total-drive))
+    (princ (format "  Пешком: %d км" total-walk)))
+#+end_src
+
+#+call: expenses(date='2025-04-18,end-date='2025-04-22)
+
+#+begin_src emacs-lisp :noweb yes :results output :exports results :var persons=2 :var days=3
+  <<total-expenses>>
+  (defun print-type-total (type &optional name)
+    (let ((name (concat (if name name type) ":"))
+          (value (concat "€" (number-to-string (total-expenses type persons days)))))
+    (princ (format "  %-22s%12s\n" name value))))
+
+  (princ (format "Количество человек:         %d\n" persons))
+  (princ (format "Количество дней:            %d\n\n" days))
+  (princ (format "Расходы на человека в день\n"))
+  (print-type-total "Расходы" "Всего")
+  (print-type-total "Жилье")
+  (print-type-total "Еда")
+  (print-type-total "Транспорт")
+  (print-type-total "Достопримечательности")
+  (print-type-total "Самолет")
+#+end_src
+
+* Достопримечательности
+** Wawel Cathedral
+
+https://maps.app.goo.gl/tHJCLaX4uJ26L9gV8
+
+** St. Mary's Basilica
+
+https://maps.app.goo.gl/iikL7muVbM9VmvX7A
+
+** Rynek Główny
+
+https://maps.app.goo.gl/oQbeuPos21UfDBY36
+
+** MNK Sukiennice
+
+https://maps.app.goo.gl/tYfbC7wxZZcj1aCJ7
+
+** Planty
+
+Городской парк
+
+https://maps.app.goo.gl/qambHtpS9wMR4Yfi9
+
+** Kazimierz
+
+Еврейский квартал
+
+https://maps.app.goo.gl/U1nfTk94uSPcTt1o6
+
+* Маршруты
+
+** 15:15 Красный маршрут
+
+https://www.tours15-15.com/krakow/excursions/krakov-v-1515-krasnyj-marshrut/
+
+** 15:15 Синий маршрут
+
+https://www.tours15-15.com/krakow/excursions/krakov-v-1515-sinij-marshrut/
+
+* Рестораны
+
+** Regale Bar & Restaurant
+
+https://maps.app.goo.gl/oiZ5YcWmv8FinaDo7
+
+** Klimaty Poludnia - Restauracja I Winiarnia
+
+https://maps.app.goo.gl/FzCUtVLAcF73kE3y8
+
+** Grill Sauseges near Hala Targowa
+
+Бла-бла-бла
+
+https://maps.app.goo.gl/wrqCFDrtZVg3dMRE6
+
+* Гостиницы
+
+** Unique Style Apartments
+
+https://maps.app.goo.gl/yryKgRJht7PC37qb6
+
+Цена: 790 PLN (€189) (3 ночи, €63/ночь)
+

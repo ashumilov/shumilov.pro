@@ -1,0 +1,4 @@
+#+html_head: <link rel="stylesheet" type="text/css" href="https://gongzhitaao.org/orgcss/org.css"/>
+#+html_head_extra: <style> img { width: 100%; } </style>
+#+html_head_extra: <style> video { width: 100%; } </style>
+#+html_head_extra: <style> pre { background-color: white; } </style>
