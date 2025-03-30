@@ -13,6 +13,12 @@
 
 ** Подготовка
 
+-- #+call: youtube(id="cTg52Asm3z8")
+
+-- #+call: looped-video(id="IMG_0719.mp4")
+
+-- [./images/IMG_4293.jpg]]
+
 На пасхальные праздники мы решили поехать в Краков.
 Купили билеты на самолет в [[https://www.ryanair.com][Ryanair]] и забронировали гостиницу надалеко от старого города на сайте [[https://www.booking.com][Booking.com]].
 

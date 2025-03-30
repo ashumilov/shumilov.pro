@@ -111,3 +111,19 @@
       per-total))
 #+end_src
 
+#+name: youtube
+#+begin_src elisp :results value html :exports none :var id="placeholder"
+(format "<div class=\"container\">
+  <iframe style=\"aspect-ratio: 16 / 9; width: 100%% !important;\"
+  src=\"https://www.youtube.com/embed/%s\"></iframe>
+</div>
+" id)
+#+end_src
+
+#+name: looped-video
+#+begin_src elisp :results value html :exports none :var id="placeholder"
+(format "<video controls autoplay loop>
+<source src=\"./video/%s\" type=\"video/mp4\">
+</video>
+" id)
+#+end_src
