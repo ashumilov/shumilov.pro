@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Карта GPS-маршрута</title>
+    
+    <!-- Подключение Leaflet CSS и JS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="datetime-local"] {
+            padding: 8px;
+            width: 250px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 4px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #map {
+            height: 800px;
+            width: 100%;
+            margin-top: 20px;
+            border: 1px solid #ccc;
+        }
+        #map-info {
+            margin-top: 10px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Карта GPS-маршрута</h1>
+        <p>Выберите диапазон дат для фильтрации маршрута.</p>
+        
+        <div class="form-group">
+            <label for="from-date">Дата начала:</label>
+            <input type="datetime-local" id="from-date" onchange="showMap()" />
+        </div>
+        
+        <div class="form-group">
+            <label for="to-date">Дата окончания:</label>
+            <input type="datetime-local" id="to-date" onchange="showMap()" />
+        </div>
+        
+        <button onclick="showMap()">Обновить маршрут</button>
+        
+        <div id="map"></div>
+        <div id="map-info"></div>
+    </div>
+
+    <script>
+        // Глобальная переменная для хранения экземпляра карты
+        let mapInstance = null;
+        
+        /**
+         * Загружает GPS данные из CSV файла, фильтрует точки по дате и отображает маршрут
+         * @param {string} startDate - Начальная дата для фильтрации (null для отключения)
+         * @param {string} endDate - Конечная дата для фильтрации (null для отключения)
+         */
+        function displayGPSRoute(startDate = null, endDate = null) {
+          // Преобразуем даты в объекты Date, если они переданы как строки
+          if (startDate && typeof startDate === 'string') {
+            startDate = new Date(startDate);
+          }
+          if (endDate && typeof endDate === 'string') {
+            endDate = new Date(endDate);
+          }
+          
+          // Задаем параметры по умолчанию для линии маршрута
+          const lineOptions = {
+            color: 'blue',
+            weight: 4,
+            opacity: 0.7
+          };
+          
+          // Проверяем существование контейнера карты
+          const mapContainer = document.getElementById('map');
+          if (!mapContainer) {
+            console.error('Контейнер карты #map не найден!');
+            return;
+          }
+          
+          // Убеждаемся, что контейнер имеет высоту
+          if (mapContainer.offsetHeight === 0) {
+            mapContainer.style.height = '800px';
+          }
+          
+          // Добавляем параметр для предотвращения кеширования
+          const fileUrl = './gps.csv?nocache=' + new Date().getTime();
+          
+          fetch(fileUrl)
+            .then(response => {
+              if (!response.ok) {
+                throw new Error(`Ошибка HTTP! Статус: ${response.status}`);
+              }
+              return response.text();
+            })
+            .then(fileText => {
+              const trackPoints = [];
+              
+              // Парсинг CSV
+              const lines = fileText.split('\n').filter(line => line.trim() !== '');
+              
+              for (let i = 0; i < lines.length; i++) {
+                const columns = lines[i].split(',').map(col => col.trim());
+                
+                if (columns.length >= 3) {
+                  const timestamp = columns[0];
+                  const lat = parseFloat(columns[1]);
+                  const lon = parseFloat(columns[2]);
+                  
+                  if (isNaN(lat) || isNaN(lon)) continue;
+                  
+                  // Проверяем временную метку, если указаны даты для фильтрации
+                  if (startDate || endDate) {
+                    try {
+                      const pointTime = new Date(timestamp);
+                      
+                      if (startDate && pointTime < startDate) continue;
+                      if (endDate && pointTime > endDate) continue;
+                    } catch (e) {
+                      if (startDate || endDate) continue;
+                    }
+                  }
+                  
+                  trackPoints.push([lat, lon]);
+                }
+              }
+              
+              // Если нет точек после фильтрации
+              if (trackPoints.length === 0) {
+                console.warn('Нет точек для отображения после фильтрации по датам');
+                
+                // Очищаем информацию о маршруте
+                const infoElement = document.getElementById('map-info');
+                if (infoElement) {
+                  infoElement.innerHTML = `
+                    <div style="padding: 15px; color: #856404; background-color: #fff3cd; border: 1px solid #ffeeba;">
+                      <h3>Нет данных</h3>
+                      <p>Не найдено GPS точек для выбранного диапазона дат.</p>
+                    </div>
+                  `;
+                }
+                
+                // Если карта ещё не создана, создаем пустую карту
+                if (!mapInstance) {
+                  mapInstance = L.map('map').setView([55.751244, 37.618423], 10);
+                  
+                  L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+                    subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+                    attribution: '&copy; Google Maps'
+                  }).addTo(mapInstance);
+                }
+                
+                return;
+              }
+              
+              // Удаляем старую карту, если она существует
+              if (mapInstance) {
+                mapInstance.remove();
+                mapInstance = null;
+              }
+              
+              // Создаем новую карту
+              mapInstance = L.map('map', {
+                zoomControl: true,
+                attributionControl: true,
+                scrollWheelZoom: true
+              });
+              
+              // Добавляем Google Maps тайлы
+              L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+                subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+                attribution: '&copy; Google Maps'
+              }).addTo(mapInstance);
+              
+              // Добавляем маршрут на карту
+              const polyline = L.polyline(trackPoints, lineOptions).addTo(mapInstance);
+              
+              // Устанавливаем масштаб, чтобы видеть весь маршрут
+              mapInstance.fitBounds(polyline.getBounds());
+              
+              // Пересчитываем размеры карты
+              setTimeout(function() {
+                mapInstance.invalidateSize({ animate: true });
+              }, 300);
+              
+              // Рассчитываем расстояние
+              let distance = 0;
+              for (let i = 1; i < trackPoints.length; i++) {
+                const p1 = L.latLng(trackPoints[i-1][0], trackPoints[i-1][1]);
+                const p2 = L.latLng(trackPoints[i][0], trackPoints[i][1]);
+                distance += p1.distanceTo(p2);
+              }
+              
+              // Обновляем информацию о маршруте
+              const infoElement = document.getElementById('map-info');
+              if (infoElement) {
+                infoElement.innerHTML = `
+                  <h3>Информация о маршруте</h3>
+                  <p><strong>Точек:</strong> ${trackPoints.length}</p>
+                  <p><strong>Расстояние:</strong> ${(distance / 1000).toFixed(2)} км</p>
+                  ${startDate ? `<p><strong>От:</strong> ${startDate.toLocaleString('ru-RU')}</p>` : ''}
+                  ${endDate ? `<p><strong>До:</strong> ${endDate.toLocaleString('ru-RU')}</p>` : ''}
+                `;
+              }
+            })
+            .catch(error => {
+              console.error('Ошибка при загрузке файла:', error);
+              
+              const mapElement = document.getElementById('map');
+              if (mapElement) {
+                mapElement.innerHTML = `
+                  <div style="padding: 20px; color: red; background-color: #ffeeee; border: 1px solid #ffaaaa;">
+                    <h3>Ошибка загрузки файла</h3>
+                    <p>${error.message}</p>
+                    <p>Проверьте, что файл gps.csv существует в текущей директории.</p>
+                  </div>
+                `;
+              }
+              
+              // Очищаем информацию о маршруте в случае ошибки
+              const infoElement = document.getElementById('map-info');
+              if (infoElement) {
+                infoElement.innerHTML = '';
+              }
+            });
+        }
+
+        // Запуск при загрузке страницы
+        window.onload = function() {
+            // Автоматически показываем карту при загрузке страницы
+            displayGPSRoute();
+        };
+
+        function showMap() {
+            const fromDate = document.getElementById('from-date').value;
+            const toDate = document.getElementById('to-date').value;
+            
+            displayGPSRoute(fromDate || null, toDate || null);
+        }
+    </script>
+</body>
+</html>
