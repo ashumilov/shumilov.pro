@@ -3,8 +3,11 @@
 #+STARTUP: showall
 #+options: toc:nil num:nil
 
-#+INCLUDE: "style.org"
-#+INCLUDE: "functions.org"
+#+INCLUDE: "constants.org"
+
+#+INCLUDE: "../../../include/style.org"
+#+INCLUDE: "../../../include/functions.org"
+#+INCLUDE: "../../../include/gps.org"
 
 ** Подготовка
 

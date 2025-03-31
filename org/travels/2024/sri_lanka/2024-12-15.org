@@ -3,13 +3,16 @@
 #+STARTUP: showall
 #+options: toc:nil num:nil
 
-#+INCLUDE: "style.org"
-#+INCLUDE: "functions.org"
+#+INCLUDE: "constants.org"
+
+#+INCLUDE: "../../../include/style.org"
+#+INCLUDE: "../../../include/functions.org"
+#+INCLUDE: "../../../include/gps.org"
 
 ** День 1. Аэропорт - Негомбо
 <2024-12-15 Sun>
 
-#+call: map-day(date="2024-12-15")
+#+call: map-days(from="2024-12-15T14:00:00+05:30", to="2024-12-15T23:59:59+05:30")
 
 Получив в аэропорту арендованную машину, мы доехали до [[file:hotels.org::*Sand & Surf Guest House][гостиницы]] и зарегистрировавшись пошли на пляж, который находился в 10 минутах ходьбы. Пляж недалеко от нашей гостиницы оказался вполне подходящим: мало людей и неопасные, но сильные волны.
 

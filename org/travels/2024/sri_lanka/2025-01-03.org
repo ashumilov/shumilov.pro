@@ -3,13 +3,16 @@
 #+STARTUP: showall
 #+options: toc:nil num:nil
 
-#+INCLUDE: "style.org"
-#+INCLUDE: "functions.org"
+#+INCLUDE: "constants.org"
+
+#+INCLUDE: "../../../include/style.org"
+#+INCLUDE: "../../../include/functions.org"
+#+INCLUDE: "../../../include/gps.org"
 
 ** День 20. Унаватуна - Коломбо
 <2025-01-03 Fri>
 
-#+call: map-day(date="2025-01-03")
+#+call: map-day(date="2025-01-03", shift="+05:30")
 
 С утра мы доехали до Унаватуны и позавтракав в неплохом [[file:restaurants.org::*SkinnyTom's Deli][месте]] пошли на пляж.
 

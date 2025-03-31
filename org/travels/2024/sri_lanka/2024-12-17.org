@@ -3,13 +3,16 @@
 #+STARTUP: showall
 #+options: toc:nil num:nil
 
-#+INCLUDE: "style.org"
-#+INCLUDE: "functions.org"
+#+INCLUDE: "constants.org"
+
+#+INCLUDE: "../../../include/style.org"
+#+INCLUDE: "../../../include/functions.org"
+#+INCLUDE: "../../../include/gps.org"
 
 ** День 3. Дамбулла - Водопады
 <2024-12-17 Tue>
 
-#+call: map-day(date="2024-12-17")
+#+call: map-day(date="2024-12-17", shift="+05:30")
 
 Утро началось с завтрака, который входил в стоимость проживания.
 Мы пришли в ресторан к 8:15 как договаривались, но нас там никто не ждал и ресторан был закрыт.

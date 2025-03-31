@@ -102,7 +102,7 @@
   (defun expenses (from-date to-date total type)
     (shell-command-to-string
      (concat
-      "ledger -f report.txt bal "
+      "ledger -f ../../../data/expenses.txt bal "
       type
       " -X EUR "
       (if (equal total 0)

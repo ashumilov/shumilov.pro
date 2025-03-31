@@ -3,13 +3,16 @@
 #+STARTUP: showall
 #+options: toc:nil num:nil
 
-#+INCLUDE: "style.org"
-#+INCLUDE: "functions.org"
+#+INCLUDE: "constants.org"
+
+#+INCLUDE: "../../../include/style.org"
+#+INCLUDE: "../../../include/functions.org"
+#+INCLUDE: "../../../include/gps.org"
 
 ** День 9. Гора Элла - Секретный водопад - Девятиарочный мост
 <2024-12-23 Mon>
 
-#+call: map-day(date="2024-12-23")
+#+call: map-day(date="2024-12-23", shift="+05:30")
 
 С утра мы совершили хайкинг поднявшись на [[file:poi.org::*Ella Rock View Point][гору Элла]]. Подъем занял больше часа и был достаточно тяжелым, так как местами тропа была очень крутой. Особых видов по пути не было, кроме одного места, где с мостика был виден небольшой живописный водопад.
 

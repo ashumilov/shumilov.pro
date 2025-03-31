@@ -3,13 +3,16 @@
 #+STARTUP: showall
 #+options: toc:nil num:nil
 
-#+INCLUDE: "style.org"
-#+INCLUDE: "functions.org"
+#+INCLUDE: "constants.org"
+
+#+INCLUDE: "../../../include/style.org"
+#+INCLUDE: "../../../include/functions.org"
+#+INCLUDE: "../../../include/gps.org"
 
 ** День 14. Пляж Гоямбокка
 <2024-12-28 Sat>
 
-#+call: map-day(date="2024-12-28")
+#+call: map-day(date="2024-12-28", shift="+05:30")
 
 Весь день пробыв на пляже вечером мы пошли в новый [[file:restaurants.org::*Foodee][ресторан]].
 Там мы встретили очень милых котов.

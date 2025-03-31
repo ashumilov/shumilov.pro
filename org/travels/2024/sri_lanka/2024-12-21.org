@@ -3,13 +3,16 @@
 #+STARTUP: showall
 #+options: toc:nil num:nil
 
-#+INCLUDE: "style.org"
-#+INCLUDE: "functions.org"
+#+INCLUDE: "constants.org"
+
+#+INCLUDE: "../../../include/style.org"
+#+INCLUDE: "../../../include/functions.org"
+#+INCLUDE: "../../../include/gps.org"
 
 ** День 7. Чайная фабрика Bluefield - водопад Lover's Leap - Нувара-Элия
 <2024-12-21 Sat>
 
-#+call: map-day(date="2024-12-21")
+#+call: map-day(date="2024-12-21", shift="+05:30")
 
 С утра мы заехали покушать в ресторан с прекрасным видом с очень медленным обслуживанием.
 

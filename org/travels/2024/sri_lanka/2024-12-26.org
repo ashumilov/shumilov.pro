@@ -3,13 +3,16 @@
 #+STARTUP: showall
 #+options: toc:nil num:nil
 
-#+INCLUDE: "style.org"
-#+INCLUDE: "functions.org"
+#+INCLUDE: "constants.org"
+
+#+INCLUDE: "../../../include/style.org"
+#+INCLUDE: "../../../include/functions.org"
+#+INCLUDE: "../../../include/gps.org"
 
 ** День 12. Пляж Гоямбокка
 <2024-12-26 Thu>
 
-#+call: map-day(date="2024-12-26")
+#+call: map-day(date="2024-12-26", shift="+05:30")
 
 Мы поехали на тот же пляж, но уже запаслись с собой закусками и напитками,
 так как вчера вышло недешево, наценка за питание на пляже оказалась существенной.

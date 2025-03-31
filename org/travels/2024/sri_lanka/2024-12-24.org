@@ -3,13 +3,16 @@
 #+STARTUP: showall
 #+options: toc:nil num:nil
 
-#+INCLUDE: "style.org"
-#+INCLUDE: "functions.org"
+#+INCLUDE: "constants.org"
+
+#+INCLUDE: "../../../include/style.org"
+#+INCLUDE: "../../../include/functions.org"
+#+INCLUDE: "../../../include/gps.org"
 
 ** День 10. Буддийский храм - водопад Диялума - Тангале
 <2024-12-24 Tue>
 
-#+call: map-day(date="2024-12-24")
+#+call: map-day(date="2024-12-24", shift="+05:30")
 
 С утра мы позавтракали в [[file:restaurants.org::*Kiri Kopi][хипстерском заведении]].
 

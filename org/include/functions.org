@@ -34,7 +34,7 @@
            (drive (- (car (alist-get date distance-values))
                      (car (alist-get prev-date distance-values)))))
       (princ "Дистанция\n")
-;;      (princ (format "  Авто:   %d км\n" drive))
+      (princ (format "  Авто:   %d км\n" drive))
       (princ (format "  Пешком: %d км" walk))))
 #+end_src
 
@@ -51,7 +51,7 @@
   (defun expenses (from-date to-date total type)
     (shell-command-to-string
      (concat
-      "ledger -f expenses.txt bal "
+      "ledger -f ../../../data/expenses.txt bal "
       type
       " -X EUR "
       (if (equal total 0)
@@ -116,8 +116,8 @@
         '../../../gps.csv',
         'map-days-%s-%s',
         'google',
-        '%sT00:00:00Z',
-        '%sT23:59:59Z',
+        '%s',
+        '%s',
         {
           color: 'blue',
           weight: 4,
@@ -136,7 +136,7 @@
 #+end_src
 
 #+name: map-day
-#+begin_src emacs-lisp :noweb yes :results value html :exports none :var date='none
+#+begin_src emacs-lisp :noweb yes :results value html :exports none :var date='none :var shift="Z"
   <<show-map>>
-  (show-map date date)
+  (show-map (format "%sT00:00:00%s" date shift) (format "%sT23:59:59%s" date shift))
 #+end_src

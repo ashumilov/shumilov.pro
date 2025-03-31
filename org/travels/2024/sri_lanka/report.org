@@ -5,7 +5,7 @@
 #+STARTUP: showall
 #+options: toc:nil num:nil
 
-#+INCLUDE: "style.org"
+#+INCLUDE: "../../../include/style.org"
 
 * Отчет о поездке в Шри Ланку
 

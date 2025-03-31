@@ -3,14 +3,17 @@
 #+STARTUP: showall
 #+options: toc:nil num:nil
 
-#+INCLUDE: "style.org"
-#+INCLUDE: "functions.org"
+#+INCLUDE: "constants.org"
+
+#+INCLUDE: "../../../include/style.org"
+#+INCLUDE: "../../../include/functions.org"
+#+INCLUDE: "../../../include/gps.org"
 
 ** День 4. Сад специй - Озеро Сембуватта - Водопады
 
 <2024-12-18 Wed>
 
-#+call: map-day(date="2024-12-18")
+#+call: map-day(date="2024-12-18", shift="+05:30")
 
 Утром полюбовавшись видом из гостиницы мы поехали в сторону озера Сембуватта.
 

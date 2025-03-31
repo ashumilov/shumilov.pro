@@ -1,210 +1,14 @@
 #+language: ru
 #+author: Александр Шумилов
 #+title: Отчет о поездке в Армению и Грузию
+
 #+options: toc:2 num:nil
-#+html_head: <link rel="stylesheet" type="text/css" href="https://gongzhitaao.org/orgcss/org.css"/>
-#+html_head: <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-#+html_head: <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-#+html_head_extra: <style> img { width: 100%; } </style>
-#+html_head_extra: <style> video { width: 100%; } </style>
-#+html_head_extra: <style> pre { background-color: white; } </style>
+#+INCLUDE: "constants.org"
 
-#+HTML_HEAD: <style>
-#+HTML_HEAD: /* Улучшенный контейнер карты */
-#+HTML_HEAD: .map-container {
-#+HTML_HEAD:   height: 500px;
-#+HTML_HEAD:   width: 100%;
-#+HTML_HEAD:   margin: 0;
-#+HTML_HEAD:   padding: 0;
-#+HTML_HEAD:   clear: both;
-#+HTML_HEAD:   position: relative;
-#+HTML_HEAD:   z-index: 1;
-#+HTML_HEAD:   overflow: hidden;
-#+HTML_HEAD:   border: 1px solid #ddd;
-#+HTML_HEAD:   border-radius: 5px;
-#+HTML_HEAD: }
-#+HTML_HEAD: 
-#+HTML_HEAD: /* Обертка для карты и информации */
-#+HTML_HEAD: .map-wrapper {
-#+HTML_HEAD:   margin: 1.5em 0;
-#+HTML_HEAD:   padding: 0;
-#+HTML_HEAD:   clear: both;
-#+HTML_HEAD: }
-#+HTML_HEAD: 
-#+HTML_HEAD: /* Стили для информации о маршруте */
-#+HTML_HEAD: [id$="-info"] {
-#+HTML_HEAD:   margin-top: 10px;
-#+HTML_HEAD:   padding: 10px;
-#+HTML_HEAD:   background-color: #f8f8f8;
-#+HTML_HEAD:   border-radius: 5px;
-#+HTML_HEAD:   font-size: 0.9em;
-#+HTML_HEAD: }
-#+HTML_HEAD: </style>
-
-#+name: first-date
-#+begin_src emacs-lisp :exports none
-  '2024-08-28
-#+end_src
-
-#+name: last-date
-#+begin_src emacs-lisp :exports none
-  '2024-09-15
-#+end_src
-
-#+name: distance-values
-#+begin_src emacs-lisp :exports none
-  (setq distance-values
-        '(
-          (2024-08-28 . (49256 . 0))
-          (2024-08-29 . (49257 . 1))
-          (2024-08-30 . (49450 . 8))
-          (2024-08-31 . (49590 . 10))
-          (2024-09-01 . (49865 . 3))
-          (2024-09-02 . (50133 . 9))
-          (2024-09-03 . (50133 . 17))
-          (2024-09-04 . (50350 . 8))
-          (2024-09-05 . (50653 . 5))
-          (2024-09-06 . (50900 . 6))
-          (2024-09-07 . (50938 . 13))
-          (2024-09-08 . (51040 . 18))
-          (2024-09-09 . (51353 . 4))
-          (2024-09-10 . (51353 . 9))
-          (2024-09-11 . (51353 . 2))
-          (2024-09-12 . (51600 . 6))
-          (2024-09-13 . (51783 . 5))
-          (2024-09-14 . (51783 . 19))
-          ))
-#+end_src
-
-#+name: get-other-date
-#+begin_src emacs-lisp :exports none
-(defun get-other-date (date delta)
-  (intern
-   (format-time-string
-    "%Y-%m-%d"
-    (encode-time
-     (decoded-time-add
-      (parse-time-string (symbol-name date))
-      (make-decoded-time :day delta))))))
-#+end_src
-
-#+name: get-next-date
-#+begin_src emacs-lisp :noweb yes :exports none
-  <<get-other-date>>
-  (defun get-next-date (date)
-    (get-other-date date 1))
-#+end_src
-
-#+name: get-prev-date
-#+begin_src emacs-lisp :noweb yes :exports none
-  <<get-other-date>>
-  (defun get-prev-date (date)
-    (get-other-date date -1))
-#+end_src
-
-#+name: func-distances
-#+begin_src emacs-lisp :noweb yes :results output :exports none
-  <<distance-values>>
-  <<get-prev-date>>
-  (defun distances (date)
-    (let* ((walk (cdr (alist-get date distance-values)))
-           (prev-date (get-prev-date date))
-           (drive (- (car (alist-get date distance-values))
-                     (car (alist-get prev-date distance-values)))))
-      (princ "Дистанция\n")
-      (princ (format "  Авто:   %d км\n" drive))
-      (princ (format "  Пешком: %d км" walk))))
-#+end_src
-
-#+name: distances
-#+begin_src emacs-lisp :noweb yes :results output :exports none :var date='none
-  <<func-distances>>
-  (if (not (eq date 'none))
-      (distances date))
-#+end_src
-
-#+name: func-expenses
-#+begin_src emacs-lisp :noweb yes :exports none
-  <<get-next-date>>
-  (defun expenses (from-date to-date total type)
-    (shell-command-to-string
-     (concat
-      "ledger -f report.ledger bal "
-      type
-      " -X EUR "
-      (if (equal total 0)
-          "--no-total "
-        "-n --balance-format \"%(display_total)\"")
-      " -b "
-      (symbol-name from-date)
-      " -e "
-      (symbol-name to-date))))
-#+end_src
-
-#+name: expenses
-#+begin_src emacs-lisp :noweb yes :exports none :var date='none end-date='none
-  <<func-expenses>>
-  (if (not (eq date 'none))
-      (let ((to-date (if (eq end-date 'none)
-                         (get-next-date date)
-                       end-date)))
-        (expenses date to-date 0 "Расходы")))
-#+end_src
-
-
-#+name: total-expenses
-#+begin_src emacs-lisp :noweb yes :exports none
-  <<func-expenses>>
-  (defun total-expenses (type persons days)
-    (let* ((expenses (expenses <<first-date>> <<last-date>> 1 type))
-           (total
-            (if (= (length expenses) 0)
-                0
-              (string-to-number
-               (substring
-                expenses
-                1))))
-           (per-total (if (= total 0) 0 (/ total (* persons days)))))
-      per-total))
-#+end_src
-
-#+name: show-map
-#+begin_src emacs-lisp :results value html :exports none :var from='none :var to='none
-  (defun show-map (from to)
-    (format "<div id=\"map-days-%s-%s\" class=\"map-container\"></div>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      loadGPXFile(
-        './armenia_georgia_2024.gpx',
-        'map-days-%s-%s',
-        'google',
-        '%sT00:00:00Z',
-        '%sT23:59:59Z',
-        {
-          color: 'blue',
-          weight: 4,
-          opacity: 0.8
-        }
-      );
-    });
-  </script>
-  " from to from to from to))
-#+end_src
-
-#+name: map-days
-#+begin_src emacs-lisp :noweb yes :results value html :exports none :var from='none :var to='none
-  <<show-map>>
-  (show-map from to)
-#+end_src
-
-#+name: map-day
-#+begin_src emacs-lisp :noweb yes :results value html :exports none :var date='none
-  <<show-map>>
-  (show-map date date)
-#+end_src
-
-#+INCLUDE: "html.org"
+#+INCLUDE: "../../../include/style.org"
+#+INCLUDE: "../../../include/functions.org"
+#+INCLUDE: "../../../include/gps.org"
 
 * Хронология событий
 ** Подготовка
@@ -222,7 +26,7 @@
 ** День 1. /Аэропорт Звартноц/
 <2024-08-29 Thu>
 
-#+call: map-day(date="2024-08-29")
+#+call: map-days(from="2024-08-30T02:00:00+04:00", to="2024-08-30T10:00:00+04:00")
 
 Мы прилетели ночью, купили в аэропорту бутылку вина. На выходе нас встретил представитель компании, где мы арендовали авто, проводил до арендованной машины -- Нива черного цвета. Похоже, что менеджер сам был от нее в восторге, повторял что она практически новая.
 "Дверь скрипит, это потому что новая. Пониженная передача плохо включается, это потому что новая, не разработалась еще". В месте крепления ремня безопасности стояла заглушка, сказали, что могу пользоваться на свое усмотрение.
@@ -241,7 +45,7 @@
 ** День 2. /Монастырь Хор Вирап/ -- /Монастырь Нораванк/ -- /Джемрук/
 <2024-08-30 Fri>
 
-#+call: map-day(date="2024-08-30")
+#+call: map-days(from="2024-08-30T10:00:00+04:00", to="2024-08-30T23:59:59+04:00")
 
 С утра выпили по чашке кофе и поехали искать ближайший супермаркет, чтобы закупиться водой, вином и чем-то для перекуса. Закупившись направились в [[*Монастырь Хор Вирап][монастырь Хор Вирап]], который находится недалеко от турецкой границы.
 
@@ -294,7 +98,7 @@
 ** День 3. /Монастырь Гндеванк/ -- /Висячий мост Хндзореск/ -- /Татевский монастырь/
 <2024-08-31 Sat>
 
-#+call: map-day(date="2024-08-31")
+#+call: map-day(date="2024-08-31", shift="+04:00")
 
 С утра выпили две две чашки кофе в местной пекарне, заплатив 60 драм (0,14 евро), что на порядок дешевле, чем в гостинице накануне.
 Добрались до необычного [[*Вопопад в Джермуке][водопада]] напоминающего косу.
@@ -374,7 +178,7 @@
 ** День 4. /Озеро Севан/
 <2024-09-01 Sun>
 
-#+call: map-day(date="2024-09-01")
+#+call: map-day(date="2024-09-01", shift="+04:00")
 
 Утром, за завтраком, мы познакомились с сыном хозяев гостевого дома, который оказался московским журналистом международного класса, очень эрудированным человеком и интересным собеседником. Он нам посоветовал ехать обратно не той дорогой, по которой мы приехали в Татев, а через горы, где, как он обещал, будут красивые виды. Мы так и сделали, о чем нисколько не пожалели.
 
@@ -443,7 +247,7 @@
 ** День 5. /Дилижан/ -- /Монастырь Агарцин/ -- /Мост Санаин/ -- /Монастырь Ахпат/ -- /Тбилиси/
 <2024-09-02 Mon>
 
-#+call: map-day(date="2024-09-02")
+#+call: map-day(date="2024-09-02", shift="+04:00")
 
 Завтрак в гостинице оказался неплохим, особенно вариация на тему менемена или шакшуки.
 
@@ -527,7 +331,7 @@
 ** День 6. /Тбилиси/
 <2024-09-03 Tue>
 
-#+call: map-day(date="2024-09-03")
+#+call: map-day(date="2024-09-03", shift="+04:00")
 
 С утра мы решили пешком дойти до центра, пройдя по главной улице города - проспекту Руставелли.
 
@@ -616,7 +420,7 @@
 ** День 7. /Монастырь Джвари/ -- /Монумент 300 арагвинцев/ -- /Жинвальское водохранилище/ -- /Крепость Ананури/ -- /Гудаури/
 <2024-09-04 Wed>
 
-#+call: map-day(date="2024-09-04")
+#+call: map-day(date="2024-09-04", shift="+04:00")
 
 На следующий день наш путь лежал по военно грузинской дороге в сторону горы Казбек. Выехав из города мы поднялись к [[*Монастырь Джвари][монастырю Джвари]], откуда можно наблюдать слияние двух рек: Кура и Арагви.
 
@@ -663,7 +467,7 @@
 ** День 8. /Кутаиси/
 <2024-09-05 Thu>
 
-#+call: map-day(date="2024-09-05")
+#+call: map-day(date="2024-09-05", shift="+04:00")
 
 С утра оказалось, что из окна гостницы открывается вид не хуже, чем в Альпах!
 
@@ -696,7 +500,7 @@
 ** День 9. /Ингурская ГЭС/ -- /Местия/
 <2024-09-06 Fri>
 
-#+call: map-day(date="2024-09-06")
+#+call: map-day(date="2024-09-06", shift="+04:00")
 
 Первая часть дороги в Сванетию пролегала через поселения с частной застройкой, особенностью которых являлось многообразие животных на дороге. В целом в Грузии коровы днем свободно ходят по проезжей части, а вечером их собирает и отводит домой пастух. Всегда надо быть готовым к тому, что за поворотом может оказаться бродячая корова или даже несколько. Тут же у нас на дороге, дополнительно к коровам, оказались свиньи, гораздо более шустрые и менее предстазуемые.
 
@@ -743,7 +547,7 @@
 ** День 10. /Озера Корульди/
 <2024-09-07 Sat>
 
-#+call: map-day(date="2024-09-07")
+#+call: map-day(date="2024-09-07", shift="+04:00")
 
 Завтракали мы в замечательном [[*ERTI KAVA][кафе]], в которое потом возвращались еще два дня. После завтрака мы отправились в горы, а точнее к [[*Озера Корульди][озерам Корульди]] на хайкинговые тропы.
 
@@ -844,7 +648,7 @@
 ** День 11. /Ушгули/ - /Ледник Шхара/
 <2024-09-08 Sun>
 
-#+call: map-day(date="2024-09-08")
+#+call: map-day(date="2024-09-08", shift="+04:00")
 
 На второй день пребывания в Сванетии у нас был запланирован хайкинг к [[Ледник Шхара][леднику Шхара]]. До города Ушгули, из которого многие начинают хайкинг к леднику, ехать около часа. По пути встречаются сванские башни, которые раньше использовали при набегах. В башнах можно было спрятаться и оттуда обороняться.
 
@@ -919,7 +723,7 @@
 ** День 12. /Уреки/ -- /Гонио/
 <2024-09-09 Mon>
 
-#+call: map-day(date="2024-09-09")
+#+call: map-day(date="2024-09-09", shift="+04:00")
 
 Мы покинули Сванетию и направились к морю. Первая остановка был пляж Уреки с черным вулканическим песком. Мы провели там пару часов и поехали дальше. Путь в Гонио, где мы планировали провести ближайшие несколько дней пролегал через Батуми. Мы решили не останавливаться в городе, так как движение было сумасшедшим, а лишнего времени уже не было.
 
@@ -936,7 +740,7 @@
 ** День 13. /Гонио/
 <2024-09-10 Tue>
 
-#+call: map-day(date="2024-09-10")
+#+call: map-day(date="2024-09-10", shift="+04:00")
 
 На следующий день мы арендовали лежаки с навесом и весь день провели на море, купаясь и попивая пиво.
 
@@ -953,7 +757,7 @@
 ** День 14. /Гонио/
 <2024-09-11 Wed>
 
-#+call: map-day(date="2024-09-11")
+#+call: map-day(date="2024-09-11", shift="+04:00")
 
 Мы поменяли изначальные планы и остались еще на один день на море.
 
@@ -968,7 +772,7 @@
 ** День 15. /Годердзи/ -- /Ахалциха/ -- /Вардзия/
 <2024-09-12 Thu>
 
-#+call: map-day(date="2024-09-12")
+#+call: map-day(date="2024-09-12", shift="+04:00")
 
 С утра мы позавтракали и направились к дороге пролегающей через перевал Годердзи. Эта дорога еще несколько лет назад была в очень плохом состоянии и проехать по ней можно было только на джипе и только в сухую погоду. Вообщем-то именно из-за этой дороги я и решил арендовать Ниву, ибо по отзывам виды по дороге стоили того, чтобы по ней проехать. Правда, как оказалось, что за последние годы дорогу частично отремонтировали и большая ее часть была вполне приличного качества. Правда был один участок длиной в несколько километром, без покрытия и в ямах, но на Ниве мы не испытали никаких неудобств по его преодолению.
 
@@ -1041,7 +845,7 @@
 ** День 16. /Ереван/
 <2024-09-13 Fri>
 
-#+call: map-day(date="2024-09-13")
+#+call: map-day(date="2024-09-13", shift="+04:00")
 
 На следующий день после обеда мы доехали до Еревана и сдали автомобиль. По пути в [[*Yerevan Centre Hotel][гостиницу]] познакомились с общественным транспортом (это действующий троллейбус везущий пассажиров).
 
@@ -1074,7 +878,7 @@
 ** День 17. /Ереван/
 <2024-09-14 Sat>
 
-#+call: map-day(date="2024-09-14")
+#+call: map-day(date="2024-09-14", shift="+04:00")
 
 Утро началось с того, что мне показалось, что нас обманули в ресторане накануне и мы пошли разбираться. Администрация отнеслась с пониманием к моим претензиям, мы сели за компьютер и проанализировали вчерашний счет. Все сошлось, я извинился и мы ушли, поняв, что посидели мы вчера хорошо. Счет вышел с чаевыми более 130 евро.
 
@@ -1223,7 +1027,7 @@
 
 *** Маршрут
 
-#+call: map-days(from="2024-08-29", to="2024-09-14")
+#+call: map-days(from="2024-08-30T02:00:00+04:00", to="2024-09-15T03:00:00+04:00")
 
 *** Общая статистика
 

@@ -3,7 +3,7 @@
 #+STARTUP: showall
 #+options: toc:nil num:nil
 
-#+INCLUDE: "style.org"
+#+INCLUDE: "../../../include/style.org"
 
 * Достопримечательности
 ** Negombo Dry fish Processing Area

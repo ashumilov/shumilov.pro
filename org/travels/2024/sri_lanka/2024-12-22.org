@@ -3,13 +3,16 @@
 #+STARTUP: showall
 #+options: toc:nil num:nil
 
-#+INCLUDE: "style.org"
-#+INCLUDE: "functions.org"
+#+INCLUDE: "constants.org"
+
+#+INCLUDE: "../../../include/style.org"
+#+INCLUDE: "../../../include/functions.org"
+#+INCLUDE: "../../../include/gps.org"
 
 ** День 8. Молочная ферма - Малый пик Адама - Элла
 <2024-12-22 Sun>
 
-#+call: map-day(date="2024-12-22")
+#+call: map-day(date="2024-12-22", shift="+05:30")
 
 Утро началось с того, что в номер к детям забралась хозяйская собака.
 
