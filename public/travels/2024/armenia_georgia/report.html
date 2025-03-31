@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ru" xml:lang="ru">
 <head>
-<!-- 2025-03-31 Mon 08:38 -->
+<!-- 2025-03-31 Mon 09:04 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Отчет о поездке в Армению и Грузию</title>
@@ -308,7 +308,7 @@ font-size: 0.9em;
 <li><a href="#orge734ec1">White House</a></li>
 <li><a href="#org7bf1c6d">Dedani Restaurant</a></li>
 <li><a href="#org96b2aab">Cafe Greenland</a></li>
-<li><a href="#org2ba7173">Guest House Tsiskari</a></li>
+<li><a href="#orgfc02cad">Guest House Tsiskari</a></li>
 <li><a href="#org7c8e35e">Tavern Yerevan</a></li>
 </ul>
 </li>
@@ -325,7 +325,7 @@ font-size: 0.9em;
 <li><a href="#org110d096">Venera guesthouse</a></li>
 <li><a href="#orgcaf958f">Guest House Roman/Gonio</a></li>
 <li><a href="#orgfb203e8">Rio Hotel Gonio</a></li>
-<li><a href="#orgac13f4e">Guest House Tsiskari</a></li>
+<li><a href="#org2ba7173">Guest House Tsiskari</a></li>
 <li><a href="#orgdf140ba">Yerevan Centre Hotel</a></li>
 </ul>
 </li>
@@ -343,22 +343,22 @@ font-size: 0.9em;
  * @param {Object} options - Дополнительные параметры (цвет и толщина линии)
  */
 function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null, endDate = null, options = {}) {
-  console.log(`Загрузка GPX: ${gpxFileUrl}`, {
-    targetMapId, 
-    mapType, 
-    startDate, 
-    endDate, 
-    options
-  });
+//  console.log(`Загрузка GPX: ${gpxFileUrl}`, {
+//    targetMapId, 
+//    mapType, 
+//    startDate, 
+//    endDate, 
+//    options
+//  });
 
   // Преобразуем даты в объекты Date, если они переданы как строки
   if (startDate && typeof startDate === 'string') {
     startDate = new Date(startDate);
-    console.log(`Начальная дата преобразована: ${startDate}`);
+//    console.log(`Начальная дата преобразована: ${startDate}`);
   }
   if (endDate && typeof endDate === 'string') {
     endDate = new Date(endDate);
-    console.log(`Конечная дата преобразована: ${endDate}`);
+//    console.log(`Конечная дата преобразована: ${endDate}`);
   }
   
   // Задаем параметры по умолчанию
@@ -377,21 +377,21 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
   
   // Убедимся, что контейнер имеет высоту
   if (mapContainer.offsetHeight === 0) {
-    console.log('Контейнер карты имеет нулевую высоту, устанавливаем минимальную высоту');
+//    console.log('Контейнер карты имеет нулевую высоту, устанавливаем минимальную высоту');
     mapContainer.style.height = '500px';
   }
   
-  console.log(`Начинаем запрос к файлу: ${gpxFileUrl}`);
+//  console.log(`Начинаем запрос к файлу: ${gpxFileUrl}`);
   fetch(gpxFileUrl)
     .then(response => {
-      console.log(`Ответ от сервера: ${response.status} ${response.statusText}`);
+//      console.log(`Ответ от сервера: ${response.status} ${response.statusText}`);
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
       return response.text();
     })
     .then(gpxText => {
-      console.log(`GPX файл загружен, размер: ${gpxText.length} байт`);
+//      console.log(`GPX файл загружен, размер: ${gpxText.length} байт`);
       
       // Парсинг GPX
       const parser = new DOMParser();
@@ -407,15 +407,15 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
       // Извлечение всех точек трека с учетом даты
       const trackPoints = [];
       const tracks = gpx.getElementsByTagName('trk');
-      console.log(`Найдено треков: ${tracks.length}`);
+//      console.log(`Найдено треков: ${tracks.length}`);
       
       for (let i = 0; i < tracks.length; i++) {
         const segments = tracks[i].getElementsByTagName('trkseg');
-        console.log(`Трек ${i+1}: найдено сегментов: ${segments.length}`);
+//        console.log(`Трек ${i+1}: найдено сегментов: ${segments.length}`);
         
         for (let j = 0; j < segments.length; j++) {
           const points = segments[j].getElementsByTagName('trkpt');
-          console.log(`Трек ${i+1}, сегмент ${j+1}: найдено точек: ${points.length}`);
+//          console.log(`Трек ${i+1}, сегмент ${j+1}: найдено точек: ${points.length}`);
           
           for (let k = 0; k < points.length; k++) {
             const point = points[k];
@@ -426,7 +426,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
             if (startDate || endDate) {
               const timeElement = point.getElementsByTagName('time')[0];
               if (!timeElement) {
-                if (k === 0) console.log('Точка без временной метки, пропускаем');
+//                if (k === 0) console.log('Точка без временной метки, пропускаем');
                 continue; // Пропускаем точку, если нет временной метки
               }
               
@@ -442,7 +442,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
         }
       }
       
-      console.log(`Итого после фильтрации: ${trackPoints.length} точек`);
+//      console.log(`Итого после фильтрации: ${trackPoints.length} точек`);
       
       // Если нет точек после фильтрации
       if (trackPoints.length === 0) {
@@ -458,17 +458,17 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
       
       // Инициализация карты
       const map = L.map(targetMapId, mapOptions);
-      console.log(`Карта создана в элементе #${targetMapId}`);
+//      console.log(`Карта создана в элементе #${targetMapId}`);
         
       // Добавление тайлов в зависимости от выбранного типа карты
       if (mapType === 'google') {
-        console.log('Используем Google Maps тайлы');
+//        console.log('Используем Google Maps тайлы');
         L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
           subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
           attribution: '&copy; Google Maps'
         }).addTo(map);
       } else {
-        console.log('Используем OpenStreetMap тайлы');
+//        console.log('Используем OpenStreetMap тайлы');
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
           attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         }).addTo(map);
@@ -477,21 +477,21 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
       // Если есть точки, создаем маршрут
       if (trackPoints.length > 0) {
         const polyline = L.polyline(trackPoints, lineOptions).addTo(map);
-        console.log('Маршрут добавлен на карту');
+//        console.log('Маршрут добавлен на карту');
         
         // Автоматический зум
         map.fitBounds(polyline.getBounds());
-        console.log('Масштаб карты установлен по границам маршрута');
+//        console.log('Масштаб карты установлен по границам маршрута');
       } else {
         // Если нет точек, установим стандартный вид
         map.setView([55.751244, 37.618423], 10);
-        console.log('Нет точек для маршрута, установлен стандартный вид карты');
+//        console.log('Нет точек для маршрута, установлен стандартный вид карты');
       }
       
       // Принудительный пересчет размеров карты для корректного отображения
       setTimeout(function() {
         map.invalidateSize({ animate: true });
-        console.log('Размеры карты пересчитаны (после инициализации)');
+//        console.log('Размеры карты пересчитаны (после инициализации)');
         
         // Повторный зум для гарантии правильного отображения
         if (trackPoints.length > 0) {
@@ -503,13 +503,13 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
       // Еще один пересчет через более длительное время для гарантии
       setTimeout(function() {
         map.invalidateSize();
-        console.log('Размеры карты пересчитаны повторно');
+//        console.log('Размеры карты пересчитаны повторно');
       }, 1000);
       
       // Обработчик изменения размера окна
       window.addEventListener('resize', function() {
         map.invalidateSize();
-        console.log('Размеры карты пересчитаны (изменение размера окна)');
+//        console.log('Размеры карты пересчитаны (изменение размера окна)');
       });
       
       // Рассчитываем расстояние
@@ -519,7 +519,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
         const p2 = L.latLng(trackPoints[i][0], trackPoints[i][1]);
         distance += p1.distanceTo(p2);
       }
-      console.log(`Расчет расстояния: ${(distance / 1000).toFixed(2)} км`);
+//      console.log(`Расчет расстояния: ${(distance / 1000).toFixed(2)} км`);
       
       // Если нужно показать информацию о маршруте
       const infoElement = document.getElementById(targetMapId + '-info');
@@ -528,9 +528,9 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
           <p>Маршрут: ${trackPoints.length} точек</p>
           <p>Расстояние: ${(distance / 1000).toFixed(2)} км</p>
         `;
-        console.log('Информация о маршруте обновлена');
+//        console.log('Информация о маршруте обновлена');
       } else {
-        console.log(`Элемент #${targetMapId}-info не найден, информация не отображена`);
+//        console.log(`Элемент #${targetMapId}-info не найден, информация не отображена`);
       }
       
       return {
@@ -582,9 +582,9 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 </div>
 
-<div id="outline-container-orgb02a8ca" class="outline-4">
-<h4 id="orgb02a8ca">Статистика</h4>
-<div class="outline-text-4" id="text-orgb02a8ca">
+<div id="outline-container-orgedb9092" class="outline-4">
+<h4 id="orgedb9092">Статистика</h4>
+<div class="outline-text-4" id="text-orgedb9092">
 <pre class="example">
 €1456  Расходы
  €478    Самолет
@@ -625,7 +625,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org9b4ccaf" class="figure">
+<div id="org8c8ba13" class="figure">
 <p><img src="./IMG_2198.JPG" alt="IMG_2198.JPG" />
 </p>
 </div>
@@ -636,9 +636,9 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 </div>
 
-<div id="outline-container-org8b47770" class="outline-4">
-<h4 id="org8b47770">Статистика</h4>
-<div class="outline-text-4" id="text-org8b47770">
+<div id="outline-container-org398717d" class="outline-4">
+<h4 id="org398717d">Статистика</h4>
+<div class="outline-text-4" id="text-org398717d">
 <pre class="example">
 Дистанция
   Авто:   1 км
@@ -685,7 +685,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org087e5d7" class="figure">
+<div id="org0f09b0e" class="figure">
 <p><img src="./IMG_6674.JPG" alt="IMG_6674.JPG" />
 </p>
 </div>
@@ -695,7 +695,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org060444e" class="figure">
+<div id="org74491f2" class="figure">
 <p><img src="./IMG_6676.JPG" alt="IMG_6676.JPG" />
 </p>
 </div>
@@ -705,13 +705,13 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org640b044" class="figure">
+<div id="org6e6a14c" class="figure">
 <p><img src="./IMG_6679.JPG" alt="IMG_6679.JPG" />
 </p>
 </div>
 
 
-<div id="org1510b75" class="figure">
+<div id="org9f86a51" class="figure">
 <p><img src="./IMG_6683.JPG" alt="IMG_6683.JPG" />
 </p>
 </div>
@@ -721,7 +721,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="orgeef4899" class="figure">
+<div id="orgca8e070" class="figure">
 <p><img src="./IMG_6710.JPG" alt="IMG_6710.JPG" />
 </p>
 </div>
@@ -731,7 +731,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="orgdad131f" class="figure">
+<div id="org7d84c19" class="figure">
 <p><img src="./IMG_6727.JPG" alt="IMG_6727.JPG" />
 </p>
 </div>
@@ -741,7 +741,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="orgf2505b2" class="figure">
+<div id="org08657ab" class="figure">
 <p><img src="./IMG_6745.JPG" alt="IMG_6745.JPG" />
 </p>
 </div>
@@ -751,7 +751,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org2184a6c" class="figure">
+<div id="orgb2c8da5" class="figure">
 <p><img src="./IMG_6785.JPG" alt="IMG_6785.JPG" />
 </p>
 </div>
@@ -761,13 +761,13 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org4723fd0" class="figure">
+<div id="orgfd9be11" class="figure">
 <p><img src="./IMG_6775.JPG" alt="IMG_6775.JPG" />
 </p>
 </div>
 
 
-<div id="org9c3d8d2" class="figure">
+<div id="org8ceddab" class="figure">
 <p><img src="./IMG_6776.JPG" alt="IMG_6776.JPG" />
 </p>
 </div>
@@ -777,7 +777,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="orgf70a511" class="figure">
+<div id="orgecbbd19" class="figure">
 <p><img src="./IMG_6770.JPG" alt="IMG_6770.JPG" />
 </p>
 </div>
@@ -787,9 +787,9 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 </div>
 
-<div id="outline-container-org95f2748" class="outline-4">
-<h4 id="org95f2748">Статистика</h4>
-<div class="outline-text-4" id="text-org95f2748">
+<div id="outline-container-org49c348f" class="outline-4">
+<h4 id="org49c348f">Статистика</h4>
+<div class="outline-text-4" id="text-org49c348f">
 <pre class="example">
 Дистанция
   Авто:   193 км
@@ -864,7 +864,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org984591b" class="figure">
+<div id="org1aabc71" class="figure">
 <p><img src="./IMG_6852.JPG" alt="IMG_6852.JPG" />
 </p>
 </div>
@@ -874,7 +874,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org43b0e2c" class="figure">
+<div id="orgc6e1a03" class="figure">
 <p><img src="./IMG_6876.JPG" alt="IMG_6876.JPG" />
 </p>
 </div>
@@ -884,7 +884,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="orgd724740" class="figure">
+<div id="org280f49b" class="figure">
 <p><img src="./IMG_6872.JPG" alt="IMG_6872.JPG" />
 </p>
 </div>
@@ -894,19 +894,19 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="orgbb96369" class="figure">
+<div id="org468f711" class="figure">
 <p><img src="./IMG_6887.JPG" alt="IMG_6887.JPG" />
 </p>
 </div>
 
 
-<div id="org6ecd93b" class="figure">
+<div id="org7d44c40" class="figure">
 <p><img src="./IMG_6867.JPG" alt="IMG_6867.JPG" />
 </p>
 </div>
 
 
-<div id="org14cd4d7" class="figure">
+<div id="org169dd22" class="figure">
 <p><img src="./IMG_6898.JPG" alt="IMG_6898.JPG" />
 </p>
 </div>
@@ -916,7 +916,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="orga337aaf" class="figure">
+<div id="orgb4b9254" class="figure">
 <p><img src="./IMG_6924.JPG" alt="IMG_6924.JPG" />
 </p>
 </div>
@@ -930,7 +930,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org457e98b" class="figure">
+<div id="orgd2c4125" class="figure">
 <p><img src="./IMG_6926.JPG" alt="IMG_6926.JPG" />
 </p>
 </div>
@@ -940,7 +940,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org240eb6b" class="figure">
+<div id="org4f82472" class="figure">
 <p><img src="./IMG_6941.JPG" alt="IMG_6941.JPG" />
 </p>
 </div>
@@ -950,7 +950,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="orgc84adf0" class="figure">
+<div id="orgac2ba12" class="figure">
 <p><img src="./IMG_6945.JPG" alt="IMG_6945.JPG" />
 </p>
 </div>
@@ -960,7 +960,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org27e6ed6" class="figure">
+<div id="orgb3d8816" class="figure">
 <p><img src="./IMG_6942.JPG" alt="IMG_6942.JPG" />
 </p>
 </div>
@@ -970,9 +970,9 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 </div>
 
-<div id="outline-container-org79fab1c" class="outline-4">
-<h4 id="org79fab1c">Статистика</h4>
-<div class="outline-text-4" id="text-org79fab1c">
+<div id="outline-container-org39afd03" class="outline-4">
+<h4 id="org39afd03">Статистика</h4>
+<div class="outline-text-4" id="text-org39afd03">
 <pre class="example">
 Дистанция
   Авто:   140 км
@@ -1031,25 +1031,25 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="orgd74852a" class="figure">
+<div id="org216bea0" class="figure">
 <p><img src="./IMG_6964.jpg" alt="IMG_6964.jpg" />
 </p>
 </div>
 
 
-<div id="org320a644" class="figure">
+<div id="orgef242b3" class="figure">
 <p><img src="./IMG_6966.jpg" alt="IMG_6966.jpg" />
 </p>
 </div>
 
 
-<div id="org504930d" class="figure">
+<div id="org015f5f8" class="figure">
 <p><img src="./IMG_6968.jpg" alt="IMG_6968.jpg" />
 </p>
 </div>
 
 
-<div id="org4dcb50c" class="figure">
+<div id="orge050ac1" class="figure">
 <p><img src="./IMG_6977.jpg" alt="IMG_6977.jpg" />
 </p>
 </div>
@@ -1063,19 +1063,19 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org8cf8936" class="figure">
+<div id="org63e4fcb" class="figure">
 <p><img src="./IMG_6999.jpg" alt="IMG_6999.jpg" />
 </p>
 </div>
 
 
-<div id="org3772f45" class="figure">
+<div id="org78ba709" class="figure">
 <p><img src="./IMG_7003.jpg" alt="IMG_7003.jpg" />
 </p>
 </div>
 
 
-<div id="orgfb2c6ff" class="figure">
+<div id="orgb272e15" class="figure">
 <p><img src="./IMG_7004.jpg" alt="IMG_7004.jpg" />
 </p>
 </div>
@@ -1089,7 +1089,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org62f1e4b" class="figure">
+<div id="org145012a" class="figure">
 <p><img src="./IMG_7046.jpg" alt="IMG_7046.jpg" />
 </p>
 </div>
@@ -1107,7 +1107,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org4a26ad7" class="figure">
+<div id="orgb040bca" class="figure">
 <p><img src="./IMG_7052.jpg" alt="IMG_7052.jpg" />
 </p>
 </div>
@@ -1121,15 +1121,15 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org7ddc1ed" class="figure">
+<div id="org9ea6e5e" class="figure">
 <p><img src="./IMG_7068.jpg" alt="IMG_7068.jpg" />
 </p>
 </div>
 </div>
 
-<div id="outline-container-org773bcc4" class="outline-4">
-<h4 id="org773bcc4">Статистика</h4>
-<div class="outline-text-4" id="text-org773bcc4">
+<div id="outline-container-orgb88b13e" class="outline-4">
+<h4 id="orgb88b13e">Статистика</h4>
+<div class="outline-text-4" id="text-orgb88b13e">
 <pre class="example">
 Дистанция
   Авто:   275 км
@@ -1177,13 +1177,13 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org7b49214" class="figure">
+<div id="orgf3ecfe2" class="figure">
 <p><img src="./IMG_7070.jpg" alt="IMG_7070.jpg" />
 </p>
 </div>
 
 
-<div id="org17e04a4" class="figure">
+<div id="org5b6b420" class="figure">
 <p><img src="./IMG_7072.jpg" alt="IMG_7072.jpg" />
 </p>
 </div>
@@ -1194,7 +1194,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org01e638f" class="figure">
+<div id="org1aa5d71" class="figure">
 <p><img src="./IMG_7075.jpg" alt="IMG_7075.jpg" />
 </p>
 </div>
@@ -1204,7 +1204,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org48d82da" class="figure">
+<div id="org2846e2d" class="figure">
 <p><img src="./IMG_7078.jpg" alt="IMG_7078.jpg" />
 </p>
 </div>
@@ -1218,7 +1218,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org8c8c4db" class="figure">
+<div id="org2455a1a" class="figure">
 <p><img src="./IMG_7085.jpg" alt="IMG_7085.jpg" />
 </p>
 </div>
@@ -1228,7 +1228,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="orgde3584c" class="figure">
+<div id="org9d8a1ea" class="figure">
 <p><img src="./IMG_7102.jpg" alt="IMG_7102.jpg" />
 </p>
 </div>
@@ -1238,7 +1238,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org062681e" class="figure">
+<div id="org0652e4c" class="figure">
 <p><img src="./IMG_7099.jpg" alt="IMG_7099.jpg" />
 </p>
 </div>
@@ -1248,7 +1248,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="orgfed2d9a" class="figure">
+<div id="orgf9c5e58" class="figure">
 <p><img src="./IMG_7106.jpg" alt="IMG_7106.jpg" />
 </p>
 </div>
@@ -1278,7 +1278,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org5e82743" class="figure">
+<div id="org81de55f" class="figure">
 <p><img src="./IMG_7113.jpg" alt="IMG_7113.jpg" />
 </p>
 </div>
@@ -1292,7 +1292,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org5523021" class="figure">
+<div id="org98b0645" class="figure">
 <p><img src="./IMG_7114.jpg" alt="IMG_7114.jpg" />
 </p>
 </div>
@@ -1302,7 +1302,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org00078b1" class="figure">
+<div id="org1533529" class="figure">
 <p><img src="./IMG_7118.jpg" alt="IMG_7118.jpg" />
 </p>
 </div>
@@ -1312,7 +1312,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org6634c61" class="figure">
+<div id="org72250cc" class="figure">
 <p><img src="./IMG_7116.jpg" alt="IMG_7116.jpg" />
 </p>
 </div>
@@ -1322,15 +1322,15 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org9eab783" class="figure">
+<div id="orgf91022e" class="figure">
 <p><img src="./IMG_7115.jpg" alt="IMG_7115.jpg" />
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgfae4ab4" class="outline-4">
-<h4 id="orgfae4ab4">Статистика</h4>
-<div class="outline-text-4" id="text-orgfae4ab4">
+<div id="outline-container-org183da5d" class="outline-4">
+<h4 id="org183da5d">Статистика</h4>
+<div class="outline-text-4" id="text-org183da5d">
 <pre class="example">
 Дистанция
   Авто:   268 км
@@ -1385,7 +1385,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="orgcf4b275" class="figure">
+<div id="org2629e9c" class="figure">
 <p><img src="./IMG_2376.jpg" alt="IMG_2376.jpg" />
 </p>
 </div>
@@ -1395,7 +1395,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="orgd7f05d0" class="figure">
+<div id="org5d99326" class="figure">
 <p><img src="./IMG_7128.jpg" alt="IMG_7128.jpg" />
 </p>
 </div>
@@ -1413,19 +1413,19 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org447ee57" class="figure">
+<div id="orgd6a3b9b" class="figure">
 <p><img src="./IMG_7136.jpg" alt="IMG_7136.jpg" />
 </p>
 </div>
 
 
-<div id="orgf49e30a" class="figure">
+<div id="org6ddb6de" class="figure">
 <p><img src="./IMG_7143.jpg" alt="IMG_7143.jpg" />
 </p>
 </div>
 
 
-<div id="org9fdbf46" class="figure">
+<div id="orgda03379" class="figure">
 <p><img src="./IMG_7144.jpg" alt="IMG_7144.jpg" />
 </p>
 </div>
@@ -1435,19 +1435,19 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org27a725a" class="figure">
+<div id="orgc1bf47d" class="figure">
 <p><img src="./IMG_7145.jpg" alt="IMG_7145.jpg" />
 </p>
 </div>
 
 
-<div id="org16de094" class="figure">
+<div id="orgbc39d8d" class="figure">
 <p><img src="./IMG_7157.jpg" alt="IMG_7157.jpg" />
 </p>
 </div>
 
 
-<div id="orge3a9690" class="figure">
+<div id="org78ba77c" class="figure">
 <p><img src="./IMG_7158.jpg" alt="IMG_7158.jpg" />
 </p>
 </div>
@@ -1457,7 +1457,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org3a0d532" class="figure">
+<div id="orgaea01a8" class="figure">
 <p><img src="./IMG_7148.jpg" alt="IMG_7148.jpg" />
 </p>
 </div>
@@ -1467,7 +1467,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org5a483eb" class="figure">
+<div id="orgc85a04c" class="figure">
 <p><img src="./IMG_7151.jpg" alt="IMG_7151.jpg" />
 </p>
 </div>
@@ -1477,7 +1477,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org61b43ce" class="figure">
+<div id="org04e9b3a" class="figure">
 <p><img src="./IMG_7153.jpg" alt="IMG_7153.jpg" />
 </p>
 </div>
@@ -1487,7 +1487,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="orgc01e894" class="figure">
+<div id="org7e5181c" class="figure">
 <p><img src="./IMG_7155.jpg" alt="IMG_7155.jpg" />
 </p>
 </div>
@@ -1501,7 +1501,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org31efd50" class="figure">
+<div id="orgbaad360" class="figure">
 <p><img src="./IMG_7169.jpg" alt="IMG_7169.jpg" />
 </p>
 </div>
@@ -1511,7 +1511,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="orgc1323e6" class="figure">
+<div id="org36bac43" class="figure">
 <p><img src="./IMG_7166.jpg" alt="IMG_7166.jpg" />
 </p>
 </div>
@@ -1521,7 +1521,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="orgc695ea8" class="figure">
+<div id="org025b24a" class="figure">
 <p><img src="./IMG_7170.jpg" alt="IMG_7170.jpg" />
 </p>
 </div>
@@ -1531,7 +1531,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org72a0439" class="figure">
+<div id="org1a63f9e" class="figure">
 <p><img src="./IMG_7175.jpg" alt="IMG_7175.jpg" />
 </p>
 </div>
@@ -1541,7 +1541,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org4631913" class="figure">
+<div id="org5273aa6" class="figure">
 <p><img src="./IMG_7206.jpg" alt="IMG_7206.jpg" />
 </p>
 </div>
@@ -1551,7 +1551,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org5a7e4fb" class="figure">
+<div id="org029d321" class="figure">
 <p><img src="./IMG_7212.jpg" alt="IMG_7212.jpg" />
 </p>
 </div>
@@ -1561,7 +1561,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="orgc52002c" class="figure">
+<div id="orgfd682ea" class="figure">
 <p><img src="./IMG_7186.jpg" alt="IMG_7186.jpg" />
 </p>
 </div>
@@ -1571,9 +1571,9 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 </div>
 
-<div id="outline-container-orgc921e03" class="outline-4">
-<h4 id="orgc921e03">Статистика</h4>
-<div class="outline-text-4" id="text-orgc921e03">
+<div id="outline-container-orga569a6f" class="outline-4">
+<h4 id="orga569a6f">Статистика</h4>
+<div class="outline-text-4" id="text-orga569a6f">
 <pre class="example">
 Дистанция
   Авто:   0 км
@@ -1622,7 +1622,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org1b9a177" class="figure">
+<div id="orgae8eeba" class="figure">
 <p><img src="./IMG_7238.jpg" alt="IMG_7238.jpg" />
 </p>
 </div>
@@ -1636,13 +1636,13 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="orgd319249" class="figure">
+<div id="org056ca83" class="figure">
 <p><img src="./IMG_7247.jpg" alt="IMG_7247.jpg" />
 </p>
 </div>
 
 
-<div id="org56776fb" class="figure">
+<div id="org939e577" class="figure">
 <p><img src="./IMG_7250.jpg" alt="IMG_7250.jpg" />
 </p>
 </div>
@@ -1652,13 +1652,13 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org1e14847" class="figure">
+<div id="orgc7afbec" class="figure">
 <p><img src="./IMG_7257.jpg" alt="IMG_7257.jpg" />
 </p>
 </div>
 
 
-<div id="orgeaff8a4" class="figure">
+<div id="orga5b3cd5" class="figure">
 <p><img src="./IMG_7263.jpg" alt="IMG_7263.jpg" />
 </p>
 </div>
@@ -1668,7 +1668,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org3da56f8" class="figure">
+<div id="org5f28b81" class="figure">
 <p><img src="./IMG_7278.jpg" alt="IMG_7278.jpg" />
 </p>
 </div>
@@ -1678,7 +1678,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="orgbd82fa8" class="figure">
+<div id="org7fa1d03" class="figure">
 <p><img src="./IMG_7320.jpg" alt="IMG_7320.jpg" />
 </p>
 </div>
@@ -1688,7 +1688,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org2719440" class="figure">
+<div id="orgd813eb0" class="figure">
 <p><img src="./IMG_7333.jpg" alt="IMG_7333.jpg" />
 </p>
 </div>
@@ -1698,7 +1698,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org571ee93" class="figure">
+<div id="org9fb682f" class="figure">
 <p><img src="./IMG_7344.jpg" alt="IMG_7344.jpg" />
 </p>
 </div>
@@ -1708,9 +1708,9 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 </div>
 
-<div id="outline-container-org424f2db" class="outline-4">
-<h4 id="org424f2db">Статистика</h4>
-<div class="outline-text-4" id="text-org424f2db">
+<div id="outline-container-orgc92b424" class="outline-4">
+<h4 id="orgc92b424">Статистика</h4>
+<div class="outline-text-4" id="text-orgc92b424">
 <pre class="example">
 Дистанция
   Авто:   217 км
@@ -1758,7 +1758,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="orga5508a7" class="figure">
+<div id="org6d37f39" class="figure">
 <p><img src="./IMG_7354.jpg" alt="IMG_7354.jpg" />
 </p>
 </div>
@@ -1772,7 +1772,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org95d7f5d" class="figure">
+<div id="org901721d" class="figure">
 <p><img src="./IMG_7364.jpg" alt="IMG_7364.jpg" />
 </p>
 </div>
@@ -1794,9 +1794,9 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 </div>
 
-<div id="outline-container-orgfc2be7a" class="outline-4">
-<h4 id="orgfc2be7a">Статистика</h4>
-<div class="outline-text-4" id="text-orgfc2be7a">
+<div id="outline-container-orgeec14a2" class="outline-4">
+<h4 id="orgeec14a2">Статистика</h4>
+<div class="outline-text-4" id="text-orgeec14a2">
 <pre class="example">
 Дистанция
   Авто:   303 км
@@ -1852,7 +1852,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="orga53bbd7" class="figure">
+<div id="org73ab951" class="figure">
 <p><img src="./IMG_7372.jpg" alt="IMG_7372.jpg" />
 </p>
 </div>
@@ -1862,7 +1862,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org55a3da4" class="figure">
+<div id="orgc9bce68" class="figure">
 <p><img src="./IMG_7377.jpg" alt="IMG_7377.jpg" />
 </p>
 </div>
@@ -1888,7 +1888,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org5404c70" class="figure">
+<div id="orgf7700f4" class="figure">
 <p><img src="./IMG_7400.jpg" alt="IMG_7400.jpg" />
 </p>
 </div>
@@ -1898,15 +1898,15 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org10df527" class="figure">
+<div id="org1568843" class="figure">
 <p><img src="./IMG_2549.jpg" alt="IMG_2549.jpg" />
 </p>
 </div>
 </div>
 
-<div id="outline-container-org36c9a79" class="outline-4">
-<h4 id="org36c9a79">Статистика</h4>
-<div class="outline-text-4" id="text-org36c9a79">
+<div id="outline-container-org10a6cba" class="outline-4">
+<h4 id="org10a6cba">Статистика</h4>
+<div class="outline-text-4" id="text-org10a6cba">
 <pre class="example">
 Дистанция
   Авто:   247 км
@@ -1974,7 +1974,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org5eb7db5" class="figure">
+<div id="orgca7536a" class="figure">
 <p><img src="./IMG_7471.jpg" alt="IMG_7471.jpg" />
 </p>
 </div>
@@ -1984,13 +1984,13 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org83244e2" class="figure">
+<div id="orgecf4187" class="figure">
 <p><img src="./IMG_7508.jpg" alt="IMG_7508.jpg" />
 </p>
 </div>
 
 
-<div id="org503e85d" class="figure">
+<div id="orgc25b9a2" class="figure">
 <p><img src="./IMG_7553.jpg" alt="IMG_7553.jpg" />
 </p>
 </div>
@@ -2000,13 +2000,13 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="orgaafd432" class="figure">
+<div id="orgb0ef29b" class="figure">
 <p><img src="./IMG_7543.jpg" alt="IMG_7543.jpg" />
 </p>
 </div>
 
 
-<div id="orgb45816e" class="figure">
+<div id="orgacf4e99" class="figure">
 <p><img src="./IMG_7567.jpg" alt="IMG_7567.jpg" />
 </p>
 </div>
@@ -2016,19 +2016,19 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org7cd4a4a" class="figure">
+<div id="org27bca03" class="figure">
 <p><img src="./IMG_7593.jpg" alt="IMG_7593.jpg" />
 </p>
 </div>
 
 
-<div id="orgbc4b335" class="figure">
+<div id="org36a9978" class="figure">
 <p><img src="./IMG_7603.jpg" alt="IMG_7603.jpg" />
 </p>
 </div>
 
 
-<div id="org0db32af" class="figure">
+<div id="orgbf41ca4" class="figure">
 <p><img src="./IMG_7609.jpg" alt="IMG_7609.jpg" />
 </p>
 </div>
@@ -2038,7 +2038,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org66bfda4" class="figure">
+<div id="orgef9ede7" class="figure">
 <p><img src="./IMG_7639.jpg" alt="IMG_7639.jpg" />
 </p>
 </div>
@@ -2064,13 +2064,13 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="orge017b60" class="figure">
+<div id="orgc645b3b" class="figure">
 <p><img src="./IMG_2564.jpg" alt="IMG_2564.jpg" />
 </p>
 </div>
 
 
-<div id="orgb69550d" class="figure">
+<div id="org774eebe" class="figure">
 <p><img src="./IMG_2562.jpg" alt="IMG_2562.jpg" />
 </p>
 </div>
@@ -2080,7 +2080,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org091817d" class="figure">
+<div id="orgcfdf3c5" class="figure">
 <p><img src="./IMG_7659.jpg" alt="IMG_7659.jpg" />
 </p>
 </div>
@@ -2106,9 +2106,9 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 </div>
 
-<div id="outline-container-org9fe960a" class="outline-4">
-<h4 id="org9fe960a">Статистика</h4>
-<div class="outline-text-4" id="text-org9fe960a">
+<div id="outline-container-orgc8533de" class="outline-4">
+<h4 id="orgc8533de">Статистика</h4>
+<div class="outline-text-4" id="text-orgc8533de">
 <pre class="example">
 Дистанция
   Авто:   38 км
@@ -2155,13 +2155,13 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org0642929" class="figure">
+<div id="org80e3fa1" class="figure">
 <p><img src="./IMG_7707.jpg" alt="IMG_7707.jpg" />
 </p>
 </div>
 
 
-<div id="org4c28d17" class="figure">
+<div id="orga5cea28" class="figure">
 <p><img src="./IMG_7714.jpg" alt="IMG_7714.jpg" />
 </p>
 </div>
@@ -2171,7 +2171,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="orgc5a821e" class="figure">
+<div id="orgb4180db" class="figure">
 <p><img src="./IMG_7725.jpg" alt="IMG_7725.jpg" />
 </p>
 </div>
@@ -2181,7 +2181,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org28d8dba" class="figure">
+<div id="orgeb9aa2a" class="figure">
 <p><img src="./IMG_7728.jpg" alt="IMG_7728.jpg" />
 </p>
 </div>
@@ -2191,13 +2191,13 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="orgc59322b" class="figure">
+<div id="orgf50f319" class="figure">
 <p><img src="./IMG_7760.jpg" alt="IMG_7760.jpg" />
 </p>
 </div>
 
 
-<div id="org4573720" class="figure">
+<div id="org3558d31" class="figure">
 <p><img src="./IMG_7762.jpg" alt="IMG_7762.jpg" />
 </p>
 </div>
@@ -2207,19 +2207,19 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org35e0f54" class="figure">
+<div id="org8edd7d9" class="figure">
 <p><img src="./IMG_7782.jpg" alt="IMG_7782.jpg" />
 </p>
 </div>
 
 
-<div id="org3740203" class="figure">
+<div id="org9b5ce3e" class="figure">
 <p><img src="./IMG_7804.jpg" alt="IMG_7804.jpg" />
 </p>
 </div>
 
 
-<div id="orgac5b45d" class="figure">
+<div id="org8d0182e" class="figure">
 <p><img src="./IMG_7829.jpg" alt="IMG_7829.jpg" />
 </p>
 </div>
@@ -2229,19 +2229,19 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org4812c10" class="figure">
+<div id="org0a76e52" class="figure">
 <p><img src="./IMG_7823.jpg" alt="IMG_7823.jpg" />
 </p>
 </div>
 
 
-<div id="org4baa41d" class="figure">
+<div id="org7caebf7" class="figure">
 <p><img src="./IMG_7825.jpg" alt="IMG_7825.jpg" />
 </p>
 </div>
 
 
-<div id="org0bac25e" class="figure">
+<div id="org309171a" class="figure">
 <p><img src="./IMG_7820.jpg" alt="IMG_7820.jpg" />
 </p>
 </div>
@@ -2267,7 +2267,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org438f581" class="figure">
+<div id="org9d51419" class="figure">
 <p><img src="./IMG_7837.jpg" alt="IMG_7837.jpg" />
 </p>
 </div>
@@ -2281,9 +2281,9 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </video>
 </div>
 
-<div id="outline-container-orgd8bea06" class="outline-4">
-<h4 id="orgd8bea06">Статистика</h4>
-<div class="outline-text-4" id="text-orgd8bea06">
+<div id="outline-container-org83b8436" class="outline-4">
+<h4 id="org83b8436">Статистика</h4>
+<div class="outline-text-4" id="text-org83b8436">
 <pre class="example">
 Дистанция
   Авто:   102 км
@@ -2339,9 +2339,9 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 </div>
 
-<div id="outline-container-org933d46a" class="outline-4">
-<h4 id="org933d46a">Статистика</h4>
-<div class="outline-text-4" id="text-org933d46a">
+<div id="outline-container-org4de3826" class="outline-4">
+<h4 id="org4de3826">Статистика</h4>
+<div class="outline-text-4" id="text-org4de3826">
 <pre class="example">
 Дистанция
   Авто:   313 км
@@ -2388,7 +2388,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org8ef624a" class="figure">
+<div id="orga4d2b04" class="figure">
 <p><img src="./IMG_2722.jpg" alt="IMG_2722.jpg" />
 </p>
 </div>
@@ -2398,9 +2398,9 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 </div>
 
-<div id="outline-container-orgb7bc334" class="outline-4">
-<h4 id="orgb7bc334">Статистика</h4>
-<div class="outline-text-4" id="text-orgb7bc334">
+<div id="outline-container-org670733f" class="outline-4">
+<h4 id="org670733f">Статистика</h4>
+<div class="outline-text-4" id="text-org670733f">
 <pre class="example">
 Дистанция
   Авто:   0 км
@@ -2451,9 +2451,9 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 </div>
 
-<div id="outline-container-org9c2108c" class="outline-4">
-<h4 id="org9c2108c">Статистика</h4>
-<div class="outline-text-4" id="text-org9c2108c">
+<div id="outline-container-org571aab7" class="outline-4">
+<h4 id="org571aab7">Статистика</h4>
+<div class="outline-text-4" id="text-org571aab7">
 <pre class="example">
 Дистанция
   Авто:   0 км
@@ -2505,7 +2505,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="orge9e83dd" class="figure">
+<div id="orgd130dde" class="figure">
 <p><img src="./IMG_7918.jpg" alt="IMG_7918.jpg" />
 </p>
 </div>
@@ -2515,7 +2515,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org8fab92b" class="figure">
+<div id="orge51966f" class="figure">
 <p><img src="./IMG_7919.jpg" alt="IMG_7919.jpg" />
 </p>
 </div>
@@ -2525,7 +2525,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org9b15694" class="figure">
+<div id="org422bac1" class="figure">
 <p><img src="./IMG_7920.jpg" alt="IMG_7920.jpg" />
 </p>
 </div>
@@ -2535,7 +2535,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="orgcfad3d5" class="figure">
+<div id="orgff0b02f" class="figure">
 <p><img src="./IMG_7930.jpg" alt="IMG_7930.jpg" />
 </p>
 </div>
@@ -2545,19 +2545,19 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="orge4fd479" class="figure">
+<div id="orgfed5363" class="figure">
 <p><img src="./IMG_7933.jpg" alt="IMG_7933.jpg" />
 </p>
 </div>
 
 
-<div id="orgb78032c" class="figure">
+<div id="org7200075" class="figure">
 <p><img src="./IMG_7934.jpg" alt="IMG_7934.jpg" />
 </p>
 </div>
 
 
-<div id="orgbda01e2" class="figure">
+<div id="orgff1b7d5" class="figure">
 <p><img src="./IMG_7936.jpg" alt="IMG_7936.jpg" />
 </p>
 </div>
@@ -2567,19 +2567,19 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org99803ec" class="figure">
+<div id="org05713c9" class="figure">
 <p><img src="./IMG_7941.jpg" alt="IMG_7941.jpg" />
 </p>
 </div>
 
 
-<div id="org0cdb2a8" class="figure">
+<div id="org8bf87b6" class="figure">
 <p><img src="./IMG_7947.jpg" alt="IMG_7947.jpg" />
 </p>
 </div>
 
 
-<div id="org6098cff" class="figure">
+<div id="orgbb862d6" class="figure">
 <p><img src="./IMG_7950.jpg" alt="IMG_7950.jpg" />
 </p>
 </div>
@@ -2589,7 +2589,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="orgcc2d71b" class="figure">
+<div id="org3bb237f" class="figure">
 <p><img src="./IMG_7954.jpg" alt="IMG_7954.jpg" />
 </p>
 </div>
@@ -2599,13 +2599,13 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="orgbc5287c" class="figure">
+<div id="org20c0bb9" class="figure">
 <p><img src="./IMG_7960.jpg" alt="IMG_7960.jpg" />
 </p>
 </div>
 
 
-<div id="org2f542c8" class="figure">
+<div id="orgc3e0c44" class="figure">
 <p><img src="./IMG_7970.jpg" alt="IMG_7970.jpg" />
 </p>
 </div>
@@ -2615,23 +2615,23 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="orga0b1dcd" class="figure">
+<div id="org34f0b15" class="figure">
 <p><img src="./IMG_7971.jpg" alt="IMG_7971.jpg" />
 </p>
 </div>
 
 
-<div id="orgd31b9e6" class="figure">
+<div id="orgbd28799" class="figure">
 <p><img src="./IMG_7985.jpg" alt="IMG_7985.jpg" />
 </p>
 </div>
 
 <p>
-Оттуда мы отправились в наш <a href="#orgac13f4e">гостевой дом</a>, который находился в деревне.
+Оттуда мы отправились в наш <a href="#org2ba7173">гостевой дом</a>, который находился в деревне.
 </p>
 
 
-<div id="org0685ebd" class="figure">
+<div id="orgec7e3a1" class="figure">
 <p><img src="./IMG_2735.jpg" alt="IMG_2735.jpg" />
 </p>
 </div>
@@ -2641,7 +2641,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="orge3e6a6f" class="figure">
+<div id="org6f3ca2d" class="figure">
 <p><img src="./IMG_7995.jpg" alt="IMG_7995.jpg" />
 </p>
 </div>
@@ -2651,15 +2651,15 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="orged57310" class="figure">
+<div id="org81c173e" class="figure">
 <p><img src="./IMG_7997.jpg" alt="IMG_7997.jpg" />
 </p>
 </div>
 </div>
 
-<div id="outline-container-org5fab579" class="outline-4">
-<h4 id="org5fab579">Статистика</h4>
-<div class="outline-text-4" id="text-org5fab579">
+<div id="outline-container-org73d45c9" class="outline-4">
+<h4 id="org73d45c9">Статистика</h4>
+<div class="outline-text-4" id="text-org73d45c9">
 <pre class="example">
 Дистанция
   Авто:   247 км
@@ -2707,7 +2707,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="orge25c844" class="figure">
+<div id="org25b6b5d" class="figure">
 <p><img src="./IMG_2739.jpg" alt="IMG_2739.jpg" />
 </p>
 </div>
@@ -2733,9 +2733,9 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </video>
 </div>
 
-<div id="outline-container-orgba6d794" class="outline-4">
-<h4 id="orgba6d794">Статистика</h4>
-<div class="outline-text-4" id="text-orgba6d794">
+<div id="outline-container-orgcb38bdf" class="outline-4">
+<h4 id="orgcb38bdf">Статистика</h4>
+<div class="outline-text-4" id="text-orgcb38bdf">
 <pre class="example">
 Дистанция
   Авто:   183 км
@@ -2795,7 +2795,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="orgfa0c0d1" class="figure">
+<div id="org422bab7" class="figure">
 <p><img src="./IMG_8023.jpg" alt="IMG_8023.jpg" />
 </p>
 </div>
@@ -2805,7 +2805,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org932d2e4" class="figure">
+<div id="org4a85154" class="figure">
 <p><img src="./IMG_8028.jpg" alt="IMG_8028.jpg" />
 </p>
 </div>
@@ -2815,7 +2815,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org8d070ec" class="figure">
+<div id="orgad49728" class="figure">
 <p><img src="./IMG_2783.jpg" alt="IMG_2783.jpg" />
 </p>
 </div>
@@ -2825,7 +2825,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="orgf8906cc" class="figure">
+<div id="orga8f9b08" class="figure">
 <p><img src="./IMG_8035.jpg" alt="IMG_8035.jpg" />
 </p>
 </div>
@@ -2835,7 +2835,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org3773b94" class="figure">
+<div id="org302c0c0" class="figure">
 <p><img src="./IMG_8037.jpg" alt="IMG_8037.jpg" />
 </p>
 </div>
@@ -2845,7 +2845,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org75ef2f8" class="figure">
+<div id="org394449d" class="figure">
 <p><img src="./IMG_8046.jpg" alt="IMG_8046.jpg" />
 </p>
 </div>
@@ -2855,7 +2855,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org95a7c9c" class="figure">
+<div id="org4164c7b" class="figure">
 <p><img src="./IMG_2788.jpg" alt="IMG_2788.jpg" />
 </p>
 </div>
@@ -2869,13 +2869,13 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org93d7a26" class="figure">
+<div id="org4d756f3" class="figure">
 <p><img src="./IMG_2790.jpg" alt="IMG_2790.jpg" />
 </p>
 </div>
 
 
-<div id="orgc8c8e25" class="figure">
+<div id="org8c82c10" class="figure">
 <p><img src="./IMG_8053.jpg" alt="IMG_8053.jpg" />
 </p>
 </div>
@@ -2885,25 +2885,25 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org6621b82" class="figure">
+<div id="org2ffc017" class="figure">
 <p><img src="./FullSizeRender.jpg" alt="FullSizeRender.jpg" />
 </p>
 </div>
 
 
-<div id="org5657b55" class="figure">
+<div id="org045f39f" class="figure">
 <p><img src="./IMG_8063.jpg" alt="IMG_8063.jpg" />
 </p>
 </div>
 
 
-<div id="orgcfb964a" class="figure">
+<div id="orgc8570d2" class="figure">
 <p><img src="./IMG_8065.jpg" alt="IMG_8065.jpg" />
 </p>
 </div>
 
 
-<div id="orgcb207c4" class="figure">
+<div id="orgbd4ef6f" class="figure">
 <p><img src="./IMG_8066.jpg" alt="IMG_8066.jpg" />
 </p>
 </div>
@@ -2913,7 +2913,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org6d35fa0" class="figure">
+<div id="orga5e830f" class="figure">
 <p><img src="./IMG_8067.jpg" alt="IMG_8067.jpg" />
 </p>
 </div>
@@ -2923,7 +2923,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="orgcb598fa" class="figure">
+<div id="org9acc422" class="figure">
 <p><img src="./IMG_8068.jpg" alt="IMG_8068.jpg" />
 </p>
 </div>
@@ -2933,7 +2933,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org250bae2" class="figure">
+<div id="org10373a6" class="figure">
 <p><img src="./IMG_8074.jpg" alt="IMG_8074.jpg" />
 </p>
 </div>
@@ -2943,7 +2943,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org04baeaa" class="figure">
+<div id="orgcf82af8" class="figure">
 <p><img src="./IMG_2794.jpg" alt="IMG_2794.jpg" />
 </p>
 </div>
@@ -2953,7 +2953,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org79a766d" class="figure">
+<div id="org03f42b2" class="figure">
 <p><img src="./IMG_8081.jpg" alt="IMG_8081.jpg" />
 </p>
 </div>
@@ -2968,7 +2968,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org5d2615e" class="figure">
+<div id="org1bb0ea6" class="figure">
 <p><img src="./IMG_8087.jpg" alt="IMG_8087.jpg" />
 </p>
 </div>
@@ -2978,7 +2978,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="orga62c311" class="figure">
+<div id="orgb8be727" class="figure">
 <p><img src="./IMG_2806.jpg" alt="IMG_2806.jpg" />
 </p>
 </div>
@@ -2988,7 +2988,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="orgaae5e44" class="figure">
+<div id="org6c49155" class="figure">
 <p><img src="./IMG_2799.jpg" alt="IMG_2799.jpg" />
 </p>
 </div>
@@ -3002,19 +3002,19 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org916f83a" class="figure">
+<div id="org99c848b" class="figure">
 <p><img src="./IMG_2809.jpg" alt="IMG_2809.jpg" />
 </p>
 </div>
 
 
-<div id="orgec52666" class="figure">
+<div id="org85e9832" class="figure">
 <p><img src="./IMG_8090.jpg" alt="IMG_8090.jpg" />
 </p>
 </div>
 
 
-<div id="org21d03f2" class="figure">
+<div id="orgb3033f4" class="figure">
 <p><img src="./IMG_8091.jpg" alt="IMG_8091.jpg" />
 </p>
 </div>
@@ -3024,7 +3024,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="orge49bfc0" class="figure">
+<div id="orgb5caec0" class="figure">
 <p><img src="./IMG_8092.jpg" alt="IMG_8092.jpg" />
 </p>
 </div>
@@ -3034,7 +3034,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="orgfac9971" class="figure">
+<div id="orgda645b2" class="figure">
 <p><img src="./IMG_8098.jpg" alt="IMG_8098.jpg" />
 </p>
 </div>
@@ -3044,7 +3044,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="orgdff991f" class="figure">
+<div id="org53ef9f7" class="figure">
 <p><img src="./IMG_8100.jpg" alt="IMG_8100.jpg" />
 </p>
 </div>
@@ -3058,7 +3058,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="orgbceb22e" class="figure">
+<div id="org7eecd3f" class="figure">
 <p><img src="./IMG_8103.jpg" alt="IMG_8103.jpg" />
 </p>
 </div>
@@ -3068,45 +3068,45 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org7a8b9df" class="figure">
+<div id="org48dfd3a" class="figure">
 <p><img src="./IMG_2812.jpg" alt="IMG_2812.jpg" />
 </p>
 </div>
 
 
-<div id="org9a1c6ef" class="figure">
+<div id="orgfcfa646" class="figure">
 <p><img src="./IMG_2818.jpg" alt="IMG_2818.jpg" />
 </p>
 </div>
 
 
-<div id="orgd1b33e6" class="figure">
+<div id="orgfe7c3c2" class="figure">
 <p><img src="./IMG_2817.jpg" alt="IMG_2817.jpg" />
 </p>
 </div>
 
 
-<div id="orge634894" class="figure">
+<div id="org289acab" class="figure">
 <p><img src="./IMG_2815.jpg" alt="IMG_2815.jpg" />
 </p>
 </div>
 
 
-<div id="orgf370d3b" class="figure">
+<div id="orgbee7c44" class="figure">
 <p><img src="./IMG_2814.jpg" alt="IMG_2814.jpg" />
 </p>
 </div>
 
 
-<div id="org31463a9" class="figure">
+<div id="orgcebaa5a" class="figure">
 <p><img src="./IMG_2813.jpg" alt="IMG_2813.jpg" />
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgedb9092" class="outline-4">
-<h4 id="orgedb9092">Статистика</h4>
-<div class="outline-text-4" id="text-orgedb9092">
+<div id="outline-container-org8d6f073" class="outline-4">
+<h4 id="org8d6f073">Статистика</h4>
+<div class="outline-text-4" id="text-org8d6f073">
 <pre class="example">
 Дистанция
   Авто:   0 км
@@ -3167,7 +3167,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </pre>
 
 
-<pre class="example" id="org4d21a1e">
+<pre class="example" id="org84312e5">
 €3830  Расходы
 €1444    Еда
  €475    Жилье
@@ -3182,7 +3182,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
  €100    Экскурсии
 </pre>
 
-<pre class="example" id="org84312e5">
+<pre class="example" id="org29663c1">
 Количество человек:         2
 Количество дней:            16
 
@@ -3645,9 +3645,9 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </div>
 </div>
 
-<div id="outline-container-org2ba7173" class="outline-3">
-<h3 id="org2ba7173">Guest House Tsiskari</h3>
-<div class="outline-text-3" id="text-org2ba7173">
+<div id="outline-container-orgfc02cad" class="outline-3">
+<h3 id="orgfc02cad">Guest House Tsiskari</h3>
+<div class="outline-text-3" id="text-orgfc02cad">
 <p>
 Хозяйка отеля готовила сама, нормально, но не блеск
 </p>
@@ -3831,9 +3831,9 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </div>
 </div>
 
-<div id="outline-container-orgac13f4e" class="outline-3">
-<h3 id="orgac13f4e">Guest House Tsiskari</h3>
-<div class="outline-text-3" id="text-orgac13f4e">
+<div id="outline-container-org2ba7173" class="outline-3">
+<h3 id="org2ba7173">Guest House Tsiskari</h3>
+<div class="outline-text-3" id="text-org2ba7173">
 <p>
 Цена: 25 евро (70 GEL)
 </p>
@@ -3860,7 +3860,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </div>
 <div id="postamble" class="status">
 <p class="author">&#1040;&#1074;&#1090;&#1086;&#1088;: Александр Шумилов</p>
-<p class="date">Created: 2025-03-31 Mon 08:38</p>
+<p class="date">Created: 2025-03-31 Mon 09:04</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
