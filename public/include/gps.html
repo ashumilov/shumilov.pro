@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-03-31 Mon 11:37 -->
+<!-- 2025-03-31 Mon 11:27 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -196,10 +196,214 @@
 </head>
 <body>
 <div id="content" class="content">
+<script>
+/**
+ * Загружает GPS данные из GPX или CSV файла, фильтрует точки по дате и отображает маршрут
+ * @param {string} fileUrl - URL к GPX или CSV файлу (CSV формат: время, широта, долгота)
+ * @param {string} targetMapId - ID элемента для размещения карты
+ * @param {string} mapType - Тип карты: 'osm' или 'google'
+ * @param {Date|string} startDate - Начальная дата для фильтрации (null для отключения)
+ * @param {Date|string} endDate - Конечная дата для фильтрации (null для отключения)
+ * @param {Object} options - Дополнительные параметры (цвет и толщина линии)
+ */
+function loadGPXFile(fileUrl, targetMapId, mapType = 'osm', startDate = null, endDate = null, options = {}) {
+  // Преобразуем даты в объекты Date, если они переданы как строки
+  if (startDate && typeof startDate === 'string') {
+    startDate = new Date(startDate);
+  }
+  if (endDate && typeof endDate === 'string') {
+    endDate = new Date(endDate);
+  }
+  
+  // Задаем параметры по умолчанию
+  const lineOptions = {
+    color: options.color || 'red',
+    weight: options.weight || 3,
+    opacity: options.opacity || 0.7
+  };
+  
+  // Проверяем существование и размеры контейнера карты
+  const mapContainer = document.getElementById(targetMapId);
+  if (!mapContainer) {
+    console.error(`Контейнер карты #${targetMapId} не найден!`);
+    return;
+  }
+  
+  if (mapContainer.offsetHeight === 0) {
+    mapContainer.style.height = '500px';
+  }
+  
+  // Определяем тип файла по расширению
+  let isCSV = fileUrl.toLowerCase().endsWith('.csv');
+  
+  fetch(fileUrl)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.text();
+    })
+    .then(fileText => {
+      // Проверяем содержимое файла если расширение неопределенно
+      if (!fileUrl.toLowerCase().endsWith('.csv') && !fileUrl.toLowerCase().endsWith('.gpx')) {
+        isCSV = !fileText.includes('<?xml') && 
+                !fileText.includes('<gpx') && 
+                fileText.split('\n')[0].split(',').length >= 3;
+      }
+      
+      const trackPoints = [];
+      
+      if (isCSV) {
+        // Парсинг CSV
+        const lines = fileText.split('\n').filter(line => line.trim() !== '');
+        
+        for (let i = 0; i < lines.length; i++) {
+          const columns = lines[i].split(',').map(col => col.trim());
+          
+          if (columns.length >= 3) {
+            const timestamp = columns[0];
+            const lat = parseFloat(columns[1]);
+            const lon = parseFloat(columns[2]);
+            
+            if (isNaN(lat) || isNaN(lon)) continue;
+            
+            // Проверяем временную метку, если указаны даты для фильтрации
+            if (startDate || endDate) {
+              try {
+                const pointTime = new Date(timestamp);
+                
+                if (startDate && pointTime < startDate) continue;
+                if (endDate && pointTime > endDate) continue;
+              } catch (e) {
+                if (startDate || endDate) continue;
+              }
+            }
+            
+            trackPoints.push([lat, lon]);
+          }
+        }
+      } else {
+        // Оригинальный код для парсинга GPX
+        const parser = new DOMParser();
+        const gpx = parser.parseFromString(fileText, 'text/xml');
+        
+        const parseError = gpx.querySelector('parsererror');
+        if (parseError) {
+          throw new Error('Неверный формат GPX файла');
+        }
+        
+        const tracks = gpx.getElementsByTagName('trk');
+        
+        for (let i = 0; i < tracks.length; i++) {
+          const segments = tracks[i].getElementsByTagName('trkseg');
+          
+          for (let j = 0; j < segments.length; j++) {
+            const points = segments[j].getElementsByTagName('trkpt');
+            
+            for (let k = 0; k < points.length; k++) {
+              const point = points[k];
+              const lat = parseFloat(point.getAttribute('lat'));
+              const lon = parseFloat(point.getAttribute('lon'));
+              
+              if (startDate || endDate) {
+                const timeElement = point.getElementsByTagName('time')[0];
+                if (!timeElement) continue;
+                
+                const pointTime = new Date(timeElement.textContent);
+                
+                if (startDate && pointTime < startDate) continue;
+                if (endDate && pointTime > endDate) continue;
+              }
+              
+              trackPoints.push([lat, lon]);
+            }
+          }
+        }
+      }
+      
+      // Остальной код остается без изменений
+      if (trackPoints.length === 0) {
+        console.warn('Нет точек для отображения после фильтрации по датам');
+      }
+      
+      const mapOptions = {
+        zoomControl: true,
+        attributionControl: true,
+        scrollWheelZoom: true
+      };
+      
+      const map = L.map(targetMapId, mapOptions);
+        
+      if (mapType === 'google') {
+        L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+          subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+          attribution: '&copy; Google Maps'
+        }).addTo(map);
+      } else {
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+      }
+      
+      if (trackPoints.length > 0) {
+        const polyline = L.polyline(trackPoints, lineOptions).addTo(map);
+        map.fitBounds(polyline.getBounds());
+      } else {
+        map.setView([55.751244, 37.618423], 10);
+      }
+      
+      setTimeout(function() {
+        map.invalidateSize({ animate: true });
+        if (trackPoints.length > 0) {
+          const polyline = L.polyline(trackPoints);
+          map.fitBounds(polyline.getBounds());
+        }
+      }, 300);
+      
+      setTimeout(function() {
+        map.invalidateSize();
+      }, 1000);
+      
+      window.addEventListener('resize', function() {
+        map.invalidateSize();
+      });
+      
+      let distance = 0;
+      for (let i = 1; i < trackPoints.length; i++) {
+        const p1 = L.latLng(trackPoints[i-1][0], trackPoints[i-1][1]);
+        const p2 = L.latLng(trackPoints[i][0], trackPoints[i][1]);
+        distance += p1.distanceTo(p2);
+      }
+      
+      const infoElement = document.getElementById(targetMapId + '-info');
+      if (infoElement) {
+        infoElement.innerHTML = `
+          <p>Маршрут: ${trackPoints.length} точек</p>
+          <p>Расстояние: ${(distance / 1000).toFixed(2)} км</p>
+        `;
+      }
+      
+      return { map, points: trackPoints, distance };
+    })
+    .catch(error => {
+      console.error(`Ошибка при загрузке ${isCSV ? 'CSV' : 'GPX'} файла:`, error);
+      
+      const mapElement = document.getElementById(targetMapId);
+      if (mapElement) {
+        mapElement.innerHTML = `
+          <div style="padding: 20px; color: red; background-color: #ffeeee; border: 1px solid #ffaaaa;">
+            <h3>Ошибка загрузки ${isCSV ? 'CSV' : 'GPX'} файла</h3>
+            <p>${error.message}</p>
+          </div>
+        `;
+      }
+    });
+}
+</script>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Alexander Shumilov</p>
-<p class="date">Created: 2025-03-31 Mon 11:37</p>
+<p class="date">Created: 2025-03-31 Mon 11:27</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

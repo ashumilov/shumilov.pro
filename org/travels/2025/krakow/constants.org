@@ -1,0 +1,21 @@
+#+name: first-date
+#+begin_src emacs-lisp :exports none
+  '2025-04-13
+#+end_src
+
+#+name: last-date
+#+begin_src emacs-lisp :exports none
+  '2025-04-22
+#+end_src
+
+#+name: distance-values
+#+begin_src emacs-lisp :exports none
+  (setq distance-values
+        '(
+          (2025-04-18 . (0 . 0))
+          (2025-04-19 . (0 . 0))
+          (2025-04-20 . (0 . 0))
+          (2025-04-21 . (0 . 0))
+          (2025-04-22 . (0 . 0))
+          ))
+#+end_src

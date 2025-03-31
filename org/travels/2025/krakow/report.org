@@ -6,9 +6,11 @@
 #+STARTUP: showall
 #+options: toc:2 num:nil
 
-#+INCLUDE: "style.org"
-#+INCLUDE: "functions.org"
-#+INCLUDE: "html.org"
+#+INCLUDE: "constants.org"
+
+#+INCLUDE: "../../../include/style.org"
+#+INCLUDE: "../../../include/functions.org"
+#+INCLUDE: "../../../include/gps.org"
 
 * Отчет о поездке в Краков
 
