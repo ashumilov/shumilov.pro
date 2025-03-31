@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ru" xml:lang="ru">
 <head>
-<!-- 2025-01-09 Thu 07:44 -->
+<!-- 2025-03-31 Mon 08:40 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -194,6 +194,39 @@
   .org-svg { }
 </style>
 <link rel="stylesheet" type="text/css" href="https://gongzhitaao.org/orgcss/org.css"/>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+/* Улучшенный контейнер карты */
+.map-container {
+height: 500px;
+width: 100%;
+margin: 0;
+padding: 0;
+clear: both;
+position: relative;
+z-index: 1;
+overflow: hidden;
+border: 1px solid #ddd;
+border-radius: 5px;
+}
+
+/* Обертка для карты и информации */
+.map-wrapper {
+margin: 1.5em 0;
+padding: 0;
+clear: both;
+}
+
+/* Стили для информации о маршруте */
+[id$="-info"] {
+margin-top: 10px;
+padding: 10px;
+background-color: #f8f8f8;
+border-radius: 5px;
+font-size: 0.9em;
+}
+</style>
 <style> img { width: 100%; } </style>
 <style> video { width: 100%; } </style>
 <style> pre { background-color: white; } </style>
@@ -368,7 +401,7 @@
 </div>
 <div id="postamble" class="status">
 <p class="author">&#1040;&#1074;&#1090;&#1086;&#1088;: Alexander Shumilov</p>
-<p class="date">Created: 2025-01-09 Thu 07:44</p>
+<p class="date">Created: 2025-03-31 Mon 08:40</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

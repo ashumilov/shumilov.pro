@@ -1,4 +1,38 @@
 #+html_head: <link rel="stylesheet" type="text/css" href="https://gongzhitaao.org/orgcss/org.css"/>
+#+html_head: <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+#+html_head: <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 #+html_head_extra: <style> img { width: 100%; } </style>
 #+html_head_extra: <style> video { width: 100%; } </style>
 #+html_head_extra: <style> pre { background-color: white; } </style>
+
+#+HTML_HEAD: <style>
+#+HTML_HEAD: /* Улучшенный контейнер карты */
+#+HTML_HEAD: .map-container {
+#+HTML_HEAD:   height: 500px;
+#+HTML_HEAD:   width: 100%;
+#+HTML_HEAD:   margin: 0;
+#+HTML_HEAD:   padding: 0;
+#+HTML_HEAD:   clear: both;
+#+HTML_HEAD:   position: relative;
+#+HTML_HEAD:   z-index: 1;
+#+HTML_HEAD:   overflow: hidden;
+#+HTML_HEAD:   border: 1px solid #ddd;
+#+HTML_HEAD:   border-radius: 5px;
+#+HTML_HEAD: }
+#+HTML_HEAD: 
+#+HTML_HEAD: /* Обертка для карты и информации */
+#+HTML_HEAD: .map-wrapper {
+#+HTML_HEAD:   margin: 1.5em 0;
+#+HTML_HEAD:   padding: 0;
+#+HTML_HEAD:   clear: both;
+#+HTML_HEAD: }
+#+HTML_HEAD: 
+#+HTML_HEAD: /* Стили для информации о маршруте */
+#+HTML_HEAD: [id$="-info"] {
+#+HTML_HEAD:   margin-top: 10px;
+#+HTML_HEAD:   padding: 10px;
+#+HTML_HEAD:   background-color: #f8f8f8;
+#+HTML_HEAD:   border-radius: 5px;
+#+HTML_HEAD:   font-size: 0.9em;
+#+HTML_HEAD: }
+#+HTML_HEAD: </style>

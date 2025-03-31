@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ru" xml:lang="ru">
 <head>
-<!-- 2025-02-15 Sat 08:59 -->
+<!-- 2025-03-31 Mon 08:38 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Отчет о поездке в Армению и Грузию</title>
@@ -194,6 +194,39 @@
   .org-svg { }
 </style>
 <link rel="stylesheet" type="text/css" href="https://gongzhitaao.org/orgcss/org.css"/>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+/* Улучшенный контейнер карты */
+.map-container {
+height: 500px;
+width: 100%;
+margin: 0;
+padding: 0;
+clear: both;
+position: relative;
+z-index: 1;
+overflow: hidden;
+border: 1px solid #ddd;
+border-radius: 5px;
+}
+
+/* Обертка для карты и информации */
+.map-wrapper {
+margin: 1.5em 0;
+padding: 0;
+clear: both;
+}
+
+/* Стили для информации о маршруте */
+[id$="-info"] {
+margin-top: 10px;
+padding: 10px;
+background-color: #f8f8f8;
+border-radius: 5px;
+font-size: 0.9em;
+}
+</style>
 <style> img { width: 100%; } </style>
 <style> video { width: 100%; } </style>
 <style> pre { background-color: white; } </style>
@@ -275,7 +308,7 @@
 <li><a href="#orge734ec1">White House</a></li>
 <li><a href="#org7bf1c6d">Dedani Restaurant</a></li>
 <li><a href="#org96b2aab">Cafe Greenland</a></li>
-<li><a href="#org4e038a5">Guest House Tsiskari</a></li>
+<li><a href="#org2ba7173">Guest House Tsiskari</a></li>
 <li><a href="#org7c8e35e">Tavern Yerevan</a></li>
 </ul>
 </li>
@@ -292,13 +325,242 @@
 <li><a href="#org110d096">Venera guesthouse</a></li>
 <li><a href="#orgcaf958f">Guest House Roman/Gonio</a></li>
 <li><a href="#orgfb203e8">Rio Hotel Gonio</a></li>
-<li><a href="#orgafb1555">Guest House Tsiskari</a></li>
+<li><a href="#orgac13f4e">Guest House Tsiskari</a></li>
 <li><a href="#orgdf140ba">Yerevan Centre Hotel</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
+<script>
+/**
+ * Загружает GPX файл, фильтрует точки по дате и отображает маршрут
+ * @param {string} gpxFileUrl - URL к GPX файлу
+ * @param {string} targetMapId - ID элемента для размещения карты
+ * @param {string} mapType - Тип карты: 'osm' или 'google'
+ * @param {Date|string} startDate - Начальная дата для фильтрации (null для отключения)
+ * @param {Date|string} endDate - Конечная дата для фильтрации (null для отключения)
+ * @param {Object} options - Дополнительные параметры (цвет и толщина линии)
+ */
+function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null, endDate = null, options = {}) {
+  console.log(`Загрузка GPX: ${gpxFileUrl}`, {
+    targetMapId, 
+    mapType, 
+    startDate, 
+    endDate, 
+    options
+  });
+
+  // Преобразуем даты в объекты Date, если они переданы как строки
+  if (startDate && typeof startDate === 'string') {
+    startDate = new Date(startDate);
+    console.log(`Начальная дата преобразована: ${startDate}`);
+  }
+  if (endDate && typeof endDate === 'string') {
+    endDate = new Date(endDate);
+    console.log(`Конечная дата преобразована: ${endDate}`);
+  }
+  
+  // Задаем параметры по умолчанию
+  const lineOptions = {
+    color: options.color || 'red',
+    weight: options.weight || 3,
+    opacity: options.opacity || 0.7
+  };
+  
+  // Проверяем существование и размеры контейнера карты перед загрузкой
+  const mapContainer = document.getElementById(targetMapId);
+  if (!mapContainer) {
+    console.error(`Контейнер карты #${targetMapId} не найден!`);
+    return;
+  }
+  
+  // Убедимся, что контейнер имеет высоту
+  if (mapContainer.offsetHeight === 0) {
+    console.log('Контейнер карты имеет нулевую высоту, устанавливаем минимальную высоту');
+    mapContainer.style.height = '500px';
+  }
+  
+  console.log(`Начинаем запрос к файлу: ${gpxFileUrl}`);
+  fetch(gpxFileUrl)
+    .then(response => {
+      console.log(`Ответ от сервера: ${response.status} ${response.statusText}`);
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.text();
+    })
+    .then(gpxText => {
+      console.log(`GPX файл загружен, размер: ${gpxText.length} байт`);
+      
+      // Парсинг GPX
+      const parser = new DOMParser();
+      const gpx = parser.parseFromString(gpxText, 'text/xml');
+      
+      // Проверяем, правильно ли распарсился XML
+      const parseError = gpx.querySelector('parsererror');
+      if (parseError) {
+        console.error('Ошибка парсинга XML:', parseError.textContent);
+        throw new Error('Неверный формат GPX файла');
+      }
+      
+      // Извлечение всех точек трека с учетом даты
+      const trackPoints = [];
+      const tracks = gpx.getElementsByTagName('trk');
+      console.log(`Найдено треков: ${tracks.length}`);
+      
+      for (let i = 0; i < tracks.length; i++) {
+        const segments = tracks[i].getElementsByTagName('trkseg');
+        console.log(`Трек ${i+1}: найдено сегментов: ${segments.length}`);
+        
+        for (let j = 0; j < segments.length; j++) {
+          const points = segments[j].getElementsByTagName('trkpt');
+          console.log(`Трек ${i+1}, сегмент ${j+1}: найдено точек: ${points.length}`);
+          
+          for (let k = 0; k < points.length; k++) {
+            const point = points[k];
+            const lat = parseFloat(point.getAttribute('lat'));
+            const lon = parseFloat(point.getAttribute('lon'));
+            
+            // Проверяем временную метку, если указаны даты для фильтрации
+            if (startDate || endDate) {
+              const timeElement = point.getElementsByTagName('time')[0];
+              if (!timeElement) {
+                if (k === 0) console.log('Точка без временной метки, пропускаем');
+                continue; // Пропускаем точку, если нет временной метки
+              }
+              
+              const pointTime = new Date(timeElement.textContent);
+              
+              // Фильтруем по дате
+              if (startDate && pointTime < startDate) continue;
+              if (endDate && pointTime > endDate) continue;
+            }
+            
+            trackPoints.push([lat, lon]);
+          }
+        }
+      }
+      
+      console.log(`Итого после фильтрации: ${trackPoints.length} точек`);
+      
+      // Если нет точек после фильтрации
+      if (trackPoints.length === 0) {
+        console.warn('Нет точек для отображения после фильтрации по датам');
+      }
+      
+      // Создаем карту с явными настройками размера
+      const mapOptions = {
+        zoomControl: true,
+        attributionControl: true,
+        scrollWheelZoom: true
+      };
+      
+      // Инициализация карты
+      const map = L.map(targetMapId, mapOptions);
+      console.log(`Карта создана в элементе #${targetMapId}`);
+        
+      // Добавление тайлов в зависимости от выбранного типа карты
+      if (mapType === 'google') {
+        console.log('Используем Google Maps тайлы');
+        L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+          subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+          attribution: '&copy; Google Maps'
+        }).addTo(map);
+      } else {
+        console.log('Используем OpenStreetMap тайлы');
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+      }
+      
+      // Если есть точки, создаем маршрут
+      if (trackPoints.length > 0) {
+        const polyline = L.polyline(trackPoints, lineOptions).addTo(map);
+        console.log('Маршрут добавлен на карту');
+        
+        // Автоматический зум
+        map.fitBounds(polyline.getBounds());
+        console.log('Масштаб карты установлен по границам маршрута');
+      } else {
+        // Если нет точек, установим стандартный вид
+        map.setView([55.751244, 37.618423], 10);
+        console.log('Нет точек для маршрута, установлен стандартный вид карты');
+      }
+      
+      // Принудительный пересчет размеров карты для корректного отображения
+      setTimeout(function() {
+        map.invalidateSize({ animate: true });
+        console.log('Размеры карты пересчитаны (после инициализации)');
+        
+        // Повторный зум для гарантии правильного отображения
+        if (trackPoints.length > 0) {
+          const polyline = L.polyline(trackPoints);
+          map.fitBounds(polyline.getBounds());
+        }
+      }, 300);
+      
+      // Еще один пересчет через более длительное время для гарантии
+      setTimeout(function() {
+        map.invalidateSize();
+        console.log('Размеры карты пересчитаны повторно');
+      }, 1000);
+      
+      // Обработчик изменения размера окна
+      window.addEventListener('resize', function() {
+        map.invalidateSize();
+        console.log('Размеры карты пересчитаны (изменение размера окна)');
+      });
+      
+      // Рассчитываем расстояние
+      let distance = 0;
+      for (let i = 1; i < trackPoints.length; i++) {
+        const p1 = L.latLng(trackPoints[i-1][0], trackPoints[i-1][1]);
+        const p2 = L.latLng(trackPoints[i][0], trackPoints[i][1]);
+        distance += p1.distanceTo(p2);
+      }
+      console.log(`Расчет расстояния: ${(distance / 1000).toFixed(2)} км`);
+      
+      // Если нужно показать информацию о маршруте
+      const infoElement = document.getElementById(targetMapId + '-info');
+      if (infoElement) {
+        infoElement.innerHTML = `
+          <p>Маршрут: ${trackPoints.length} точек</p>
+          <p>Расстояние: ${(distance / 1000).toFixed(2)} км</p>
+        `;
+        console.log('Информация о маршруте обновлена');
+      } else {
+        console.log(`Элемент #${targetMapId}-info не найден, информация не отображена`);
+      }
+      
+      return {
+        map: map,
+        points: trackPoints,
+        distance: distance
+      };
+    })
+    .catch(error => {
+      console.error('Ошибка при загрузке GPX файла:', error);
+      console.error('URL файла:', gpxFileUrl);
+      console.error('Полная информация об ошибке:', {
+        message: error.message,
+        stack: error.stack,
+        name: error.name
+      });
+      
+      const mapElement = document.getElementById(targetMapId);
+      if (mapElement) {
+        mapElement.innerHTML = `
+          <div style="padding: 20px; color: red; background-color: #ffeeee; border: 1px solid #ffaaaa;">
+            <h3>Ошибка загрузки GPX файла</h3>
+            <p>${error.message}</p>
+            <p>Проверьте консоль разработчика для получения дополнительной информации.</p>
+          </div>
+        `;
+      }
+    });
+}
+</script>
 
 <div id="outline-container-orga4fdc79" class="outline-2">
 <h2 id="orga4fdc79">Хронология событий</h2>
@@ -320,9 +582,9 @@
 </p>
 </div>
 
-<div id="outline-container-org6ee9513" class="outline-4">
-<h4 id="org6ee9513">Статистика</h4>
-<div class="outline-text-4" id="text-org6ee9513">
+<div id="outline-container-orgb02a8ca" class="outline-4">
+<h4 id="orgb02a8ca">Статистика</h4>
+<div class="outline-text-4" id="text-orgb02a8ca">
 <pre class="example">
 €1456  Расходы
  €478    Самолет
@@ -339,13 +601,31 @@
 <span class="timestamp-wrapper"><span class="timestamp">2024-08-29 Thu</span></span>
 </p>
 
+<div id="map-days-2024-08-29-2024-08-29" class="map-container"></div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    loadGPXFile(
+      './armenia_georgia_2024.gpx',
+      'map-days-2024-08-29-2024-08-29',
+      'google',
+      '2024-08-29T00:00:00Z',
+      '2024-08-29T23:59:59Z',
+      {
+        color: 'blue',
+        weight: 4,
+        opacity: 0.8
+      }
+    );
+  });
+</script>
+
 <p>
 Мы прилетели ночью, купили в аэропорту бутылку вина. На выходе нас встретил представитель компании, где мы арендовали авто, проводил до арендованной машины &#x2013; Нива черного цвета. Похоже, что менеджер сам был от нее в восторге, повторял что она практически новая.
 "Дверь скрипит, это потому что новая. Пониженная передача плохо включается, это потому что новая, не разработалась еще". В месте крепления ремня безопасности стояла заглушка, сказали, что могу пользоваться на свое усмотрение.
 </p>
 
 
-<div id="org07ee0fa" class="figure">
+<div id="org9b4ccaf" class="figure">
 <p><img src="./IMG_2198.JPG" alt="IMG_2198.JPG" />
 </p>
 </div>
@@ -356,9 +636,9 @@
 </p>
 </div>
 
-<div id="outline-container-org6527313" class="outline-4">
-<h4 id="org6527313">Статистика</h4>
-<div class="outline-text-4" id="text-org6527313">
+<div id="outline-container-org8b47770" class="outline-4">
+<h4 id="org8b47770">Статистика</h4>
+<div class="outline-text-4" id="text-org8b47770">
 <pre class="example">
 Дистанция
   Авто:   1 км
@@ -382,12 +662,30 @@
 <span class="timestamp-wrapper"><span class="timestamp">2024-08-30 Fri</span></span>
 </p>
 
+<div id="map-days-2024-08-30-2024-08-30" class="map-container"></div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    loadGPXFile(
+      './armenia_georgia_2024.gpx',
+      'map-days-2024-08-30-2024-08-30',
+      'google',
+      '2024-08-30T00:00:00Z',
+      '2024-08-30T23:59:59Z',
+      {
+        color: 'blue',
+        weight: 4,
+        opacity: 0.8
+      }
+    );
+  });
+</script>
+
 <p>
 С утра выпили по чашке кофе и поехали искать ближайший супермаркет, чтобы закупиться водой, вином и чем-то для перекуса. Закупившись направились в <a href="#orgbd51b97">монастырь Хор Вирап</a>, который находится недалеко от турецкой границы.
 </p>
 
 
-<div id="orgdd11ed1" class="figure">
+<div id="org087e5d7" class="figure">
 <p><img src="./IMG_6674.JPG" alt="IMG_6674.JPG" />
 </p>
 </div>
@@ -397,7 +695,7 @@
 </p>
 
 
-<div id="org3b65388" class="figure">
+<div id="org060444e" class="figure">
 <p><img src="./IMG_6676.JPG" alt="IMG_6676.JPG" />
 </p>
 </div>
@@ -407,13 +705,13 @@
 </p>
 
 
-<div id="orgfb538f4" class="figure">
+<div id="org640b044" class="figure">
 <p><img src="./IMG_6679.JPG" alt="IMG_6679.JPG" />
 </p>
 </div>
 
 
-<div id="org618e091" class="figure">
+<div id="org1510b75" class="figure">
 <p><img src="./IMG_6683.JPG" alt="IMG_6683.JPG" />
 </p>
 </div>
@@ -423,7 +721,7 @@
 </p>
 
 
-<div id="org9951fc0" class="figure">
+<div id="orgeef4899" class="figure">
 <p><img src="./IMG_6710.JPG" alt="IMG_6710.JPG" />
 </p>
 </div>
@@ -433,7 +731,7 @@
 </p>
 
 
-<div id="org379b88f" class="figure">
+<div id="orgdad131f" class="figure">
 <p><img src="./IMG_6727.JPG" alt="IMG_6727.JPG" />
 </p>
 </div>
@@ -443,7 +741,7 @@
 </p>
 
 
-<div id="org45228f6" class="figure">
+<div id="orgf2505b2" class="figure">
 <p><img src="./IMG_6745.JPG" alt="IMG_6745.JPG" />
 </p>
 </div>
@@ -453,7 +751,7 @@
 </p>
 
 
-<div id="org4d4a792" class="figure">
+<div id="org2184a6c" class="figure">
 <p><img src="./IMG_6785.JPG" alt="IMG_6785.JPG" />
 </p>
 </div>
@@ -463,13 +761,13 @@
 </p>
 
 
-<div id="org40b5f7a" class="figure">
+<div id="org4723fd0" class="figure">
 <p><img src="./IMG_6775.JPG" alt="IMG_6775.JPG" />
 </p>
 </div>
 
 
-<div id="org9820184" class="figure">
+<div id="org9c3d8d2" class="figure">
 <p><img src="./IMG_6776.JPG" alt="IMG_6776.JPG" />
 </p>
 </div>
@@ -479,7 +777,7 @@
 </p>
 
 
-<div id="org35c2057" class="figure">
+<div id="orgf70a511" class="figure">
 <p><img src="./IMG_6770.JPG" alt="IMG_6770.JPG" />
 </p>
 </div>
@@ -489,9 +787,9 @@
 </p>
 </div>
 
-<div id="outline-container-org3dfbfab" class="outline-4">
-<h4 id="org3dfbfab">Статистика</h4>
-<div class="outline-text-4" id="text-org3dfbfab">
+<div id="outline-container-org95f2748" class="outline-4">
+<h4 id="org95f2748">Статистика</h4>
+<div class="outline-text-4" id="text-org95f2748">
 <pre class="example">
 Дистанция
   Авто:   193 км
@@ -517,6 +815,24 @@
 <p>
 <span class="timestamp-wrapper"><span class="timestamp">2024-08-31 Sat</span></span>
 </p>
+
+<div id="map-days-2024-08-31-2024-08-31" class="map-container"></div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    loadGPXFile(
+      './armenia_georgia_2024.gpx',
+      'map-days-2024-08-31-2024-08-31',
+      'google',
+      '2024-08-31T00:00:00Z',
+      '2024-08-31T23:59:59Z',
+      {
+        color: 'blue',
+        weight: 4,
+        opacity: 0.8
+      }
+    );
+  });
+</script>
 
 <p>
 С утра выпили две две чашки кофе в местной пекарне, заплатив 60 драм (0,14 евро), что на порядок дешевле, чем в гостинице накануне.
@@ -548,7 +864,7 @@
 </p>
 
 
-<div id="orgd52644d" class="figure">
+<div id="org984591b" class="figure">
 <p><img src="./IMG_6852.JPG" alt="IMG_6852.JPG" />
 </p>
 </div>
@@ -558,7 +874,7 @@
 </p>
 
 
-<div id="org6cff6c8" class="figure">
+<div id="org43b0e2c" class="figure">
 <p><img src="./IMG_6876.JPG" alt="IMG_6876.JPG" />
 </p>
 </div>
@@ -568,7 +884,7 @@
 </p>
 
 
-<div id="org7183b77" class="figure">
+<div id="orgd724740" class="figure">
 <p><img src="./IMG_6872.JPG" alt="IMG_6872.JPG" />
 </p>
 </div>
@@ -578,19 +894,19 @@
 </p>
 
 
-<div id="orgd37e6e0" class="figure">
+<div id="orgbb96369" class="figure">
 <p><img src="./IMG_6887.JPG" alt="IMG_6887.JPG" />
 </p>
 </div>
 
 
-<div id="orgb4922c9" class="figure">
+<div id="org6ecd93b" class="figure">
 <p><img src="./IMG_6867.JPG" alt="IMG_6867.JPG" />
 </p>
 </div>
 
 
-<div id="org9948f41" class="figure">
+<div id="org14cd4d7" class="figure">
 <p><img src="./IMG_6898.JPG" alt="IMG_6898.JPG" />
 </p>
 </div>
@@ -600,7 +916,7 @@
 </p>
 
 
-<div id="org3557653" class="figure">
+<div id="orga337aaf" class="figure">
 <p><img src="./IMG_6924.JPG" alt="IMG_6924.JPG" />
 </p>
 </div>
@@ -614,7 +930,7 @@
 </p>
 
 
-<div id="orge94b799" class="figure">
+<div id="org457e98b" class="figure">
 <p><img src="./IMG_6926.JPG" alt="IMG_6926.JPG" />
 </p>
 </div>
@@ -624,7 +940,7 @@
 </p>
 
 
-<div id="org478bf66" class="figure">
+<div id="org240eb6b" class="figure">
 <p><img src="./IMG_6941.JPG" alt="IMG_6941.JPG" />
 </p>
 </div>
@@ -634,7 +950,7 @@
 </p>
 
 
-<div id="orgd2c0c80" class="figure">
+<div id="orgc84adf0" class="figure">
 <p><img src="./IMG_6945.JPG" alt="IMG_6945.JPG" />
 </p>
 </div>
@@ -644,7 +960,7 @@
 </p>
 
 
-<div id="org482690f" class="figure">
+<div id="org27e6ed6" class="figure">
 <p><img src="./IMG_6942.JPG" alt="IMG_6942.JPG" />
 </p>
 </div>
@@ -654,9 +970,9 @@
 </p>
 </div>
 
-<div id="outline-container-org63a9f61" class="outline-4">
-<h4 id="org63a9f61">Статистика</h4>
-<div class="outline-text-4" id="text-org63a9f61">
+<div id="outline-container-org79fab1c" class="outline-4">
+<h4 id="org79fab1c">Статистика</h4>
+<div class="outline-text-4" id="text-org79fab1c">
 <pre class="example">
 Дистанция
   Авто:   140 км
@@ -680,6 +996,24 @@
 <span class="timestamp-wrapper"><span class="timestamp">2024-09-01 Sun</span></span>
 </p>
 
+<div id="map-days-2024-09-01-2024-09-01" class="map-container"></div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    loadGPXFile(
+      './armenia_georgia_2024.gpx',
+      'map-days-2024-09-01-2024-09-01',
+      'google',
+      '2024-09-01T00:00:00Z',
+      '2024-09-01T23:59:59Z',
+      {
+        color: 'blue',
+        weight: 4,
+        opacity: 0.8
+      }
+    );
+  });
+</script>
+
 <p>
 Утром, за завтраком, мы познакомились с сыном хозяев гостевого дома, который оказался московским журналистом международного класса, очень эрудированным человеком и интересным собеседником. Он нам посоветовал ехать обратно не той дорогой, по которой мы приехали в Татев, а через горы, где, как он обещал, будут красивые виды. Мы так и сделали, о чем нисколько не пожалели.
 </p>
@@ -697,25 +1031,25 @@
 </p>
 
 
-<div id="org525936f" class="figure">
+<div id="orgd74852a" class="figure">
 <p><img src="./IMG_6964.jpg" alt="IMG_6964.jpg" />
 </p>
 </div>
 
 
-<div id="org5b0bd11" class="figure">
+<div id="org320a644" class="figure">
 <p><img src="./IMG_6966.jpg" alt="IMG_6966.jpg" />
 </p>
 </div>
 
 
-<div id="org2c6bfbe" class="figure">
+<div id="org504930d" class="figure">
 <p><img src="./IMG_6968.jpg" alt="IMG_6968.jpg" />
 </p>
 </div>
 
 
-<div id="orgffc17c5" class="figure">
+<div id="org4dcb50c" class="figure">
 <p><img src="./IMG_6977.jpg" alt="IMG_6977.jpg" />
 </p>
 </div>
@@ -729,19 +1063,19 @@
 </p>
 
 
-<div id="orge40e0a7" class="figure">
+<div id="org8cf8936" class="figure">
 <p><img src="./IMG_6999.jpg" alt="IMG_6999.jpg" />
 </p>
 </div>
 
 
-<div id="orgc9d11dd" class="figure">
+<div id="org3772f45" class="figure">
 <p><img src="./IMG_7003.jpg" alt="IMG_7003.jpg" />
 </p>
 </div>
 
 
-<div id="org43b9d47" class="figure">
+<div id="orgfb2c6ff" class="figure">
 <p><img src="./IMG_7004.jpg" alt="IMG_7004.jpg" />
 </p>
 </div>
@@ -755,7 +1089,7 @@
 </p>
 
 
-<div id="orgc41a06e" class="figure">
+<div id="org62f1e4b" class="figure">
 <p><img src="./IMG_7046.jpg" alt="IMG_7046.jpg" />
 </p>
 </div>
@@ -773,7 +1107,7 @@
 </p>
 
 
-<div id="org3b53f94" class="figure">
+<div id="org4a26ad7" class="figure">
 <p><img src="./IMG_7052.jpg" alt="IMG_7052.jpg" />
 </p>
 </div>
@@ -787,15 +1121,15 @@
 </p>
 
 
-<div id="orgd4b19af" class="figure">
+<div id="org7ddc1ed" class="figure">
 <p><img src="./IMG_7068.jpg" alt="IMG_7068.jpg" />
 </p>
 </div>
 </div>
 
-<div id="outline-container-org3b536f2" class="outline-4">
-<h4 id="org3b536f2">Статистика</h4>
-<div class="outline-text-4" id="text-org3b536f2">
+<div id="outline-container-org773bcc4" class="outline-4">
+<h4 id="org773bcc4">Статистика</h4>
+<div class="outline-text-4" id="text-org773bcc4">
 <pre class="example">
 Дистанция
   Авто:   275 км
@@ -820,18 +1154,36 @@
 <span class="timestamp-wrapper"><span class="timestamp">2024-09-02 Mon</span></span>
 </p>
 
+<div id="map-days-2024-09-02-2024-09-02" class="map-container"></div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    loadGPXFile(
+      './armenia_georgia_2024.gpx',
+      'map-days-2024-09-02-2024-09-02',
+      'google',
+      '2024-09-02T00:00:00Z',
+      '2024-09-02T23:59:59Z',
+      {
+        color: 'blue',
+        weight: 4,
+        opacity: 0.8
+      }
+    );
+  });
+</script>
+
 <p>
 Завтрак в гостинице оказался неплохим, особенно вариация на тему менемена или шакшуки.
 </p>
 
 
-<div id="orgaa0522a" class="figure">
+<div id="org7b49214" class="figure">
 <p><img src="./IMG_7070.jpg" alt="IMG_7070.jpg" />
 </p>
 </div>
 
 
-<div id="org5e8cd78" class="figure">
+<div id="org17e04a4" class="figure">
 <p><img src="./IMG_7072.jpg" alt="IMG_7072.jpg" />
 </p>
 </div>
@@ -842,7 +1194,7 @@
 </p>
 
 
-<div id="org64e8835" class="figure">
+<div id="org01e638f" class="figure">
 <p><img src="./IMG_7075.jpg" alt="IMG_7075.jpg" />
 </p>
 </div>
@@ -852,7 +1204,7 @@
 </p>
 
 
-<div id="org49791ba" class="figure">
+<div id="org48d82da" class="figure">
 <p><img src="./IMG_7078.jpg" alt="IMG_7078.jpg" />
 </p>
 </div>
@@ -866,7 +1218,7 @@
 </p>
 
 
-<div id="org9a2445d" class="figure">
+<div id="org8c8c4db" class="figure">
 <p><img src="./IMG_7085.jpg" alt="IMG_7085.jpg" />
 </p>
 </div>
@@ -876,7 +1228,7 @@
 </p>
 
 
-<div id="org5a0f7d3" class="figure">
+<div id="orgde3584c" class="figure">
 <p><img src="./IMG_7102.jpg" alt="IMG_7102.jpg" />
 </p>
 </div>
@@ -886,7 +1238,7 @@
 </p>
 
 
-<div id="org586f675" class="figure">
+<div id="org062681e" class="figure">
 <p><img src="./IMG_7099.jpg" alt="IMG_7099.jpg" />
 </p>
 </div>
@@ -896,7 +1248,7 @@
 </p>
 
 
-<div id="org418637c" class="figure">
+<div id="orgfed2d9a" class="figure">
 <p><img src="./IMG_7106.jpg" alt="IMG_7106.jpg" />
 </p>
 </div>
@@ -926,7 +1278,7 @@
 </p>
 
 
-<div id="orgd75ecfd" class="figure">
+<div id="org5e82743" class="figure">
 <p><img src="./IMG_7113.jpg" alt="IMG_7113.jpg" />
 </p>
 </div>
@@ -940,7 +1292,7 @@
 </p>
 
 
-<div id="org8f18e4b" class="figure">
+<div id="org5523021" class="figure">
 <p><img src="./IMG_7114.jpg" alt="IMG_7114.jpg" />
 </p>
 </div>
@@ -950,7 +1302,7 @@
 </p>
 
 
-<div id="org0907945" class="figure">
+<div id="org00078b1" class="figure">
 <p><img src="./IMG_7118.jpg" alt="IMG_7118.jpg" />
 </p>
 </div>
@@ -960,7 +1312,7 @@
 </p>
 
 
-<div id="org178ddcd" class="figure">
+<div id="org6634c61" class="figure">
 <p><img src="./IMG_7116.jpg" alt="IMG_7116.jpg" />
 </p>
 </div>
@@ -970,15 +1322,15 @@
 </p>
 
 
-<div id="orgdf46685" class="figure">
+<div id="org9eab783" class="figure">
 <p><img src="./IMG_7115.jpg" alt="IMG_7115.jpg" />
 </p>
 </div>
 </div>
 
-<div id="outline-container-org1ab8141" class="outline-4">
-<h4 id="org1ab8141">Статистика</h4>
-<div class="outline-text-4" id="text-org1ab8141">
+<div id="outline-container-orgfae4ab4" class="outline-4">
+<h4 id="orgfae4ab4">Статистика</h4>
+<div class="outline-text-4" id="text-orgfae4ab4">
 <pre class="example">
 Дистанция
   Авто:   268 км
@@ -1006,6 +1358,24 @@
 <span class="timestamp-wrapper"><span class="timestamp">2024-09-03 Tue</span></span>
 </p>
 
+<div id="map-days-2024-09-03-2024-09-03" class="map-container"></div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    loadGPXFile(
+      './armenia_georgia_2024.gpx',
+      'map-days-2024-09-03-2024-09-03',
+      'google',
+      '2024-09-03T00:00:00Z',
+      '2024-09-03T23:59:59Z',
+      {
+        color: 'blue',
+        weight: 4,
+        opacity: 0.8
+      }
+    );
+  });
+</script>
+
 <p>
 С утра мы решили пешком дойти до центра, пройдя по главной улице города - проспекту Руставелли.
 </p>
@@ -1015,7 +1385,7 @@
 </p>
 
 
-<div id="orgd6ee6fd" class="figure">
+<div id="orgcf4b275" class="figure">
 <p><img src="./IMG_2376.jpg" alt="IMG_2376.jpg" />
 </p>
 </div>
@@ -1025,7 +1395,7 @@
 </p>
 
 
-<div id="org74f1a56" class="figure">
+<div id="orgd7f05d0" class="figure">
 <p><img src="./IMG_7128.jpg" alt="IMG_7128.jpg" />
 </p>
 </div>
@@ -1043,19 +1413,19 @@
 </p>
 
 
-<div id="org8bbcc56" class="figure">
+<div id="org447ee57" class="figure">
 <p><img src="./IMG_7136.jpg" alt="IMG_7136.jpg" />
 </p>
 </div>
 
 
-<div id="org51ecb2a" class="figure">
+<div id="orgf49e30a" class="figure">
 <p><img src="./IMG_7143.jpg" alt="IMG_7143.jpg" />
 </p>
 </div>
 
 
-<div id="org311a6fb" class="figure">
+<div id="org9fdbf46" class="figure">
 <p><img src="./IMG_7144.jpg" alt="IMG_7144.jpg" />
 </p>
 </div>
@@ -1065,19 +1435,19 @@
 </p>
 
 
-<div id="orgddbd6d1" class="figure">
+<div id="org27a725a" class="figure">
 <p><img src="./IMG_7145.jpg" alt="IMG_7145.jpg" />
 </p>
 </div>
 
 
-<div id="org9061b0c" class="figure">
+<div id="org16de094" class="figure">
 <p><img src="./IMG_7157.jpg" alt="IMG_7157.jpg" />
 </p>
 </div>
 
 
-<div id="orgdfce60f" class="figure">
+<div id="orge3a9690" class="figure">
 <p><img src="./IMG_7158.jpg" alt="IMG_7158.jpg" />
 </p>
 </div>
@@ -1087,7 +1457,7 @@
 </p>
 
 
-<div id="org1c7568b" class="figure">
+<div id="org3a0d532" class="figure">
 <p><img src="./IMG_7148.jpg" alt="IMG_7148.jpg" />
 </p>
 </div>
@@ -1097,7 +1467,7 @@
 </p>
 
 
-<div id="org556a613" class="figure">
+<div id="org5a483eb" class="figure">
 <p><img src="./IMG_7151.jpg" alt="IMG_7151.jpg" />
 </p>
 </div>
@@ -1107,7 +1477,7 @@
 </p>
 
 
-<div id="org2cc8ced" class="figure">
+<div id="org61b43ce" class="figure">
 <p><img src="./IMG_7153.jpg" alt="IMG_7153.jpg" />
 </p>
 </div>
@@ -1117,7 +1487,7 @@
 </p>
 
 
-<div id="orgbf90aa3" class="figure">
+<div id="orgc01e894" class="figure">
 <p><img src="./IMG_7155.jpg" alt="IMG_7155.jpg" />
 </p>
 </div>
@@ -1131,7 +1501,7 @@
 </p>
 
 
-<div id="org08e267a" class="figure">
+<div id="org31efd50" class="figure">
 <p><img src="./IMG_7169.jpg" alt="IMG_7169.jpg" />
 </p>
 </div>
@@ -1141,7 +1511,7 @@
 </p>
 
 
-<div id="orgf6ff392" class="figure">
+<div id="orgc1323e6" class="figure">
 <p><img src="./IMG_7166.jpg" alt="IMG_7166.jpg" />
 </p>
 </div>
@@ -1151,7 +1521,7 @@
 </p>
 
 
-<div id="orgaa6f66b" class="figure">
+<div id="orgc695ea8" class="figure">
 <p><img src="./IMG_7170.jpg" alt="IMG_7170.jpg" />
 </p>
 </div>
@@ -1161,7 +1531,7 @@
 </p>
 
 
-<div id="orga3472e8" class="figure">
+<div id="org72a0439" class="figure">
 <p><img src="./IMG_7175.jpg" alt="IMG_7175.jpg" />
 </p>
 </div>
@@ -1171,7 +1541,7 @@
 </p>
 
 
-<div id="org6c8be6a" class="figure">
+<div id="org4631913" class="figure">
 <p><img src="./IMG_7206.jpg" alt="IMG_7206.jpg" />
 </p>
 </div>
@@ -1181,7 +1551,7 @@
 </p>
 
 
-<div id="orgf9777bd" class="figure">
+<div id="org5a7e4fb" class="figure">
 <p><img src="./IMG_7212.jpg" alt="IMG_7212.jpg" />
 </p>
 </div>
@@ -1191,7 +1561,7 @@
 </p>
 
 
-<div id="org5c17be4" class="figure">
+<div id="orgc52002c" class="figure">
 <p><img src="./IMG_7186.jpg" alt="IMG_7186.jpg" />
 </p>
 </div>
@@ -1201,9 +1571,9 @@
 </p>
 </div>
 
-<div id="outline-container-orge69d652" class="outline-4">
-<h4 id="orge69d652">Статистика</h4>
-<div class="outline-text-4" id="text-orge69d652">
+<div id="outline-container-orgc921e03" class="outline-4">
+<h4 id="orgc921e03">Статистика</h4>
+<div class="outline-text-4" id="text-orgc921e03">
 <pre class="example">
 Дистанция
   Авто:   0 км
@@ -1229,12 +1599,30 @@
 <span class="timestamp-wrapper"><span class="timestamp">2024-09-04 Wed</span></span>
 </p>
 
+<div id="map-days-2024-09-04-2024-09-04" class="map-container"></div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    loadGPXFile(
+      './armenia_georgia_2024.gpx',
+      'map-days-2024-09-04-2024-09-04',
+      'google',
+      '2024-09-04T00:00:00Z',
+      '2024-09-04T23:59:59Z',
+      {
+        color: 'blue',
+        weight: 4,
+        opacity: 0.8
+      }
+    );
+  });
+</script>
+
 <p>
 На следующий день наш путь лежал по военно грузинской дороге в сторону горы Казбек. Выехав из города мы поднялись к <a href="#org2f3f95a">монастырю Джвари</a>, откуда можно наблюдать слияние двух рек: Кура и Арагви.
 </p>
 
 
-<div id="org13ebacf" class="figure">
+<div id="org1b9a177" class="figure">
 <p><img src="./IMG_7238.jpg" alt="IMG_7238.jpg" />
 </p>
 </div>
@@ -1248,13 +1636,13 @@
 </p>
 
 
-<div id="org10e9885" class="figure">
+<div id="orgd319249" class="figure">
 <p><img src="./IMG_7247.jpg" alt="IMG_7247.jpg" />
 </p>
 </div>
 
 
-<div id="org5b88c4b" class="figure">
+<div id="org56776fb" class="figure">
 <p><img src="./IMG_7250.jpg" alt="IMG_7250.jpg" />
 </p>
 </div>
@@ -1264,13 +1652,13 @@
 </p>
 
 
-<div id="orgce40194" class="figure">
+<div id="org1e14847" class="figure">
 <p><img src="./IMG_7257.jpg" alt="IMG_7257.jpg" />
 </p>
 </div>
 
 
-<div id="orgef46567" class="figure">
+<div id="orgeaff8a4" class="figure">
 <p><img src="./IMG_7263.jpg" alt="IMG_7263.jpg" />
 </p>
 </div>
@@ -1280,7 +1668,7 @@
 </p>
 
 
-<div id="orgf57d567" class="figure">
+<div id="org3da56f8" class="figure">
 <p><img src="./IMG_7278.jpg" alt="IMG_7278.jpg" />
 </p>
 </div>
@@ -1290,7 +1678,7 @@
 </p>
 
 
-<div id="orge0770a8" class="figure">
+<div id="orgbd82fa8" class="figure">
 <p><img src="./IMG_7320.jpg" alt="IMG_7320.jpg" />
 </p>
 </div>
@@ -1300,7 +1688,7 @@
 </p>
 
 
-<div id="org3757cbf" class="figure">
+<div id="org2719440" class="figure">
 <p><img src="./IMG_7333.jpg" alt="IMG_7333.jpg" />
 </p>
 </div>
@@ -1310,7 +1698,7 @@
 </p>
 
 
-<div id="org1d89df9" class="figure">
+<div id="org571ee93" class="figure">
 <p><img src="./IMG_7344.jpg" alt="IMG_7344.jpg" />
 </p>
 </div>
@@ -1320,9 +1708,9 @@
 </p>
 </div>
 
-<div id="outline-container-org4298e88" class="outline-4">
-<h4 id="org4298e88">Статистика</h4>
-<div class="outline-text-4" id="text-org4298e88">
+<div id="outline-container-org424f2db" class="outline-4">
+<h4 id="org424f2db">Статистика</h4>
+<div class="outline-text-4" id="text-org424f2db">
 <pre class="example">
 Дистанция
   Авто:   217 км
@@ -1347,12 +1735,30 @@
 <span class="timestamp-wrapper"><span class="timestamp">2024-09-05 Thu</span></span>
 </p>
 
+<div id="map-days-2024-09-05-2024-09-05" class="map-container"></div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    loadGPXFile(
+      './armenia_georgia_2024.gpx',
+      'map-days-2024-09-05-2024-09-05',
+      'google',
+      '2024-09-05T00:00:00Z',
+      '2024-09-05T23:59:59Z',
+      {
+        color: 'blue',
+        weight: 4,
+        opacity: 0.8
+      }
+    );
+  });
+</script>
+
 <p>
 С утра оказалось, что из окна гостницы открывается вид не хуже, чем в Альпах!
 </p>
 
 
-<div id="orgd41c356" class="figure">
+<div id="orga5508a7" class="figure">
 <p><img src="./IMG_7354.jpg" alt="IMG_7354.jpg" />
 </p>
 </div>
@@ -1366,7 +1772,7 @@
 </p>
 
 
-<div id="orgafb7d27" class="figure">
+<div id="org95d7f5d" class="figure">
 <p><img src="./IMG_7364.jpg" alt="IMG_7364.jpg" />
 </p>
 </div>
@@ -1388,9 +1794,9 @@
 </p>
 </div>
 
-<div id="outline-container-orga8cf2b7" class="outline-4">
-<h4 id="orga8cf2b7">Статистика</h4>
-<div class="outline-text-4" id="text-orga8cf2b7">
+<div id="outline-container-orgfc2be7a" class="outline-4">
+<h4 id="orgfc2be7a">Статистика</h4>
+<div class="outline-text-4" id="text-orgfc2be7a">
 <pre class="example">
 Дистанция
   Авто:   303 км
@@ -1415,6 +1821,24 @@
 <span class="timestamp-wrapper"><span class="timestamp">2024-09-06 Fri</span></span>
 </p>
 
+<div id="map-days-2024-09-06-2024-09-06" class="map-container"></div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    loadGPXFile(
+      './armenia_georgia_2024.gpx',
+      'map-days-2024-09-06-2024-09-06',
+      'google',
+      '2024-09-06T00:00:00Z',
+      '2024-09-06T23:59:59Z',
+      {
+        color: 'blue',
+        weight: 4,
+        opacity: 0.8
+      }
+    );
+  });
+</script>
+
 <p>
 Первая часть дороги в Сванетию пролегала через поселения с частной застройкой, особенностью которых являлось многообразие животных на дороге. В целом в Грузии коровы днем свободно ходят по проезжей части, а вечером их собирает и отводит домой пастух. Всегда надо быть готовым к тому, что за поворотом может оказаться бродячая корова или даже несколько. Тут же у нас на дороге, дополнительно к коровам, оказались свиньи, гораздо более шустрые и менее предстазуемые.
 </p>
@@ -1428,7 +1852,7 @@
 </p>
 
 
-<div id="org368bf7a" class="figure">
+<div id="orga53bbd7" class="figure">
 <p><img src="./IMG_7372.jpg" alt="IMG_7372.jpg" />
 </p>
 </div>
@@ -1438,7 +1862,7 @@
 </p>
 
 
-<div id="org34a197d" class="figure">
+<div id="org55a3da4" class="figure">
 <p><img src="./IMG_7377.jpg" alt="IMG_7377.jpg" />
 </p>
 </div>
@@ -1464,7 +1888,7 @@
 </p>
 
 
-<div id="org32d0bf0" class="figure">
+<div id="org5404c70" class="figure">
 <p><img src="./IMG_7400.jpg" alt="IMG_7400.jpg" />
 </p>
 </div>
@@ -1474,15 +1898,15 @@
 </p>
 
 
-<div id="org7128a4d" class="figure">
+<div id="org10df527" class="figure">
 <p><img src="./IMG_2549.jpg" alt="IMG_2549.jpg" />
 </p>
 </div>
 </div>
 
-<div id="outline-container-orga00f12e" class="outline-4">
-<h4 id="orga00f12e">Статистика</h4>
-<div class="outline-text-4" id="text-orga00f12e">
+<div id="outline-container-org36c9a79" class="outline-4">
+<h4 id="org36c9a79">Статистика</h4>
+<div class="outline-text-4" id="text-org36c9a79">
 <pre class="example">
 Дистанция
   Авто:   247 км
@@ -1506,6 +1930,24 @@
 <p>
 <span class="timestamp-wrapper"><span class="timestamp">2024-09-07 Sat</span></span>
 </p>
+
+<div id="map-days-2024-09-07-2024-09-07" class="map-container"></div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    loadGPXFile(
+      './armenia_georgia_2024.gpx',
+      'map-days-2024-09-07-2024-09-07',
+      'google',
+      '2024-09-07T00:00:00Z',
+      '2024-09-07T23:59:59Z',
+      {
+        color: 'blue',
+        weight: 4,
+        opacity: 0.8
+      }
+    );
+  });
+</script>
 
 <p>
 Завтракали мы в замечательном <a href="#orgcb05bb8">кафе</a>, в которое потом возвращались еще два дня. После завтрака мы отправились в горы, а точнее к <a href="#org452f0b9">озерам Корульди</a> на хайкинговые тропы.
@@ -1532,7 +1974,7 @@
 </p>
 
 
-<div id="org96cd9ab" class="figure">
+<div id="org5eb7db5" class="figure">
 <p><img src="./IMG_7471.jpg" alt="IMG_7471.jpg" />
 </p>
 </div>
@@ -1542,13 +1984,13 @@
 </p>
 
 
-<div id="orga235c24" class="figure">
+<div id="org83244e2" class="figure">
 <p><img src="./IMG_7508.jpg" alt="IMG_7508.jpg" />
 </p>
 </div>
 
 
-<div id="org00238c2" class="figure">
+<div id="org503e85d" class="figure">
 <p><img src="./IMG_7553.jpg" alt="IMG_7553.jpg" />
 </p>
 </div>
@@ -1558,13 +2000,13 @@
 </p>
 
 
-<div id="org2d0b44b" class="figure">
+<div id="orgaafd432" class="figure">
 <p><img src="./IMG_7543.jpg" alt="IMG_7543.jpg" />
 </p>
 </div>
 
 
-<div id="orgd28b884" class="figure">
+<div id="orgb45816e" class="figure">
 <p><img src="./IMG_7567.jpg" alt="IMG_7567.jpg" />
 </p>
 </div>
@@ -1574,19 +2016,19 @@
 </p>
 
 
-<div id="org48befbb" class="figure">
+<div id="org7cd4a4a" class="figure">
 <p><img src="./IMG_7593.jpg" alt="IMG_7593.jpg" />
 </p>
 </div>
 
 
-<div id="org0a3a5df" class="figure">
+<div id="orgbc4b335" class="figure">
 <p><img src="./IMG_7603.jpg" alt="IMG_7603.jpg" />
 </p>
 </div>
 
 
-<div id="orgce27606" class="figure">
+<div id="org0db32af" class="figure">
 <p><img src="./IMG_7609.jpg" alt="IMG_7609.jpg" />
 </p>
 </div>
@@ -1596,7 +2038,7 @@
 </p>
 
 
-<div id="orgdc30937" class="figure">
+<div id="org66bfda4" class="figure">
 <p><img src="./IMG_7639.jpg" alt="IMG_7639.jpg" />
 </p>
 </div>
@@ -1622,13 +2064,13 @@
 </p>
 
 
-<div id="orgcfc9ef6" class="figure">
+<div id="orge017b60" class="figure">
 <p><img src="./IMG_2564.jpg" alt="IMG_2564.jpg" />
 </p>
 </div>
 
 
-<div id="orga6291c4" class="figure">
+<div id="orgb69550d" class="figure">
 <p><img src="./IMG_2562.jpg" alt="IMG_2562.jpg" />
 </p>
 </div>
@@ -1638,7 +2080,7 @@
 </p>
 
 
-<div id="org60f834c" class="figure">
+<div id="org091817d" class="figure">
 <p><img src="./IMG_7659.jpg" alt="IMG_7659.jpg" />
 </p>
 </div>
@@ -1664,9 +2106,9 @@
 </p>
 </div>
 
-<div id="outline-container-org444364c" class="outline-4">
-<h4 id="org444364c">Статистика</h4>
-<div class="outline-text-4" id="text-org444364c">
+<div id="outline-container-org9fe960a" class="outline-4">
+<h4 id="org9fe960a">Статистика</h4>
+<div class="outline-text-4" id="text-org9fe960a">
 <pre class="example">
 Дистанция
   Авто:   38 км
@@ -1690,18 +2132,36 @@
 <span class="timestamp-wrapper"><span class="timestamp">2024-09-08 Sun</span></span>
 </p>
 
+<div id="map-days-2024-09-08-2024-09-08" class="map-container"></div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    loadGPXFile(
+      './armenia_georgia_2024.gpx',
+      'map-days-2024-09-08-2024-09-08',
+      'google',
+      '2024-09-08T00:00:00Z',
+      '2024-09-08T23:59:59Z',
+      {
+        color: 'blue',
+        weight: 4,
+        opacity: 0.8
+      }
+    );
+  });
+</script>
+
 <p>
 На второй день пребывания в Сванетии у нас был запланирован хайкинг к <a href="#orga1d48a3">леднику Шхара</a>. До города Ушгули, из которого многие начинают хайкинг к леднику, ехать около часа. По пути встречаются сванские башни, которые раньше использовали при набегах. В башнах можно было спрятаться и оттуда обороняться.
 </p>
 
 
-<div id="org68849af" class="figure">
+<div id="org0642929" class="figure">
 <p><img src="./IMG_7707.jpg" alt="IMG_7707.jpg" />
 </p>
 </div>
 
 
-<div id="orgbf307b3" class="figure">
+<div id="org4c28d17" class="figure">
 <p><img src="./IMG_7714.jpg" alt="IMG_7714.jpg" />
 </p>
 </div>
@@ -1711,7 +2171,7 @@
 </p>
 
 
-<div id="org9b0926a" class="figure">
+<div id="orgc5a821e" class="figure">
 <p><img src="./IMG_7725.jpg" alt="IMG_7725.jpg" />
 </p>
 </div>
@@ -1721,7 +2181,7 @@
 </p>
 
 
-<div id="orgf356a7d" class="figure">
+<div id="org28d8dba" class="figure">
 <p><img src="./IMG_7728.jpg" alt="IMG_7728.jpg" />
 </p>
 </div>
@@ -1731,13 +2191,13 @@
 </p>
 
 
-<div id="org5d43d7d" class="figure">
+<div id="orgc59322b" class="figure">
 <p><img src="./IMG_7760.jpg" alt="IMG_7760.jpg" />
 </p>
 </div>
 
 
-<div id="org61c4c83" class="figure">
+<div id="org4573720" class="figure">
 <p><img src="./IMG_7762.jpg" alt="IMG_7762.jpg" />
 </p>
 </div>
@@ -1747,19 +2207,19 @@
 </p>
 
 
-<div id="orgb786b01" class="figure">
+<div id="org35e0f54" class="figure">
 <p><img src="./IMG_7782.jpg" alt="IMG_7782.jpg" />
 </p>
 </div>
 
 
-<div id="orgfbfd7d6" class="figure">
+<div id="org3740203" class="figure">
 <p><img src="./IMG_7804.jpg" alt="IMG_7804.jpg" />
 </p>
 </div>
 
 
-<div id="orgf1f8b13" class="figure">
+<div id="orgac5b45d" class="figure">
 <p><img src="./IMG_7829.jpg" alt="IMG_7829.jpg" />
 </p>
 </div>
@@ -1769,19 +2229,19 @@
 </p>
 
 
-<div id="org23fdce4" class="figure">
+<div id="org4812c10" class="figure">
 <p><img src="./IMG_7823.jpg" alt="IMG_7823.jpg" />
 </p>
 </div>
 
 
-<div id="orgbe44e32" class="figure">
+<div id="org4baa41d" class="figure">
 <p><img src="./IMG_7825.jpg" alt="IMG_7825.jpg" />
 </p>
 </div>
 
 
-<div id="org659f805" class="figure">
+<div id="org0bac25e" class="figure">
 <p><img src="./IMG_7820.jpg" alt="IMG_7820.jpg" />
 </p>
 </div>
@@ -1807,7 +2267,7 @@
 </p>
 
 
-<div id="org3347492" class="figure">
+<div id="org438f581" class="figure">
 <p><img src="./IMG_7837.jpg" alt="IMG_7837.jpg" />
 </p>
 </div>
@@ -1821,9 +2281,9 @@
 </video>
 </div>
 
-<div id="outline-container-orgd4b310f" class="outline-4">
-<h4 id="orgd4b310f">Статистика</h4>
-<div class="outline-text-4" id="text-orgd4b310f">
+<div id="outline-container-orgd8bea06" class="outline-4">
+<h4 id="orgd8bea06">Статистика</h4>
+<div class="outline-text-4" id="text-orgd8bea06">
 <pre class="example">
 Дистанция
   Авто:   102 км
@@ -1848,6 +2308,24 @@
 <span class="timestamp-wrapper"><span class="timestamp">2024-09-09 Mon</span></span>
 </p>
 
+<div id="map-days-2024-09-09-2024-09-09" class="map-container"></div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    loadGPXFile(
+      './armenia_georgia_2024.gpx',
+      'map-days-2024-09-09-2024-09-09',
+      'google',
+      '2024-09-09T00:00:00Z',
+      '2024-09-09T23:59:59Z',
+      {
+        color: 'blue',
+        weight: 4,
+        opacity: 0.8
+      }
+    );
+  });
+</script>
+
 <p>
 Мы покинули Сванетию и направились к морю. Первая остановка был пляж Уреки с черным вулканическим песком. Мы провели там пару часов и поехали дальше. Путь в Гонио, где мы планировали провести ближайшие несколько дней пролегал через Батуми. Мы решили не останавливаться в городе, так как движение было сумасшедшим, а лишнего времени уже не было.
 </p>
@@ -1861,9 +2339,9 @@
 </p>
 </div>
 
-<div id="outline-container-org4c2c559" class="outline-4">
-<h4 id="org4c2c559">Статистика</h4>
-<div class="outline-text-4" id="text-org4c2c559">
+<div id="outline-container-org933d46a" class="outline-4">
+<h4 id="org933d46a">Статистика</h4>
+<div class="outline-text-4" id="text-org933d46a">
 <pre class="example">
 Дистанция
   Авто:   313 км
@@ -1887,12 +2365,30 @@
 <span class="timestamp-wrapper"><span class="timestamp">2024-09-10 Tue</span></span>
 </p>
 
+<div id="map-days-2024-09-10-2024-09-10" class="map-container"></div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    loadGPXFile(
+      './armenia_georgia_2024.gpx',
+      'map-days-2024-09-10-2024-09-10',
+      'google',
+      '2024-09-10T00:00:00Z',
+      '2024-09-10T23:59:59Z',
+      {
+        color: 'blue',
+        weight: 4,
+        opacity: 0.8
+      }
+    );
+  });
+</script>
+
 <p>
 На следующий день мы арендовали лежаки с навесом и весь день провели на море, купаясь и попивая пиво.
 </p>
 
 
-<div id="org0b429fb" class="figure">
+<div id="org8ef624a" class="figure">
 <p><img src="./IMG_2722.jpg" alt="IMG_2722.jpg" />
 </p>
 </div>
@@ -1902,9 +2398,9 @@
 </p>
 </div>
 
-<div id="outline-container-org5b486a7" class="outline-4">
-<h4 id="org5b486a7">Статистика</h4>
-<div class="outline-text-4" id="text-org5b486a7">
+<div id="outline-container-orgb7bc334" class="outline-4">
+<h4 id="orgb7bc334">Статистика</h4>
+<div class="outline-text-4" id="text-orgb7bc334">
 <pre class="example">
 Дистанция
   Авто:   0 км
@@ -1928,6 +2424,24 @@
 <span class="timestamp-wrapper"><span class="timestamp">2024-09-11 Wed</span></span>
 </p>
 
+<div id="map-days-2024-09-11-2024-09-11" class="map-container"></div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    loadGPXFile(
+      './armenia_georgia_2024.gpx',
+      'map-days-2024-09-11-2024-09-11',
+      'google',
+      '2024-09-11T00:00:00Z',
+      '2024-09-11T23:59:59Z',
+      {
+        color: 'blue',
+        weight: 4,
+        opacity: 0.8
+      }
+    );
+  });
+</script>
+
 <p>
 Мы поменяли изначальные планы и остались еще на один день на море.
 </p>
@@ -1937,9 +2451,9 @@
 </p>
 </div>
 
-<div id="outline-container-org552cb34" class="outline-4">
-<h4 id="org552cb34">Статистика</h4>
-<div class="outline-text-4" id="text-org552cb34">
+<div id="outline-container-org9c2108c" class="outline-4">
+<h4 id="org9c2108c">Статистика</h4>
+<div class="outline-text-4" id="text-org9c2108c">
 <pre class="example">
 Дистанция
   Авто:   0 км
@@ -1964,6 +2478,24 @@
 <span class="timestamp-wrapper"><span class="timestamp">2024-09-12 Thu</span></span>
 </p>
 
+<div id="map-days-2024-09-12-2024-09-12" class="map-container"></div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    loadGPXFile(
+      './armenia_georgia_2024.gpx',
+      'map-days-2024-09-12-2024-09-12',
+      'google',
+      '2024-09-12T00:00:00Z',
+      '2024-09-12T23:59:59Z',
+      {
+        color: 'blue',
+        weight: 4,
+        opacity: 0.8
+      }
+    );
+  });
+</script>
+
 <p>
 С утра мы позавтракали и направились к дороге пролегающей через перевал Годердзи. Эта дорога еще несколько лет назад была в очень плохом состоянии и проехать по ней можно было только на джипе и только в сухую погоду. Вообщем-то именно из-за этой дороги я и решил арендовать Ниву, ибо по отзывам виды по дороге стоили того, чтобы по ней проехать. Правда, как оказалось, что за последние годы дорогу частично отремонтировали и большая ее часть была вполне приличного качества. Правда был один участок длиной в несколько километром, без покрытия и в ямах, но на Ниве мы не испытали никаких неудобств по его преодолению.
 </p>
@@ -1973,7 +2505,7 @@
 </p>
 
 
-<div id="org9a1971f" class="figure">
+<div id="orge9e83dd" class="figure">
 <p><img src="./IMG_7918.jpg" alt="IMG_7918.jpg" />
 </p>
 </div>
@@ -1983,7 +2515,7 @@
 </p>
 
 
-<div id="org793eabf" class="figure">
+<div id="org8fab92b" class="figure">
 <p><img src="./IMG_7919.jpg" alt="IMG_7919.jpg" />
 </p>
 </div>
@@ -1993,7 +2525,7 @@
 </p>
 
 
-<div id="orgad9e599" class="figure">
+<div id="org9b15694" class="figure">
 <p><img src="./IMG_7920.jpg" alt="IMG_7920.jpg" />
 </p>
 </div>
@@ -2003,7 +2535,7 @@
 </p>
 
 
-<div id="orgd7f2da7" class="figure">
+<div id="orgcfad3d5" class="figure">
 <p><img src="./IMG_7930.jpg" alt="IMG_7930.jpg" />
 </p>
 </div>
@@ -2013,19 +2545,19 @@
 </p>
 
 
-<div id="org4f0070c" class="figure">
+<div id="orge4fd479" class="figure">
 <p><img src="./IMG_7933.jpg" alt="IMG_7933.jpg" />
 </p>
 </div>
 
 
-<div id="org8028fe7" class="figure">
+<div id="orgb78032c" class="figure">
 <p><img src="./IMG_7934.jpg" alt="IMG_7934.jpg" />
 </p>
 </div>
 
 
-<div id="org40b1b48" class="figure">
+<div id="orgbda01e2" class="figure">
 <p><img src="./IMG_7936.jpg" alt="IMG_7936.jpg" />
 </p>
 </div>
@@ -2035,19 +2567,19 @@
 </p>
 
 
-<div id="org98d596c" class="figure">
+<div id="org99803ec" class="figure">
 <p><img src="./IMG_7941.jpg" alt="IMG_7941.jpg" />
 </p>
 </div>
 
 
-<div id="org1112412" class="figure">
+<div id="org0cdb2a8" class="figure">
 <p><img src="./IMG_7947.jpg" alt="IMG_7947.jpg" />
 </p>
 </div>
 
 
-<div id="orge7353f9" class="figure">
+<div id="org6098cff" class="figure">
 <p><img src="./IMG_7950.jpg" alt="IMG_7950.jpg" />
 </p>
 </div>
@@ -2057,7 +2589,7 @@
 </p>
 
 
-<div id="org80979e1" class="figure">
+<div id="orgcc2d71b" class="figure">
 <p><img src="./IMG_7954.jpg" alt="IMG_7954.jpg" />
 </p>
 </div>
@@ -2067,13 +2599,13 @@
 </p>
 
 
-<div id="org5b3fdfb" class="figure">
+<div id="orgbc5287c" class="figure">
 <p><img src="./IMG_7960.jpg" alt="IMG_7960.jpg" />
 </p>
 </div>
 
 
-<div id="org19b87ab" class="figure">
+<div id="org2f542c8" class="figure">
 <p><img src="./IMG_7970.jpg" alt="IMG_7970.jpg" />
 </p>
 </div>
@@ -2083,23 +2615,23 @@
 </p>
 
 
-<div id="orgd3768fc" class="figure">
+<div id="orga0b1dcd" class="figure">
 <p><img src="./IMG_7971.jpg" alt="IMG_7971.jpg" />
 </p>
 </div>
 
 
-<div id="org7da044f" class="figure">
+<div id="orgd31b9e6" class="figure">
 <p><img src="./IMG_7985.jpg" alt="IMG_7985.jpg" />
 </p>
 </div>
 
 <p>
-Оттуда мы отправились в наш <a href="#orgafb1555">гостевой дом</a>, который находился в деревне.
+Оттуда мы отправились в наш <a href="#orgac13f4e">гостевой дом</a>, который находился в деревне.
 </p>
 
 
-<div id="org3470d1a" class="figure">
+<div id="org0685ebd" class="figure">
 <p><img src="./IMG_2735.jpg" alt="IMG_2735.jpg" />
 </p>
 </div>
@@ -2109,7 +2641,7 @@
 </p>
 
 
-<div id="org4a14196" class="figure">
+<div id="orge3e6a6f" class="figure">
 <p><img src="./IMG_7995.jpg" alt="IMG_7995.jpg" />
 </p>
 </div>
@@ -2119,15 +2651,15 @@
 </p>
 
 
-<div id="org5417a69" class="figure">
+<div id="orged57310" class="figure">
 <p><img src="./IMG_7997.jpg" alt="IMG_7997.jpg" />
 </p>
 </div>
 </div>
 
-<div id="outline-container-org2628b60" class="outline-4">
-<h4 id="org2628b60">Статистика</h4>
-<div class="outline-text-4" id="text-org2628b60">
+<div id="outline-container-org5fab579" class="outline-4">
+<h4 id="org5fab579">Статистика</h4>
+<div class="outline-text-4" id="text-org5fab579">
 <pre class="example">
 Дистанция
   Авто:   247 км
@@ -2152,12 +2684,30 @@
 <span class="timestamp-wrapper"><span class="timestamp">2024-09-13 Fri</span></span>
 </p>
 
+<div id="map-days-2024-09-13-2024-09-13" class="map-container"></div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    loadGPXFile(
+      './armenia_georgia_2024.gpx',
+      'map-days-2024-09-13-2024-09-13',
+      'google',
+      '2024-09-13T00:00:00Z',
+      '2024-09-13T23:59:59Z',
+      {
+        color: 'blue',
+        weight: 4,
+        opacity: 0.8
+      }
+    );
+  });
+</script>
+
 <p>
 На следующий день после обеда мы доехали до Еревана и сдали автомобиль. По пути в <a href="#orgdf140ba">гостиницу</a> познакомились с общественным транспортом (это действующий троллейбус везущий пассажиров).
 </p>
 
 
-<div id="org06b2e86" class="figure">
+<div id="orge25c844" class="figure">
 <p><img src="./IMG_2739.jpg" alt="IMG_2739.jpg" />
 </p>
 </div>
@@ -2183,9 +2733,9 @@
 </video>
 </div>
 
-<div id="outline-container-org1ffb741" class="outline-4">
-<h4 id="org1ffb741">Статистика</h4>
-<div class="outline-text-4" id="text-org1ffb741">
+<div id="outline-container-orgba6d794" class="outline-4">
+<h4 id="orgba6d794">Статистика</h4>
+<div class="outline-text-4" id="text-orgba6d794">
 <pre class="example">
 Дистанция
   Авто:   183 км
@@ -2210,6 +2760,24 @@
 <span class="timestamp-wrapper"><span class="timestamp">2024-09-14 Sat</span></span>
 </p>
 
+<div id="map-days-2024-09-14-2024-09-14" class="map-container"></div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    loadGPXFile(
+      './armenia_georgia_2024.gpx',
+      'map-days-2024-09-14-2024-09-14',
+      'google',
+      '2024-09-14T00:00:00Z',
+      '2024-09-14T23:59:59Z',
+      {
+        color: 'blue',
+        weight: 4,
+        opacity: 0.8
+      }
+    );
+  });
+</script>
+
 <p>
 Утро началось с того, что мне показалось, что нас обманули в ресторане накануне и мы пошли разбираться. Администрация отнеслась с пониманием к моим претензиям, мы сели за компьютер и проанализировали вчерашний счет. Все сошлось, я извинился и мы ушли, поняв, что посидели мы вчера хорошо. Счет вышел с чаевыми более 130 евро.
 </p>
@@ -2227,7 +2795,7 @@
 </p>
 
 
-<div id="orge322fcd" class="figure">
+<div id="orgfa0c0d1" class="figure">
 <p><img src="./IMG_8023.jpg" alt="IMG_8023.jpg" />
 </p>
 </div>
@@ -2237,7 +2805,7 @@
 </p>
 
 
-<div id="org2d289ec" class="figure">
+<div id="org932d2e4" class="figure">
 <p><img src="./IMG_8028.jpg" alt="IMG_8028.jpg" />
 </p>
 </div>
@@ -2247,7 +2815,7 @@
 </p>
 
 
-<div id="org34bafa6" class="figure">
+<div id="org8d070ec" class="figure">
 <p><img src="./IMG_2783.jpg" alt="IMG_2783.jpg" />
 </p>
 </div>
@@ -2257,7 +2825,7 @@
 </p>
 
 
-<div id="orgb14000b" class="figure">
+<div id="orgf8906cc" class="figure">
 <p><img src="./IMG_8035.jpg" alt="IMG_8035.jpg" />
 </p>
 </div>
@@ -2267,7 +2835,7 @@
 </p>
 
 
-<div id="orgaa95c30" class="figure">
+<div id="org3773b94" class="figure">
 <p><img src="./IMG_8037.jpg" alt="IMG_8037.jpg" />
 </p>
 </div>
@@ -2277,7 +2845,7 @@
 </p>
 
 
-<div id="orgbb7115b" class="figure">
+<div id="org75ef2f8" class="figure">
 <p><img src="./IMG_8046.jpg" alt="IMG_8046.jpg" />
 </p>
 </div>
@@ -2287,7 +2855,7 @@
 </p>
 
 
-<div id="orgb45bc3e" class="figure">
+<div id="org95a7c9c" class="figure">
 <p><img src="./IMG_2788.jpg" alt="IMG_2788.jpg" />
 </p>
 </div>
@@ -2301,13 +2869,13 @@
 </p>
 
 
-<div id="org1578ece" class="figure">
+<div id="org93d7a26" class="figure">
 <p><img src="./IMG_2790.jpg" alt="IMG_2790.jpg" />
 </p>
 </div>
 
 
-<div id="org9399f50" class="figure">
+<div id="orgc8c8e25" class="figure">
 <p><img src="./IMG_8053.jpg" alt="IMG_8053.jpg" />
 </p>
 </div>
@@ -2317,25 +2885,25 @@
 </p>
 
 
-<div id="org3c9acf3" class="figure">
+<div id="org6621b82" class="figure">
 <p><img src="./FullSizeRender.jpg" alt="FullSizeRender.jpg" />
 </p>
 </div>
 
 
-<div id="org344744f" class="figure">
+<div id="org5657b55" class="figure">
 <p><img src="./IMG_8063.jpg" alt="IMG_8063.jpg" />
 </p>
 </div>
 
 
-<div id="org70f8693" class="figure">
+<div id="orgcfb964a" class="figure">
 <p><img src="./IMG_8065.jpg" alt="IMG_8065.jpg" />
 </p>
 </div>
 
 
-<div id="org4a630e0" class="figure">
+<div id="orgcb207c4" class="figure">
 <p><img src="./IMG_8066.jpg" alt="IMG_8066.jpg" />
 </p>
 </div>
@@ -2345,7 +2913,7 @@
 </p>
 
 
-<div id="orgfa73d36" class="figure">
+<div id="org6d35fa0" class="figure">
 <p><img src="./IMG_8067.jpg" alt="IMG_8067.jpg" />
 </p>
 </div>
@@ -2355,7 +2923,7 @@
 </p>
 
 
-<div id="org0fa95d5" class="figure">
+<div id="orgcb598fa" class="figure">
 <p><img src="./IMG_8068.jpg" alt="IMG_8068.jpg" />
 </p>
 </div>
@@ -2365,7 +2933,7 @@
 </p>
 
 
-<div id="org4dab2c7" class="figure">
+<div id="org250bae2" class="figure">
 <p><img src="./IMG_8074.jpg" alt="IMG_8074.jpg" />
 </p>
 </div>
@@ -2375,7 +2943,7 @@
 </p>
 
 
-<div id="orgafb56da" class="figure">
+<div id="org04baeaa" class="figure">
 <p><img src="./IMG_2794.jpg" alt="IMG_2794.jpg" />
 </p>
 </div>
@@ -2385,7 +2953,7 @@
 </p>
 
 
-<div id="org6d12ec0" class="figure">
+<div id="org79a766d" class="figure">
 <p><img src="./IMG_8081.jpg" alt="IMG_8081.jpg" />
 </p>
 </div>
@@ -2400,7 +2968,7 @@
 </p>
 
 
-<div id="org86ec299" class="figure">
+<div id="org5d2615e" class="figure">
 <p><img src="./IMG_8087.jpg" alt="IMG_8087.jpg" />
 </p>
 </div>
@@ -2410,7 +2978,7 @@
 </p>
 
 
-<div id="org2ef446e" class="figure">
+<div id="orga62c311" class="figure">
 <p><img src="./IMG_2806.jpg" alt="IMG_2806.jpg" />
 </p>
 </div>
@@ -2420,7 +2988,7 @@
 </p>
 
 
-<div id="org5464e9e" class="figure">
+<div id="orgaae5e44" class="figure">
 <p><img src="./IMG_2799.jpg" alt="IMG_2799.jpg" />
 </p>
 </div>
@@ -2434,19 +3002,19 @@
 </p>
 
 
-<div id="org3184d10" class="figure">
+<div id="org916f83a" class="figure">
 <p><img src="./IMG_2809.jpg" alt="IMG_2809.jpg" />
 </p>
 </div>
 
 
-<div id="orgf5ce0ee" class="figure">
+<div id="orgec52666" class="figure">
 <p><img src="./IMG_8090.jpg" alt="IMG_8090.jpg" />
 </p>
 </div>
 
 
-<div id="org63abbda" class="figure">
+<div id="org21d03f2" class="figure">
 <p><img src="./IMG_8091.jpg" alt="IMG_8091.jpg" />
 </p>
 </div>
@@ -2456,7 +3024,7 @@
 </p>
 
 
-<div id="orgc63f99f" class="figure">
+<div id="orge49bfc0" class="figure">
 <p><img src="./IMG_8092.jpg" alt="IMG_8092.jpg" />
 </p>
 </div>
@@ -2466,7 +3034,7 @@
 </p>
 
 
-<div id="orgc82700a" class="figure">
+<div id="orgfac9971" class="figure">
 <p><img src="./IMG_8098.jpg" alt="IMG_8098.jpg" />
 </p>
 </div>
@@ -2476,7 +3044,7 @@
 </p>
 
 
-<div id="org52a3f0b" class="figure">
+<div id="orgdff991f" class="figure">
 <p><img src="./IMG_8100.jpg" alt="IMG_8100.jpg" />
 </p>
 </div>
@@ -2490,7 +3058,7 @@
 </p>
 
 
-<div id="orga38196e" class="figure">
+<div id="orgbceb22e" class="figure">
 <p><img src="./IMG_8103.jpg" alt="IMG_8103.jpg" />
 </p>
 </div>
@@ -2500,45 +3068,45 @@
 </p>
 
 
-<div id="org495908b" class="figure">
+<div id="org7a8b9df" class="figure">
 <p><img src="./IMG_2812.jpg" alt="IMG_2812.jpg" />
 </p>
 </div>
 
 
-<div id="org40b115c" class="figure">
+<div id="org9a1c6ef" class="figure">
 <p><img src="./IMG_2818.jpg" alt="IMG_2818.jpg" />
 </p>
 </div>
 
 
-<div id="org4832349" class="figure">
+<div id="orgd1b33e6" class="figure">
 <p><img src="./IMG_2817.jpg" alt="IMG_2817.jpg" />
 </p>
 </div>
 
 
-<div id="org2d3e2e3" class="figure">
+<div id="orge634894" class="figure">
 <p><img src="./IMG_2815.jpg" alt="IMG_2815.jpg" />
 </p>
 </div>
 
 
-<div id="orgcafcd1d" class="figure">
+<div id="orgf370d3b" class="figure">
 <p><img src="./IMG_2814.jpg" alt="IMG_2814.jpg" />
 </p>
 </div>
 
 
-<div id="org9942473" class="figure">
+<div id="org31463a9" class="figure">
 <p><img src="./IMG_2813.jpg" alt="IMG_2813.jpg" />
 </p>
 </div>
 </div>
 
-<div id="outline-container-org94dab7e" class="outline-4">
-<h4 id="org94dab7e">Статистика</h4>
-<div class="outline-text-4" id="text-org94dab7e">
+<div id="outline-container-orgedb9092" class="outline-4">
+<h4 id="orgedb9092">Статистика</h4>
+<div class="outline-text-4" id="text-orgedb9092">
 <pre class="example">
 Дистанция
   Авто:   0 км
@@ -2564,25 +3132,28 @@
 Зато мы остались в полном восторге от Сванетии.
 В другой раз, имея проходимую машину, я бы лучше ехал из Кутаиси в Местию не в объезд (через Ингурскую ГЭС), а напрямую, через Лентехи.
 </p>
-
-<p>
-Наш маршрут по Армении.
-</p>
-
-
-<div id="org2672c54" class="figure">
-<p><img src="./IMG_0013.JPG" alt="IMG_0013.JPG" />
-</p>
 </div>
 
-<p>
-Наш маршрут по Грузии.
-</p>
-
-
-<div id="org7f0f4f0" class="figure">
-<p><img src="./IMG_0014.JPG" alt="IMG_0014.JPG" />
-</p>
+<div id="outline-container-orgfbb1865" class="outline-4">
+<h4 id="orgfbb1865">Маршрут</h4>
+<div class="outline-text-4" id="text-orgfbb1865">
+<div id="map-days-2024-08-29-2024-09-14" class="map-container"></div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    loadGPXFile(
+      './armenia_georgia_2024.gpx',
+      'map-days-2024-08-29-2024-09-14',
+      'google',
+      '2024-08-29T00:00:00Z',
+      '2024-09-14T23:59:59Z',
+      {
+        color: 'blue',
+        weight: 4,
+        opacity: 0.8
+      }
+    );
+  });
+</script>
 </div>
 </div>
 
@@ -2596,7 +3167,7 @@
 </pre>
 
 
-<pre class="example" id="org0a5a7ca">
+<pre class="example" id="org4d21a1e">
 €3830  Расходы
 €1444    Еда
  €475    Жилье
@@ -2611,7 +3182,7 @@
  €100    Экскурсии
 </pre>
 
-<pre class="example" id="org78488f0">
+<pre class="example" id="org84312e5">
 Количество человек:         2
 Количество дней:            16
 
@@ -3074,9 +3645,9 @@
 </div>
 </div>
 
-<div id="outline-container-org4e038a5" class="outline-3">
-<h3 id="org4e038a5">Guest House Tsiskari</h3>
-<div class="outline-text-3" id="text-org4e038a5">
+<div id="outline-container-org2ba7173" class="outline-3">
+<h3 id="org2ba7173">Guest House Tsiskari</h3>
+<div class="outline-text-3" id="text-org2ba7173">
 <p>
 Хозяйка отеля готовила сама, нормально, но не блеск
 </p>
@@ -3260,9 +3831,9 @@
 </div>
 </div>
 
-<div id="outline-container-orgafb1555" class="outline-3">
-<h3 id="orgafb1555">Guest House Tsiskari</h3>
-<div class="outline-text-3" id="text-orgafb1555">
+<div id="outline-container-orgac13f4e" class="outline-3">
+<h3 id="orgac13f4e">Guest House Tsiskari</h3>
+<div class="outline-text-3" id="text-orgac13f4e">
 <p>
 Цена: 25 евро (70 GEL)
 </p>
@@ -3289,7 +3860,7 @@
 </div>
 <div id="postamble" class="status">
 <p class="author">&#1040;&#1074;&#1090;&#1086;&#1088;: Александр Шумилов</p>
-<p class="date">Created: 2025-02-15 Sat 08:59</p>
+<p class="date">Created: 2025-03-31 Mon 08:38</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

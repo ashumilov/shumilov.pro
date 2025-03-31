@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ru" xml:lang="ru">
 <head>
-<!-- 2025-01-24 Fri 17:21 -->
+<!-- 2025-03-31 Mon 08:38 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -194,12 +194,275 @@
   .org-svg { }
 </style>
 <link rel="stylesheet" type="text/css" href="https://gongzhitaao.org/orgcss/org.css"/>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+/* Улучшенный контейнер карты */
+.map-container {
+height: 500px;
+width: 100%;
+margin: 0;
+padding: 0;
+clear: both;
+position: relative;
+z-index: 1;
+overflow: hidden;
+border: 1px solid #ddd;
+border-radius: 5px;
+}
+
+/* Обертка для карты и информации */
+.map-wrapper {
+margin: 1.5em 0;
+padding: 0;
+clear: both;
+}
+
+/* Стили для информации о маршруте */
+[id$="-info"] {
+margin-top: 10px;
+padding: 10px;
+background-color: #f8f8f8;
+border-radius: 5px;
+font-size: 0.9em;
+}
+</style>
 <style> img { width: 100%; } </style>
 <style> video { width: 100%; } </style>
 <style> pre { background-color: white; } </style>
 </head>
 <body>
 <div id="content" class="content">
+<script>
+/**
+ * Загружает GPX файл, фильтрует точки по дате и отображает маршрут
+ * @param {string} gpxFileUrl - URL к GPX файлу
+ * @param {string} targetMapId - ID элемента для размещения карты
+ * @param {string} mapType - Тип карты: 'osm' или 'google'
+ * @param {Date|string} startDate - Начальная дата для фильтрации (null для отключения)
+ * @param {Date|string} endDate - Конечная дата для фильтрации (null для отключения)
+ * @param {Object} options - Дополнительные параметры (цвет и толщина линии)
+ */
+function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null, endDate = null, options = {}) {
+  console.log(`Загрузка GPX: ${gpxFileUrl}`, {
+    targetMapId, 
+    mapType, 
+    startDate, 
+    endDate, 
+    options
+  });
+
+  // Преобразуем даты в объекты Date, если они переданы как строки
+  if (startDate && typeof startDate === 'string') {
+    startDate = new Date(startDate);
+    console.log(`Начальная дата преобразована: ${startDate}`);
+  }
+  if (endDate && typeof endDate === 'string') {
+    endDate = new Date(endDate);
+    console.log(`Конечная дата преобразована: ${endDate}`);
+  }
+  
+  // Задаем параметры по умолчанию
+  const lineOptions = {
+    color: options.color || 'red',
+    weight: options.weight || 3,
+    opacity: options.opacity || 0.7
+  };
+  
+  // Проверяем существование и размеры контейнера карты перед загрузкой
+  const mapContainer = document.getElementById(targetMapId);
+  if (!mapContainer) {
+    console.error(`Контейнер карты #${targetMapId} не найден!`);
+    return;
+  }
+  
+  // Убедимся, что контейнер имеет высоту
+  if (mapContainer.offsetHeight === 0) {
+    console.log('Контейнер карты имеет нулевую высоту, устанавливаем минимальную высоту');
+    mapContainer.style.height = '500px';
+  }
+  
+  console.log(`Начинаем запрос к файлу: ${gpxFileUrl}`);
+  fetch(gpxFileUrl)
+    .then(response => {
+      console.log(`Ответ от сервера: ${response.status} ${response.statusText}`);
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.text();
+    })
+    .then(gpxText => {
+      console.log(`GPX файл загружен, размер: ${gpxText.length} байт`);
+      
+      // Парсинг GPX
+      const parser = new DOMParser();
+      const gpx = parser.parseFromString(gpxText, 'text/xml');
+      
+      // Проверяем, правильно ли распарсился XML
+      const parseError = gpx.querySelector('parsererror');
+      if (parseError) {
+        console.error('Ошибка парсинга XML:', parseError.textContent);
+        throw new Error('Неверный формат GPX файла');
+      }
+      
+      // Извлечение всех точек трека с учетом даты
+      const trackPoints = [];
+      const tracks = gpx.getElementsByTagName('trk');
+      console.log(`Найдено треков: ${tracks.length}`);
+      
+      for (let i = 0; i < tracks.length; i++) {
+        const segments = tracks[i].getElementsByTagName('trkseg');
+        console.log(`Трек ${i+1}: найдено сегментов: ${segments.length}`);
+        
+        for (let j = 0; j < segments.length; j++) {
+          const points = segments[j].getElementsByTagName('trkpt');
+          console.log(`Трек ${i+1}, сегмент ${j+1}: найдено точек: ${points.length}`);
+          
+          for (let k = 0; k < points.length; k++) {
+            const point = points[k];
+            const lat = parseFloat(point.getAttribute('lat'));
+            const lon = parseFloat(point.getAttribute('lon'));
+            
+            // Проверяем временную метку, если указаны даты для фильтрации
+            if (startDate || endDate) {
+              const timeElement = point.getElementsByTagName('time')[0];
+              if (!timeElement) {
+                if (k === 0) console.log('Точка без временной метки, пропускаем');
+                continue; // Пропускаем точку, если нет временной метки
+              }
+              
+              const pointTime = new Date(timeElement.textContent);
+              
+              // Фильтруем по дате
+              if (startDate && pointTime < startDate) continue;
+              if (endDate && pointTime > endDate) continue;
+            }
+            
+            trackPoints.push([lat, lon]);
+          }
+        }
+      }
+      
+      console.log(`Итого после фильтрации: ${trackPoints.length} точек`);
+      
+      // Если нет точек после фильтрации
+      if (trackPoints.length === 0) {
+        console.warn('Нет точек для отображения после фильтрации по датам');
+      }
+      
+      // Создаем карту с явными настройками размера
+      const mapOptions = {
+        zoomControl: true,
+        attributionControl: true,
+        scrollWheelZoom: true
+      };
+      
+      // Инициализация карты
+      const map = L.map(targetMapId, mapOptions);
+      console.log(`Карта создана в элементе #${targetMapId}`);
+        
+      // Добавление тайлов в зависимости от выбранного типа карты
+      if (mapType === 'google') {
+        console.log('Используем Google Maps тайлы');
+        L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+          subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+          attribution: '&copy; Google Maps'
+        }).addTo(map);
+      } else {
+        console.log('Используем OpenStreetMap тайлы');
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+      }
+      
+      // Если есть точки, создаем маршрут
+      if (trackPoints.length > 0) {
+        const polyline = L.polyline(trackPoints, lineOptions).addTo(map);
+        console.log('Маршрут добавлен на карту');
+        
+        // Автоматический зум
+        map.fitBounds(polyline.getBounds());
+        console.log('Масштаб карты установлен по границам маршрута');
+      } else {
+        // Если нет точек, установим стандартный вид
+        map.setView([55.751244, 37.618423], 10);
+        console.log('Нет точек для маршрута, установлен стандартный вид карты');
+      }
+      
+      // Принудительный пересчет размеров карты для корректного отображения
+      setTimeout(function() {
+        map.invalidateSize({ animate: true });
+        console.log('Размеры карты пересчитаны (после инициализации)');
+        
+        // Повторный зум для гарантии правильного отображения
+        if (trackPoints.length > 0) {
+          const polyline = L.polyline(trackPoints);
+          map.fitBounds(polyline.getBounds());
+        }
+      }, 300);
+      
+      // Еще один пересчет через более длительное время для гарантии
+      setTimeout(function() {
+        map.invalidateSize();
+        console.log('Размеры карты пересчитаны повторно');
+      }, 1000);
+      
+      // Обработчик изменения размера окна
+      window.addEventListener('resize', function() {
+        map.invalidateSize();
+        console.log('Размеры карты пересчитаны (изменение размера окна)');
+      });
+      
+      // Рассчитываем расстояние
+      let distance = 0;
+      for (let i = 1; i < trackPoints.length; i++) {
+        const p1 = L.latLng(trackPoints[i-1][0], trackPoints[i-1][1]);
+        const p2 = L.latLng(trackPoints[i][0], trackPoints[i][1]);
+        distance += p1.distanceTo(p2);
+      }
+      console.log(`Расчет расстояния: ${(distance / 1000).toFixed(2)} км`);
+      
+      // Если нужно показать информацию о маршруте
+      const infoElement = document.getElementById(targetMapId + '-info');
+      if (infoElement) {
+        infoElement.innerHTML = `
+          <p>Маршрут: ${trackPoints.length} точек</p>
+          <p>Расстояние: ${(distance / 1000).toFixed(2)} км</p>
+        `;
+        console.log('Информация о маршруте обновлена');
+      } else {
+        console.log(`Элемент #${targetMapId}-info не найден, информация не отображена`);
+      }
+      
+      return {
+        map: map,
+        points: trackPoints,
+        distance: distance
+      };
+    })
+    .catch(error => {
+      console.error('Ошибка при загрузке GPX файла:', error);
+      console.error('URL файла:', gpxFileUrl);
+      console.error('Полная информация об ошибке:', {
+        message: error.message,
+        stack: error.stack,
+        name: error.name
+      });
+      
+      const mapElement = document.getElementById(targetMapId);
+      if (mapElement) {
+        mapElement.innerHTML = `
+          <div style="padding: 20px; color: red; background-color: #ffeeee; border: 1px solid #ffaaaa;">
+            <h3>Ошибка загрузки GPX файла</h3>
+            <p>${error.message}</p>
+            <p>Проверьте консоль разработчика для получения дополнительной информации.</p>
+          </div>
+        `;
+      }
+    });
+}
+</script>
+
 <div id="outline-container-org40da73b" class="outline-2">
 <h2 id="org40da73b">День 5. Башня Амбулувава - Водопад Galpoththa - Пещера Белилена</h2>
 <div class="outline-text-2" id="text-org40da73b">
@@ -207,18 +470,36 @@
 <span class="timestamp-wrapper"><span class="timestamp">2024-12-19 Thu</span></span>
 </p>
 
+<div id="map-days-2024-12-19-2024-12-19" class="map-container"></div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    loadGPXFile(
+      './sri_lanka_2024.gpx',
+      'map-days-2024-12-19-2024-12-19',
+      'google',
+      '2024-12-19T00:00:00Z',
+      '2024-12-19T23:59:59Z',
+      {
+        color: 'blue',
+        weight: 4,
+        opacity: 0.8
+      }
+    );
+  });
+</script>
+
 <p>
 Вид из гостиницы с утра.
 </p>
 
 
-<div id="orgb5f984c" class="figure">
+<div id="org61140ff" class="figure">
 <p><img src="./images_small/IMG_8764.jpg" alt="IMG_8764.jpg" />
 </p>
 </div>
 
 
-<div id="org3356769" class="figure">
+<div id="org64dc0dd" class="figure">
 <p><img src="./images_small/IMG_8765.jpg" alt="IMG_8765.jpg" />
 </p>
 </div>
@@ -229,13 +510,13 @@
 </p>
 
 
-<div id="org0cf672c" class="figure">
+<div id="org9e98880" class="figure">
 <p><img src="./images_small/IMG_8770.jpg" alt="IMG_8770.jpg" />
 </p>
 </div>
 
 
-<div id="org136ea66" class="figure">
+<div id="orge545773" class="figure">
 <p><img src="./images_small/IMG_8778.jpg" alt="IMG_8778.jpg" />
 </p>
 </div>
@@ -245,19 +526,19 @@
 </p>
 
 
-<div id="orgbff48c8" class="figure">
+<div id="org9ada031" class="figure">
 <p><img src="./images_small/IMG_8780.jpg" alt="IMG_8780.jpg" />
 </p>
 </div>
 
 
-<div id="orga4da699" class="figure">
+<div id="org6a3ce3d" class="figure">
 <p><img src="./images_small/IMG_8781.jpg" alt="IMG_8781.jpg" />
 </p>
 </div>
 
 
-<div id="org600c2c2" class="figure">
+<div id="orgb968196" class="figure">
 <p><img src="./images_small/IMG_8784.jpg" alt="IMG_8784.jpg" />
 </p>
 </div>
@@ -267,25 +548,25 @@
 </p>
 
 
-<div id="orgd81071d" class="figure">
+<div id="org9de9fc4" class="figure">
 <p><img src="./images_small/IMG_8772.jpg" alt="IMG_8772.jpg" />
 </p>
 </div>
 
 
-<div id="orgf83eb0c" class="figure">
+<div id="orgf029447" class="figure">
 <p><img src="./images_small/IMG_8774.jpg" alt="IMG_8774.jpg" />
 </p>
 </div>
 
 
-<div id="orgbefc023" class="figure">
+<div id="org3b14876" class="figure">
 <p><img src="./images_small/IMG_8775.jpg" alt="IMG_8775.jpg" />
 </p>
 </div>
 
 
-<div id="orgc4144d8" class="figure">
+<div id="orgb6225d2" class="figure">
 <p><img src="./images_small/IMG_8785.jpg" alt="IMG_8785.jpg" />
 </p>
 </div>
@@ -313,7 +594,7 @@
 </p>
 
 
-<div id="orgd3d45a9" class="figure">
+<div id="orgbde5cd8" class="figure">
 <p><img src="./images_small/IMG_8768.jpg" alt="IMG_8768.jpg" />
 </p>
 </div>
@@ -323,13 +604,13 @@
 </p>
 
 
-<div id="orgad05228" class="figure">
+<div id="org949fb25" class="figure">
 <p><img src="./images_small/IMG_8804.jpg" alt="IMG_8804.jpg" />
 </p>
 </div>
 
 
-<div id="org5a6f9b2" class="figure">
+<div id="orgc0007be" class="figure">
 <p><img src="./images_small/IMG_8796.jpg" alt="IMG_8796.jpg" />
 </p>
 </div>
@@ -379,7 +660,7 @@
 </p>
 
 
-<div id="org735ac75" class="figure">
+<div id="org577edf0" class="figure">
 <p><img src="./images_small/IMG_8807.jpg" alt="IMG_8807.jpg" />
 </p>
 </div>
@@ -389,13 +670,13 @@
 </p>
 
 
-<div id="org543ce5c" class="figure">
+<div id="org13400c4" class="figure">
 <p><img src="./images_small/IMG_8809.jpg" alt="IMG_8809.jpg" />
 </p>
 </div>
 
 
-<div id="org1abb17d" class="figure">
+<div id="org7b6b9e4" class="figure">
 <p><img src="./images_small/IMG_8814.jpg" alt="IMG_8814.jpg" />
 </p>
 </div>
@@ -405,7 +686,7 @@
 </p>
 
 
-<div id="org8872b8a" class="figure">
+<div id="org31d79e6" class="figure">
 <p><img src="./images_small/IMG_8817.jpg" alt="IMG_8817.jpg" />
 </p>
 </div>
@@ -419,37 +700,37 @@
 </p>
 
 
-<div id="org140c0b3" class="figure">
+<div id="org59334bb" class="figure">
 <p><img src="./images_small/IMG_8819.jpg" alt="IMG_8819.jpg" />
 </p>
 </div>
 
 
-<div id="orge17bea1" class="figure">
+<div id="orgf406c0d" class="figure">
 <p><img src="./images_small/IMG_8830.jpg" alt="IMG_8830.jpg" />
 </p>
 </div>
 
 
-<div id="orgb34ee15" class="figure">
+<div id="org8908cec" class="figure">
 <p><img src="./images_small/IMG_8831.jpg" alt="IMG_8831.jpg" />
 </p>
 </div>
 
 
-<div id="orga2d0a81" class="figure">
+<div id="org88175a5" class="figure">
 <p><img src="./images_small/IMG_8832.jpg" alt="IMG_8832.jpg" />
 </p>
 </div>
 
 
-<div id="org031bd59" class="figure">
+<div id="org2570334" class="figure">
 <p><img src="./images_small/IMG_8833.jpg" alt="IMG_8833.jpg" />
 </p>
 </div>
 
 
-<div id="org5182b91" class="figure">
+<div id="org0dac084" class="figure">
 <p><img src="./images_small/IMG_8835.jpg" alt="IMG_8835.jpg" />
 </p>
 </div>
@@ -459,7 +740,7 @@
 </p>
 
 
-<div id="org54373ee" class="figure">
+<div id="org3e05ed4" class="figure">
 <p><img src="./images_small/IMG_8826.jpg" alt="IMG_8826.jpg" />
 </p>
 </div>
@@ -524,7 +805,7 @@
 </div>
 <div id="postamble" class="status">
 <p class="author">&#1040;&#1074;&#1090;&#1086;&#1088;: Alexander Shumilov</p>
-<p class="date">Created: 2025-01-24 Fri 17:21</p>
+<p class="date">Created: 2025-03-31 Mon 08:38</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

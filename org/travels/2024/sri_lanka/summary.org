@@ -13,6 +13,10 @@
 
 [[./images_small/recorded.jpg]]
 
+*** Маршрут
+
+#+call: map-days(from="2024-12-15", to="2025-01-04")
+
 *** Общая статистика
 
 #+begin_src emacs-lisp :noweb yes :results output :exports results :var values=distance-values

@@ -9,6 +9,8 @@
 ** День 20. Унаватуна - Коломбо
 <2025-01-03 Fri>
 
+#+call: map-day(date="2025-01-03")
+
 С утра мы доехали до Унаватуны и позавтракав в неплохом [[file:restaurants.org::*SkinnyTom's Deli][месте]] пошли на пляж.
 
 Вечером я сдал машину и заселившись в [[file:hotels.org::*House Of Esanya][гостиницу]] мы поехали покушать с [[file:restaurants.org::*Unwind Restaurant & Hostel][ресторан]] неподалеку.

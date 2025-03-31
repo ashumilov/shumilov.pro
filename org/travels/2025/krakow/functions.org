@@ -112,7 +112,7 @@
 #+end_src
 
 #+name: youtube
-#+begin_src elisp :results value html :exports none :var id="placeholder"
+#+begin_src emacs-lisp :results value html :exports none :var id='none
 (format "<div class=\"container\">
   <iframe style=\"aspect-ratio: 16 / 9; width: 100%% !important;\"
   src=\"https://www.youtube.com/embed/%s\"></iframe>
@@ -121,9 +121,44 @@
 #+end_src
 
 #+name: looped-video
-#+begin_src elisp :results value html :exports none :var id="placeholder"
+#+begin_src emacs-lisp :results value html :exports none :var id='none
 (format "<video controls autoplay loop>
 <source src=\"./video/%s\" type=\"video/mp4\">
 </video>
 " id)
+#+end_src
+
+#+name: show-map
+#+begin_src emacs-lisp :results value html :exports none :var from='none :var to='none
+  (defun show-map (from to)
+    (format "<div id=\"map-days-%s-%s\" class=\"map-container\"></div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      loadGPXFile(
+        './krakow_2025.gpx',
+        'map-days-%s-%s',
+        'google',
+        '%sT00:00:00Z',
+        '%sT23:59:59Z',
+        {
+          color: 'blue',
+          weight: 4,
+          opacity: 0.8
+        }
+      );
+    });
+  </script>
+  " from to from to from to))
+#+end_src
+
+#+name: map-days
+#+begin_src emacs-lisp :noweb yes :results value html :exports none :var from='none :var to='none
+  <<show-map>>
+  (show-map from to)
+#+end_src
+
+#+name: map-day
+#+begin_src emacs-lisp :noweb yes :results value html :exports none :var date='none
+  <<show-map>>
+  (show-map date date)
 #+end_src
