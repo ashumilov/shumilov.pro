@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ru" xml:lang="ru">
 <head>
-<!-- 2025-03-31 Mon 08:38 -->
+<!-- 2025-03-31 Mon 09:25 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -244,22 +244,22 @@ font-size: 0.9em;
  * @param {Object} options - Дополнительные параметры (цвет и толщина линии)
  */
 function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null, endDate = null, options = {}) {
-  console.log(`Загрузка GPX: ${gpxFileUrl}`, {
-    targetMapId, 
-    mapType, 
-    startDate, 
-    endDate, 
-    options
-  });
+//  console.log(`Загрузка GPX: ${gpxFileUrl}`, {
+//    targetMapId, 
+//    mapType, 
+//    startDate, 
+//    endDate, 
+//    options
+//  });
 
   // Преобразуем даты в объекты Date, если они переданы как строки
   if (startDate && typeof startDate === 'string') {
     startDate = new Date(startDate);
-    console.log(`Начальная дата преобразована: ${startDate}`);
+//    console.log(`Начальная дата преобразована: ${startDate}`);
   }
   if (endDate && typeof endDate === 'string') {
     endDate = new Date(endDate);
-    console.log(`Конечная дата преобразована: ${endDate}`);
+//    console.log(`Конечная дата преобразована: ${endDate}`);
   }
   
   // Задаем параметры по умолчанию
@@ -278,21 +278,21 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
   
   // Убедимся, что контейнер имеет высоту
   if (mapContainer.offsetHeight === 0) {
-    console.log('Контейнер карты имеет нулевую высоту, устанавливаем минимальную высоту');
+//    console.log('Контейнер карты имеет нулевую высоту, устанавливаем минимальную высоту');
     mapContainer.style.height = '500px';
   }
   
-  console.log(`Начинаем запрос к файлу: ${gpxFileUrl}`);
+//  console.log(`Начинаем запрос к файлу: ${gpxFileUrl}`);
   fetch(gpxFileUrl)
     .then(response => {
-      console.log(`Ответ от сервера: ${response.status} ${response.statusText}`);
+//      console.log(`Ответ от сервера: ${response.status} ${response.statusText}`);
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
       return response.text();
     })
     .then(gpxText => {
-      console.log(`GPX файл загружен, размер: ${gpxText.length} байт`);
+//      console.log(`GPX файл загружен, размер: ${gpxText.length} байт`);
       
       // Парсинг GPX
       const parser = new DOMParser();
@@ -308,15 +308,15 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
       // Извлечение всех точек трека с учетом даты
       const trackPoints = [];
       const tracks = gpx.getElementsByTagName('trk');
-      console.log(`Найдено треков: ${tracks.length}`);
+//      console.log(`Найдено треков: ${tracks.length}`);
       
       for (let i = 0; i < tracks.length; i++) {
         const segments = tracks[i].getElementsByTagName('trkseg');
-        console.log(`Трек ${i+1}: найдено сегментов: ${segments.length}`);
+//        console.log(`Трек ${i+1}: найдено сегментов: ${segments.length}`);
         
         for (let j = 0; j < segments.length; j++) {
           const points = segments[j].getElementsByTagName('trkpt');
-          console.log(`Трек ${i+1}, сегмент ${j+1}: найдено точек: ${points.length}`);
+//          console.log(`Трек ${i+1}, сегмент ${j+1}: найдено точек: ${points.length}`);
           
           for (let k = 0; k < points.length; k++) {
             const point = points[k];
@@ -327,7 +327,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
             if (startDate || endDate) {
               const timeElement = point.getElementsByTagName('time')[0];
               if (!timeElement) {
-                if (k === 0) console.log('Точка без временной метки, пропускаем');
+//                if (k === 0) console.log('Точка без временной метки, пропускаем');
                 continue; // Пропускаем точку, если нет временной метки
               }
               
@@ -343,7 +343,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
         }
       }
       
-      console.log(`Итого после фильтрации: ${trackPoints.length} точек`);
+//      console.log(`Итого после фильтрации: ${trackPoints.length} точек`);
       
       // Если нет точек после фильтрации
       if (trackPoints.length === 0) {
@@ -359,17 +359,17 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
       
       // Инициализация карты
       const map = L.map(targetMapId, mapOptions);
-      console.log(`Карта создана в элементе #${targetMapId}`);
+//      console.log(`Карта создана в элементе #${targetMapId}`);
         
       // Добавление тайлов в зависимости от выбранного типа карты
       if (mapType === 'google') {
-        console.log('Используем Google Maps тайлы');
+//        console.log('Используем Google Maps тайлы');
         L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
           subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
           attribution: '&copy; Google Maps'
         }).addTo(map);
       } else {
-        console.log('Используем OpenStreetMap тайлы');
+//        console.log('Используем OpenStreetMap тайлы');
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
           attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         }).addTo(map);
@@ -378,21 +378,21 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
       // Если есть точки, создаем маршрут
       if (trackPoints.length > 0) {
         const polyline = L.polyline(trackPoints, lineOptions).addTo(map);
-        console.log('Маршрут добавлен на карту');
+//        console.log('Маршрут добавлен на карту');
         
         // Автоматический зум
         map.fitBounds(polyline.getBounds());
-        console.log('Масштаб карты установлен по границам маршрута');
+//        console.log('Масштаб карты установлен по границам маршрута');
       } else {
         // Если нет точек, установим стандартный вид
         map.setView([55.751244, 37.618423], 10);
-        console.log('Нет точек для маршрута, установлен стандартный вид карты');
+//        console.log('Нет точек для маршрута, установлен стандартный вид карты');
       }
       
       // Принудительный пересчет размеров карты для корректного отображения
       setTimeout(function() {
         map.invalidateSize({ animate: true });
-        console.log('Размеры карты пересчитаны (после инициализации)');
+//        console.log('Размеры карты пересчитаны (после инициализации)');
         
         // Повторный зум для гарантии правильного отображения
         if (trackPoints.length > 0) {
@@ -404,13 +404,13 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
       // Еще один пересчет через более длительное время для гарантии
       setTimeout(function() {
         map.invalidateSize();
-        console.log('Размеры карты пересчитаны повторно');
+//        console.log('Размеры карты пересчитаны повторно');
       }, 1000);
       
       // Обработчик изменения размера окна
       window.addEventListener('resize', function() {
         map.invalidateSize();
-        console.log('Размеры карты пересчитаны (изменение размера окна)');
+//        console.log('Размеры карты пересчитаны (изменение размера окна)');
       });
       
       // Рассчитываем расстояние
@@ -420,7 +420,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
         const p2 = L.latLng(trackPoints[i][0], trackPoints[i][1]);
         distance += p1.distanceTo(p2);
       }
-      console.log(`Расчет расстояния: ${(distance / 1000).toFixed(2)} км`);
+//      console.log(`Расчет расстояния: ${(distance / 1000).toFixed(2)} км`);
       
       // Если нужно показать информацию о маршруте
       const infoElement = document.getElementById(targetMapId + '-info');
@@ -429,9 +429,9 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
           <p>Маршрут: ${trackPoints.length} точек</p>
           <p>Расстояние: ${(distance / 1000).toFixed(2)} км</p>
         `;
-        console.log('Информация о маршруте обновлена');
+//        console.log('Информация о маршруте обновлена');
       } else {
-        console.log(`Элемент #${targetMapId}-info не найден, информация не отображена`);
+//        console.log(`Элемент #${targetMapId}-info не найден, информация не отображена`);
       }
       
       return {
@@ -463,9 +463,9 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 }
 </script>
 
-<div id="outline-container-org4d816ff" class="outline-2">
-<h2 id="org4d816ff">День 3. Дамбулла - Водопады</h2>
-<div class="outline-text-2" id="text-org4d816ff">
+<div id="outline-container-org41db0c0" class="outline-2">
+<h2 id="org41db0c0">День 3. Дамбулла - Водопады</h2>
+<div class="outline-text-2" id="text-org41db0c0">
 <p>
 <span class="timestamp-wrapper"><span class="timestamp">2024-12-17 Tue</span></span>
 </p>
@@ -496,7 +496,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org958bae5" class="figure">
+<div id="orgfa8444a" class="figure">
 <p><img src="./images_small/IMG_0381.jpg" alt="IMG_0381.jpg" />
 </p>
 </div>
@@ -511,31 +511,31 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="orgf02966c" class="figure">
+<div id="orgbcaa4d2" class="figure">
 <p><img src="./images_small/IMG_8551.jpg" alt="IMG_8551.jpg" />
 </p>
 </div>
 
 
-<div id="orgbeab909" class="figure">
+<div id="orge29b9a4" class="figure">
 <p><img src="./images_small/IMG_8546.jpg" alt="IMG_8546.jpg" />
 </p>
 </div>
 
 
-<div id="org9e2c8b3" class="figure">
+<div id="org709cb68" class="figure">
 <p><img src="./images_small/IMG_8542.jpg" alt="IMG_8542.jpg" />
 </p>
 </div>
 
 
-<div id="org7eee054" class="figure">
+<div id="org3ab07a7" class="figure">
 <p><img src="./images_small/IMG_8459.jpg" alt="IMG_8459.jpg" />
 </p>
 </div>
 
 
-<div id="org5f44502" class="figure">
+<div id="org6b6063a" class="figure">
 <p><img src="./images_small/IMG_8458.jpg" alt="IMG_8458.jpg" />
 </p>
 </div>
@@ -545,37 +545,37 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org49af908" class="figure">
+<div id="orgb676e35" class="figure">
 <p><img src="./images_small/IMG_8467.jpg" alt="IMG_8467.jpg" />
 </p>
 </div>
 
 
-<div id="orgb98da8c" class="figure">
+<div id="orgbbcca13" class="figure">
 <p><img src="./images_small/IMG_8470.jpg" alt="IMG_8470.jpg" />
 </p>
 </div>
 
 
-<div id="orgbfae5d6" class="figure">
+<div id="orgcc56b89" class="figure">
 <p><img src="./images_small/IMG_8473.jpg" alt="IMG_8473.jpg" />
 </p>
 </div>
 
 
-<div id="org345279d" class="figure">
+<div id="orgb300c09" class="figure">
 <p><img src="./images_small/IMG_8474.jpg" alt="IMG_8474.jpg" />
 </p>
 </div>
 
 
-<div id="org203903e" class="figure">
+<div id="org465d821" class="figure">
 <p><img src="./images_small/IMG_8475.jpg" alt="IMG_8475.jpg" />
 </p>
 </div>
 
 
-<div id="orga695fdf" class="figure">
+<div id="orga4297a3" class="figure">
 <p><img src="./images_small/IMG_8482.jpg" alt="IMG_8482.jpg" />
 </p>
 </div>
@@ -586,7 +586,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="orga087d17" class="figure">
+<div id="org5bbdf06" class="figure">
 <p><img src="./images_small/IMG_0387.jpg" alt="IMG_0387.jpg" />
 </p>
 </div>
@@ -596,7 +596,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org8834a56" class="figure">
+<div id="orga44ec4c" class="figure">
 <p><img src="./images_small/IMG_8489.jpg" alt="IMG_8489.jpg" />
 </p>
 </div>
@@ -606,19 +606,19 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org4a53f80" class="figure">
+<div id="org652325f" class="figure">
 <p><img src="./images_small/IMG_8508.jpg" alt="IMG_8508.jpg" />
 </p>
 </div>
 
 
-<div id="org8ef0510" class="figure">
+<div id="org0b83adf" class="figure">
 <p><img src="./images_small/IMG_8506.jpg" alt="IMG_8506.jpg" />
 </p>
 </div>
 
 
-<div id="orgf3df5d0" class="figure">
+<div id="org9bbd8d4" class="figure">
 <p><img src="./images_small/IMG_8514.jpg" alt="IMG_8514.jpg" />
 </p>
 </div>
@@ -628,25 +628,25 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="orgcb0f605" class="figure">
+<div id="org7ef9ba3" class="figure">
 <p><img src="./images_small/IMG_0391.jpg" alt="IMG_0391.jpg" />
 </p>
 </div>
 
 
-<div id="org9c6da55" class="figure">
+<div id="org03a8b7c" class="figure">
 <p><img src="./images_small/IMG_0392.jpg" alt="IMG_0392.jpg" />
 </p>
 </div>
 
 
-<div id="orgfa5f3a9" class="figure">
+<div id="org080725b" class="figure">
 <p><img src="./images_small/IMG_0393.jpg" alt="IMG_0393.jpg" />
 </p>
 </div>
 
 
-<div id="org9acaf2b" class="figure">
+<div id="orge662338" class="figure">
 <p><img src="./images_small/IMG_0394.jpg" alt="IMG_0394.jpg" />
 </p>
 </div>
@@ -656,7 +656,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org668487b" class="figure">
+<div id="orgcbde45e" class="figure">
 <p><img src="./images_small/IMG_0397.jpg" alt="IMG_0397.jpg" />
 </p>
 </div>
@@ -666,7 +666,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org0d999c5" class="figure">
+<div id="org132f9a4" class="figure">
 <p><img src="./images_small/IMG_0980.jpg" alt="IMG_0980.jpg" />
 </p>
 </div>
@@ -676,7 +676,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="orgba2e5e4" class="figure">
+<div id="orgb95d974" class="figure">
 <p><img src="./images_small/IMG_0398.jpg" alt="IMG_0398.jpg" />
 </p>
 </div>
@@ -708,7 +708,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </div>
 
 
-<div id="orgf6894e0" class="figure">
+<div id="org626d852" class="figure">
 <p><img src="./images_small/IMG_0423.jpg" alt="IMG_0423.jpg" />
 </p>
 </div>
@@ -742,7 +742,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org0c835f1" class="figure">
+<div id="org9c4165d" class="figure">
 <p><img src="./images_small/IMG_0439.jpg" alt="IMG_0439.jpg" />
 </p>
 </div>
@@ -761,7 +761,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="orgae42d93" class="figure">
+<div id="org6b281b5" class="figure">
 <p><img src="./images_small/IMG_1063.jpg" alt="IMG_1063.jpg" />
 </p>
 </div>
@@ -772,7 +772,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </p>
 
 
-<div id="org7a3f1c4" class="figure">
+<div id="org9919611" class="figure">
 <p><img src="./images_small/IMG_8559.jpg" alt="IMG_8559.jpg" />
 </p>
 </div>
@@ -780,13 +780,13 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 <p>
 В дороге интернет ловил очень слабо и найти что-то было сложно. К тому же сгустился туман и видимость упала до 10 метров.
 Мы с трудом разъезжались со встречными машинами, начинало темнеть.
-В итоге мы остановились в каком-то поселке в приличном с виду <a href="hotels.html#org67410a0">отеле</a>, где еще работал ресторан и нас покормили.
+В итоге мы остановились в каком-то поселке в приличном с виду <a href="hotels.html#org7e3a0b9">отеле</a>, где еще работал ресторан и нас покормили.
 </p>
 </div>
 
-<div id="outline-container-org315645d" class="outline-3">
-<h3 id="org315645d">Статистика</h3>
-<div class="outline-text-3" id="text-org315645d">
+<div id="outline-container-orgd169a92" class="outline-3">
+<h3 id="orgd169a92">Статистика</h3>
+<div class="outline-text-3" id="text-orgd169a92">
 <pre class="example">
 Дистанция
   Авто:   117 км
@@ -821,7 +821,7 @@ function loadGPXFile(gpxFileUrl, targetMapId, mapType = 'osm', startDate = null,
 </div>
 <div id="postamble" class="status">
 <p class="author">&#1040;&#1074;&#1090;&#1086;&#1088;: Alexander Shumilov</p>
-<p class="date">Created: 2025-03-31 Mon 08:38</p>
+<p class="date">Created: 2025-03-31 Mon 09:25</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
