@@ -1,0 +1,6 @@
+#+call: youtube(id="cTg52Asm3z8")
+
+#+call: looped-video(id="IMG_0719.mp4")
+
+[[./images/IMG_4293.jpg]]
+

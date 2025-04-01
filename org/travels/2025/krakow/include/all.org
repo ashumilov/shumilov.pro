@@ -1,0 +1,6 @@
+#+INCLUDE: "prepare.org" :minlevel 2
+#+INCLUDE: "2025-04-19.org" :minlevel 2
+#+INCLUDE: "2025-04-20.org" :minlevel 2
+#+INCLUDE: "2025-04-21.org" :minlevel 2
+#+INCLUDE: "2025-04-22.org" :minlevel 2
+#+INCLUDE: "summary.org" :minlevel 2
